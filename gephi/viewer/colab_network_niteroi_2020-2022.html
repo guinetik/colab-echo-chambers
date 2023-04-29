@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TTC Graph Viewer</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles/gexfjs.css" />
+        <link rel="stylesheet" type="text/css" href="styles/jquery-ui.css" />
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+        </script>
+        <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="js/gexfjs.js"></script>
+        <script type="text/javascript" src="colab_network_niteroi_2020-2022_config.js"></script>
+    </head>
+    <body>
+        <h1 id="status">Loading...</h1>
+        <div id="zonecentre" class="gradient">
+            <canvas id="carte" width="0" height="0"></canvas>
+            <ul id="ctlzoom">
+                <li>
+                    <a href="#" id="zoomPlusButton" title="S'approcher"> </a>
+                </li>
+                <li id="zoomSliderzone">
+                    <div id="zoomSlider"></div>
+                </li>
+                <li>
+                    <a href="#" id="zoomMinusButton" title="S'éloigner"> </a>
+                </li>
+                <li>
+                    <a href="#" id="lensButton"> </a>
+                </li>
+                <li>
+                    <a href="#" id="edgesButton"> </a>
+                </li>
+            </ul>
+        </div>
+        <div id="overviewzone" class="gradient">
+            <canvas id="overview" width="0" height="0"></canvas>
+        </div>
+        <div id="leftcolumn">
+            <div id="unfold">
+                <a href="#" id="aUnfold" class="rightarrow"> </a>
+            </div>
+            <div id="leftcontent"></div>
+        </div>
+        <div id="titlebar">
+            <div id="maintitle">
+                <h1><a href="http://tacticaltech.org/" target="_blank"></a></h1>
+            </div>
+            <form id="recherche">
+                <input id="searchinput" class="grey" autocomplete="off" />
+                <input id="searchsubmit" type="submit" />
+            </form>
+        </div>
+        <ul id="autocomplete">
+        </ul>
+    </body>
+</html>
