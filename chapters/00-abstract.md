@@ -1,7 +1,0 @@
-Echo chambers have become a pervasive issue in the modern media environment, as social media platforms have facilitated the proliferation of partisan content and the fragmentation of public discourse. 
-
-The Brazilian app Colab.re, designed to promote participatory governance, has also been affected by the emergence of echo chambers, which threaten to undermine its potential for democratic engagement
-
-This paper explores the nature of echo chambers in the Colab.re app, investigating the structure and dynamics of partisan networks and the impact of partisan polarization on public deliberation. Drawing on digital epidemiology methods and network analysis techniques, the study develops a framework for detecting and mitigating the effects of echo chambers in the Colab.re app. The results reveal the existence of highly polarized clusters, with limited interaction between opposing factions, and highlight the role of algorithmic curation and user behavior in shaping the information ecosystem. 
-
-The study also proposes a set of interventions, including network nudges and content moderation, to foster greater diversity of viewpoints and enhance the quality of public deliberation in the Colab.re app. The paper concludes by discussing the broader implications of the study for participatory governance and the challenges of promoting democratic engagement in a polarized media environment.
