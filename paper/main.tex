@@ -1,41 +1,204 @@
-% Importando pacote
-\documentclass[12pt]{article}
-\usepackage{colab-echo-chambers}
-%
-\sloppy
-% Cabeçalho
-\input{sections/header}
-% Inicializa Documento
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% ICMC: Modelo de Trabalho Acadêmico (tese de doutorado, dissertação de
+% mestrado e trabalhos monográficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informação e documentação - Trabalhos acadêmicos -
+% Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Opções: 
+%   Qualificação          = qualificacao 
+%   Curso                 = doutorado/mestrado/tcc
+%   Situação do trabalho  = pre-defesa/pos-defesa (exceto para qualificação)
+%   Versão para impressão = impressao
+\documentclass[mestrado, pre-defesa]{packages/icmc}
+% ---------------------------------------------------------------------------
+% Pacotes Opcionais
+% ---------------------------------------------------------------------------
+\usepackage{rotating}                       % Usado para rotacionar o texto
+\usepackage[all,knot,arc,import,poly]{xy}   % Pacote para desenhos gráficos
+\usepackage{lipsum}                         % Usado para adicionar texto temporario
+% Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
+% Então é necessário usar apenas um dos pacotes conflitantes
+\newcommand{\VerbL}{0.52\textwidth}
+\newcommand{\LatL}{0.42\textwidth}
+% ---------------------------------------------------------------------------
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+% Tanto na capa quanto nas folhas de rosto apenas a primeira letra da primeira palavra (ou nomes próprios) devem estar em letra maiúscula, todas as demais devem ser em letra minúscula.
+\tituloPT{Câmaras de Eco nas Mídias Sociais: Análise de Rede do Aplicativo Colab.re}
+\tituloEN{Echo Chambers in Social Media: Network Analysis of Colab.re app}
+\autor[Sousa, J. G. R.]{João Guilherme Ribeiro de Sousa}
+\genero{M} % Gênero do autor (M = Masculino / F = Feminino)
+\orientador[Orientador]{Prof. Dr.}{Erico Souza Teixeira}
+\coorientador{Prof. Dr.}{Onício Leal Neto}
+\curso{CCMC}
+\data{15}{06}{2023} % Data do depósito
+\idioma{PT} % Idioma principal do documento (PT = português / EN = inglês)
+% ---
+
+
+% ---
+% RESUMOS
+% ---
+
+% Resumo em PORTUGUÊS
+% conter no máximo 500 palavras
+% conter no mínimo 1 e no máximo 5 palavras-chave
+\textoresumo[brazil]{
+    Este artigo explora a natureza das câmaras de eco no aplicativo Colab.re, investigando a estrutura e a dinâmica das redes partidárias e o impacto da polarização partidária na deliberação pública. Com base em métodos da epidemiologia digital e da análise de redes, o estudo desenvolve um quadro para detectar e mitigar os efeitos das câmaras de eco no aplicativo Colab.re. Os resultados revelam a existência de grupos altamente polarizados, com interação limitada entre facções opostas, e destacam o papel da curadoria algorítmica e do comportamento do usuário na formação do ecossistema de informações. O estudo também propõe um conjunto de intervenções, incluindo sugestões de rede e moderação de conteúdo, para promover uma maior diversidade de pontos de vista e aprimorar a qualidade da deliberação pública no aplicativo Colab.re. O artigo conclui discutindo as implicações mais amplas do estudo para a governança participativa e os desafios de promover o engajamento democrático em um ambiente midiático polarizado.
+    }{Análise de Redes Sociais; Câmaras de Eco; Teoria dos Grafos}
+
+
+% resumo em INGLÊS
+% conter no máximo 500 palavras
+% conter no mínimo 1 e no máximo 5 palavras-chave
+\textoresumo[english]{
+    This paper explores the nature of echo chambers in the Colab.re app, investigating the structure and dynamics of partisan networks and the impact of partisan polarization on public deliberation. Drawing on methods from digital epidemiology and network analysis, the study develops a framework for detecting and mitigating the effects of echo chambers in the Colab.re app. The findings reveal highly polarized clusters with limited interaction between opposing factions and shed light on the role of algorithmic curation and user behavior in shaping the information ecosystem. The study also proposes a set of interventions, including network nudges and content moderation, to foster a greater diversity of viewpoints and enhance the quality of public deliberation in the Colab.re app. The paper concludes by discussing the broader implications of the study for participatory governance and the challenges of promoting democratic engagement in a polarized media environment.
+    }{Social Network Analysis; Echo Chambers; Graph Theory}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+% Inserir a ficha catalográfica
+%\incluifichacatalografica{tex/pre-textual/ficha-catalografica.pdf}
+
+% DEDICATÓRIA / AGRADECIMENTO / EPÍGRAFE
+\textodedicatoria*{tex/pre-textual/dedicatoria}
+\textoagradecimentos*{tex/pre-textual/agradecimentos}
+\textoepigrafe*{tex/pre-textual/epigrafe}
+
+% Inclui a lista de figuras
+\incluilistadefiguras
+
+% Inclui a lista de tabelas
+%\incluilistadetabelas
+
+% Inclui a lista de quadros
+%\incluilistadequadros
+
+% Inclui a lista de algoritmos
+%\incluilistadealgoritmos
+
+% Inclui a lista de códigos
+%\incluilistadecodigos
+
+% Inclui a lista de siglas e abreviaturas
+%\incluilistadesiglas
+
+% Inclui a lista de símbolos
+%\incluilistadesimbolos
+
+% ----
+% Início do documento
+% ----
 \begin{document}
-\maketitle
-%
-% ABSTRACT
-\input{sections/abstract}
-%
-% INTRO
-\section{Introdução}
-  \input{sections/intro}
-%
-% SECTION 1
-\section{Justificativa}
-  \input{sections/intro}
-%
-% SECTION 2
-\section{Objetivos}
-  \input{sections/intro}
-%
-% SECTION 3
-\subsection{Gerais}
-  \input{sections/intro}
-%%
-% SECTION 4
-\subsection{Especificos}
-  \input{sections/intro}
-%
-% BIBLIOGRAPHY
-\nocite{*}
-\bibliographystyle{sbc}
-\bibliography{colab-echo-chambers}
-%
-%
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\chapter{Introdução}
+\label{chapter:01_introducao}
+\input{tex/01_introducao}
+
+\chapter{Objetivos}
+\label{chapter:02_objetivos}
+\input{tex/02_objetivos}
+
+\chapter{Metodologia}
+\label{chapter:03_metodologia}
+\input{tex/03_metodologia}
+
+\chapter{Uma Visão Geral do Colab.re}
+\label{chapter:04_colab}
+\input{tex/04_colab}
+
+\chapter{Compreendendo Câmaras de Eco e suas implicações}
+\label{chapter:05_echochambers}
+\input{tex/05_echochambers}
+
+\chapter{Explorando a História, Desenvolvimentos e Aplicações da Análise de Redes}
+\label{chapter:06_networkanalysis}
+\input{tex/06_networkanalysis}
+
+\chapter{Análise de Redes Sociais no Brasil}
+\label{chapter:07_networkbr}
+\input{tex/07_networkbr}
+
+\chapter{Análise Exploratória de Redes}
+\label{chapter:08_exploratory}
+\input{tex/08_exploratory}
+
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{references}
+
+% ---------------------------------------------------------------------
+% GLOSSÁRIO
+% ---------------------------------------------------------------------
+
+% Arquivo que contém as definições que vão aparecer no glossário
+\input{tex/glossario}
+% Comando para incluir todas as definições do arquivo glossario.tex
+\glsaddall
+% Impressão do glossário
+\printglossaries
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+    \chapter{Documento básico usando a classe \textit{icmc}}
+    \label{chapter:documento-basico}
+    \input{tex/appendix/documento-basico}
+    
+    \chapter{Configuração do programa JabRef}
+    \label{chapter:configuracao-jabref}
+    \input{tex/appendix/configuracao-jabref}
+
+\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\begin{anexosenv}
+
+    \chapter{Páginas interessantes na Internet} 
+    \label{chapter:paginas-interessantes}
+    \input{tex/annex/paginas-interessantes}
+
+\end{anexosenv}
+% ---
+
 \end{document}

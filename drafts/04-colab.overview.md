@@ -2,7 +2,7 @@
 
 Colab.re is a Brazilian social networking app that allows users to connect with like-minded people and share ideas on a range of topics. It was founded in 2012 with the goal of creating a platform for participatory surveillance, which is defined as "a form of collective intelligence in which people come together to collectively monitor, analyze and act upon a shared problem or issue" (Bryer & Zavattaro, 2011).
 
-Participatory surveillance has been used in a variety of contexts, including disaster response, crime prevention, and environmental monitoring (Girardin et al., 2008; Koldijk & Markopoulos, 2013; Shapiro, 2013). In the case of Colab.re, the focus is on improving urban life by allowing users to report issues such as potholes, broken streetlights, and graffiti to local authorities.
+Participatory surveillance has been used in a variety of contexts, including disaster response, crime prevention, and environmental monitoring (Girardin et al., 2008; Shapiro, 2013). In the case of Colab.re, the focus is on improving urban life by allowing users to report issues such as potholes, broken streetlights, and graffiti to local authorities.
 
 One of the challenges of participatory surveillance is ensuring that the information being shared is accurate and unbiased. This is where the concept of echo chambers becomes relevant. An echo chamber is a situation in which a person's beliefs are reinforced by exposure to information that is consistent with their existing views, while conflicting information is ignored or dismissed (Sunstein, 2007). In the context of Colab.re, an echo chamber could lead to inaccurate reporting of issues, as users may only share information that aligns with their preconceived notions of what constitutes a problem in their community.
 
@@ -15,8 +15,6 @@ References:
 Bryer, T. A., & Zavattaro, S. M. (2011). Social media and public administration: Theoretical dimensions and introduction to the symposium. Administrative Theory & Praxis, 33(3), 277-292.
 
 Girardin, F., Calabrese, F., Fiore, F. D., Ratti, C., & Blat, J. (2008). Digital footprinting: Uncovering tourists with user-generated content. IEEE Pervasive Computing, 7(4), 36-43.
-
-Koldijk, S., & Markopoulos, P. (2013). Supporting citizen reporting through user-centered participatory design: The case of Cycl-e around. International Journal of Mobile Human Computer Interaction, 5(2), 35-52.
 
 Levy, D. A., & Nail, P. R. (2020). Echo chambers on social media: An empirical examination of group polarization. Computers in Human Behavior, 102, 106-113.
 
