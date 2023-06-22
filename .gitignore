@@ -279,4 +279,4 @@ TSWLatexianTemp*
 *.loc
 *.los
 *.tmp
-./paper/out/
+/paper/out
