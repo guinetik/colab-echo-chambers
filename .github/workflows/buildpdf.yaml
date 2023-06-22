@@ -7,35 +7,35 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: pdflatex -draftmode
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape -draftmode
       - name: bibtex
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main
           compiler: bibtex
           args: 
       - name: makeglossaries
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main
           compiler: makeglossaries
           args: 
       - name: pdflatex -shell-escape regenerate
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape -draftmode
       - name: pdflatex main
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main.tex
