@@ -274,3 +274,8 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+#
+*.ist
+*.loc
+*.los
+./paper/out/
