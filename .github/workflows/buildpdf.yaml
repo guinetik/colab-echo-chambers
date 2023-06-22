@@ -33,14 +33,14 @@ jobs:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
-          args: -interaction=nonstopmode -shell-escape
+          args: -interaction=nonstopmode -shell-escape -draftmode
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
-          args: -interaction=nonstopmode -shell-escape
+          args:
       - name: Store pdf
         uses: actions/upload-artifact@v2
         with:
