@@ -9,21 +9,18 @@ jobs:
         working-directory: ./paper
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
-        working-directory: ./paper
         with:
-          root_file: main.tex
+          root_file: paper/main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
-      - name: bibtex main
+      - name: bibtex paper/main
         uses: dante-ev/latex-action@latest
-        working-directory: ./paper
         with:
           root_file: main.aux
           compiler: bibtex
           args: 
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
-        working-directory: ./paper
         with:
           root_file: paper/main.tex
           compiler: pdflatex
