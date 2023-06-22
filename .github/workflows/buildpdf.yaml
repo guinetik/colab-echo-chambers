@@ -12,13 +12,20 @@ jobs:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
-          args: -interaction=nonstopmode -shell-escape
-      - name: bibtex paper/main
+          args: -interaction=nonstopmode -shell-escape -draftmode
+      - name: bibtex paper
         uses: dante-ev/latex-action@latest
         with:
           working_directory: ./paper
-          root_file: main.aux
+          root_file: main
           compiler: bibtex
+          args: 
+      - name: makeglossaries
+        uses: dante-ev/latex-action@latest
+        with:
+          working_directory: ./paper
+          root_file: main
+          compiler: makeglossaries
           args: 
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
