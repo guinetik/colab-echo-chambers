@@ -495,22 +495,22 @@
 
 \addto\captionsbrazil{
     \universidade{CESAR School}
-    \instituicao{Programa de Mestrado Profissional em Engenharia de Software do Centro de Estudos e Sistemas Avan{\c c}ados do Recife -- CESAR School}
+    \instituicao{Programa de Gradua{\c c}{\~a}o em Ci{\^e}ncia da Computa{\c c}{\~a}o do Centro de Estudos e Sistemas Avan{\c c}ados do Recife -- CESAR School}
 }
 \addto\captionsenglish{% ingles
     \universidade{CESAR-School}
-    \instituicao{Masters Program in Software Engineering of the Center for Advanced Job Studies and Systems -- CESAR School}
+    \instituicao{Graduation Program in Computer Science of the Center for Advanced Job Studies and Systems -- CESAR School}
 }
 % CCMC ==========================================================================
     \ifthenelse{\equal{#1}{CCMC}}{
         \addto\captionsbrazil{
-            \area{Engenharia de Software}
-            \programa{CESAR School}{Programa de Mestrado Profissional}
-            \especialidade{em Engenharia de Software}
+            \area{Ci{\^e}ncia da Computa{\c c}{\~a}o}
+            \programa{CESAR School}{Curso em Ci{\^e}ncia da Computa{\c c}{\~a}o}
+            \especialidade{em Ci{\^e}ncia da Computa{\c c}{\~a}o}
         }
         \addto\captionsenglish{% ingles
-            \area{Software Engineering}
-            \especialidade{Masters in Software Engineering}
+            \area{Computer Science}
+            \especialidade{Graduate Program in Computer Science}
         }
     }{
 % MAT ===========================================================================
@@ -1291,7 +1291,7 @@
       \end{minipage}
     \end{textblock*}%
 
-    \AddToShipoutPictureBG*{\includegraphics[height=\paperheight]{packages/capa_mpes}}
+    \AddToShipoutPictureBG*{\includegraphics[height=\paperheight]{packages/capa_tcc}}
     ~
     
   \end{capa}

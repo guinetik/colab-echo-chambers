@@ -278,4 +278,5 @@ TSWLatexianTemp*
 *.ist
 *.loc
 *.los
+*.tmp
 ./paper/out/

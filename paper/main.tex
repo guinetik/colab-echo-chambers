@@ -19,6 +19,8 @@
 \usepackage{rotating}                       % Usado para rotacionar o texto
 \usepackage[all,knot,arc,import,poly]{xy}   % Pacote para desenhos gráficos
 \usepackage{lipsum}                         % Usado para adicionar texto temporario
+\usepackage[section]{placeins}              % Usado para manter imagens e tabelas dentro da seção
+%\usepackage[subsection]{placeins}           % Usado para manter imagens e tabelas dentro da subseção
 % Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
 % Então é necessário usar apenas um dos pacotes conflitantes
 \newcommand{\VerbL}{0.52\textwidth}
@@ -78,7 +80,7 @@
 \incluilistadefiguras
 
 % Inclui a lista de tabelas
-%\incluilistadetabelas
+\incluilistadetabelas
 
 % Inclui a lista de quadros
 %\incluilistadequadros
@@ -87,13 +89,13 @@
 %\incluilistadealgoritmos
 
 % Inclui a lista de códigos
-%\incluilistadecodigos
+\incluilistadecodigos
 
 % Inclui a lista de siglas e abreviaturas
-%\incluilistadesiglas
+\incluilistadesiglas
 
 % Inclui a lista de símbolos
-%\incluilistadesimbolos
+\incluilistadesimbolos
 
 % ----
 % Início do documento
@@ -108,9 +110,9 @@
 \label{chapter:01_introducao}
 \input{tex/01_introducao}
 
-\chapter{Objetivos}
-\label{chapter:02_objetivos}
-\input{tex/02_objetivos}
+%\chapter{Objetivos}
+%\label{chapter:02_objetivos}
+%\input{tex/02_objetivos}
 
 \chapter{Metodologia}
 \label{chapter:03_metodologia}
@@ -173,13 +175,12 @@
 % ---
 \begin{apendicesenv}
 
-    \chapter{Documento básico usando a classe \textit{icmc}}
-    \label{chapter:documento-basico}
-    \input{tex/appendix/documento-basico}
-    
-    \chapter{Configuração do programa JabRef}
-    \label{chapter:configuracao-jabref}
-    \input{tex/appendix/configuracao-jabref}
+\chapter{Documento básico usando a classe \textit{icmc}}
+\label{chapter:documento-basico}
+\input{tex/appendix/documento-basico}    
+\chapter{Configuração do programa JabRef}
+\label{chapter:configuracao-jabref}
+\input{tex/appendix/configuracao-jabref}
 
 \end{apendicesenv}
 % ---

@@ -51,5 +51,14 @@ Then run the container pointing to the main.tex file:
 ```
 docker run --rm -it -v $(pwd):/sources guinetik/ltx pdflatex -halt-on-error -output-directory out main.tex
 ```
+
+### Full Build Script
+
+To accomodate features like nomeclature, bibliography and glossary, I created a multi-stage build script in `paper/build.sh`. To execute this script in Docker, run:
+
+```
+docker run --rm -it -v "$(pwd)":/sources guinetik/ltx ./build.sh
+```
+
 #### Demo
 ![Docker Demo](docker.gif "Docker Demo")
