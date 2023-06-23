@@ -35,6 +35,13 @@ jobs:
           root_file: main
           compiler: makeglossaries
           args: 
+      - name: Run - makeglossaries
+        uses: dante-ev/latex-action@edge
+        with:
+          working_directory: ./paper
+          root_file: main.nlo
+          compiler: makeindex
+          args: -s nomencl.ist -o out/main.nls
       - name: Run - pdflatex regenerate
         uses: dante-ev/latex-action@edge
         continue-on-error: true
