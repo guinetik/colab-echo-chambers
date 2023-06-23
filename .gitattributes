@@ -1,3 +1,3 @@
-sources/* export-ignore
-drafts/* export-ignore
-template/* export-ignore
+/sources export-ignore
+/drafts export-ignore
+/template export-ignore
