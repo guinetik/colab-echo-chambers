@@ -10,6 +10,8 @@ For templating I started with this [IEEE LaTex Template](https://latextemplates.
 
 So I got this [SBC Template](https://www.sbc.org.br/documentos-da-sbc/summary/169-templates-para-artigos-e-capitulos-de-livros/878-modelosparapublicaodeartigos). It worked first time, so I'm sticking with it for now.
 
+Finally, I settled on using [thesis-model-icmc](https://github.com/lordantonelli/thesis-model-icmc) by [lordantonelli(https://github.com/lordantonelli/)] which is fully compatible with the ABNT2 ruleset. It was recommended by my professor and it has been tailored to Cesar School's template.
+
 I'm versioning these templates for achival purposes. Maybe by the time I revisit these links, they`re gonzo...
 
 ## Installing
@@ -62,3 +64,10 @@ docker run --rm -it -v "$(pwd)":/sources guinetik/ltx ./build.sh
 
 #### Demo
 ![Docker Demo](docker.gif "Docker Demo")
+
+## Building in VSCode
+Since the ICMC class uses packages that requires multiple LaTeX runs, the default build command in [LaTeXWorkshop](https://github.com/James-Yu/LaTeX-Workshop) won't generate the index based items like nomeclature and glossary. I have created a custom build command in [VSCode's settings.json](.vscode/settings.json) that covers all the build steps.
+
+## Github Actions
+
+I'm using Github Actions to build the paper PDF on every commit. The workflow is defined in [buildpdf.yaml](.github/workflows/buildpdf.yaml). It uses [latex-action](https://github.com/marketplace/actions/latex-compilation) to execute the same build I use locally. The output is saved as an artifact and can be downloaded from the Actions tab. It also creates a release and add the PDF as an asset. This way I can download the PDF from the Releases tab.
