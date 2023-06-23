@@ -31,10 +31,11 @@ jobs:
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
-          root_file: out/main.tex
+          root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode
       - name: pdflatex main
+        if: ${{ always() }}
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
