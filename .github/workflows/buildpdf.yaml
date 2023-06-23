@@ -41,6 +41,12 @@ jobs:
           root_file: main.tex
           compiler: pdflatex
           args:
+      - name: List Files
+        if: ${{ always() }}
+        run: |
+          ls -la
+          cd ./paper
+          ls -la
       - name: Store pdf
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
