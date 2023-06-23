@@ -68,7 +68,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: ${{ steps.buildnumber.outputs.build_number }}
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ steps.buildnumber.outputs.build_number }}
           body_path: README.md
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
