@@ -33,7 +33,7 @@ jobs:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
-          args: -interaction=nonstopmode
+          args: -interaction=nonstopmode -shell-escape
       - name: pdflatex main
         if: ${{ always() }}
         uses: dante-ev/latex-action@edge
@@ -41,7 +41,7 @@ jobs:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
-          args:
+          args: -interaction=nonstopmode -shell-escape
       - name: List Files
         if: ${{ always() }}
         run: |
