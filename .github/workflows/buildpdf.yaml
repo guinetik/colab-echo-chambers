@@ -67,7 +67,7 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ steps.buildnumber.outputs.build_number }}
+          release_name: ${{ steps.buildnumber.outputs.build_number }}.0.0
           tag_name: ${{ steps.buildnumber.outputs.build_number }}.0.0
           body_path: README.md
         env:
