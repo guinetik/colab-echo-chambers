@@ -6,35 +6,41 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
-      - name: pdflatex -draftmode
+      - name: Generate build number
+        uses: onyxmueller/build-tag-number@v1
+        with:
+          token: ${{secrets.github_token}}
+      - name: Print new build number
+        run: echo "Build number is $BUILD_NUMBER"
+      - name: Run - pdflatex -draftmode
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape -draftmode
-      - name: bibtex
+      - name: Run - bibtex
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main
           compiler: bibtex
           args: 
-      - name: makeglossaries
+      - name: Run - makeglossaries
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main
           compiler: makeglossaries
           args: 
-      - name: pdflatex regenerate
+      - name: Run - pdflatex regenerate
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
-      - name: pdflatex main
+      - name: Run - pdflatex main
         if: ${{ always() }}
         uses: dante-ev/latex-action@edge
         with:
@@ -54,3 +60,23 @@ jobs:
         with:
           name: main.pdf
           path: ./paper/main.pdf
+      - name: Release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.buildnumber.outputs.build_number }}
+          tag_name: ${{ github.ref }}
+          body_path: README.md
+        env:
+          GITHUB_TOKEN: ${{secrets.github_token}}
+      - name: Upload Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.github_token}}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./paper/main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf
