@@ -68,12 +68,12 @@ jobs:
           draft: false
           prerelease: false
           release_name: ${{ steps.buildnumber.outputs.build_number }}
-          tag_name: ${{ steps.buildnumber.outputs.build_number }}
+          tag_name: v-${{ steps.buildnumber.outputs.build_number }}
           body_path: README.md
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
       - name: Upload Artifact
-        if: ${{ always() }}
+        if: steps.create_release.outcome == 'success'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
