@@ -14,6 +14,7 @@ jobs:
         run: echo "Build number is $BUILD_NUMBER"
       - name: Run - pdflatex -draftmode
         uses: dante-ev/latex-action@edge
+        continue-on-error: true
         with:
           working_directory: ./paper
           root_file: main.tex
@@ -35,13 +36,14 @@ jobs:
           args: 
       - name: Run - pdflatex regenerate
         uses: dante-ev/latex-action@edge
+        continue-on-error: true
         with:
           working_directory: ./paper
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
       - name: Run - pdflatex main
-        if: ${{ always() }}
+        continue-on-error: true
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
@@ -49,31 +51,27 @@ jobs:
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
       - name: List Files
-        if: ${{ always() }}
         run: |
           ls -la
           cd ./paper
           ls -la
       - name: Store pdf
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: main.pdf
           path: ./paper/main.pdf
       - name: Release
-        if: ${{ always() }}
         uses: actions/create-release@v1
         id: create_release
         with:
           draft: false
           prerelease: false
           release_name: ${{ steps.buildnumber.outputs.build_number }}
-          tag_name: 1.0.0
+          tag_name: ${{ steps.buildnumber.outputs.build_number }}.0.0
           body_path: README.md
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
       - name: Upload Artifact
-        if: ${{ always() }}
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
