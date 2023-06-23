@@ -27,13 +27,13 @@ jobs:
           root_file: main
           compiler: makeglossaries
           args: 
-      - name: pdflatex -shell-escape regenerate
+      - name: pdflatex regenerate
         uses: dante-ev/latex-action@edge
         with:
           working_directory: ./paper
-          root_file: main.tex
+          root_file: out/main.tex
           compiler: pdflatex
-          args: -interaction=nonstopmode -shell-escape -draftmode
+          args: -interaction=nonstopmode
       - name: pdflatex main
         uses: dante-ev/latex-action@edge
         with:
@@ -42,6 +42,7 @@ jobs:
           compiler: pdflatex
           args:
       - name: Store pdf
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: main.pdf
