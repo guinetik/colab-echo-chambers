@@ -68,7 +68,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: ${{ steps.buildnumber.outputs.build_number }}
-          tag_name: v-${{ steps.buildnumber.outputs.build_number }}
+          tag_name: 1.0.0
           body_path: README.md
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
