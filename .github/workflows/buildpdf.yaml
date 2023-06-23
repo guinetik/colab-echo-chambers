@@ -76,7 +76,7 @@ jobs:
           prerelease: false
           release_name: ${{ steps.buildnumber.outputs.build_number }}.0.0
           tag_name: ${{ steps.buildnumber.outputs.build_number }}.0.0
-          body_path: README.md
+          body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{secrets.github_token}}
       - name: Upload Artifact
