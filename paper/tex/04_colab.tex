@@ -46,7 +46,7 @@ Com base nos dados disponibilizados pelo Colab para esse estudo, analisamos um t
 \begin{table}[ht]
     \centering
     \caption{Modelo de Dados da lista de usuários}
-    \label{tab:modelo-dados}
+    \label{tab:user_model}
     \begin{tabular}{|l|p{6cm}|}
     \hline
     \textbf{Campo} & \textbf{Descrição} \\
@@ -68,7 +68,7 @@ Com base nos dados disponibilizados pelo Colab para esse estudo, analisamos um t
 \begin{table}[ht]
     \centering
     \caption{Modelo de Dados de eventos reportados}
-    \label{tab:modelo-dados-eventos}
+    \label{tab:event_model}
     \begin{tabular}{|l|p{6cm}|}
     \hline
     \textbf{Campo} & \textbf{Descrição} \\
@@ -84,16 +84,16 @@ Com base nos dados disponibilizados pelo Colab para esse estudo, analisamos um t
     \end{tabular}
 \end{table}
 
-Os dados dos foram disponibilizados em formato CSV, contendo informações sobre os usuários e os eventos reportados. A tabela \autoref{tab:modelo-dados} apresenta o modelo de dados da lista de usuários. A tabela \autoref{tab:modelo-dados-eventos} apresenta o modelo de dados de eventos reportados.
+Os dados dos foram disponibilizados em formato CSV, contendo informações sobre os usuários e os eventos reportados. A tabela \autoref{tab:user_model} apresenta o modelo de dados da lista de usuários. A tabela \autoref{tab:event_model} apresenta o modelo de dados de eventos reportados.
 
 \subsection*{Distribuição demográfica}
 
-O quadro \autoref{quadro:users-by-gender} apresenta a distribuição demográfica dos usuários por gênero. A maioria dos usuários se declararam do gênero másculino. 
+O quadro \autoref{quadro:usersbygender} apresenta a distribuição demográfica dos usuários por gênero. A maioria dos usuários se declararam do gênero másculino. 
 
 
 \begin{quadro}[htb]
     \caption{Usuários por gênero}
-    \label{quadro:users-by-gender}
+    \label{quadro:usersbygender}
     \centering
     \pie[
             % Opções de aparência do gráfico
@@ -115,7 +115,7 @@ O quadro \autoref{quadro:users-by-gender} apresenta a distribuição demográfic
 \begin{table}[h]
     \centering
     \caption{Tipos de eventos com mais ocorrências}
-    \label{tab:tipos-evento}
+    \label{tab:tiposevento}
     \begin{tabular}{|l|l|l|}
     \hline
     \textbf{Tipo de Evento} & \textbf{Total de Ocorrências} \\
@@ -144,7 +144,7 @@ O quadro \autoref{quadro:users-by-gender} apresenta a distribuição demográfic
     \end{tabular}
 \end{table}
 
-A tabela \autoref{tab:tipos-evento} apresenta os 20 tipos de evento mais reportados pelos usuários. A análise dos dados fornecidos pelos usuários do Colab proporcionou insights valiosos sobre as preocupações e demandas da comunidade. Os eventos mais frequentemente relatados estão intrinsecamente ligados a problemas e irregularidades na infraestrutura urbana, como entulho na calçada/via pública, buraco nas vias, lâmpada apagada à noite, ponto de infração de trânsito recorrente e calçada irregular. Essas ocorrências destacam a importância de investimentos contínuos na manutenção e melhoria da infraestrutura da cidade. Além disso, questões ambientais emergem como uma área de preocupação significativa, com denúncias frequentes de descarte irregular de lixo, desmatamento ilegal, esgoto a céu aberto e mato alto. Tais dados indicam uma conscientização dos usuários em relação à preservação ambiental e ressaltam a necessidade de ações efetivas para aprimorar a gestão dos recursos naturais. O transporte público também é alvo de atenção, com reclamações recorrentes sobre problemas em ônibus, atrasos e superlotação. Esses aspectos exigem uma análise aprofundada das questões relacionadas à mobilidade urbana e podem impulsionar esforços para melhorar a qualidade e eficiência do transporte coletivo. Além disso, eventos relacionados à segurança e vigilância, como pontos de exploração sexual de menores e maus-tratos a animais, refletem a preocupação dos usuários com a proteção e bem-estar da comunidade. Por fim, a ocorrência de eventos envolvendo estabelecimentos comerciais, como falta de alvará e condições sanitárias irregulares, destaca a importância de ações rigorosas de fiscalização e de garantir a conformidade legal por parte dos estabelecimentos. Esses insights fornecem uma visão abrangente das preocupações dos usuários do Colab e podem orientar as prefeituras da cidade na implementação de políticas públicas que visem atender às demandas da comunidade e aprimorar a qualidade de vida em geral.
+A tabela \autoref{tab:tiposevento} apresenta os 20 tipos de evento mais reportados pelos usuários. A análise dos dados fornecidos pelos usuários do Colab proporcionou insights valiosos sobre as preocupações e demandas da comunidade. Os eventos mais frequentemente relatados estão intrinsecamente ligados a problemas e irregularidades na infraestrutura urbana, como entulho na calçada/via pública, buraco nas vias, lâmpada apagada à noite, ponto de infração de trânsito recorrente e calçada irregular. Essas ocorrências destacam a importância de investimentos contínuos na manutenção e melhoria da infraestrutura da cidade. Além disso, questões ambientais emergem como uma área de preocupação significativa, com denúncias frequentes de descarte irregular de lixo, desmatamento ilegal, esgoto a céu aberto e mato alto. Tais dados indicam uma conscientização dos usuários em relação à preservação ambiental e ressaltam a necessidade de ações efetivas para aprimorar a gestão dos recursos naturais. O transporte público também é alvo de atenção, com reclamações recorrentes sobre problemas em ônibus, atrasos e superlotação. Esses aspectos exigem uma análise aprofundada das questões relacionadas à mobilidade urbana e podem impulsionar esforços para melhorar a qualidade e eficiência do transporte coletivo. Além disso, eventos relacionados à segurança e vigilância, como pontos de exploração sexual de menores e maus-tratos a animais, refletem a preocupação dos usuários com a proteção e bem-estar da comunidade. Por fim, a ocorrência de eventos envolvendo estabelecimentos comerciais, como falta de alvará e condições sanitárias irregulares, destaca a importância de ações rigorosas de fiscalização e de garantir a conformidade legal por parte dos estabelecimentos. Esses insights fornecem uma visão abrangente das preocupações dos usuários do Colab e podem orientar as prefeituras da cidade na implementação de políticas públicas que visem atender às demandas da comunidade e aprimorar a qualidade de vida em geral.
 
 Os usuários estão engajados e ativos na identificação e denúncia de problemas na infraestrutura urbana, meio ambiente, transporte público e questões sociais. Isso indica uma participação cidadã ativa e um desejo de melhorar as condições de suas comunidades.
 Os clientes podem aproveitar essas informações para acompanhar as preocupações e demandas da comunidade, tomar medidas corretivas mais efetivas e aprimorar a qualidade dos serviços e infraestrutura oferecidos.
