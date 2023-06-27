@@ -1,10 +1,8 @@
-Nesta seção, exploramos o uso da análise de redes para analisar o conjunto de dados Colab.re. O conjunto de dados consiste em uma lista de arestas, onde os nós são usuários e as arestas representam as conexões ou seguidores desses usuários. O objetivo deste estudo é identificar câmaras de eco na rede Colab.re e obter insights sobre a estrutura dessas comunidades.
-
-Para alcançar isso, utilizamos várias técnicas de análise de redes, como agrupamento de Louvain, agrupamento espectral e autovetores. O agrupamento de Louvain é um algoritmo de detecção de comunidades que otimiza a modularidade, uma medida da densidade de conexões dentro das comunidades em comparação com as conexões entre comunidades. O agrupamento espectral é uma técnica que utiliza os autovalores e autovetores do Laplaciano do grafo para particionar o grafo em comunidades. Por outro lado, os autovetores são usados para identificar os nós centrais na rede, também conhecidos como "centralidade de autovetor".
+O objetivo desse capítulo é criar um grafo da rede social do Colab.re baseado na fonte de dados disponibilizada pela empresa. O conjunto de dados consiste em uma lista de arestas, onde os nós são usuários e as arestas representam as conexões ou seguidores desses usuários. Utilizamos várias técnicas de análise de redes, como agrupamento de Louvain, agrupamento espectral e Eigenvectores. O agrupamento de Louvain é um algoritmo de detecção de comunidades que otimiza a modularidade, uma medida da densidade de conexões dentro das comunidades em comparação com as conexões entre comunidades. O agrupamento espectral é uma técnica que utiliza os Eigenvectors do grafo para particionar em comunidades. Por outro lado, os Eigenvectors  são usados para identificar os nós centrais na rede, também conhecidos como "centralidade de Eigenvector".
 
 Este estudo baseia-se em pesquisas anteriores que utilizaram a análise de redes para estudar redes sociais, como o Twitter e o Facebook, a fim de obter insights sobre a estrutura dessas comunidades. Por exemplo, \citeonline{2006_Newman} utilizaram o agrupamento espectral para identificar comunidades em uma rede de blogs políticos e mostraram que essas comunidades eram altamente polarizadas.
 
-\section{Introdução ao Gephi}
+\subsection*{Introdução ao Gephi}
 
 A análise exploratória de redes sociais (ESNA) é um passo fundamental para compreender as estruturas complexas e dinâmicas das redes sociais. O primeiro passo na ESNA é visualizar os dados da rede, e o Gephi é uma das ferramentas mais populares e poderosas usadas nessa etapa. O Gephi é um software de análise e visualização de redes de código aberto que permite aos pesquisadores criar e manipular grafos, executar vários algoritmos de análise de rede e gerar representações visuais das estruturas de rede. O Gephi tem sido amplamente utilizado na análise de redes sociais (SNA) para analisar a estrutura e dinâmica dos relacionamentos sociais.
 
@@ -22,7 +20,7 @@ Particularmente para este estudo, uma área em que o Gephi tem sido útil é na 
 
 Para detectar câmaras de eco usando o Gephi, os pesquisadores primeiro precisam coletar dados sobre a rede social de interesse. Isso pode ser feito usando uma variedade de métodos, como web scraping, chamadas de API ou pesquisas. Uma vez que os dados são coletados, eles podem ser importados para o Gephi e visualizados usando as ferramentas de visualização de rede do software. Os pesquisadores podem então usar vários algoritmos de SNA para identificar os nós mais centrais dentro da rede, bem como as diferentes comunidades ou subgrupos dentro da rede.
 
-\section{Pré-processamento do conjunto de dados Colab.re}
+\subsection*{Pré-processamento do conjunto de dados Colab.re}
 
 Antes de carregar os dados no Gephi, realizamos algum pré-processamento nos arquivos CSV brutos usando a biblioteca Pandas do Python. O CSV original era uma lista de arestas em que a coluna "source" representava um usuário e a coluna "target" representava uma conexão com outro usuário. O arquivo CSV também tinha colunas para registrar quando essas relações foram criadas, atualizadas e excluídas, o que pode ser usado para adicionar dinâmica temporal à visualização. No entanto, os carimbos de data e hora originais estavam no formato brasileiro e precisaram ser convertidos para o formato ISO 8601, que é o padrão do Gephi.
 
@@ -32,7 +30,7 @@ Também removemos nós duplicados. No contexto dos dados brutos, a coluna 'delet
 
 Para aproveitar o poder computacional, usamos o Google Colaboratory para realizar o pré-processamento dos dados. O script abaixo adapta as colunas de carimbos de data e hora e remove as linhas duplicadas.
 
-\section{Carregando o conjunto de dados Colab.re no Gephi}
+\subsection*{Carregando o conjunto de dados Colab.re no Gephi}
 Após baixar o arquivo pré-processado, criamos um novo Workspace no Gephi e carregamos os arquivos de dados separadamente, começando pelo edges.csv, conforme explicado por Golbeck (2016).
 
 O arquivo nodes.csv é então carregado e o Gephi detecta automaticamente os carimbos de data e hora.
@@ -43,7 +41,7 @@ A importação detectou 33818 nós e 66877 arestas.
 
 No entanto, devido ao alto número de conexões, a visualização do gráfico do Gephi exibe apenas um quadrado preto. Para corrigir isso e obter informações iniciais do conjunto de dados, precisamos escolher um Layout apropriado usando a guia de layout do Gephi.
 
-\section{Compreendendo os Layouts do Gephi}
+\subsection*{Compreendendo os Layouts do Gephi}
 
 Os layouts são um aspecto essencial da funcionalidade do Gephi, pois eles fornecem uma representação gráfica da estrutura da rede. O Gephi oferece vários presets de layout para gerar visualizações dos dados da rede em diversas formas. Cada preset utiliza um conjunto único de algoritmos para posicionar os nós e arestas da rede de maneira visualmente atraente. Nesta seção, examinaremos alguns dos layouts mais comuns do Gephi, seus casos de uso e sugeriremos o melhor layout para uma rede com tantas conexões.
 
@@ -57,19 +55,19 @@ O layout Yifan Hu é um algoritmo baseado em forças desenvolvido por Yifan Hu e
 
 Para uma rede com 66877 arestas, optamos por usar o layout Yifan Hu devido à sua capacidade de lidar com redes de grande escala, tornando-o adequado para o tamanho da rede fornecido. Além disso, o layout Yifan Hu é baseado em forças e pode otimizar o layout dos nós para fornecer uma representação visualmente agradável da rede. Posteriormente no experimento, pretendemos utilizar outros modelos de layout para obter diferentes insights do modelo de dados.
 
-\section{Visualizações do Gephi da Rede Colab.re}
+\subsection*{Visualizações do Gephi da Rede Colab.re}
 
 O layout Yifan Hu foi aplicado ao conjunto de dados do Colab.re, resultando nesta imagem que apresenta dois clusters bem populados, uma quantidade considerável de nós de usuário e um grande número de nós isolados.
 
 O Yifan Hu nos proporciona um bom ponto de partida e algumas ideias iniciais. No entanto, para obter mais informações sobre o conjunto de dados, precisamos executar algumas estatísticas no Gephi e atualizar a aparência da visualização com os resultados das estatísticas. Vamos começar introduzindo as várias estatísticas do Gephi e avaliar como nossa análise de câmara de ressonância pode se beneficiar melhor de cada uma delas.
 
-\section{Explorando a Estrutura da Rede com as Estatísticas do Gephi}
+\subsection*{Explorando a Estrutura da Rede com as Estatísticas do Gephi}
 
 O Gephi oferece uma variedade de estatísticas que podem ajudar os pesquisadores a analisar e visualizar a estrutura das redes. Algumas das estatísticas mais comumente usadas na análise de redes sociais incluem grau, centralidade de intermediação (betweenness centrality) e coeficiente de agrupamento (clustering coefficient). O grau mede o número de conexões que um nó possui, enquanto a centralidade de intermediação identifica nós que desempenham um papel importante como pontes entre diferentes partes da rede. O coeficiente de agrupamento mede o grau em que os nós tendem a se agrupar em grupos.
 
 Ao trabalhar com uma rede grande como o conjunto de dados do Colab.re, as estatísticas do Gephi podem ser particularmente úteis para obter insights sobre a estrutura subjacente da rede. Por exemplo, o grau pode ajudar a identificar nós com um grande número de conexões, enquanto a centralidade de intermediação pode destacar nós que são especialmente importantes para manter a conectividade geral da rede. O coeficiente de agrupamento pode ajudar a identificar grupos de nós que tendem a se agrupar, fornecendo informações sobre potenciais câmaras de eco ou outros padrões de agrupamento dentro da rede.
 
-Algumas das estatísticas do Gephi mais úteis a serem consideradas incluem modularidade, detecção de comunidades e centralidade do autovetor. A modularidade mede o grau em que os nós dentro da rede se agrupam em grupos coesos, enquanto algoritmos de detecção de comunidades podem ajudar a identificar esses grupos com base em padrões de conectividade. A centralidade do autovetor, por outro lado, mede o grau em que um nó está conectado a outros nós altamente conectados dentro da rede.
+Algumas das estatísticas do Gephi mais úteis a serem consideradas incluem modularidade, detecção de comunidades e centralidade do Eigenvector. A modularidade mede o grau em que os nós dentro da rede se agrupam em grupos coesos, enquanto algoritmos de detecção de comunidades podem ajudar a identificar esses grupos com base em padrões de conectividade. A centralidade do Eigenvector, por outro lado, mede o grau em que um nó está conectado a outros nós altamente conectados dentro da rede.
 
 Em nossa análise exploratória do conjunto de dados do Colab.re, começamos calculando o Diâmetro da Rede. A estatística de Diâmetro da Rede do Gephi mede a distância geodésica mais longa entre quaisquer dois nós na rede. Essa estatística é uma medida importante da conectividade da rede, pois reflete o grau em que os nós estão conectados entre si. Um diâmetro de rede baixo indica que os nós na rede estão intimamente conectados, enquanto um diâmetro de rede alto indica que os nós estão mais distantes uns dos outros. Essa estatística pode ser usada para identificar nós que são especialmente importantes para manter a conectividade da rede, bem como para detectar áreas da rede que podem estar mal conectadas.
 
@@ -83,14 +81,14 @@ Os resultados do Diâmetro da Rede e do comprimento médio do caminho sozinhos n
 
 Especificamente, os nós foram coloridos de acordo com sua classificação de Centralidade de Proximidade (Closeness Centrality) e dimensionados de acordo com sua classificação de Centralidade de Intermediação (Betweenness Centrality). Essa abordagem permitiu uma representação clara dos nós que possuem alta centralidade em termos de sua importância na rede. Os nós com alta Centralidade de Proximidade foram coloridos em tons mais escuros de roxo, enquanto os nós com alta Centralidade de Intermediação foram dimensionados em tamanho maior. Essa combinação de atributos dos nós destacou efetivamente os nós mais importantes em termos de sua conectividade e posição na rede. Isso pode ajudar a identificar nós que são mais centrais para a rede, pois serão coloridos em tons mais escuros. Além disso, pode ajudar a identificar nós que estão mais isolados do restante da rede, pois serão coloridos em tons de laranja.
 
-\section{Otimizando visualizações com Filtragem no Gephi}
+\subsection*{Otimizando visualizações com Filtragem no Gephi}
 
 Em ambas as imagens, é perceptível uma prevalência de nós isolados. Após uma análise mais aprofundada, descobrimos que a maioria dos nós isolados são de fato de usuários sem seguidores no arquivo de conexões. Alguns deles são de usuários que seguiram outro usuário em algum momento, mas deixaram de seguir dentro do período em que o conjunto de dados foi capturado. Para mitigar a quantidade de nós isolados, utilizamos a filtragem do Gephi, pois ela pode ser aplicada apenas na visualização, preservando o conjunto de dados. A filtragem é uma etapa essencial na análise de redes, pois permite que os pesquisadores foquem em aspectos específicos da rede e removam informações irrelevantes ou ruidosas. No contexto da detecção de câmaras de eco, a filtragem é especialmente crucial, pois ajuda a identificar comunidades relevantes e reduz o impacto de nós isolados que podem não ser representativos da estrutura geral da rede. A filtragem é uma etapa crucial na análise de redes e tem sido amplamente estudada na literatura. 
 \citeonline{2016_Fortunato} destacaram a importância da filtragem na detecção de comunidades, pois ela pode impactar significativamente a qualidade e a precisão dos resultados. Da mesma forma, \citeonline{2018_Newman_BOOK} discutiu os desafios de lidar com dados ruidosos na análise de redes e sugeriu várias técnicas de filtragem para melhorar a qualidade da análise. Em particular, a filtragem com base no grau tem sido amplamente utilizada na análise de redes, pois permite que os pesquisadores foquem nos nós e comunidades mais importantes da rede \cite[]{2002_Borgatti}.
 
 Para filtrar nós irrelevantes ou isolados, aplicamos várias etapas de filtragem no laboratório de dados do Gephi. Começamos removendo laços e arestas múltiplas, que podem criar informações redundantes e complicar a análise. Em seguida, removemos nós com baixo grau, ou seja, aqueles que possuíam poucas conexões com outros nós na rede. Optamos por usar um filtro de Grau a partir de 4 para destacar apenas comunidades compostas por pelo menos 4 usuários. Essa etapa nos permitiu focar em comunidades que tinham mais probabilidade de serem significativas em termos de fluxo de informações e interações de usuários. Também removemos nós que não estavam conectados a nenhum outro nó na rede.
 
-\section{Análise Detalhada: Estatísticas do Gephi na Rede Colab.re}
+\section{Topologia da Rede Colab.re}
 Após aplicar as configurações de aparência, os agrupamentos de usuários se tornam mais visíveis, assim como a centralidade de alguns usuários-chave. No entanto, ainda existem outras estatísticas que podemos executar no Gephi para obter uma visão mais abrangente. A tabela abaixo apresenta um resumo de todas as métricas obtidas a partir das Estatísticas do Gephi:
 
 \begin{table}[h]
@@ -104,8 +102,8 @@ Após aplicar as configurações de aparência, os agrupamentos de usuários se 
     Diâmetro da Rede & Comprimento Médio do Caminho & 5.623615966246081 \\
     Modularidade & Modularidade & 0.683 \\
     Modularidade & Número de Comunidades & 352 \\
-    Centralidade de Autovetor & Mudança da Soma & 0.3087450789952254 \\
-    Centralidade de Autovetor & Número de Iterações & 100 \\
+    Centralidade de Eigenvector & Mudança da Soma & 0.3087450789952254 \\
+    Centralidade de Eigenvector & Número de Iterações & 100 \\
     Coeficiente de Agrupamento & Média & 0.171 \\
     Componentes Conectados & Fracamente Conectados & 329 \\
     Componentes Conectados & Fortemente Conectados & 28119 \\
@@ -134,15 +132,15 @@ Os valores de inferência estatística, com comprimento da descrição de 1.184.
 
 No geral, as estatísticas do Gephi fornecem evidências de que a rede possui um alto grau de estrutura de comunidades, agrupamento e nós influentes, o que pode contribuir para a formação e o reforço de câmaras de eco. No entanto, mais pesquisas são necessárias para confirmar se as câmaras de eco estão presentes na rede e como estão estruturadas.
 
-\section{Visualizando Centralidade na rede Colab}
+\subsection{Centralizade de Rede}
 
 Outra opção para visualizar centralidade é usar o algoritmo OpenOrd, um algoritmo de layout baseado em forças que é frequentemente usado em visualização e análise de redes. Uma das vantagens do algoritmo OpenOrd é sua capacidade de visualizar efetivamente a centralidade de intermediação em redes grandes e complexas. A centralidade de intermediação é uma medida da importância de um nó em uma rede, com base em sua capacidade de atuar como uma "ponte" ou "hub" entre diferentes partes da rede. Ao visualizar a centralidade de intermediação com o algoritmo OpenOrd, podemos identificar nós que desempenham um papel crucial na conexão de diferentes comunidades ou grupos dentro de uma rede.
 
 Por exemplo, em um estudo sobre a comunicação no Twitter durante uma crise política, o algoritmo OpenOrd foi usado para visualizar a centralidade de intermediação de diferentes usuários do Twitter. Os resultados revelaram vários usuários com alta centralidade de intermediação, sugerindo que esses usuários desempenharam um papel fundamental na conexão de diferentes grupos de usuários do Twitter e na disseminação de informações durante a crise \cite[text]{2011_Poblete_IP}.
 
-A visualização da rede Colab.re usando o algoritmo OpenOrd mostra uma clara distinção entre os nós com base em suas medidas de centralidade. Os nós maiores com maior centralidade de autovetor são mais influentes na rede e podem ter um impacto maior no fluxo de informações. O nó laranja, com a maior pontuação de centralidade de autovetor de 1.0, se destaca como o nó mais influente. No entanto, é interessante observar que esse nó tem uma pontuação de centralidade de intermediação relativamente baixa de 0.014, indicando que ele pode não servir necessariamente como um conector crítico entre diferentes partes da rede. Por outro lado, o nó verde no topo possui a segunda maior pontuação de centralidade de autovetor de 0.599 e pode atuar como um conector mais importante, com uma pontuação de centralidade de intermediação mais alta. No geral, os resultados sugerem que a rede é dominada por alguns nós altamente conectados, que podem ter um impacto significativo na estrutura e função geral da rede.
+A visualização da rede Colab.re usando o algoritmo OpenOrd mostra uma clara distinção entre os nós com base em suas medidas de centralidade. Os nós maiores com maior centralidade de Eigenvector são mais influentes na rede e podem ter um impacto maior no fluxo de informações. O nó laranja, com a maior pontuação de centralidade de Eigenvector de 1.0, se destaca como o nó mais influente. No entanto, é interessante observar que esse nó tem uma pontuação de centralidade de intermediação relativamente baixa de 0.014, indicando que ele pode não servir necessariamente como um conector crítico entre diferentes partes da rede. Por outro lado, o nó verde no topo possui a segunda maior pontuação de centralidade de Eigenvector de 0.599 e pode atuar como um conector mais importante, com uma pontuação de centralidade de intermediação mais alta. No geral, os resultados sugerem que a rede é dominada por alguns nós altamente conectados, que podem ter um impacto significativo na estrutura e função geral da rede.
 
-\section{Visualizando Comunidades na rede Colab}
+\subsection{Comunidades}
 
 Visualizar um conjunto de dados do Gephi focando nas comunidades pode ser altamente benéfico para explorar a estrutura de redes complexas, como redes sociais, e identificar potenciais câmaras de eco. Ao identificar comunidades ou grupos dentro de uma rede, podemos obter insights sobre o comportamento de subgrupos dentro da rede maior e como eles podem interagir entre si. Uma abordagem popular para detectar comunidades em redes é o algoritmo de detecção de comunidades baseado em modularidade desenvolvido por \citeonline{2004_Newman}. Esse algoritmo particiona os nós em comunidades, maximizando uma função de qualidade conhecida como modularidade, que mede a densidade de conexões dentro de uma comunidade em comparação com as conexões entre comunidades.
 
