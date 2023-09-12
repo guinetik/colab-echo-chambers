@@ -24,3 +24,32 @@ This file documents the changes made to the paper.
 ### Removed
 
 - PDFs in the source folder from the git release
+
+## [2.0.0] - 2023-09-11
+
+### Added
+
+- Adds new references to jabref
+- Adds new code
+- New Experiments
+- New methodology chapter
+- New objectives chapter
+
+### Fixed
+
+- Cleaned up the references
+- Better images
+
+### Changed
+
+- Moved some sections to a reworked version of the methodology chapter.
+- Added exploratory analysis section to the Colab chapter
+- Added Echo Chamber detection chapter with echo chamber detection heuristics
+- Added Agent Based Modeling heuristics
+- Improved exploratory analysis
+
+### Removed
+
+- Old metodology, stuff about digital epidemiology
+- Old code
+- Old objetives

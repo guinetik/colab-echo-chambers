@@ -21,13 +21,13 @@
 \usepackage{lipsum}                         % Usado para adicionar texto temporario
 \usepackage{pgf-pie}                        % Usado para adicionar gráficos de pizza
 \usepackage[section]{placeins}              % Usado para manter imagens e tabelas dentro da seção
+\input{packages/guinetik.sty}               % Minhas configurações pessoais
 %\usepackage[subsection]{placeins}          % Usado para manter imagens e tabelas dentro da subseção
 % Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
 % Então é necessário usar apenas um dos pacotes conflitantes
 \newcommand{\VerbL}{0.52\textwidth}
 \newcommand{\LatL}{0.42\textwidth}
 % ---------------------------------------------------------------------------
-
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -183,12 +183,9 @@
 % ---
 \begin{apendicesenv}
 
-\chapter{Documento básico usando a classe \textit{icmc}}
-\label{chapter:documento-basico}
-\input{tex/appendix/documento-basico}    
-\chapter{Configuração do programa JabRef}
-\label{chapter:configuracao-jabref}
-\input{tex/appendix/configuracao-jabref}
+\chapter{Código Fonte}
+\label{chapter:source_code}
+\input{tex/appendix/source_codes.tex}
 
 \end{apendicesenv}
 % ---
@@ -201,13 +198,13 @@
 % ---
 % Inicia os anexos
 % ---
-\begin{anexosenv}
+%\begin{anexosenv}
 
-    \chapter{Páginas interessantes na Internet} 
-    \label{chapter:paginas-interessantes}
-    \input{tex/annex/paginas-interessantes}
+%    \chapter{Páginas interessantes na Internet} 
+%    \label{chapter:paginas-interessantes}
+%    \input{tex/annex/paginas-interessantes}
 
-\end{anexosenv}
+%\end{anexosenv}
 % ---
 
 \end{document}

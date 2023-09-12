@@ -1,0 +1,26 @@
+\begin{codigo}[caption={Exemplo de script Python para criar um Grafo aleatório de uma rede social contendo pelo menos uma câmara de eco}, label={codigo:growing_random_models}, language=Python, breaklines=true]
+# Crie um grafo vazio
+G = nx.Graph()
+
+# Adicione alguns nós altamente conectados
+echo_chamber_1 = [str(uuid.uuid4()) for _ in range(8)]
+G.add_edges_from([(n1, n2) for n1 in echo_chamber_1 for n2 in echo_chamber_1 if n1 != n2])
+
+# Adicione outra câmara de eco
+echo_chamber_2 = [str(uuid.uuid4()) for _ in range(5)]
+G.add_edges_from([(n1, n2) for n1 in echo_chamber_2 for n2 in echo_chamber_2 if n1 != n2])
+
+# Adicione alguns nós que não estão em câmaras de eco
+non_echo_nodes = [str(uuid.uuid4()) for _ in range(8)]
+for i in range(len(non_echo_nodes) - 1):
+    G.add_edge(non_echo_nodes[i], non_echo_nodes[i+1])
+
+# Adicione mais 50 nós que estão conectados de forma aleatória
+additional_nodes = [str(uuid.uuid4()) for _ in range(50)]
+for i in range(len(additional_nodes) - 1):
+    G.add_edge(additional_nodes[i], additional_nodes[random.randint(0, len(additional_nodes) - 1)])
+
+##
+network_communities = community.greedy_modularity_communities(G)
+plot_bokeh_network(G, network_communities, 'Network', Blues8)
+\end{codigo}

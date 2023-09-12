@@ -1,37 +1,64 @@
-\section{Fonte de Dados}
-Nesta pesquisa, utilizamos como fonte de dados o conjunto de informações coletadas no aplicativo brasileiro Colab.re. Esses dados consistem em listas de arestas, que representam as conexões entre os usuários e suas postagens realizadas entre os anos de 2016 e 2022. Limitamos nossa pesquisa às cidades de Caruaru, Rio de Janeiro, Recife e Niterói, a fim de obter uma amostra representativa dessas regiões.
+Este capítulo descreve a metodologia adotada para investigar a formação e impacto de câmaras de eco na rede de usuários da aplicação Colab. A pesquisa é estruturada de forma iterativa e incremental, permitindo que cada etapa informe e refine as subsequentes.
 
-A obtenção dos dados foi possível através de parcerias estabelecidas com a equipe do Colab.re, que nos concedeu acesso ao conjunto de informações. Esses dados são de grande relevância para o desenvolvimento da pesquisa, pois nos permitem examinar as interações sociais e os padrões de engajamento dos usuários dentro da plataforma.
+\section{Natureza da Pesquisa}
 
-\section{Construção de grafo da Rede Social}
-A análise das interações dos usuários dentro do aplicativo Colab.re requer a criação de um grafo de rede social, a fim de representar visualmente as conexões entre os usuários e suas respectivas postagens. Dado que o banco de dados original do Colab.re é um banco de dados relacional, foi necessário realizar a transformação dos dados em uma estrutura de grafo.
+A pesquisa adota uma abordagem tanto descritiva quanto exploratória, conforme delineado por \cite{2008_Yin_BOOK} e \cite{2007_Babbie_BOOK}.
 
-A transformação dos dados de lista de arestas em uma estrutura de grafo permitiu uma representação mais adequada das relações e interações entre os usuários. Essa transformação envolveu a representação de cada usuário como um nó no grafo e a mapeamento das conexões entre os usuários como arestas.
+A pesquisa descritiva, como sugerido por \cite{2007_Babbie_BOOK}, é empregada quando o objetivo é descrever características de um fenômeno ou a relação entre variáveis. No contexto deste estudo, a abordagem descritiva é utilizada para categorizar e detalhar os usuários do Colab, fornecendo uma representação clara e sistemática dos mesmos. Esta metodologia é particularmente útil para estabelecer um panorama claro do comportamento dos usuários, suas interações e padrões de linguagem, formando assim a base para análises subsequentes.
 
-Essa abordagem apresenta algumas vantagens importantes em relação à análise de redes sociais. Ao utilizar um formato de dados em grafo, foi possível visualizar e analisar a estrutura da rede de forma mais intuitiva, identificando grupos de usuários e suas interações com maior clareza. Além disso, a representação em grafo facilita a aplicação de algoritmos de análise de redes, como algoritmos de agrupamento e detecção de comunidades, que podem revelar informações relevantes sobre a estrutura da rede e a formação de câmaras de eco.
+Por outro lado, a pesquisa exploratória, conforme descrito por \cite{2008_Yin_BOOK}, é frequentemente empregada quando o pesquisador tem pouco ou nenhum conhecimento prévio sobre o fenômeno em estudo. Ela busca descobrir padrões, ideias ou hipóteses, em vez de testar uma hipótese predefinida. No caso desta pesquisa, a abordagem exploratória é crucial para identificar e compreender as câmaras de eco dentro da rede do Colab, um fenômeno ainda pouco explorado na literatura. Esta abordagem permite uma investigação flexível, adaptando-se à medida que novas descobertas emergem.
 
-Essa estrutura de dados é obtida inicialmente no formato CSV, importada para o Gephi e eventualmente foi criado uma base de dados utilizando o Neo4j. Embora o Neo4j seja um exemplo de sistema de gerenciamento de banco de dados de grafos, é importante destacar que a transformação dos dados de um banco de dados relacional em um formato de grafo não está necessariamente vinculada a um sistema de gerenciamento de banco de dados específico. Existem várias ferramentas e bibliotecas disponíveis, como o NetworkX, que permitem a transformação de dados relacionais em estruturas de grafos para análise.
+A combinação dessas duas abordagens é estratégica. Enquanto a pesquisa descritiva fornece uma base sólida e detalhada sobre os usuários e suas interações, a pesquisa exploratória permite a descoberta de novos insights e compreensões sobre as câmaras de eco. Esta combinação maximiza a profundidade e amplitude da análise, garantindo que tanto os aspectos bem definidos quanto os emergentes do fenômeno sejam adequadamente abordados.
 
-Portanto, ao realizar a transformação dos dados de um banco de dados relacional em uma estrutura de grafo, foi possível obter uma representação mais adequada das interações dos usuários no aplicativo Colab.re, permitindo uma análise mais detalhada e precisa da rede social. Essa abordagem oferece vantagens significativas na compreensão dos padrões de engajamento dos usuários e na identificação de câmaras de eco.
+\section{Universo e Amostra}
+Os dados utilizados são oriundos do aplicativo Colab, representando um universo de [X usuários] no período de [data de início] a [data de fim] cobrindo as cidades de Caruaru, Rio de Janeiro, Recife, Niterói, Mesquita e Santo André. Nessa amostragem os usuários realizaram [X postagens] e [X comentários] num total de [X interações] analisadas.
 
-\section{Algoritmos de Agrupamento e Detecção de Comunidades}
-Com o objetivo de identificar grupos de usuários com padrões de interação semelhantes, utilizamos algoritmos de agrupamento espectral e detecção de comunidades. Esses algoritmos são amplamente empregados em estudos de redes sociais para identificar estruturas e agrupamentos significativos dentro de um grafo.
-Para realizar o agrupamento espectral, utilizamos a implementação disponível na biblioteca NetworkX. Esse algoritmo utiliza técnicas de álgebra linear para mapear os nós do grafo em um espaço de características de baixa dimensão, permitindo a identificação de agrupamentos. Já a detecção de comunidades foi realizada utilizando o algoritmo de Louvain (BLONDEL et al., 2008), conhecido por sua eficiência e precisão na identificação de comunidades em redes complexas.
-Através desses algoritmos, pudemos identificar e delimitar as câmaras de eco presentes na rede social do Colab.re. Essas câmaras de eco representam grupos de usuários que compartilham opiniões e interagem de maneira intensa e recíproca, reforçando suas crenças e limitando a diversidade de perspectivas.
+\section{Coleta de Dados}
+Os dados foram fornecidos pelo aplicativo Colab em formato CSV. Estes incluem listas de arestas, que representam as conexões entre os usuários, informações sobre o comportamento dos usuários, suas interações e postagens, além de dados demográficos e geográficos. Os dados foram anonimizados e não contêm informações pessoais dos usuários. O modelo dos dados e os preprocessamentos realizados são detalhados no \autoref{sec:modelo_de_dados}.
 
-\section{Modelos SIR e SEIR da Epidemiologia Digital}
-Uma etapa fundamental desta pesquisa envolveu a simulação da disseminação de opiniões e crenças nas câmaras de eco identificadas. Para isso, utilizamos os modelos SIR (Susceptível-Infectado-Recuperado) e SEIR (Susceptível-Exposto-Infectado-Recuperado) da epidemiologia digital.
-Esses modelos, amplamente utilizados em estudos de propagação de doenças, foram adaptados para simular a disseminação de informações e opiniões entre os usuários da rede social do Colab.re. A implementação desses modelos foi realizada utilizando o pacote Epidemics (SMITH et al., 2020) do Python, que fornece uma variedade de funções e métodos para a simulação e análise de propagação de informações em redes complexas.
-Ao aplicar os modelos SIR e SEIR, pudemos analisar como as opiniões e crenças se espalham dentro das câmaras de eco identificadas, identificando os grupos de usuários mais propensos a adotar e disseminar determinadas ideias. Essa análise contribui para o entendimento dos mecanismos de formação e proliferação das câmaras de eco dentro do aplicativo Colab.re.
+\section{Procedimentos de Análise}
+\begin{itemize}
+	\item \textbf{Análise de Redes Sociais:} Utilizando técnicas de ciência de dados e análise de grafos para identificar estruturas e características da rede Colab.
+	\item \textbf{Classificação de Usuários:} Serão empregadas técnicas de processamento de linguagem natural e aprendizado de máquina supervisionado para classificar postagens e comportamentos dos usuários.
+	\item \textbf{Detecção de Câmaras de Eco:} Adaptação das heurísticas propostas por \cite{2023_Atiqi_BOOK} ao contexto do Colab, combinadas com técnicas de análise de redes e teoria dos grafos.
+	\item \textbf{Simulações:} A Modelagem Baseada em Agentes (ABM) e simulações de Monte Carlo serão usadas para avaliar o impacto de diferentes cenários e intervenções na formação de câmaras de eco.
+\end{itemize}
 
-\section{Desenvolvimento de um Painel em Tempo Real}
-Com base nos resultados da análise de rede e dos modelos de epidemiologia digital, desenvolvemos um painel em tempo real para monitorar o surgimento e crescimento das câmaras de eco dentro do aplicativo Colab.re. Esse painel utiliza visualizações interativas e métricas de acompanhamento para fornecer insights sobre a dinâmica das câmaras de eco ao longo do tempo.
-A implementação desse painel foi realizada utilizando a biblioteca de visualização de dados Matplotlib (HUNTER, 2007) em conjunto com recursos interativos do Python. Essa combinação permitiu a criação de gráficos e visualizações dinâmicas, facilitando a interpretação dos resultados e o acompanhamento contínuo das câmaras de eco.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[node distance=2cm]
+		% Estilos para os nós
+		\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3.5cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+		\tikzstyle{process} = [rectangle, minimum width=3.5cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+		\tikzstyle{arrow} = [thick,->,>=stealth]
+		% Nós
+		\node (start) [startstop] {Coleta de Dados};
+		\node (proc1) [process, below of=start] {Análise Exploratória};
+		\node (proc2) [process, below of=proc1] {Classificação de Usuários};
+		\node (proc3) [process, below of=proc2] {Análise de Redes};
+		\node (proc4) [process, below of=proc3] {Detecção de Câmaras de Eco};
+		\node (proc5) [process, below of=proc4] {Medição de Polarização};
+		\node (proc6) [process, below of=proc5] {Simulações Computacionais};
+		\node (proc7) [process, below of=proc6] {Desenvolvimento da Aplicação Web};
+		\node (stop) [startstop, below of=proc7] {Conclusão};
+		% Setas
+		\draw [arrow] (start) -- (proc1);
+		\draw [arrow] (proc1) -- (proc2);
+		\draw [arrow] (proc2) -- (proc3);
+		\draw [arrow] (proc3) -- (proc4);
+		\draw [arrow] (proc4) -- (proc5);
+		\draw [arrow] (proc5) -- (proc6);
+		\draw [arrow] (proc6) -- (proc7);
+		\draw [arrow] (proc7) -- (stop);
+	\end{tikzpicture}
+	\caption{Diagrama ilustrando os passos da metodologia.}
+\end{figure}
 
-\section{Considerações Éticas}
-Ao realizar essa pesquisa, seguimos rigorosamente as diretrizes éticas e de privacidade. Todos os dados utilizados foram anonimizados e tratados de forma confidencial, garantindo a privacidade e a proteção dos usuários do aplicativo Colab.re. Além disso, obtivemos todas as autorizações necessárias para acesso aos dados e mantivemos uma postura responsável ao lidar com informações sensíveis.
-As análises realizadas neste estudo estão em conformidade com as diretrizes éticas estabelecidas pelo Comitê de Ética em Pesquisa da nossa instituição. Todos os procedimentos foram conduzidos de acordo com as regulamentações e políticas vigentes, garantindo a integridade e a validade dos resultados obtidos.
-Com base na natureza quantitativa da pesquisa, destacamos o uso de técnicas de análise de redes, algoritmos de agrupamento e detecção de comunidades, bem como a utilização de modelos SIR e SEIR da epidemiologia digital. Essas abordagens quantitativas nos permitem examinar objetivamente as interações dos usuários, identificar padrões de comportamento e simular a disseminação de informações nas câmaras de eco. No entanto, reconhecemos que abordagens qualitativas, como entrevistas ou análise de conteúdo, também podem complementar a compreensão do fenômeno em estudo.
+\section{Ferramentas e Softwares}
+Serão utilizados softwares específicos para análise de redes sociais, como Gephi ou NodeXL, e linguagens de programação, como Python ou R, para análises mais detalhadas. Bibliotecas de aprendizado de máquina, como Scikit-learn, TensorFlow ou PyTorch, serão empregadas para treinamento de modelos.
 
-\section{Disponibilidade do Código-Fonte}
-O código-fonte desenvolvido neste projeto está disponível em um repositório público no GitHub. Ele contém as implementações dos algoritmos de construção da rede social, algoritmos de agrupamento, modelos de epidemiologia digital e o desenvolvimento do painel em tempo real. O repositório pode ser acessado no seguinte endereço:\url{https://github.com/guinetik/colab-network-ec}.
+\section{Aspectos Éticos}
+A pesquisa garante a anonimidade das informações pessoais dos usuários. Todos os dados sensíveis serão tratados com precaução, assegurando a integridade e privacidade dos participantes.
+
+\section{Limitações}
+Os resultados e conclusões desta pesquisa são específicos do universo do Colab, o que pode limitar sua generalização para outras plataformas ou contextos.

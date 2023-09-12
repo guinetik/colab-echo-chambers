@@ -1,0 +1,51 @@
+\usepackage{xcolor}
+\definecolor{maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{ipython_frame}{RGB}{207, 207, 207}
+\definecolor{ipython_bg}{RGB}{247, 247, 247}
+\definecolor{ipython_red}{RGB}{186, 33, 33}
+\definecolor{ipython_green}{RGB}{0, 128, 0}
+\definecolor{ipython_cyan}{RGB}{64, 128, 128}
+\definecolor{ipython_purple}{RGB}{170, 34, 255}
+\lstdefinelanguage{Python}{
+  morekeywords={access,and,break,class,continue,def,del,elif,else,except,exec,finally,for,from,global,if,import,in,is,lambda,not,or,pass,print,raise,return,try,while},
+  morekeywords=[2]{abs,all,any,basestring,bin,bool,bytearray,callable,chr,classmethod,cmp,compile,complex,delattr,dict,dir,divmod,enumerate,eval,execfile,file,filter,float,format,frozenset,getattr,globals,hasattr,hash,help,hex,id,input,int,isinstance,issubclass,iter,len,list,locals,long,map,max,memoryview,min,next,object,oct,open,ord,pow,property,range,raw_input,reduce,reload,repr,reversed,round,set,setattr,slice,sorted,staticmethod,str,sum,super,tuple,type,unichr,unicode,vars,xrange,zip,apply,buffer,coerce,intern},
+  sensitive=true,
+  morecomment=[l]\#,
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[s]{'''}{'''},
+  morestring=[s]{"""}{"""},
+  morestring=[s]{r'}{'},
+  morestring=[s]{r"}{"},
+  morestring=[s]{r'''}{'''},
+  morestring=[s]{r"""}{"""},
+  morestring=[s]{u'}{'},
+  morestring=[s]{u"}{"},
+  morestring=[s]{u'''}{'''},
+  morestring=[s]{u"""}{"""},
+  identifierstyle=\color{black}\ttfamily\ABNTEXfontereduzida,
+  commentstyle=\color{ipython_cyan}\ttfamily\ABNTEXfontereduzida,
+  stringstyle=\color{ipython_red}\ttfamily\ABNTEXfontereduzida,
+  keepspaces=true,
+  showspaces=false,
+  showstringspaces=false,
+  rulecolor=\color{ipython_frame},
+  frame=single,
+  frameround={t}{t}{t}{t},
+  framerule=0.8pt,
+  xleftmargin=20.25pt,
+  framexleftmargin=21.25pt,
+  framexbottommargin=5pt,
+  framextopmargin=5pt,
+  abovecaptionskip=10pt,
+  numbers=left, 
+  numbersep=6pt,
+  numberstyle=\ttfamily\ABNTEXfontereduzida\color{halfgray},
+  backgroundcolor=\color{ipython_bg},
+  % extendedchars=true,
+  basicstyle=\scriptsize,
+  keywordstyle=\color{ipython_green}\ttfamily\ABNTEXfontereduzida,
+}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows,shapes, positioning, calc}
