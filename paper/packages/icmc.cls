@@ -713,10 +713,10 @@
 % Criacao dos Ambientes Flutuantes para Quadros
 %================================================================================
 
-\newcommand{\listquadroname}{Lista de quadros}
-\newcommand{\quadroname}{Quadro}
-\newcommand{\quadrorefname}{Quadro}
-\newcommand{\chartautorefname}{Quadro}
+\newcommand{\listquadroname}{Lista de Gráficos}
+\newcommand{\quadroname}{Gráfico}
+\newcommand{\quadrorefname}{Gráfico}
+\newcommand{\chartautorefname}{Gráfico}
 
 \addto\captionsenglish{% ingles
     \renewcommand{\listquadroname}{List of charts}

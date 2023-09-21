@@ -19,14 +19,15 @@
 \usepackage{rotating}                       % Usado para rotacionar o texto
 \usepackage[all,knot,arc,import,poly]{xy}   % Pacote para desenhos gráficos
 \usepackage{lipsum}                         % Usado para adicionar texto temporario
+\usepackage{pgf-pie}                        % Usado para adicionar gráficos de pizza
 \usepackage[section]{placeins}              % Usado para manter imagens e tabelas dentro da seção
-%\usepackage[subsection]{placeins}           % Usado para manter imagens e tabelas dentro da subseção
+\input{packages/guinetik.sty}               % Minhas configurações pessoais
+%\usepackage[subsection]{placeins}          % Usado para manter imagens e tabelas dentro da subseção
 % Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
 % Então é necessário usar apenas um dos pacotes conflitantes
 \newcommand{\VerbL}{0.52\textwidth}
 \newcommand{\LatL}{0.42\textwidth}
 % ---------------------------------------------------------------------------
-
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -83,7 +84,7 @@
 \incluilistadetabelas
 
 % Inclui a lista de quadros
-%\incluilistadequadros
+\incluilistadequadros
 
 % Inclui a lista de algoritmos
 %\incluilistadealgoritmos
@@ -110,9 +111,9 @@
 \label{chapter:01_introducao}
 \input{tex/01_introducao}
 
-%\chapter{Objetivos}
-%\label{chapter:02_objetivos}
-%\input{tex/02_objetivos}
+\chapter{Objetivos}
+\label{chapter:02_objetivos}
+\input{tex/02_objetivos}
 
 \chapter{Metodologia}
 \label{chapter:03_metodologia}
@@ -122,22 +123,29 @@
 \label{chapter:04_colab}
 \input{tex/04_colab}
 
-\chapter{Compreendendo Câmaras de Eco e suas implicações}
-\label{chapter:05_echochambers}
-\input{tex/05_echochambers}
+\chapter{Fundamentação teórica}
+\label{chapter:05_networkanalysis}
+\input{tex/05_networkanalysis}
 
-\chapter{Explorando a História, Desenvolvimentos e Aplicações da Análise de Redes}
-\label{chapter:06_networkanalysis}
-\input{tex/06_networkanalysis}
+\chapter{Análise exploratória da Rede do Colab.re}
+\label{chapter:06_exploratory}
+\input{tex/06_exploratory}
 
-\chapter{Análise de Redes Sociais no Brasil}
-\label{chapter:07_networkbr}
-\input{tex/07_networkbr}
+\chapter{Análise de sentimento das postagens do Colab.re}
+\label{chapter:07_sentiment}
+\input{tex/07_sentiment}
 
-\chapter{Análise Exploratória de Redes}
-\label{chapter:08_exploratory}
-\input{tex/08_exploratory}
+\chapter{Detectando câmaras de eco}
+\label{chapter:08_echochamberdetection}
+\input{tex/08_echochamberdetection}
 
+\chapter{Fenótipos, Arquétipos e Eigenvectors}
+\label{chapter:09_results}
+\input{tex/09_results}
+
+\chapter{Conclusão}
+\label{chapter:10_conclusion}
+\input{tex/10_conclusion}
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
@@ -175,12 +183,9 @@
 % ---
 \begin{apendicesenv}
 
-\chapter{Documento básico usando a classe \textit{icmc}}
-\label{chapter:documento-basico}
-\input{tex/appendix/documento-basico}    
-\chapter{Configuração do programa JabRef}
-\label{chapter:configuracao-jabref}
-\input{tex/appendix/configuracao-jabref}
+\chapter{Código Fonte}
+\label{chapter:source_code}
+\input{tex/appendix/source_codes.tex}
 
 \end{apendicesenv}
 % ---
@@ -193,13 +198,13 @@
 % ---
 % Inicia os anexos
 % ---
-\begin{anexosenv}
+%\begin{anexosenv}
 
-    \chapter{Páginas interessantes na Internet} 
-    \label{chapter:paginas-interessantes}
-    \input{tex/annex/paginas-interessantes}
+%    \chapter{Páginas interessantes na Internet} 
+%    \label{chapter:paginas-interessantes}
+%    \input{tex/annex/paginas-interessantes}
 
-\end{anexosenv}
+%\end{anexosenv}
 % ---
 
 \end{document}

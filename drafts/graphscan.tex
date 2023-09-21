@@ -1,0 +1,105 @@
+\section{Métricas de Vanguarda}
+Essa seçao deve introduzir a utilização das metricas de Score e Persona criadas no capitulo ANÁLISE DE SENTIMENTO DAS POSTAGENS DO Colab como insumo para os modelos ERGM. Construimos um modelo em python utilizando ERGM e Modelagem Baseada em agentes discutidas no caiptulo ANÁLISE DE SENTIMENTO DAS POSTAGENS DO Colab.
+\lipsum[4]
+
+\section{Colab:GraphScan}
+Essa seção deve introduzir o aplicativo colab-graph-scan, um app web para deteção de camaras de eco baseado em snapshots da rede social Colab. O app é capaz de construir um grafo da rede social baseado em entradas via CSV ou no formato Gephi. O app analisa os dados assincronamente e apos o processamento, produz um relatorio contendo potenciais camaras de eco, bem como uma visualização do grafo da rede social. NEssa visualização, as camaras de eco identificadas sao colorizadas de acordo com a sua modularidade de classe, enquanto nós que nao pertencem a uma camara de eco sao pretos. A visualização tambem permite a interação com o grafo, permitindo que o usuário navegue pelo grafo e visualize os nós e arestas. O app tambem relaciona os topicos mais discutidos por cada camara de eco, bem como os usuarios mais influentes de cada camara de eco.
+O app é construido utilizando as tecnologias descritas abaixo.
+Descrever as tecnologias e melhorar o texto.
+\lipsum[5]
+
+\subsection{Tecnologias de frontend}
+Resumir as tecnologias de frontend e fazer uma análise critica de como os padrões de reatividade tem sido implementados atualmente.
+\lipsum[5]
+
+\subsubsection*{Svelte}
+Introduzir a biblioteca Svelte
+\lipsum[5]
+
+\subsubsection*{Sigma.js}
+Introduzir a biblioteca sigma para grafos
+\lipsum[5]
+
+\subsection{Tecnologias de backend}
+Resumir as tecnologias de backend e fazer uma analise critica de servless e edge versus containers.
+\lipsum[5]
+
+\subsubsection{API de Análise de sentimento}
+
+O \autoref{codigo:sentiment_api} implementa uma API para análise de sentimento de postagens do Colab. A API é construída usando o framework Flask e permite realizar a previsão de sentimentos em textos. Ela utiliza um serviço de modelo discutido no capitulo 7 para realizar o treinamento e a classificação dos textos.
+
+A implementação está encapsulada em classes com a intenção de suportar algum tipo de injeção de dependências futuramente. A classe "TextPreprocessor" é responsável pelo pré-processamento de frases, removendo stopwords, realizando stemming e limpeza dos dados. A classe "DataLoader" é responsável pelo carregamento dos dados a partir de uma fonte externa, retornando um DataFrame contendo os dados carregados. A classe "SentimentClassifier" é responsável pelo serviço de modelo, que inclui a vetorização dos textos, o treinamento dos modelos de classificação de sentimento (como Random Forest, Logistic Regression, Decision Tree, SVC e XGBoost) e a previsão do sentimento de um texto com base no modelo escolhido. A classe "ModelService" é responsável pela inicialização do serviço de modelo, carregando os dados, treinando os modelos e fornecendo a funcionalidade de previsão de sentimentos. A classe "App" encapsula as funcionalidades do Flask e fornece as rotas para previsão de sentimentos. Ela possui métodos para realizar a previsão de sentimentos, inicializar o serviço de modelo, obter o status da aplicação e executar o aplicativo Flask. A aplicação inicia um servidor Flask e executa a API. Durante a inicialização, o serviço de modelo é inicializado em uma thread separada para realizar o treinamento dos modelos. O status da aplicação pode ser obtido através da rota "/status", que retorna o status atual da aplicação, incluindo a porcentagem de conclusão do treinamento.
+
+\subsubsection*{Endpoint "/predict"}
+
+Este endpoint é utilizado para realizar a previsão de sentimentos em um texto. O usuário deve enviar uma requisição POST contendo o texto a ser classificado e o nome do modelo a ser utilizado. A API utiliza o modelo escolhido para realizar a previsão e retorna o resultado em formato JSON contendo a classe de sentimento prevista. Por exemplo:
+
+\begin{verbatim}
+POST /predict
+{
+  "phrase": "Este é um ótimo dia!",
+  "model": "random_forest"
+}
+\end{verbatim}
+
+A resposta será:
+
+\begin{verbatim}
+{
+  "sentiment": 1
+}
+\end{verbatim}
+
+Neste exemplo, a classe de sentimento prevista é 1, indicando um sentimento positivo.
+
+\subsubsection*{Endpoint "/status"}
+
+Este endpoint é utilizado para obter o status da aplicação. Ele retorna informações sobre o estado atual da API, incluindo se o treinamento dos modelos está em andamento e a porcentagem de conclusão do treinamento. A resposta é retornada em formato JSON e contém uma chave "status" com o valor "Training in progress" se o treinamento estiver em andamento, ou "Available" se estiver concluído. Por exemplo:
+
+\begin{verbatim}
+GET /status
+\end{verbatim}
+
+A resposta será:
+
+\begin{verbatim}
+{
+  "status": "Training in progress",
+  "progress": 75.0
+}
+\end{verbatim}
+
+Neste exemplo, o treinamento está em andamento e já foi concluída 75\% das etapas.
+
+Esses dois endpoints permitem que os usuários interajam com a API e obtenham previsões de sentimentos em textos, além de verificar o status do treinamento dos modelos. Isso possibilita o monitoramento do progresso do treinamento e o uso contínuo da API para realizar previsões atualizadas de sentimentos em tempo real.
+
+\subsubsection{Pacote js-graph-stats para node JS}
+\lipsum[5]
+
+\subsubsection{API colab-graph-scan}
+\lipsum[5]
+
+\subsection{Docker}
+\lipsum[5]
+
+\subsection{Testes}
+\lipsum[5]
+
+\section{Considerações e Limitações}
+Neste capítulo, apresentamos uma extensão dos estudos conduzidos no grafo de redes sociais do Colab, introduzindo os Modelos Exponenciais de Grafos Aleatórios (ERGMs) como uma abordagem para detectar câmaras de eco em redes sociais. Os ERGMs são modelos estatísticos que capturam dependências complexas entre as arestas de uma rede, permitindo a modelagem da estrutura de interação global. A detecção de câmaras de eco é um fenômeno de interesse particular devido ao seu impacto na polarização e disseminação de informações.
+
+Exploramos a aplicação dos ERGMs na detecção de câmaras de eco, considerando estatísticas descritivas relevantes, como densidade da comunidade, homogeneidade das opiniões, conexões externas e efeito de influenciadores. Utilizamos essas estatísticas para definir um modelo ERGM que expressa a probabilidade de formação de câmaras de eco em uma rede social.
+
+Apresentamos a implementação computacional do teorema de probabilidade de câmaras de eco, fornecendo exemplos em Python e discutindo os passos necessários para estimar os parâmetros do modelo ERGM a partir das comunidades identificadas. Além disso, introduzimos as métricas de Score e Persona desenvolvidas no capítulo anterior, que são utilizadas como insumos para os modelos ERGM, permitindo uma análise mais refinada das postagens do Colab.
+
+Também apresentamos o aplicativo Colab:GraphScan, que utiliza snapshots da rede social Colab como entrada e realiza a detecção de câmaras de eco. O aplicativo fornece uma visualização interativa do grafo da rede social, colorizando as câmaras de eco identificadas e apresentando os tópicos mais discutidos por cada câmara de eco. Essa ferramenta se mostrou valiosa para analisar a estrutura e a dinâmica da rede, fornecendo insights importantes sobre as interações dos usuários.
+
+No entanto, é importante mencionar algumas considerações e limitações dos modelos ERGM. Durante este estudo, obtivemos insights valiosos sobre o uso dos ERGMs na detecção de câmaras de eco. Observamos que a abordagem baseada em ERGMs é especialmente útil para modelar a estrutura estática da rede e fornecer análises estatísticas significativas. O modelo Markoviano utilizado pelos ERGMs simplifica a análise e a computação de sistemas complexos, permitindo a modelagem de dependências entre as arestas.
+
+Apesar desses benefícios, reconhecemos que a natureza estática do modelo ERGM pode ser limitante ao analisar eventos em tempo real. Considerando a dinâmica em constante evolução das redes sociais, uma abordagem não Markoviana pode ser mais adequada para capturar a dinâmica temporal da rede. Embora o aplicativo Colab:GraphScan tenha sido desenvolvido com sucesso para análise da estrutura estática da rede Colab, reconhecemos que há espaço para melhorias, especialmente para incorporar abordagens não Markovianas.
+
+No próximo capítulo, iremos introduzir uma abordagem não Markoviana para analisar a dinâmica temporal da rede social Colab, explorando análises epidemiológicas e modelos mais avançados. Reconhecemos que, devido a limitações de escopo e disponibilidade de dados, não foi possível abordar essa perspectiva neste estudo e incluí-la no aplicativo Colab:GraphScan.
+
+Adicionalmente, é importante ressaltar que, para uma modelagem não Markoviana, seria necessário acessar dados mais granulares, incluindo informações temporais mais detalhadas e interações em tempo real entre os usuários. Esses dados podem ser valiosos para a análise da dinâmica das câmaras de eco e a compreensão dos padrões de propagação de informações na rede.
+
+Apesar das limitações e considerações mencionadas, este estudo estabelece uma base sólida para a aplicação dos modelos ERGM na detecção de câmaras de eco em redes sociais demonstrada em um aplicativo construído com tecnologias de vanguarda. A integração de abordagens Markovianas e não Markovianas permitiria ampliar nossa compreensão das interações na rede Colab, extrair insights valiosos e potencialmente adaptar esses métodos para outras redes e grafos. Essa convergência entre análises de redes sociais e ciência de dados contribui para o avanço contínuo na compreensão das dinâmicas sociais e no aprimoramento das técnicas de análise de redes sociais.

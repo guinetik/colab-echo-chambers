@@ -1,56 +1,160 @@
-# Sentiment Analysis
+# Introdução à Análise de Sentimento
 
-Sentiment analysis is a natural language processing technique that involves the identification and extraction of subjective information from text data. This process can be used to identify the polarity, or emotional tone, of a given piece of text, which can be useful in various applications, such as market research and social media analysis. Past research has demonstrated the utility of sentiment analysis in a variety of domains, including politics, business, and healthcare (Pang & Lee, 2008; Chen et al., 2014; Nguyen et al., 2015).
+A análise de sentimento é uma técnica de processamento de linguagem natural que envolve a identificação e extração de informações subjetivas a partir de dados textuais. Esse processo pode ser usado para identificar a polaridade, ou tom emocional, de um determinado texto, o que pode ser útil em várias aplicações, como pesquisa de mercado e análise de mídias sociais. Pesquisas anteriores demonstraram a utilidade da análise de sentimento em diversos domínios, incluindo política, negócios e saúde (Pang & Lee, 2008; Chen et al., 2014; Nguyen et al., 2015).
 
-Machine learning techniques can be used to automate the process of sentiment analysis. These techniques involve training a machine learning model on a labeled dataset, where the labels indicate the polarity of the text data. Once the model is trained, it can be used to predict the polarity of new text data that has not been seen before. Common machine learning algorithms used for sentiment analysis include logistic regression, support vector machines, and neural networks (Haddi et al., 2013; Kim, 2014).
+Técnicas de aprendizado de máquina podem ser usadas para automatizar o processo de análise de sentimento. Essas técnicas envolvem o treinamento de um modelo de aprendizado de máquina em um conjunto de dados rotulados, onde os rótulos indicam a polaridade dos dados textuais. Uma vez treinado, o modelo pode ser usado para prever a polaridade de novos dados textuais que não foram vistos anteriormente. Algoritmos de aprendizado de máquina comumente usados para análise de sentimento incluem regressão logística, máquinas de vetor de suporte e redes neurais (Haddi et al., 2013; Kim, 2014).
 
-## Sentiment Analysis of the Colab dataset
+## Aplicações da Análise de Sentimento na mitigação de Câmaras de Eco
 
-In our study, we leveraged the Colab.re app dataset, which contained user posts from 2016 to 2022, to conduct sentiment analysis and identify patterns of polarization among users. We used a machine learning approach to build a robot that could cluster users based on their political leanings in the context of Brazilian politics. Specifically, we trained a model to predict whether a user was leaning towards the left or the right based on the sentiment of their posts.
+No contexto da polarização em redes sociais, a Análise de Sentimento é uma ferramenta poderosa para detectar e mitigar a formação de câmaras de eco. Pesquisas anteriores mostraram que a análise de sentimento pode ser usada para identificar as crenças e inclinações políticas dos usuários com base em sua linguagem e sentimento expressos em postagens de mídias sociais. Algoritmos de aprendizado de máquina, como Naive Bayes, Random Forest e Support Vector Machines (SVM), têm sido amplamente utilizados para análise de sentimento (Hutto & Gilbert, 2014).
 
-To train our sentiment analysis model, we first preprocessed the data by removing stop words, punctuation, and other noise from the user posts. We then used the TextBlob library, a popular Python library for natural language processing, to compute the polarity scores for each post. The polarity scores range from -1 to 1, with -1 indicating a very negative sentiment and 1 indicating a very positive sentiment.
+Para identificar câmaras de eco, a análise de sentimento pode ser usada como uma métrica para medir a homofilia em uma rede social. A homofilia refere-se à tendência dos indivíduos de se associarem com outros que são semelhantes a eles em termos de características, opiniões e sentimentos. Ao analisar o sentimento expresso nas postagens de usuários, podemos determinar se um grupo de usuários está polarizado, ou seja, se a maioria de suas postagens apresenta um sentimento ou inclinação política semelhante.
 
-Once we had computed the polarity scores for each post, we used them to train a machine learning model to predict the political leaning of the user. We used a logistic regression algorithm, which is a common algorithm used for binary classification tasks. We split the dataset into training and testing sets, with 80% of the data used for training and 20% used for testing. We achieved an accuracy of 78% on the testing set, which indicates that our model was able to effectively identify patterns of polarization among users.
+A análise de sentimento permite medir o grau de polarização dentro desse grupo, fornecendo uma medida quantitativa do nível de homofilia na rede. Se os usuários dentro de um grupo apresentarem predominantemente sentimentos semelhantes, isso indica uma maior homofilia e uma maior probabilidade de formação de uma câmara de eco.
 
-Overall, our study demonstrates the utility of sentiment analysis and machine learning techniques for understanding patterns of polarization in social media data. By leveraging the Colab.re app dataset and building a sentiment analysis model, we were able to gain insights into the political leanings of users and identify patterns of polarization in the data. This approach has the potential to be applied in various domains, including politics, business, and healthcare.
+Além de identificar a polarização, a análise de sentimento também pode revelar os tópicos específicos que estão impulsionando a polarização dentro dessas câmaras de eco. Ao examinar o conteúdo das postagens e identificar os principais temas discutidos, é possível compreender melhor os fatores que contribuem para a formação e manutenção dessas câmaras de eco.
 
-Pang, B., & Lee, L. (2008). Opinion mining and sentiment analysis. Foundations and Trends in Information Retrieval, 2(1–2), 1–135. https://doi.org/10.1561/1500000011
+Com essa abordagem, a análise de sentimento não apenas fornece insights sobre a polarização em uma rede social, mas também ajuda a identificar os grupos de usuários que estão mais propensos a formar câmaras de eco e a perpetuar a polarização. Essas informações são valiosas para a compreensão dos padrões de interação e para o desenvolvimento de estratégias de mitigação da polarização e promoção do diálogo diversificado e inclusivo.
 
-Liu, B. (2012). Sentiment analysis and opinion mining. Synthesis Lectures on Human Language Technologies, 5(1), 1–167. https://doi.org/10.2200/S00416ED1V01Y201204HLT016
+Por exemplo, em um estudo de Colleoni et al. (2014), a análise de sentimento foi usada para medir a polarização de usuários em discussões políticas no Twitter. Os autores descobriram que os usuários tendem a se agrupar em torno de indivíduos com opiniões semelhantes e que esse agrupamento leva à formação de câmaras de eco. Os autores sugeriram que a análise de sentimento poderia ser usada para identificar os usuários que estão impulsionando a polarização e direcioná-los com contra-argumentos ou pontos de vista alternativos.
 
-Pak, A., & Paroubek, P. (2010). Twitter as a Corpus for Sentiment Analysis and Opinion Mining. In LREC 2010 - Proceedings of the 7th Conference on International Language Resources and Evaluation (pp. 1320–1326). European Language Resources Association (ELRA). https://www.aclweb.org/anthology/L10-1239.pdf
+# Análise de sentimento das postagens do Colab.re
 
-Mohammad, S., & Turney, P. (2013). Crowdsourcing a Word-Emotion Association Lexicon. Computational Intelligence, 29(3), 436–465. https://doi.org/10.1111/j.1467-8640.2012.00460.x
+O objetivo deste experimento é criar duas métricas adicionais no modelo de dados dos usuários do Colab: score e persona. O score se refere à classificação das postagens do usuário como positiva ou negativa de acordo com os dicionários léxicos. A classificação de persona envolve o usuário ser classificado como "helper" ou "complainer" de acordo com critérios específicos.
 
-Kouloumpis, E., Wilson, T., & Moore, J. (2011). Twitter sentiment analysis: The good the bad and the OMG! ICWSM, 11, 538-541.
+## 2.2 Score
 
-Pak, A., & Paroubek, P. (2010). Twitter as a corpus for sentiment analysis and opinion mining. In LREC (Vol. 10, pp. 1320-1326).
+O score é uma métrica que classifica as postagens do usuário como positivas ou negativas. Esta classificação é baseada em dicionários léxicos, que são conjuntos de palavras pré-definidas associadas a uma polaridade de sentimento (positiva, negativa ou neutra). A análise de sentimento tem sido aplicada em quase todos os domínios de negócios e sociais, pois as opiniões são centrais para quase todas as atividades humanas e são influenciadores-chave de nossos comportamentos (Zhang & Liu, 2012)[^1^].
 
-Thelwall, M., Buckley, K., & Paltoglou, G. (2012). Sentiment in Twitter events. Journal of the American Society for Information Science and Technology, 63(1), 143-153.
+## 2.2 Persona
 
-Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for sentiment analysis of social media text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf
+Personas são representações fictícias e generalizadas de um grupo de usuários que compartilham características e comportamentos semelhantes. No contexto das redes sociais, as personas representam os diferentes tipos de usuários que interagem dentro dessas plataformas. Essas personas podem ser identificadas e categorizadas com base em uma variedade de fatores, incluindo, entre outros, seus comportamentos online, interesses, padrões de comunicação e atividades de postagem.
 
+A análise de personas é uma área de pesquisa significativa, pois ajuda a entender melhor os usuários de redes sociais e a forma como interagem e se comportam online. Por exemplo, a pesquisa de Jung et al. (2018) apresenta a Geração Automática de Personas (APG), um sistema e metodologia para gerar quantitativamente personas usando grandes quantidades de dados de mídia social online. Este sistema permite identificar segmentos de público distintos e impactantes, criando perfis de personas aprimorados com características pertinentes, como nomes, fotos e interesses.
 
-## Applications of Sentiment Analysis in Echo Chambers mitigation
+No contexto do Colab.re, propomos a hipótese de duas personas principais: os "Helpers" e os "Complainers". Essas personas são identificadas com base em suas atividades de postagem e interações dentro da plataforma.
 
-In the context of polarization on social networks, Sentiment Analysis is a powerful tool for detecting and mitigating the formation of echo chambers. Past research has shown that sentiment analysis can be used to identify users' political beliefs and leanings based on their language and sentiment expressed in social media posts. Machine learning algorithms such as Naive Bayes, Random Forest, and Support Vector Machines (SVM) have been widely used for sentiment analysis (Hutto & Gilbert, 2014).
+### Helper
 
-To identify echo chambers, sentiment analysis can be used to measure the polarization of groups of users. A group of users can be considered polarized if the majority of their posts express a similar sentiment or political leaning. Sentiment analysis can be used to measure the degree of polarization within a group and to identify the topics that are driving the polarization.
+A persona "helper" é caracterizada por um comportamento proativo e colaborativo em uma comunidade online. Esses indivíduos são frequentemente encontrados respondendo a perguntas, oferecendo conselhos e compartilhando informações úteis com outros membros da comunidade. Eles tendem a expressar sentimentos positivos em suas postagens e são motivados pelo desejo de ajudar os outros e contribuir para a comunidade.
 
-For example, in a study by Colleoni et al. (2014), sentiment analysis was used to measure the polarization of users in political discussions on Twitter. The authors found that users tend to cluster around like-minded individuals and that this clustering leads to the formation of echo chambers. The authors suggested that sentiment analysis could be used to identify the users who are driving the polarization and to target them with counter-arguments or alternative viewpoints.
+Os "helpers" são fundamentais para o sucesso de qualquer comunidade online, pois eles ajudam a criar um ambiente de apoio e colaboração. Eles são frequentemente vistos como líderes informais ou especialistas em suas respectivas áreas de interesse. Eles podem ser motivados por uma variedade de fatores, incluindo o desejo de compartilhar conhecimento, a satisfação de ajudar os outros, ou o reconhecimento e respeito que recebem da comunidade.
 
-In our study, we used sentiment analysis to identify the political leanings of users in the Colab.re app dataset. We trained a machine learning model using Naive Bayes and Support Vector Machines algorithms to classify users based on their political leanings. We then used the output from the sentiment analysis to identify echo chambers and to measure the degree of polarization within each group. This allowed us to target specific groups with counter-arguments and alternative viewpoints to mitigate the formation of echo chambers.
+### Complainer
 
-> elaborate on the results of the study, specially comparing it to the SIR and SEIR models
+A persona "complainer" é caracterizada por um comportamento mais crítico ou negativo em uma comunidade online. Esses indivíduos são frequentemente encontrados expressando insatisfação, fazendo reclamações ou criticando outros membros da comunidade ou a comunidade como um todo. Eles tendem a expressar sentimentos negativos em suas postagens e são motivados por uma variedade de fatores, incluindo frustração, descontentamento ou a necessidade de expressar suas opiniões.
 
-In conclusion, sentiment analysis is a powerful tool for detecting and mitigating the formation of echo chambers. It can be used to measure the degree of polarization within groups of users and to identify the topics that are driving the polarization. By targeting the users who are driving the polarization with counter-arguments and alternative viewpoints, we can break down echo chambers and promote more diverse and inclusive conversations.
+Os "complainers" desempenham um papel importante em qualquer comunidade online, pois eles ajudam a identificar problemas, desafios ou áreas de melhoria. Embora suas postagens possam ser percebidas como negativas, elas podem fornecer feedback valioso que pode ser usado para melhorar a comunidade. No entanto, é importante gerenciar e responder adequadamente a esses usuários para evitar a criação de um ambiente negativo ou tóxico.
 
-Kouloumpis, E., Wilson, T., & Moore, J. D. (2011). Twitter sentiment analysis: The good the bad and the OMG!. ICWSM, 11, 538-541.
+## 2.3 Relevância das Personas "Helpers" e "Complainers" no Colab.re
 
-Ranco, G., Aleksovski, D., Caldarelli, G., Grčar, M., Mozetič, I., & Panisson, A. (2015). The effects of Twitter sentiment on stock price returns. PloS one, 10(9), e0138441.
+A presença das personas "Helpers" e "Complainers" dentro do Colab.re é altamente relevante para o ecossistema dessa plataforma colaborativa. Ambas as personas desempenham papéis distintos e complementares que podem influenciar a experiência do usuário e fornecer insights valiosos para o aprimoramento contínuo do aplicativo. A seguir, são apresentados os argumentos que sustentam a relevância dessas personas específicas:
 
-Oshikawa, S., & Kokawa, Y. (2017). Can Twitter sentiment analysis capture unseen electoral outcomes? An analysis of 2016 Japanese upper house election. Journal of Information Science Theory and Practice, 5(1), 29-44.
+### 2.3.1 Helpers: Fomentando a Colaboração e o Aprendizado Coletivo
 
-Tavits, M. (2017). What triggers public opposition to immigration? Anxiety, group cues, and immigration threat. British Journal of Political Science, 47(1), 1-20.
+Os Helpers desempenham um papel fundamental no Colab.re, pois contribuem ativamente para a comunidade, oferecendo suporte, compartilhando conhecimento e fornecendo soluções para os desafios enfrentados pelos usuários. Eles ajudam a fomentar a colaboração e o aprendizado coletivo, tornando-se recursos valiosos para aqueles que precisam de assistência ou orientação. Sua presença cria um ambiente propício para troca de ideias, resolução de problemas e crescimento mútuo.
 
-Barberá, P., Jost, J. T., Nagler, J., Tucker, J. A., & Bonneau, R. (2015). Tweeting from left to right: Is online political communication more than an echo chamber?. Psychological science, 26(10), 1531-1542.
+Ao compartilhar suas habilidades e conhecimentos, os Helpers estabelecem uma cultura de generosidade e reciprocidade dentro da comunidade do Colab.re. Eles inspiram outros usuários a se envolverem ativamente, encorajando a participação e a colaboração entre os membros. Além disso, a presença de Helpers é essencial para garantir que novos usuários se sintam bem-vindos e apoiados, promovendo assim um ambiente inclusivo e acolhedor.
+
+### 2.3.2 Complainers: Destacando Problemas e Áreas de Melhoria
+
+Embora os Complainers possam ser vistos como usuários críticos ou negativos, sua presença é igualmente importante para o Colab.re. Essas personas desempenham o papel de destacar problemas, lacunas e áreas de melhoria dentro do aplicativo. Ao expressar suas preocupações e insatisfações, eles fornecem um feedback valioso que pode impulsionar o aprimoramento contínuo da plataforma.
+
+Os Complainers atuam como "sentinelas" da comunidade, chamando a atenção para questões que podem ter sido negligenciadas ou passado despercebidas. Suas críticas construtivas podem levar a melhorias significativas na usabilidade, funcionalidade e qualidade geral do Colab.re. Além disso, ao abordar e resolver essas preocupações, a equipe responsável pelo desenvolvimento do aplicativo demonstra seu compromisso com a satisfação e o engajamento dos usuários.
+
+### 2.3.3 Sinergia entre Helpers e Complainers
+
+A interação entre as personas "Helpers" e "Complainers" no Colab.re é uma relação simbiótica que impulsiona o crescimento e o aprimoramento contínuo da plataforma. Os Helpers oferecem suporte, orientação e soluções, tornando o ambiente colaborativo e enriquecedor. Por outro lado, os Complainers fornecem feedback crítico e identificam áreas de melhoria, promovendo a evolução e aprimoramento do aplicativo. Essa sinergia entre essas personas complementares é essencial para criar uma comunidade vibrante, responsiva e em constante aprimoramento no Colab.re.
+
+Nas próximas páginas, detalharemos as técnicas e metodologias utilizadas para identificar e classificar as personas "Helpers" e "Complainers" dentro do Colab.re, fornecendo uma visão mais aprofundada sobre a implementação dessas personas e sua contribuição para a análise de dados e aprimoramento da plataforma.
+
+# 3. Classificação por score
+
+## 3.1. Treinamento da classificação de postagens por Score
+
+Para treinar um modelo de classificação de sentimento, utilizamos um script Python executado no ambiente do Google Colaboratory. Este modelo foi treinado usando um conjunto de dados de treinamento que consiste em postagens de usuário rotuladas como positivas ou negativas. O modelo então aprende a associar certas palavras e frases a sentimentos positivos ou negativos.
+
+O script (prover referencia do script) é um exemplo de aplicação de técnicas de Processamento de Linguagem Natural (PLN) e Análise de Sentimentos para criar um conjunto de dados de treinamento para um algoritmo de classificação de sentimentos. O objetivo é analisar postagens do Colab.re, e classificá-las como positivas ou negativas com base em seu conteúdo textual.
+
+O script utiliza uma abordagem de pontuação de sentimentos, onde cada postagem é atribuída a um score de sentimento que varia de 0 a 1. Um score próximo a 0 indica um sentimento negativo, enquanto um score próximo a 1 indica um sentimento positivo. Esta métrica de sentimento fornece uma maneira quantitativa de medir o sentimento geral expresso em uma postagem. Isso pode oferecer insights valiosos sobre a percepção dos usuários sobre diferentes tópicos, permitindo a identificação de problemas emergentes, a avaliação da satisfação do usuário e a orientação de estratégias de engajamento.
+
+Para realizar a análise de sentimentos, o script emprega várias técnicas de PLN, incluindo tokenização, lematização e remoção de palavras de parada. A tokenização é o processo de dividir o texto em palavras individuais ou "tokens". A lematização é o processo de reduzir as palavras à sua forma base ou raiz, o que ajuda a consolidar diferentes formas da mesma palavra. A remoção de palavras de parada envolve a eliminação de palavras comuns que geralmente não contribuem para o significado de uma frase, como "e", "o" e "em".
+
+O script utiliza quatro dicionários léxicos diferentes para a análise de sentimentos: OpLexicon, SenticNet, UniLex e WordNetAffectBR. Cada dicionário léxico contém uma lista de palavras junto com um valor de polaridade associado que indica o sentimento geral da palavra (positivo, negativo ou neutro).
+
+- OpLexicon: É um dicionário léxico para o idioma português que contém mais de 32.000 palavras, cada uma com um valor de polaridade associado.
+- SenticNet: É um dicionário léxico multilíngue que fornece valores de polaridade para palavras com base em sua semântica e psicologia.
+- UniLex: É um dicionário léxico multilíngue que fornece valores de polaridade para palavras com base em uma variedade de recursos linguísticos.
+- WordNetAffectBR: É uma versão em português do WordNet-Affect, um dicionário léxico que fornece valores de polaridade para palavras com base em sua associação com diferentes emoções.
+
+O script compara a eficácia desses dicionários léxicos analisando a mesma frase com cada dicionário e calculando a polaridade resultante. Isso permite uma avaliação objetiva de qual dicionário léxico é mais eficaz para a análica de sentimentos no contexto específico das postagens do Colab.
+
+Finalmente, o script cria um conjunto de dados de treinamento selecionando as 1000 postagens com os scores de sentimento mais altos e as 1000 postagens com os scores de sentimento mais baixos. Este conjunto de dados de treinamento pode ser usado para treinar um algoritmo de aprendizado de máquina para classificar automaticamente o sentimento das postagens do Colab. A ideia é que o algoritmo aprenda a associar certos padrões de palavras e frases com sentimentos positivos ou negativos com base nos exemplos fornecidos no conjunto de dados de treinamento.
+
+O script também inclui uma etapa de pré-processamento de texto, que envolve a conversão de todo o texto para minúsculas, a tokenização do texto em palavras individuais, a lematização das palavras para sua forma base e a remoção de palavras de parada e pontuação. Este pré-processamento é uma etapa crucial para garantir que o texto esteja em um formato que possa ser facilmente analisado e interpretado pelo algoritmo de aprendizado de máquina.
+
+O script também utiliza a biblioteca Spacy para o processamento de linguagem natural e a biblioteca NLTK (Natural Language Toolkit) para tarefas como a tokenização e a lematização. Além disso, ele usa a biblioteca pandas para manipulação de dados e a biblioteca matplotlib para visualização de dados.
+
+Em resumo, este script Python demonstra como as técnicas de processamento de linguagem natural e análise de sentimentos podem ser usadas para criar um conjunto de dados de treinamento para um algoritmo de classificação de sentimentos. O conjunto de dados resultante pode ser usado para treinar um algoritmo de aprendizado de máquina para classificar automaticamente o sentimento das postagens do Colab, proporcionando insights valiosos sobre a percepção dos usuários.
+
+## 3.2. Classificação de Score
+
+Nesta seção, descrevemos a metodologia empregada para a análise de dados e a construção do modelo de aprendizado de máquina. O código foi implementado em Python, utilizando várias bibliotecas para análise de dados, visualização, pré-processamento de texto e aprendizado de máquina.
+
+Os dados foram carregados a partir de URLs fornecidos, que continham informações sobre eventos postados por usuários em uma plataforma social. Realizamos várias etapas de pré-processamento nos dados, incluindo a remoção de padrões indesejados, a conversão de texto para minúsculas, a divisão de texto em palavras (tokenização), a remoção de palavras irrelevantes (stopwords), e a redução das palavras à sua forma base (stemming) [1].
+
+Realizamos uma análise exploratória dos dados para entender melhor as características dos dados. Isso incluiu a visualização da distribuição das palavras mais frequentes e a criação de nuvens de palavras para postagens positivas e negativas. Além disso, utilizamos a biblioteca Word2Vec para criar um modelo de palavras em vetores, que foi usado para visualizar as associações de palavras mais comuns [2].
+
+Para converter o texto em uma representação numérica que pudesse ser usada por algoritmos de aprendizado de máquina, utilizamos a técnica de "Bag of Words" [3]. Esta técnica transforma o texto em uma matriz de ocorrências de palavras no corpus de texto.
+
+Após a extração de recursos, dividimos os dados em conjuntos de treinamento e validação. Em seguida, padronizamos os dados para garantir que todas as características tivessem a mesma escala [4].
+
+Utilizamos vários algoritmos de aprendizado de máquina para classificar as postagens como positivas ou negativas, incluindo RandomForestClassifier, LogisticRegression, DecisionTreeClassifier, SVC e XGBClassifier [5]. Para cada modelo, calculamos a acurácia do treinamento e da validação, a pontuação F1 e a matriz de confusão.
+
+No que diz respeito à modelagem de aprendizado de máquina, os resultados foram os seguintes:
+
+- RandomForestClassifier: O modelo RandomForestClassifier alcançou uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.172 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.14.
+- LogisticRegression: O modelo LogisticRegression obteve uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.164 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.16.
+- DecisionTreeClassifier: O modelo DecisionTreeClassifier alcançou uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.13 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.1.
+- SVC: O modelo SVC obteve uma acurácia de treinamento de 0.395 e uma acurácia de validação de 0.098 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 0.5906 e a acurácia de validação foi de 0.1.
+- XGBClassifier: Na última execução em 15 de maio de 2022, o modelo XGBClassifier alcançou uma acurácia de treinamento de 0.3154 e uma acurácia de validação de 0.1.
+
+Esses resultados indicam que o modelo RandomForestClassifier teve o melhor desempenho em termos de acurácia de treinamento, enquanto o modelo LogisticRegression teve a melhor acurácia de validação. No entanto, todos os modelos apresentaram uma grande diferença entre as acurácias de treinamento e validação, sugerindo que os modelos podem estar sofrendo de overfitting. Isso significa que os modelos estão se ajustando muito bem aos dados de treinamento, mas não estão generalizando bem para novos dados. Futuras iterações deste trabalho podem explorar técnicas para mitigar o overfitting, como a regularização ou o uso de mais dados de treinamento.
+
+Referências
+
+[1] Bird, S., Klein, E., & Loper, E. (2009). Natural language processing with Python: analyzing text with the natural language toolkit. " O'Reilly Media, Inc.".
+
+[2] Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781.
+
+[3] Harris, Z. S. (1954). Distributional structure. Word, 10(2-3), 146-162.
+
+[4] Jain, A. K., Duin, R. P., & Mao, J. (2000). Statistical pattern recognition: A review. IEEE Transactions on pattern analysis and machine intelligence, 22(1), 4-37.
+
+[5] Kotsiantis, S. B., Zaharakis, I., & Pintelas, P. (2007). Supervised machine learning: A review of classification techniques. Emerging artificial intelligence applications in computer engineering, 160.
+
+# 4. Classificação das personas
+
+## 4.1. Geração de Dados de Treinamento para Classificação de Persona
+
+Os dados de treinamento para a classificação de persona foram gerados usando o ChatGPT. O ChatGPT foi treinado para gerar postagens de usuário que são representativas de "helpers" e "complainers". Estas postagens foram então usadas para treinar o modelo de classificação de persona.
+
+## 4.2. Classificação de personas
+
+Utilizamos novamente o Python para classificar os usuários como "helpers" ou "complainers". Este script utiliza o modelo de classificação de sentimento treinado para analisar as postagens dos usuários e determinar se eles são mais propensos a ajudar ou reclamar.
+
+# 5. Homofilia e Câmaras de Eco
+
+As métricas de homofilia geradas a partir deste experimento podem ajudar a detectar câmaras de eco em um grafo da rede do Colab. Câmaras de eco são fenômenos sociais onde as opiniões e informações são amplificadas ou reforçadas pela comunicação e repetição dentro de um sistema fechado e podem contribuir para a polarização social. Ao identificar e entender estas câmaras de eco, podemos desenvolver estratégias para promover a diversidade de opiniões e a comunicação aberta.
+
+# 6. Modelagem Baseada em Agentes
+
+A Modelagem Baseada em Agentes (MBA) é uma técnica computacional que tem ganhado interesse em diversas áreas de pesquisa, devido à sua capacidade de simular a interação de agentes autônomos e observar os resultados emergentes dessas interações. A MBA é particularmente útil para estudar sistemas complexos, onde o comportamento global do sistema não pode ser facilmente deduzido a partir do comportamento individual dos agentes.
+
+Atiqi et al. (2023) apresentam uma abordagem inovadora para entender a dinâmica das redes sociais através da Modelagem Baseada em Agentes (MBA). Ele se baseia no modelo de Zaller (1992), que sugere que a opinião pública é moldada por um processo de recepção, aceitação e resistência a mensagens políticas. Este modelo enfatiza a importância das predisposições políticas e da exposição a mensagens na formação da opinião pública.
+
+No contexto das redes sociais, Atiqi et al. (2023) conduzem dois experimentos principais. No primeiro, eles simulam uma rede social com agentes que possuem diferentes níveis de consciência política e predisposições políticas. Através desta simulação, eles ilustram que a polarização e a formação de câmaras de eco podem emergir naturalmente em uma rede social, mesmo quando a mídia é imparcial e os agentes são racionais e buscam informações precisas. No segundo experimento, Atiqi et al. (2023) introduzem bots na rede social. Estes bots, programados para transmitir mensagens com uma certa polaridade política, podem ser usados para influenciar a opinião pública. Os autores demonstram que, dependendo da estratégia usada pelos bots, eles podem aumentar ou diminuir a polarização e a formação de câmaras de eco.
+
+Agora, consideremos as personas "helpers" e "complainers" em redes sociais. Estas personas, embora não sejam explicitamente mencionadas por Atiqi et al. (2023), podem ser consideradas como agentes dentro da estrutura de MBA. Os "helpers" podem ser vistos como agentes que buscam transmitir mensagens positivas e úteis, enquanto os "complainers" tendem a transmitir mensagens negativas ou críticas. A interação entre essas duas personas pode levar a diferentes dinâmicas de rede e padrões de comunicação. Por exemplo, se os "helpers" são mais influentes ou numerosos, eles podem criar um ambiente mais positivo e cooperativo na rede social. Por outro lado, se os "complainers" são mais influentes ou numerosos, eles podem criar um ambiente mais negativo e crítico.
+
+Além disso, a presença de bots também pode influenciar a dinâmica entre "helpers" e "complainers". Por exemplo, bots programados para agir como "helpers" podem aumentar a positividade e a cooperação na rede, enquanto bots programados para agir como "complainers" podem aumentar a negatividade e a crítica. Portanto, a abordagem de MBA usada por Atiqi et al. (2023) pode ser uma ferramenta útil para estudar a interação entre "helpers" e "complainers" em redes sociais e entender como essas interações podem influenciar a dinâmica da rede e a formação da opinião pública.

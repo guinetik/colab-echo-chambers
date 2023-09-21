@@ -1,205 +1,265 @@
-import pandas as pd
 import networkx as nx
-from sklearn.cluster import SpectralClustering
-import community as community_louvain
 import numpy as np
+import pandas as pd
+from abc import ABC, abstractmethod
+import community.community_louvain as community_louvain
+from networkx.algorithms import community
+import random
+class CommunityStrategy(ABC):
+    """
+    Abstract base class for community detection strategies.
+    """
+    @abstractmethod
+    def get_communities(self, G):
+        pass
+####
+
+
+class LouvainStrategy(CommunityStrategy):
+    """
+    Implements the Louvain community detection strategy.
+    """
+
+    def get_communities(self, G):
+        partitions = community_louvain.best_partition(G)
+        values = set(partitions.values())
+        communities = [set([key for key in partitions.keys()
+                           if partitions[key] == val]) for val in values]
+        return communities
+####
+
+
+class GirvanNewmanStrategy(CommunityStrategy):
+    """
+    Implements the Girvan-Newman community detection strategy.
+    """
+
+    @staticmethod
+    def _find_best_edge(G0):
+        """
+        Function to find the edge with the highest betweenness centrality.
+        """
+        edge_betweenness = nx.edge_betweenness_centrality(G0)
+        sorted_edge_betweenness = sorted(
+            edge_betweenness.items(), key=lambda x: x[1], reverse=True)
+        return sorted_edge_betweenness[0][0]
+
+    @staticmethod
+    def _girvan_newman_step(G):
+        """
+        Function to perform one step of the Girvan-Newman algorithm.
+        """
+        if len(G.edges) == 0:
+            return []
+        initial_components = nx.number_connected_components(G)
+        edge_to_remove = GirvanNewmanStrategy._find_best_edge(G)
+        G.remove_edge(*edge_to_remove)
+        new_components = nx.number_connected_components(G)
+        if new_components > initial_components:
+            return [c for c in nx.connected_components(G)]
+        else:
+            return GirvanNewmanStrategy._girvan_newman_step(G)
+
+    def get_communities(self, G):
+        # Use a copy to avoid modifying the original graph
+        communities = self._girvan_newman_step(G.copy())
+        return communities
+###
 
 
 class EchoChamberDetector:
-
-    def __init__(self, nodes_df, edges_df, min_community_density=0.5, min_community_size=3):
-        """
-        Initializes an EchoChamberDetector object with the given nodes and edges dataframes, and sets the minimum community 
-        density and size thresholds.
-
-        Parameters:
-        -----------
-        nodes_df : pandas.DataFrame
-            Dataframe containing the nodes of the graph. Must have a column named 'id' with the unique identifier of each node.
-        edges_df : pandas.DataFrame
-            Dataframe containing the edges of the graph. Must have two columns named 'source' and 'target' with the IDs of 
-            the nodes connected by each edge.
-        min_community_density : float
-            Minimum density required for a community to be considered an echo chamber. Default is 0.5.
-        min_community_size : int
-            Minimum size required for a community to be considered an echo chamber. Default is 3.
-        """
+    def __init__(self, nodes_df, edges_df, scores_df, strategy, min_community_density=0.5, min_community_size=3):
         self.nodes = nodes_df
         self.edges = edges_df
+        self.scores = scores_df
         self.G = nx.from_pandas_edgelist(self.edges, 'source', 'target')
+        self.strategy = strategy  # Set the community detection strategy
         self.min_community_density = min_community_density
         self.min_community_size = min_community_size
-    ##
+        self.echo_chambers = []
 
-    def louvain_partition(self):
-        """
-        Applies the Louvain community detection algorithm to the graph and returns the partition.
+    @staticmethod
+    def derive_betas(G, sample_size=None):
+        # Calcular estatísticas da rede
+        avg_clustering_coeff = average_clustering(G)
+        num_communities = len(list(community.greedy_modularity_communities(G)))
+        num_weakly_connected_components = number_connected_components(
+            G.to_undirected())
+        eigenvector_centrality_sum_change = sum(
+            eigenvector_centrality(G).values())
+        modularity_score = modularity(
+            G, community.greedy_modularity_communities(G))
+        # Calcular o comprimento médio do caminho
+        if sample_size is None:
+            avg_shortest_path_length = average_shortest_path_length(G)
+        else:
+            nodes = random.sample(G.nodes, sample_size)
+            avg_shortest_path_length = average_shortest_path_length(
+                G.subgraph(nodes))
+        # Derivar valores beta
+        beta1 = avg_clustering_coeff
+        beta2 = 1 / num_communities
+        beta3 = 1 / num_weakly_connected_components
+        beta4 = eigenvector_centrality_sum_change
+        beta5 = avg_shortest_path_length
+        beta6 = modularity_score
+        # Derivar valor para beta7
+        beta7 = 1 / len(G.nodes)
+        #
+        return beta1, beta2, beta3, beta4, beta5, beta6, beta7
+    ###
 
-        Returns:
-            partition (dict): A dictionary mapping node IDs to community IDs.
-        """
-        partition = community_louvain.best_partition(self.G)
-        return partition
-    ##
-    def spectral_partition(self, n_clusters):
-        """
-        Perform spectral clustering on the graph using the adjacency matrix and return the resulting partition.
+    def calculate_homogeneity_of_opinions(self, community):
+        community_scores = self.scores.loc[community, 'scores']
+        homogeneity = community_scores.std()
+        return homogeneity
+    ###
 
-        Args:
-        - n_clusters (int): The number of clusters to create.
-
-        Returns:
-        - partition (numpy.ndarray): A one-dimensional array containing the cluster assignments of each node in the graph.
-
-        This method uses the adjacency matrix of the graph to perform spectral clustering, which is a technique that aims to group nodes with similar connectivity patterns. Specifically, it constructs an affinity matrix from the adjacency matrix, and applies the SpectralClustering algorithm from scikit-learn to obtain the cluster assignments. The resulting partition is returned as a one-dimensional numpy array, where each element represents the cluster assignment of the corresponding node in the graph. The number of clusters is controlled by the `n_clusters` parameter.
-        """
-        A = nx.adjacency_matrix(self.G)
-        sc = SpectralClustering(n_clusters=n_clusters,
-                                affinity='precomputed', n_init=100)
-        sc.fit(A)
-        partition = sc.labels_
-        return partition
-    ##
-    def louvain_score(self):
-        """
-        Calculates the modularity score of the Louvain community detection algorithm.
-
-        Returns:
-            score (float): The modularity score of the detected communities.
-        """
-        partition = self.louvain_partition()
-        score = community_louvain.modularity(partition, self.G)
-        return score
-    ##
-    def spectral_score(self, n_clusters):
-        """
-        Calculates the modularity score of the spectral clustering partition.
-
-        Args:
-        - n_clusters (int): number of clusters to partition the graph.
-
-        Returns:
-        - float: modularity score of the spectral clustering partition.
-
-        This method partitions the graph using spectral clustering algorithm with a given number of clusters.
-        Then it calculates the modularity score of the partitioned clusters using the networkx's modularity function.
-        Modularity is a measure of the density of edges within communities compared to the density of edges between communities.
-        Higher modularity scores indicate better community structures.
-
-        """
-        partition = self.spectral_partition(n_clusters)
-        score = nx.algorithms.community.modularity(self.G, partition)
-        return score
-    ##
     def get_eigenvector_top_users(self, n):
         """
         Returns the top n users with the highest eigenvector centrality score in the network.
-        
-        Eigenvector centrality measures the influence of a node in a network, taking into account the centrality of its 
-        neighboring nodes. A node with a high eigenvector centrality score indicates that it is connected to other 
+
+        Eigenvector centrality measures the influence of a node in a network, taking into account the centrality of its
+        neighboring nodes. A node with a high eigenvector centrality score indicates that it is connected to other
         well-connected nodes, making it influential in the network.
-        
+
         Args:
         - n (int): The number of top users to return.
-        
+
         Returns:
-        - top_users (numpy.ndarray): A 1D numpy array of the IDs of the top n users with the highest eigenvector 
+        - top_users (numpy.ndarray): A 1D numpy array of the IDs of the top n users with the highest eigenvector
         centrality score in the network.
         """
         centrality = nx.eigenvector_centrality_numpy(self.G)
         sorted_centrality = sorted(
             centrality.items(), key=lambda x: x[1], reverse=True)
-        top_users = np.array([int(u[0]) for u in sorted_centrality[:n]])
+        top_users = np.array([u[0] for u in sorted_centrality[:n]])
         return top_users
-    ##
+    ###
 
-    def detect_echo_chambers(self, method='spectral', community_density=0.5, min_community_size=3, n_clusters=5):
-        """
-        Detects echo chambers in the network.
-
-        Parameters:
-        -----------
-        method: str, default 'spectral'
-            The method used to partition the network. It can be either 'spectral' or 'louvain'.
-        community_density: float, default 0.5
-            Minimum community density required to consider it as an echo chamber.
-        min_community_size: int, default 3
-            Minimum number of nodes required for a community to be considered an echo chamber.
-        n_clusters: int, default 5
-            Number of clusters to use in the spectral partitioning method.
-
-        Returns:
-        --------
-        subgraphs: list
-            List of subgraphs containing echo chambers detected in the network.
-        """
-        if method == 'spectral':
-            partition = self.spectral_partition(n_clusters)
-        elif method == 'louvain':
-            partition = self.louvain_partition()
-        else:
-            raise ValueError("Method should be 'spectral' or 'louvain'.")
-
-        subgraphs = []
-        for c in set(partition):
-            nodes = [n for n, p in partition.items() if p == c]
-            if len(nodes) >= min_community_size:
-                sg = self.G.subgraph(nodes)
-                if len(sg) / self.G.subgraph(self.nodes['id']).order() >= community_density:
-                    subgraphs.append(sg)
-
-        return subgraphs
-    ##
+    def calculate_echo_chamber_probability(self, community):
+        density = self.calculate_community_density(community)
+        homogeneity = self.calculate_homogeneity_of_opinions(community)
+        external_connections = self.calculate_external_connections(community)
+        influencers = self.calculate_influencers(community)
+        gec = self.calculate_gec()
+        average_exposure = self.calculate_average_exposure()
+        ecc = self.calculate_ecc()
+        ###
+        probability = np.exp(
+            self.beta1 * density +
+            self.beta2 * homogeneity +
+            self.beta3 * external_connections +
+            self.beta4 * influencers +
+            self.beta5 * average_exposure +
+            self.beta6 * gec +
+            self.beta7 * ecc
+        )
+        ###
+        return probability
+    ###
 
     def is_echo_chamber(self, community):
-        """
-        Determines if a given community is an echo chamber based on the community density.
+        graph_probability = self.calculate_echo_chamber_probability(
+            list(self.G.nodes))
+        community_probability = self.calculate_echo_chamber_probability(
+            community)
+        print(
+            f"graph_probability: {graph_probability} - community_probability: {community_probability}")
+        return community_probability >= graph_probability
+    ###
 
-        Parameters:
-        -----------
-        community : list of str
-            A list of node IDs that belong to the community.
-
-        Returns:
-        --------
-        bool
-            True if the community is an echo chamber, False otherwise.
-        """
-
-        if len(community) < self.min_community_size:
-            return False
-
-        edges = [(n1, n2) for n1 in community for n2 in community if n1 != n2 and (n1, n2) in self.edges]
-        density = len(edges) / (len(community) * (len(community) - 1) / 2)
-
-        return density >= self.min_community_density
-    ##
-
-    def identify_echo_chambers(self, method='spectral', community_density=0.5, community_size=3, n_clusters=2):
-        """
-        Identifies echo chambers in the network using either spectral clustering or Louvain community detection algorithm.
-
-        Parameters:
-            - method (str): Method for community detection. Default is 'spectral', can be set to 'louvain' for Louvain community detection.
-            - community_density (float): Minimum density required for a community to be considered an echo chamber. Default is 0.5.
-            - community_size (int): Minimum size required for a community to be considered an echo chamber. Default is 3.
-            - n_clusters (int): Number of clusters to create for spectral clustering. Default is 2.
-
-        Returns:
-            - echo_chambers (list): List of echo chambers identified in the network.
-        """
-        if method == 'spectral':
-            communities = self.spectral_partition(n_clusters=n_clusters)
-        elif method == 'louvain':
-            communities = self.louvain_community_detection(
-                community_density=community_density, community_size=community_size)
-        else:
-            raise ValueError(
-                f"Invalid method '{method}' specified. Please choose 'spectral' or 'louvain'.")
-
-        echo_chambers = []
+    def identify_echo_chambers(self, community_density=0.5, community_size=3,
+                               beta1=1.0, beta2=1.0, beta3=1.0, beta4=1.0, beta5=1.0, beta6=1.0, beta7=1.0):
+        self.beta1 = beta1
+        self.beta2 = beta2
+        self.beta3 = beta3
+        self.beta4 = beta4
+        self.beta5 = beta5
+        self.beta6 = beta6
+        self.beta7 = beta7
+        #
+        communities = self.strategy.get_communities(
+            self.G)  # Use the strategy to get communities
+        #
+        self.echo_chambers = []
+        print(
+            f"The strategy has identified {len(communities)} communities: {communities}")
         for community in communities:
-            if self.is_echo_chamber(community):
-                echo_chambers.append(community)
+            if self.is_echo_chamber(list(community)):
+                self.echo_chambers.append(list(community))
+        ###
+        if set(map(tuple, echo_chambers)) == set(map(tuple, communities)):
+            print("Echo chambers and communities are the same.")
+        else:
+            print("Echo chambers and communities are different.")
+        ###
+        return self.echo_chambers
+    ###
 
-        return echo_chambers
+    def calculate_community_density(self, community):
+        edges = [(n1, n2) for n1 in community for n2 in community if n1 !=
+                 n2 and self.G.has_edge(n1, n2)]
+        density = len(edges) / (len(community) * (len(community) - 1))
+        return density
+    ###
+
+    def calculate_external_connections(self, community):
+        external_connections = 0
+        possible_connections = 0
+        for node in community:
+            for neighbor in self.G.neighbors(node):
+                if neighbor not in community:
+                    external_connections += 1
+                possible_connections += 1
+        if possible_connections > 0:
+            factor = external_connections / possible_connections
+        else:
+            factor = 0.0
+        return factor
+    ###
+
+    def calculate_ecc(self):
+        total_communities = len(self.louvain_communities())
+        ecc = len(self.echo_chambers) / \
+            total_communities if total_communities > 0 else 0
+        return ecc
+    ###
+
+    def calculate_influencers(self, community):
+        top_users = self.get_eigenvector_top_users(len(community))
+        influencers = len(set(top_users).intersection(community))
+        if len(community) > 0:
+            factor = influencers / len(community)
+        else:
+            factor = 0.0
+        return factor
+    ###
+
+    def calculate_average_exposure(self):
+        """
+        Calculate the average exposure for the network.
+        The average exposure is defined as the sum of the differences between the user's opinion and the sentiment of the exposed news, averaged over all users.
+        """
+        total_exposure = 0
+        for user in self.G.nodes:
+            user_opinion = self.scores.loc[user, 'scores']
+            for neighbor in self.G.neighbors(user):
+                news_sentiment = self.scores.loc[neighbor, 'scores']
+                total_exposure += abs(user_opinion - news_sentiment)
+        average_exposure = total_exposure / len(self.G.nodes)
+        return average_exposure
+    ###
+
+    def calculate_gec(self):
+        """
+        Calculate the Global Echo Chamber Parameter (GEC) for the network.
+        The GEC is defined as the sum of the product of the signs of the opinions of all pairs of connected users in the network.
+        """
+        gec = 0
+        for (u, v) in self.G.edges:
+            opinion_u = self.scores.loc[u, 'scores']
+            opinion_v = self.scores.loc[v, 'scores']
+            gec += np.sign(opinion_u) * np.sign(opinion_v)
+        return gec
+###
