@@ -53,3 +53,23 @@ This file documents the changes made to the paper.
 - Old metodology, stuff about digital epidemiology
 - Old code
 - Old objetives
+
+## [2.0.1] - 2023-09-20
+
+### Added
+
+- Reworked chapter 7
+- New sentiment analysis experiment
+- Classification code and experiment
+
+### Fixed
+
+- Better images
+
+### Changed
+
+- Exploratory Sentiment Analysis
+
+### Removed
+
+- Old code
