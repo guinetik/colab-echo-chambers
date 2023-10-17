@@ -46,7 +46,7 @@ Utilizamos a linguagem de programação Python como base para a implementação 
 
 Com a aplicação dessas técnicas e o uso da linguagem Python, pudemos extrair insights valiosos sobre os sentimentos presentes nas postagens do Colab. Essas métricas servirão como base para as análises subsequentes e contribuirão para aprimorar a compreensão do ecossistema do Colab.
 
-\subsection{Classificação de postagens por Score}
+\subsection{Heurísticas para classificação de postagens por score de sentimento}
 
 No capítulo anterior, realizamos uma análise exploratória da rede, identificando comunidades de usuários e suas interações. Neste contexto, a classificação de postagens por score torna-se uma ferramenta valiosa. Esta métrica categoriza as postagens como positivas, negativas ou neutras com base em seu conteúdo textual, utilizando uma abordagem de pontuação de sentimentos. Cada postagem recebe um score de sentimento que varia de -1 (negativo) a 1 (positivo), com scores próximos a 0 indicando neutralidade. Esta abordagem quantitativa não só nos permite capturar o sentimento geral expresso nas postagens, mas também entender como esses sentimentos se propagam e interagem dentro da rede. Assim, podemos obter insights valiosos sobre a percepção dos usuários em relação a diferentes tópicos e como essa percepção influencia a estrutura e a dinâmica da rede.
 
@@ -184,6 +184,14 @@ Da mesma forma, a postagem do evento 156161 expressa indignação com a situaç�
 
 Em resumo, as postagens com os piores scores ilustram claramente os desafios e frustrações enfrentados pelos usuários em suas comunidades. Estas postagens são valiosas, pois destacam áreas que requerem atenção imediata e melhorias por parte das autoridades locais. Além disso, a análise de sentimentos fornece uma ferramenta poderosa para identificar e compreender essas preocupações, permitindo uma resposta mais eficaz e empática por parte dos tomadores de decisão.
 
+\begin{figure}[!htb]
+	\caption{Distribuição de quantidade de postagens por score}
+	\label{fig:score_distribution}
+	\centering
+	\includegraphics[scale=0.90]{images/score_distribution.png}
+	\fautor
+\end{figure}
+
 Após obter o score de sentimento de cada postagem, o próximo passo foi agregar as postagens de cada usuário. Ao calcular a média ponderada do score de sentimento pelo número de postagens, conseguimos criar um score geral que reflete o sentimento médio de todas as postagens de um usuário. Esta métrica agregada nos forneceu uma visão mais clara do panorama geral dos sentimentos expressos nas redes de Niterói, Santo André e Mesquita.
 
 \begin{figure}[htbp]
@@ -227,7 +235,7 @@ As postagens neutras, que compõem 20.2\% do total, também são intrigantes. El
 	\caption{Scores de sentimento por quantidade de postagens}
 	\label{fig:pie_sentiment_breakdown}
 	\centering
-	\includegraphics[scale=0.7]{images/pie_sentiment_breakdown.png}
+	\includegraphics[scale=0.9]{images/pie_sentiment_breakdown.png}
 	\fautor
 \end{figure}
 
@@ -243,7 +251,7 @@ Em resumo, os dados refletem as preocupações dos cidadãos em relação a dife
 	\caption{Distribuição dos 10 eventos mais comuns nas redes das 3 cidades.}
 	\label{fig:pie_most_common_events}
 	\centering
-	\includegraphics[scale=0.65]{images/pie_most_common_events.png}
+	\includegraphics[scale=0.75]{images/pie_most_common_events.png}
 	\fautor
 \end{figure}
 
@@ -255,7 +263,7 @@ Essa análise por gênero destaca a importância de considerar as diversas persp
 	\caption{Distribuição dos scores de sentimento por gênero.}
 	\label{fig:sentiment_by_gender}
 	\centering
-	\includegraphics[scale=0.75]{images/sentiment_by_gender.png}
+	\includegraphics[scale=0.8]{images/sentiment_by_gender.png}
 	\fautor
 \end{figure}
 
@@ -318,7 +326,7 @@ Ao analisar os dez usuários com o maior número de postagens na rede, podemos i
 	\caption{Detalhes dos usuários mais ativos}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 		\hline
-		ID     & Eigencentrality & Seguidores & Seguindo & Postagens & Score Médio & Gênero & Idade & Raça \\
+		ID     & Centralidade & Seguidores & Seguindo & Eventos & Score & Gênero & Idade & Raça \\
 		\hline
 		318649 & 0.0585          & 24         & 5        & 12287.0   & -0.011      & M      & 38    & -    \\
 		\hline
@@ -361,8 +369,6 @@ Além disso, essa diversidade pode ser benéfica para os administradores ou mode
 
 Por fim, é essencial reconhecer que, em qualquer comunidade, a diversidade de opiniões e experiências enriquece o diálogo e a troca de ideias. A presença de usuários ativos com uma variedade de sentimentos sugere uma comunidade dinâmica e engajada, onde os membros se sentem livres para expressar suas opiniões e compartilhar suas experiências, sejam elas positivas, negativas ou neutras.
 
-\section{Resultados e Discussão}
-
 \begin{figure}[!htb]
 	\caption{Eigencentrality vs. Número de Posts}
 	\label{fig:eigencentrality_vs_number_of_posts}
@@ -383,67 +389,65 @@ A análise de redes sociais combinada com a análise de sentimentos também reve
 
 Em conclusão, a análise de sentimentos no Colab ofereceu uma janela única para o coração e a mente da comunidade. Revelou uma comunidade vibrante e engajada, onde os membros se sentem empoderados para expressar suas opiniões e compartilhar suas experiências. À medida que a plataforma continua a crescer e evoluir, será essencial continuar monitorando e compreendendo esses sentimentos para garantir que o Colab permaneça um espaço inclusivo, autêntico e valioso para todos os seus membros.
 
-Até o momento, nossa abordagem para a análise de sentimentos nas postagens do Colab foi baseada em técnicas manuais e ferramentas como o NLTK. Embora tenhamos obtido insights valiosos e estabelecido um score para cada postagem, é evidente que essa metodologia possui limitações em termos de escalabilidade e sustentabilidade, especialmente considerando o volume crescente de dados gerados diariamente na plataforma. Para superar esses desafios e otimizar o processo de análise de sentimentos, é imperativo adotar uma abordagem mais automatizada e robusta. Neste contexto, o aprendizado de máquina emerge como uma solução promissora. Ao utilizar um subconjunto das postagens que já classificamos manualmente - um conjunto de treinamento de aproximadamente 5.000 postagens - podemos treinar um modelo de aprendizado de máquina para realizar a classificação de sentimentos de forma autônoma. Esta abordagem não apenas acelera o processo de análise, mas também garante uma maior consistência e precisão na classificação. No próximo segmento, exploraremos em detalhes a implementação e os benefícios desta metodologia baseada em aprendizado de máquina, delineando como ela pode revolucionar nossa capacidade de entender e interpretar os sentimentos expressos pelos usuários do Colab.
+Até o momento, nossa abordagem para a análise de sentimentos nas postagens do Colab foi baseada em técnicas manuais e ferramentas como o NLTK. Embora tenhamos obtido insights valiosos e estabelecido um score para cada postagem, é evidente que essa metodologia possui limitações em termos de escalabilidade e sustentabilidade, especialmente considerando o volume crescente de dados gerados diariamente na plataforma. Para superar esses desafios e otimizar o processo de análise de sentimentos, é imperativo adotar uma abordagem mais automatizada e robusta. Neste contexto, o aprendizado de máquina emerge como uma solução promissora. Ao utilizar um subconjunto das postagens que já classificamos manualmente - um conjunto de treinamento de aproximadamente 4.000 postagens - podemos treinar um modelo de aprendizado de máquina para realizar a classificação de sentimentos de forma autônoma. Esta abordagem não apenas acelera o processo de análise, mas também garante uma maior consistência e precisão na classificação. No próximo segmento, exploraremos em detalhes a implementação e os benefícios desta metodologia baseada em aprendizado de máquina, delineando como ela pode melhorar nossa capacidade de entender e interpretar os sentimentos expressos pelos usuários do Colab.
 
-\section{Construção do modelo de classificação supervisionada de sentimentos}
+\section{Análise de Sentimento usando Regressão Supervisionada}
 
 Nessa seção, descrevemos a metodologia empregada para a análise de dados e a construção do modelo de aprendizado de máquina. Apresentamos no \autoref{codigo:sentiment_classifier} uma abordagem para realizar a análise de sentimento em postagens do Colab. Este modelo foi treinado usando um conjunto de dados de treinamento que consiste em postagens de usuário rotuladas como positivas ou negativas. O modelo então aprende a associar certas palavras e frases a sentimentos positivos ou negativos.
 
+A distinção entre classificação e regressão é fundamental no campo do aprendizado de máquina supervisionado. Enquanto a classificação se refere à tarefa de prever uma categoria ou classe discreta para uma entrada, a regressão envolve a previsão de um valor contínuo (\citeonline{2017_Shen_IC}).
+
+No contexto da análise de sentimento, muitas abordagens tradicionais tratam o problema como uma tarefa de classificação, categorizando postagens ou comentários em classes discretas. No entanto, o sentimento é, por natureza, um espectro. Uma postagem pode variar em graus de positividade ou negatividade. Ao representar o sentimento como um score contínuo entre -1 e 1, capturamos essa nuance.
+
+A decisão de modelar o problema como uma tarefa de regressão foi fortemente influenciada pela análise exploratória de sentimento conduzida no capítulo anterior. A partir dessa análise, derivamos um conjunto de postagens com scores contínuos de -1 a 1. Embora esses scores pudessem ser transformados em rótulos discretos para uma visão mais binária das postagens, optamos por manter o espectro contínuo. A razão para isso é que, ao manter a granularidade dos scores, podemos capturar nuances mais sutis nas postagens, permitindo uma análise mais detalhada e matizada. Além disso, ao usar regressão, temos a flexibilidade de adaptar o modelo para diferentes escalas ou abordagens no futuro, se necessário, sem perder a riqueza dos dados originais.
+
 Com o intuito de enriquecer o conjunto de dados de treinamento e obter uma visão mais abrangente dos sentimentos expressos nas postagens do Colab, optamos por realizar uma amostragem aleatória do conjunto de dados original, adicionando 2000 eventos ao conjunto de treinamento. Essa abordagem nos permite incorporar uma maior diversidade de exemplos e aumentar a representatividade dos sentimentos presentes nas postagens. Ao selecionar aleatoriamente esses eventos, buscamos evitar qualquer viés de seleção que possa ocorrer ao escolher apenas os piores e melhores scores. Isso nos permite explorar uma variedade mais ampla de nuances de sentimentos que podem estar presentes no conjunto de dados geral.
 
-Além disso, ao combinar esses eventos adicionais com as postagens de scores mais altos e as postagens de scores mais baixos obtidos no experimento anterior na rede das 3 cidades, temos um conjunto de dados de treinamento final composto por 7.000 exemplos. Essa quantidade de dados é considerável e fornece uma base sólida para o treinamento do algoritmo de aprendizado de máquina.
+Além disso, ao combinar esses eventos adicionais com as postagens de scores mais altos e as postagens de scores mais baixos obtidos no experimento anterior na rede das 3 cidades, temos um conjunto de dados de treinamento final composto por 4.000 exemplos. Essa quantidade de dados é considerável e fornece uma base sólida para o treinamento do algoritmo de aprendizado de máquina.
 
 Ao treinar o algoritmo com esse conjunto de dados, esperamos que ele aprenda a associar padrões linguísticos específicos a sentimentos positivos ou negativos, permitindo uma classificação automática mais precisa dos sentimentos expressos nas postagens do Colab. Essa abordagem baseada em aprendizado supervisionado nos permite utilizar os exemplos fornecidos no conjunto de dados de treinamento como referência para o desenvolvimento de um modelo que generalize e capture efetivamente os diferentes matizes de sentimentos presentes nas postagens.
 
 Após a extração de recursos e análise exploratória, dividimos os dados em conjuntos de treinamento e validação. Em seguida, padronizamos os dados para garantir que todas as características tivessem a mesma escala \cite{2000_Jain}. Em seguida, realizamos o treinamento de diferentes modelos de classificação para tentar determinar o modelo mais apropriado para essa aplicação. A seguir, um breve resumo dos modelos utilizados:
 
 \begin{itemize}
-	\item \textbf{RandomForestClassifier}: Este algoritmo de aprendizado de máquina supervisionado utiliza o método de "bagging" e a técnica de árvores de decisão. Ele cria várias árvores de decisão e as combina para obter uma predição mais precisa e estável. O RandomForest é útil quando temos um grande conjunto de dados com muitas variáveis de entrada, e é eficaz para evitar o overfitting que pode ocorrer com árvores de decisão individuais \cite[5-32]{2001_Breiman}.
-	\item \textbf{LogisticRegression}: A regressão logística é um algoritmo de aprendizado de máquina para classificação. No seu núcleo, é uma regressão, mas com uma função de ativação que transforma a saída em um valor entre 0 e 1. Este modelo é útil quando estamos lidando com problemas de classificação binária e queremos uma probabilidade associada a cada previsão \cite[215-242]{1958_Cox}.
-	\item \textbf{DecisionTreeClassifier}: Este algoritmo de aprendizado supervisionado é usado principalmente para problemas de classificação. Ele funciona tanto para variáveis categóricas quanto contínuas. As árvores de decisão são úteis quando queremos um modelo que possa ser facilmente interpretado e explicado \cite[81-106]{1986_Quinlan}.
-	\item \textbf{SVC (Support Vector Classifier)}: Este algoritmo de aprendizado de máquina é usado para classificação e regressão, mas é mais comumente usado para tarefas de classificação. O SVC é eficaz em espaços de alta dimensão e é útil quando o número de dimensões é maior do que o número de amostras \cite[273-297]{1995_Cortes}.
-	\item \textbf{XGBClassifier (Extreme Gradient Boosting Classifier)}: Este algoritmo de aprendizado de máquina vai além do gradient boosting framework. O XGBoost é útil quando precisamos de um modelo que seja eficiente e tenha um alto desempenho, e é frequentemente usado em competições de ciência de dados devido à sua velocidade e precisão \cite[785-794]{2016_Chen_IP}.
+	\item \textbf{RandomForestRegressor}: O Random Forest Regressor é um algoritmo baseado em árvores de decisão. Ele constrói várias árvores de decisão durante o treinamento e produz a média das previsões de cada árvore para dar a previsão final. Este modelo é particularmente útil por sua capacidade de lidar com grandes conjuntos de dados, capturar interações complexas entre variáveis e evitar overfitting através da agregação de previsões de várias árvores. \cite[5-32]{2001_Breiman}.
+	\item \textbf{LinearRegression}: A Regressão Linear é um método estatístico que tenta modelar a relação entre uma variável dependente contínua e uma ou mais variáveis independentes através do ajuste de uma equação linear aos dados observados. É um dos modelos mais simples e amplamente utilizados para previsão e análise em diferentes campos.
+	\item \textbf{DecisionTreeRegressor}: O Decision Tree Regressor é um modelo que divide o conjunto de dados em subconjuntos com base em valores de características. Ele faz previsões atribuindo a média do valor alvo dos exemplos em um subconjunto a todos os exemplos desse subconjunto. É intuitivo e fácil de visualizar, mas pode ser propenso a overfitting, especialmente com conjuntos de dados pequenos ou sem ajuste adequado \cite[81-106]{1986_Quinlan}.
+	\item \textbf{K-Nearest Neighbors (KNN)}: O KNN é um algoritmo baseado em instância que faz previsões com base em quão semelhante é um exemplo de entrada para os exemplos no conjunto de treinamento. Ele considera os 'k' exemplos mais próximos (onde 'k' é um número definido) e faz uma previsão com base na média (para regressão) ou na moda (para classificação) dos valores alvo desses exemplos.
 \end{itemize}
 
 Considerando o contexto de análise de sentimentos em busca de câmaras de eco, é crucial escolher um modelo de aprendizado de máquina que seja capaz de capturar com precisão as nuances e polaridades do sentimento expresso nos dados. Diversos estudos têm explorado diferentes modelos para análise de sentimento, cada um com suas próprias vantagens e limitações.
 
-\citeonline{2016_Joshi} utilizaram RandomForest (RF) e Support Vector Machine (SVM) para classificar a polaridade de artigos de notícias financeiras e prever tendências de ações. Eles relataram que ambos os modelos tiveram bom desempenho, com uma precisão de mais de 80\%. Isso sugere que esses modelos podem ser eficazes na análise de sentimentos em câmaras de eco, especialmente quando os dados são ricos em recursos e a tarefa envolve a previsão de tendências com base na polaridade do sentimento.
-
-Por outro lado, \citeonline{2017_Shen_IC} propuseram um modelo combinado de Convolutional Neural Networks (CNNs) e Bidirectional Long Short-Term Memory (BLSTM) para análise de sentimento de críticas de filmes. O modelo alcançou uma precisão de classificação de 89,7\%, que foi significativamente melhor do que a alcançada por CNN ou LSTM sozinhos. Este estudo sugere que modelos de redes neurais profundas, como CNN-BLSTM, podem ser particularmente úteis quando a análise de sentimento envolve a compreensão de sequências de texto complexas, como é frequentemente o caso em câmaras de eco.
-
-\citeonline{2020_Han} propuseram uma função de kernel Fisher baseada em Probabilistic Latent Semantic Analysis para análise de sentimento usando SVM. Os autores relataram uma melhoria na classificação em comparação com os métodos tradicionais. Este estudo sugere que a incorporação de técnicas de análise semântica latente pode melhorar a eficácia dos modelos de análise de sentimento.
-
-Finalmente, \citeonline{2020_Lin} propuseram um modelo de rede neural profunda aprimorado por comparação (Comparison Enhanced Bi-LSTM with Multi-Head Attention) para análise de sentimento. O modelo superou muitos modelos existentes em três conjuntos de dados de análise de sentimento. Este estudo sugere que modelos de atenção, que permitem que o modelo se concentre em partes relevantes do texto, podem ser particularmente eficazes na análise de sentimentos em câmaras de eco.
-
-Em conclusão, embora não haja um único modelo "mais apropriado" para análise de sentimento em câmaras de eco, os estudos acima sugerem que modelos baseados em árvores, como RandomForest, modelos baseados em redes neurais, como CNN-BLSTM, e modelos que incorporam técnicas de análise semântica latente ou atenção podem ser particularmente eficazes.
-
-A acurácia dos modelos foi avaliada utilizando o conjunto de validação e a pontuação F1 foi calculada para medir a precisão do modelo em ambas as classes. Além disso, as matrizes de confusão foram utilizadas para analisar o desempenho de cada modelo na classificação dos sentimentos, permitindo uma compreensão mais detalhada das previsões e erros cometidos.
+Ao avaliar o desempenho desses modelos, consideramos várias métricas, incluindo acurácia, erro quadrático médio (MSE), erro absoluto médio (MAE) e o coeficiente de determinação (R\^2). É importante notar que, enquanto a acurácia é comumente usada em tarefas de classificação, ela pode não ser a métrica mais informativa para tarefas de regressão. Em vez disso, o MSE, MAE e R\^2 fornecem uma visão mais clara do desempenho do modelo em tarefas de regressão, pois quantificam a diferença entre os valores previstos e os valores reais.
 
 No que diz respeito à modelagem de aprendizado de máquina, os resultados foram os seguintes:
 
-\begin{itemize}
-	\item \textbf{RandomForestClassifier:} O modelo RandomForestClassifier alcançou uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.172 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.14.
-	\item \textbf{LogisticRegression:} O modelo LogisticRegression obteve uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.164 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.16.
-	\item \textbf{DecisionTreeClassifier:} O modelo DecisionTreeClassifier alcançou uma acurácia de treinamento de 0.996 e uma acurácia de validação de 0.13 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 1.0 e a acurácia de validação foi de 0.1.
-	\item \textbf{SVC:} O modelo SVC obteve uma acurácia de treinamento de 0.395 e uma acurácia de validação de 0.098 na última execução em 19 de maio de 2022. Em uma execução anterior em 15 de maio de 2022, a acurácia de treinamento foi de 0.5906 e a acurácia de validação foi de 0.1.
-	\item \textbf{XGBClassifier:} Na última execução em 15 de maio de 2022, o modelo XGBClassifier alcançou uma acurácia de treinamento de 0.3154 e uma acurácia de validação de 0.1.
-\end{itemize}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		\textbf{Modelo} & \textbf{Training R$^2$} & \textbf{Validation R$^2$} & \textbf{MSE} & \textbf{MAE} & \textbf{RMSE} & \textbf{Tempo (s)} \\
+		\hline
+		Random Forest   & 0.9619                  & 0.7228                    & 0.0847       & 0.1683       & 0.2910        & 1192.96            \\
+		\hline
+		Decision Tree   & 0.9999                  & 0.5107                    & 0.1496       & 0.1894       & 0.3867        & 33.65              \\
+		\hline
+		KNN             & 0.4932                  & 0.1727                    & 0.2529       & 0.3871       & 0.5029        & 133.97             \\
+		\hline
+	\end{tabular}
+	\caption{Desempenho dos modelos de regressão nos dados de treinamento e validação.}
+	\label{tab:model_performance}
+\end{table}	
 
-Esses resultados indicam que o modelo RandomForestClassifier teve o melhor desempenho em termos de acurácia de treinamento, enquanto o modelo LogisticRegression teve a melhor acurácia de validação. No entanto, todos os modelos apresentaram uma grande diferença entre as acurácias de treinamento e validação, sugerindo que os modelos podem estar sofrendo de overfitting. Isso significa que os modelos estão se ajustando muito bem aos dados de treinamento, mas não estão generalizando bem para novos dados. Futuras iterações deste trabalho podem explorar técnicas para mitigar o overfitting, como a regularização ou o uso de mais dados de treinamento.
+A partir desses resultados, podemos concluir que o Random Forest Regressor é o modelo mais promissor entre os testados, com o melhor equilíbrio entre desempenho nos dados de treinamento e validação. O Decision Tree Regressor parece estar overfitting, dado o R\^2 quase perfeito nos dados de treinamento e o desempenho significativamente pior nos dados de validação. O KNN, por outro lado, tem um desempenho geralmente mais fraco em comparação com os outros modelos.
 
-\section{Homofilia e Câmaras de Eco}
+A análise de sentimentos, particularmente em plataformas dinâmicas como o Colab, é uma tarefa intrincada que exige uma abordagem meticulosa. No início deste capítulo, conduzimos um experimento para classificar as mensagens dos usuários de Niterói, Santo André e Mesquita. Utilizando uma heurística baseada em dicionários léxicos, polaridade de emojis e a ferramenta LeIA, atribuímos scores de sentimentos às postagens. Este processo é transparente, permitindo-nos codificar cada etapa da atribuição de scores como uma caixa branca. No entanto, essa transparência também pode introduzir viéses, sejam eles conscientes ou não.
 
-A homofilia, termo cunhado por Lazarsfeld e Merton em 1954, refere-se à tendência de indivíduos se associarem a outros que são semelhantes a eles em termos de características, interesses e opiniões. Esse fenômeno é amplamente estudado em diversas áreas, incluindo sociologia, psicologia e ciência das redes, e tem sido observado em várias configurações sociais, desde relacionamentos pessoais até interações online em redes sociais.
+A decisão de transformar essa abordagem inicial em um modelo de aprendizado de máquina foi motivada pela perspectiva da engenharia de software. Ao adotar a regressão supervisionada, buscamos criar um sistema mais objetivo e menos suscetível a viéses humanos. A escolha do Random Forest Regressor, que demonstrou desempenho superior, reitera a necessidade de algoritmos robustos para capturar padrões complexos nos dados. Além disso, manter os scores de sentimento em um espectro contínuo, em vez de categorias discretas, permitiu uma representação mais fiel e granular dos sentimentos.
 
-A homofilia pode estar intimamente relacionada às câmaras de eco, uma vez que a tendência de buscar semelhanças pode levar à formação de grupos com visões e perspectivas convergentes. Quando os indivíduos se associam principalmente a outros que compartilham suas opiniões, informações e conteúdos que são compartilhados dentro desses grupos tendem a reforçar e amplificar essas visões específicas. Isso cria um ambiente propício para o desenvolvimento de câmaras de eco, onde a diversidade de perspectivas é limitada e as ideias divergentes são escassas. A homofilia pode contribuir para a persistência das câmaras de eco ao restringir a exposição a opiniões contrárias e limitar a troca de informações entre diferentes grupos na rede. Essa dinâmica pode resultar em polarização, falta de entendimento mútuo e até mesmo no fortalecimento de crenças extremas.
+A qualidade dos dados e sua preparação são fundamentais para o sucesso de qualquer modelo de aprendizado de máquina. Ao usar os scores de sentimentos derivados do experimento inicial como insumo para o treinamento do modelo de regressão, demonstramos a interconexão e a sequencialidade dos experimentos. Esta pesquisa destaca a importância de abordagens adaptativas em análise de sentimentos, especialmente ao abordar fenômenos sociais complexos. Com os insights obtidos através desta modelagem de sentimentos, o próximo passo é a classificação dos usuários em personas. Utilizando o score de sentimento, os tópicos mais comentados e um modelo de classificação, buscaremos entender melhor os perfis dos usuários. Esta compreensão será crucial para a subsequente análise de redes, visando a detecção de câmaras de eco e aprofundando nossa compreensão sobre as dinâmicas de interação e polarização no Colab.
 
-Estudos têm destacado a relação entre homofilia e câmaras de eco em diferentes contextos, como a propagação de desinformação em redes sociais ou a formação de bolhas de opinião política. A presença de homofilia nas redes sociais pode contribuir para a criação de "filtros de informação" que reforçam as visões existentes e dificultam a exposição a diferentes perspectivas, aumentando assim a probabilidade de formação de câmaras de eco.
-
-Ao entender o conceito de homofilia e sua relação com as câmaras de eco, podemos explorar métricas e técnicas para identificar e mitigar esses fenômenos nas redes sociais. A análise de métricas de homofilia pode fornecer insights sobre a estrutura das redes sociais e ajudar a compreender como as informações são disseminadas e as opiniões são formadas dentro desses contextos específicos. Essas descobertas podem ser fundamentais para desenvolver estratégias e intervenções que promovam uma maior diversidade de perspectivas, diálogo e compreensão mútua na era digital.
-
-As métricas de homofilia geradas a partir deste experimento podem ajudar a detectar câmaras de eco em um grafo da rede do Colab. Câmaras de eco são fenômenos sociais onde as opiniões e informações são amplificadas ou reforçadas pela comunicação e repetição dentro de um sistema fechado e podem contribuir para a polarização social. Ao identificar e entender estas câmaras de eco, podemos desenvolver estratégias para promover a diversidade de opiniões e a comunicação aberta.
-
-\section{Personas e Scores: Novas Métricas para Análise de Sentimento das Postagens do Colab}
+\section{Análise de Sentimento e Personas: Uma Nova Perspectiva sobre as Postagens do Colab}
 
 No experimento anterior, conduzimos uma análise detalhada centrada na interação dos usuários na plataforma Colab, utilizando técnicas avançadas de processamento de linguagem natural e análise de redes. A primeira parte dessa análise envolveu a criação de um sistema de score, que atribuiu valores positivos, negativos ou neutros a cada postagem baseado no seu conteúdo textual, levando em consideração não apenas as palavras utilizadas, mas também o uso de emojis e a presença de jargões específicos do contexto do aplicativo.
 
@@ -467,7 +471,7 @@ A persona "complainer" é caracterizada por um comportamento mais crítico ou ne
 
 Os "complainers" desempenham um papel importante em qualquer comunidade online, pois eles ajudam a identificar problemas, desafios ou áreas de melhoria. Embora suas postagens possam ser percebidas como negativas, elas podem fornecer feedback valioso que pode ser usado para melhorar a comunidade. No entanto, é importante gerenciar e responder adequadamente a esses usuários para evitar a criação de um ambiente negativo ou tóxico.
 
-\subsection*{O papel das personas na Comunidade do Colab}
+\subsubsection*{O papel das personas na Comunidade do Colab}
 
 A presença das personas "Helpers" e "Complainers" dentro do Colab é altamente relevante para o ecossistema dessa plataforma colaborativa. Ambas as personas desempenham papéis distintos e complementares que podem influenciar a experiência do usuário e fornecer insights valiosos para o aprimoramento contínuo do aplicativo. A seguir, são apresentados os argumentos que sustentam a relevância dessas personas específicas:
 
@@ -483,7 +487,7 @@ A partir de uma análise exploratória de sentimento, foram identificadas as per
 
 Nas próximas páginas, detalharemos as técnicas e metodologias utilizadas para identificar e classificar as personas "Helpers" e "Complainers" dentro do Colab, fornecendo uma visão mais aprofundada sobre a implementação dessas personas e sua contribuição para a análise de dados e aprimoramento da plataforma.
 
-\section{Classificação de usuário por persona}
+\section{Classificação de usuário por Persona}
 
 A construção de um modelo de classificação para análise de sentimentos em plataformas como o Colab é uma tarefa intrincada. A linguagem utilizada pelos usuários é repleta de nuances, jargões específicos, emojis e outros elementos que podem influenciar a interpretação do sentimento. Além disso, a diversidade demográfica dos usuários traz uma riqueza de perspectivas e formas de expressão. O principal desafio é desenvolver um modelo que seja sensível a essas nuances, evitando o overfitting, e que possa generalizar bem para postagens não vistas anteriormente.
 
@@ -491,7 +495,9 @@ Para assegurar uma representação abrangente e equitativa da comunidade do Cola
 
 Do conjunto inicial de postagens, 4000 foram destinadas ao treinamento, mantendo um equilíbrio de 2000 postagens para cada categoria ('helper' e 'complainer'). As 1000 postagens restantes foram reservadas como conjunto de teste. Esta separação assegura que o modelo seja treinado e avaliado em conjuntos distintos, minimizando o risco de overfitting.
 
-A abordagem adotada para a análise de sentimentos e classificação de personas é orientada a objetos, o que facilita a modularização e reutilização do código. O código é estruturado em várias classes, cada uma com responsabilidades específicas. A classe SentimentClassifierModel é responsável pela carga de dados, pré-processamento, vetorização e treinamento de modelos de classificação de sentimentos. A vetorização é realizada usando o CountVectorizer, que converte o texto em uma matriz de contagens de termos/tokens. A classe também suporta vários tipos de modelos, incluindo Floresta Aleatória, Regressão Logística, Árvore de Decisão e KNN, permitindo flexibilidade na escolha do algoritmo.
+\section{Treinamento do modelo de classificação de Personas}
+
+A abordagem adotada para a análise de sentimentos e classificação de personas é orientada a objetos, o que facilita a modularização e reutilização do código. O código é estruturado em várias classes, cada uma com responsabilidades específicas. A classe SentimentClassifierModel é responsável pela carga de dados, pré-processamento, vetorização e treinamento de modelos de classificação de sentimentos. A vetorização é realizada usando o CountVectorizer, que converte o texto em uma matriz de contagens de termos/tokens. A classe também suporta vários tipos de modelos, incluindo Floresta Aleatória, Regressão Logística, Árvore de Decisão e KNN, permitindo flexibilidade na escolha do algoritmo. A classe ColabSentimentClassifier atua como uma camada de alto nível, integrando a análise de eventos do Colab com o modelo de classificação de sentimentos. Ela carrega os dados dos eventos, inicializa o modelo e atualiza os scores de sentimentos dos usuários. A classe PersonaClassifier é a peça central para a classificação de personas.
 
 \begin{figure}
 	\centering
@@ -519,11 +525,52 @@ A abordagem adotada para a análise de sentimentos e classificação de personas
 	\caption{Workflow de Classificação.}
 \end{figure}
 
-A classe ColabSentimentClassifier atua como uma camada de alto nível, integrando a análise de eventos do Colab com o modelo de classificação de sentimentos. Ela carrega os dados dos eventos, inicializa o modelo e atualiza os scores de sentimentos dos usuários. A classe PersonaClassifier é a peça central para a classificação de personas. Ela utiliza o StratifiedKFold para realizar validação cruzada estratificada, garantindo que cada fold tenha uma distribuição semelhante de 'helper' e 'complainer'. Além disso, essa classe oferece métodos para visualização, como a matriz de confusão e a curva ROC.
-
 O código também enfatiza a importância da limpeza e pré-processamento de dados. Funções de preprocessamento são usadas para remover stopwords, realizar stemming e limpar caracteres indesejados. Esta etapa é crucial, pois a qualidade do texto de entrada pode afetar significativamente a performance do modelo. A abordagem modular e orientada a objetos adotada facilita a manutenção, extensão e compreensão do código, permitindo que pesquisadores e desenvolvedores ajustem e expandam facilmente as funcionalidades conforme necessário.
 
-Para avaliar a robustez e a confiabilidade do modelo, foi empregada a técnica de validação cruzada estratificada. A estratificação, neste contexto, refere-se ao processo de dividir o conjunto de treinamento de forma que cada subconjunto (ou "fold") mantenha uma distribuição semelhante de 'helper' e 'complainer'. Esta técnica é essencial para garantir que o modelo seja avaliado de maneira justa e consistente, independentemente da divisão dos dados. Os resultados dessa validação, com acurácias consistentemente altas, fornecem uma indicação da confiabilidade do modelo.
+Para avaliar a robustez e a confiabilidade do modelo, foi empregada a técnica de validação cruzada estratificada, especificamente utilizando o método Stratified K-Fold com cinco divisões (folds). A estratificação, neste contexto, refere-se ao processo de dividir o conjunto de treinamento de forma que cada subconjunto (ou "fold") mantenha uma distribuição semelhante de 'helper' e 'complainer'. Esta técnica é essencial para garantir que o modelo seja avaliado de maneira justa e consistente, independentemente da divisão dos dados.
+
+O método de avaliação do modelo realiza uma série de passos para avaliar a performance do modelo. Inicialmente, o modelo é treinado e avaliado em um conjunto de teste separado, com métricas como \textit{F1 Score}, \textit{Precision Score} e \textit{Misclassification Rate} sendo calculadas para o modelo como um todo. Posteriormente, a validação cruzada estratificada é aplicada, e o modelo é treinado e avaliado em cada fold. Métricas como Acurácia, AUC Score, Matriz de Confusão, \textit{F1 Score}, \textit{Precision Score} e \textit{Misclassification Rate} são calculadas para cada fold e, em seguida, são calculadas as médias dessas métricas para fornecer uma visão abrangente da performance do modelo. Além disso, o método também inclui a geração de curvas ROC e a classificação de posts não vistos, fornecendo insights adicionais sobre a capacidade do modelo em generalizar para dados novos. Ao final, uma heurística é aplicada para avaliar se o modelo está apresentando um bom desempenho, com considerações adicionais sobre os requisitos específicos da aplicação e o impacto prático dos erros do modelo.
+
+Os resultados dessa validação, com acurácias consistentemente altas e outras métricas indicando bom desempenho, fornecem uma indicação da confiabilidade do modelo em fazer previsões precisas e confiáveis. Inicialmente criamos um modelo simples com um conjunto de trreinamento de 1000 postagens utilizando o classificador Random Forest. Com os testes preliminares realizados e o modelo demonstrando uma razoável capacidade de classificação, decidimos explorar e comparar diferentes algoritmos de aprendizado de máquina para avaliar seu desempenho em relação ao modelo original, baseado em Floresta Aleatória (Random Forest). Os modelos selecionados para a comparação são:
+
+\begin{itemize}
+    \item \textbf{Regressão Logística (Logistic Regression)}: Um modelo estatístico que utiliza a função logística para modelar a probabilidade de uma classe binária.
+    \item \textbf{Naive Bayes Multinomial (Multinomial Naive Bayes)}: Uma extensão do algoritmo Naive Bayes que é adequada para variáveis de resposta multinomiais, comumente utilizado para classificação de texto.
+    \item \textbf{XGBoost}: Um algoritmo de aprendizado de máquina baseado em árvore de decisão otimizado para desempenho e velocidade, que se destaca em competições de ciência de dados.
+    \item \textbf{SVC (Support Vector Classifier)}: Um tipo de máquina de vetores de suporte que é utilizado para classificação.
+    \item \textbf{KNeighborsClassifier}: Um algoritmo de aprendizado baseado em instância que classifica um objeto com base na maioria de votos de seus vizinhos mais próximos.
+    \item \textbf{DecisionTreeClassifier}: Um modelo de aprendizado de máquina que utiliza uma árvore de decisão como modelo preditivo.
+    \item \textbf{LightGBM}: Um framework de aumento de gradiente que utiliza algoritmos baseados em árvore, otimizado para eficiência e desempenho.
+    \item \textbf{CatBoost}: Um algoritmo de aumento de gradiente categórico que é especialmente poderoso para lidar com recursos categóricos.
+\end{itemize}
+
+Cada um desses modelos possui características únicas e é aplicável a diferentes tipos de problemas, o que justifica a sua inclusão nesta comparação abrangente. Além disso, cada modelo possui um conjunto interno de parâmetros que afetam o processo de treinamento e modelagem. Conhecidos como \textit{hyperparameters}, ou hiperparâmetros, esses não são aprendidos durante o processo de treinamento, mas são definidos previamente. Eles influenciam a forma como o modelo vai aprender, podendo afetar a sua performance, a capacidade de generalização e a prevenção de overfitting ou underfitting. Os \textit{hyperparameters} podem incluir, por exemplo, a taxa de aprendizado em algoritmos de otimização, o número de árvores em uma floresta aleatória, o tipo de kernel em uma máquina de vetores de suporte (SVM), entre outros. A escolha adequada desses parâmetros é crucial, pois pode significativamente impactar a eficácia do modelo em fazer previsões precisas e confiáveis.
+
+Para encontrar os melhores parâmetros para cada modelo, empregamos técnicas de otimização de hiperparâmetros, como Grid Search, Randomized Search e Bayesian Optimization. Essas técnicas exploram diferentes combinações de parâmetros, avaliando estatisticamente a performance do modelo para cada combinação, com o objetivo de identificar aqueles que maximizam a acurácia, ou outra métrica de interesse, do modelo. Grid Search realiza uma busca exaustiva sobre um conjunto predefinido de valores de hiperparâmetros, enquanto Randomized Search explora aleatoriamente as combinações de parâmetros, o que pode ser mais eficiente em espaços de busca grandes. Já a Bayesian Optimization constrói um modelo probabilístico da função objetivo e utiliza esse modelo para selecionar de forma inteligente os próximos candidatos a serem avaliados, buscando otimizar a função objetivo de forma mais eficiente. Ao final desse processo heurístico, obtemos um conjunto otimizado de hiperparâmetros que, quando aplicados aos modelos, buscam proporcionar uma performance superior e resultados mais confiáveis nas tarefas de classificação e previsão.
+
+Em geral, observou-se que todos os modelos apresentaram métricas de desempenho similares, com curvas ROC comparáveis e acurácias próximas. No entanto, ao realizar uma validação empírica das postagens e comparar com a classificação esperada como "helper" ou "complainer", notou-se que alguns modelos apresentavam classificações divergentes, tanto para "helper" quanto para "complainer".
+
+Diante dessa observação, optamos por realizar um teste adicional para aferir a capacidade de generalização dos modelos. Selecionamos 10 postagens fora do conjunto de dados de treinamento, sendo 5 caracterizadas como "helper" e 5 como "complainer". O critério de seleção para os modelos a serem utilizados na etapa seguinte foi a capacidade de classificar corretamente todas as 10 postagens. Os modelos que atenderam a esse critério demonstraram uma maior robustez e precisão, sendo, portanto, escolhidos para as fases subsequentes de nosso estudo. Este processo de seleção empírica, embora simples, foi crucial para garantir que os modelos escolhidos não apenas apresentassem boas métricas em termos de dados de treinamento, mas também fossem capazes de generalizar bem para dados não vistos anteriormente, o que é essencial para a eficácia prática do modelo em ambientes reais.
+
+Os modelos selecionados para comparação incluem Multinomial Naive Bayes (MULTINOMIAL\_NB), Random Forest (RANDOM\_FOREST), XGBoost (XGBOOST) e Logistic Regression (LOGISTIC\_REGRESSION). Esses modelos foram escolhidos por suas características distintas e desempenho comprovado em tarefas de classificação. A aferição da qualidade dos modelos é realizada através de uma função de avaliação, que emprega técnicas como Validação Cruzada Estratificada e análise de AUC para garantir uma avaliação robusta e confiável. Os resultados obtidos para cada modelo são apresentados abaixo:
+
+\begin{table}[h]
+\centering
+\caption{Resultados da Avaliação dos Modelos}
+\label{tab:model_results}
+\begin{tabular}{lcc}
+\hline
+Modelo               & Acurácia Média & AUC Médio \\
+\hline
+MULTINOMIAL\_NB      & 0.8177         & 0.9790   \\
+RANDOM\_FOREST       & 0.8207         & 0.9900   \\
+XGBOOST              & 0.8027         & 0.9912   \\
+LOGISTIC\_REGRESSION & 0.8077         & 0.9999   \\
+\hline
+\end{tabular}
+\end{table}
+
+Com base nos resultados obtidos, propomos a utilização de um método de ensemble, combinando os quatro modelos selecionados. Este método visa aumentar a robustez e precisão do sistema de classificação, atribuindo pesos diferenciados a cada modelo conforme seu desempenho. Nesse contexto, cada classificador tem um voto ponderado, que é calculado com base em sua acurácia e AUC. O voto ponderado é então utilizado para determinar a classificação final de cada postagem. Os pesos são calculados com base na acurácia e AUC de cada modelo, normalizando essas métricas e calculando uma média ponderada. Isso permite que modelos com melhor desempenho tenham maior influência na decisão final do ensemble. A comparação entre os modelos e a subsequente implementação do método de ensemble demonstram a eficácia desta abordagem na melhoria da precisão e robustez do sistema de classificação de personas. A flexibilidade proporcionada pela atribuição de pesos permite ajustes finos conforme necessário, garantindo que o sistema permaneça adaptável a diferentes cenários e requisitos.
 
 \begin{figure}[htb]
 	\centering
@@ -547,14 +594,157 @@ Para avaliar a robustez e a confiabilidade do modelo, foi empregada a técnica d
 	\fautor
 \end{figure}
 
-A matriz de confusão e a curva ROC são indicativos claros da eficácia do modelo. Uma matriz de confusão com valores predominantemente nas diagonais e um AUC de 1.0 na curva ROC sugerem um desempenho quase perfeito. No entanto, é crucial reconhecer que, apesar desses resultados promissores, a possibilidade de overfitting não pode ser completamente descartada. A abordagem estratificada e a diversidade do conjunto de treinamento, que inclui postagens de diferentes demografias e tamanhos, servem como contramedidas para esse risco.
-
 O processo de construção do modelo de classificação foi meticuloso e fundamentado em práticas rigorosas. Através da seleção e classificação cuidadosa das postagens, da adoção de técnicas de validação robustas e da análise contínua da confiabilidade, estamos confiantes na capacidade do modelo de classificar postagens de maneira precisa e representativa. Este modelo, aliado à análise de redes e ao sistema de score, oferece uma visão holística e profunda das interações no Colab, abrindo caminho para futuras investigações sobre a dinâmica das comunidades online e o papel das plataformas digitais na formação de opiniões e sentimentos.
+
+\section{Análise de Redes baseada em Persona}
+
+A jornada até aqui foi marcada por uma série de experimentos meticulosos, todos com um objetivo comum: construir heurísticas robustas para a detecção de câmaras de eco na rede do Colab. Através da aplicação do modelo de classificação, conseguimos uma visão detalhada das personas dos usuários, revelando nuances sobre como eles interagem e se expressam na plataforma. Esta análise nos mostrou que, apesar de existirem críticos e insatisfeitos, a maioria dos usuários busca colaborar e contribuir de forma positiva.
+
+Ao integrar essas personas na análise de redes, conseguimos ir além da simples classificação. Observamos como as personas se manifestam na estrutura da rede, como se conectam e quais posições ocupam. Esta análise nos deu insights valiosos sobre a dinâmica das interações e sobre como diferentes tipos de usuários influenciam e são influenciados dentro da rede.
+
+No entanto, o mais importante é o que fazemos com esses insights. A detecção de câmaras de eco é mais do que um exercício acadêmico; é uma busca para entender como as opiniões são formadas e reforçadas em ambientes digitais. Ao identificar e compreender essas câmaras, temos a oportunidade de promover diálogos mais abertos e inclusivos, onde diferentes vozes são ouvidas e onde a informação circula de forma mais equilibrada. Com os resultados obtidos, estamos um passo mais perto de tornar o Colab, e outras plataformas digitais, espaços mais saudáveis e representativos para todos os seus usuários.
+
+\section{Aplicação e resultados do Modelo de Classificação}
+
+Após a meticulosa construção e validação do modelo de classificação, chegou o momento de aplicá-lo ao conjunto de dados real e observar sua capacidade em campo. Utilizamos a rede composta pelas três cidades com maior interação, conforme identificado no \autoref{chapter:06_exploratory}, e o dataset contendo postagens dos usuários dessas cidades relacionadas a eventos de zeladoria pública. Ao rodar o modelo em todas as postagens, cada uma recebeu um score de sentimento e uma persona atribuída. Posteriormente, para determinar a persona de cada usuário, compilamos todas as postagens classificadas desse usuário e, através de uma média, calculamos sua persona predominante. Esta abordagem nos permite não apenas entender o sentimento expresso em postagens individuais, mas também obter uma visão mais ampla do perfil comportamental dos usuários no Colab.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/personas_pie.png}
+    \caption{Distribuição de Personas}
+    \label{fig:personas_pie}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/personas_city.png}
+    \caption{Distribuição de Personas por Cidade}
+    \label{fig:personas_city}
+\end{figure}
+
+A distribuição de personas revela uma predominância de usuários classificados como 'Helper' (82.2\%) em comparação aos 'Complainer' (17.8\%). Esta distribuição sugere que a maioria dos usuários do Colab tende a ser mais colaborativa e propositiva em suas postagens, enquanto uma minoria expressa insatisfações ou críticas. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/persona_gender.png}
+    \caption{Distribuição de Personas por Gênero}
+    \label{fig:persona_gender}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/persona_education.png}
+    \caption{Distribuição de Personas por Escolaridade}
+    \label{fig:persona_education}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/persona_race.png}
+    \caption{Distribuição de Personas por Raça}
+    \label{f
+	ig:persona_race}
+\end{figure}
+
+Ao analisar a distribuição por cidade, observa-se que Niterói possui a maior proporção de 'Helpers' (1759) em comparação com 'Complainers' (582). Em contraste, Mesquita apresenta uma proporção mais equilibrada, com 532 'Helpers' e 78 'Complainers'. Santo André, por sua vez, segue uma tendência semelhante a Niterói, com 1194 'Helpers' e 424 'Complainers'. 
+
+O espectro de gênero mostra que ambos os gêneros, masculino e feminino, têm uma proporção maior de 'Helpers' em relação aos 'Complainers'. No entanto, é interessante notar que, embora haja uma representação mínima de gêneros não binários e outros, eles também seguem essa tendência. 
+
+Quando observamos a escolaridade, os usuários com formação de bacharelado lideram tanto na categoria 'Helper' quanto na 'Complainer'. No entanto, é notável que, em todas as categorias de escolaridade, os 'Helpers' superam os 'Complainers'. Em relação à raça, a maioria dos 'Helpers' e 'Complainers' se identifica como brancos, seguidos por pardos. As demais categorias raciais apresentam números menores, mas ainda assim, a tendência de mais 'Helpers' do que 'Complainers' persiste.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/personas_network.png} 
+    \caption{Rede de usuários das 3 cidades com mais interações no Colab. Os usuários são agrupados de acordo com suas comunidades. Os nós são coloridos de acordo com a persona identificada: azul para helper, vermelho para complainer e laranja para não identificado.}
+    \label{fig:personas_network}
+\end{figure}
+
+Após a classificação das postagens e a determinação das personas dos usuários, buscamos entender como essas personas se relacionam com a estrutura da rede de interações no Colab. A ideia é investigar se há padrões de comportamento ou tendências associadas a determinadas personas no contexto das interações na plataforma. Para isso, integramos o atributo de persona ao grafo, permitindo que cada nó (usuário) carregasse consigo sua persona predominante. Esta integração nos possibilita explorar correlações entre as métricas da rede e as personas, fornecendo insights sobre como diferentes tipos de usuários interagem e se posicionam dentro da rede.
+
+A análise de redes revela um grafo direcionado com 6904 nós e 25785 arestas. A presença de 110 comunidades sugere uma estrutura de rede diversificada. A modulação, com uma pontuação de 0.6331, indica uma estrutura de comunidade bem definida. A assortatividade em relação à 'persona' é positiva (0.311), indicando que usuários com personas semelhantes tendem a se conectar entre si. Ao agrupar os nós da rede por 'persona', observa-se que, em média, os 'Helpers' têm graus de entrada e saída mais altos e uma maior centralidade de eigenvector em comparação com os 'Complainers'. Isso sugere que os 'Helpers' podem ser mais centrais e influentes na rede do que os 'Complainers'.
+
+Ao combinar as métricas de análise de redes com as personas do usuário em uma matriz de correlação, percebemos que há uma relação positiva moderada entre o grau de entrada e o grau de saída. Na prática, o grau de entrada representa quantos usuários estão seguindo um determinado usuário, enquanto o grau de saída indica quantos usuários esse indivíduo está seguindo. Além disso, observa-se uma relação positiva entre o grau de entrada e a centralidade de eigenvector. A centralidade de eigenvector é uma métrica que identifica a influência de um nó na rede, considerando a qualidade das suas conexões. Ou seja, não apenas quantas conexões ele tem, mas também quão influentes são os nós com os quais ele está conectado.
+
+Ao aprofundar a análise das métricas apresentadas, percebemos nuances distintas na distribuição e comportamento das personas nas três cidades em foco: Niterói, Santo André e Mesquita. A primeira observação notável é a variação na proporção de usuários classificados em cada cidade, sendo Mesquita e Santo André as que apresentam as maiores proporções, com aproximadamente 85\% de seus usuários classificados, enquanto Niterói possui cerca de 48\%.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/network_personas_niteroi.png}
+    \caption{Distribuição de personas na rede de usuários de Niterói.}
+    \label{fig:network_personas_niteroi}
+\end{figure}
+
+Niterói, apesar de ter uma menor proporção de usuários classificados, mostra uma predominância significativa de 'Helpers' sobre 'Complainers', uma característica compartilhada com Santo André. Mesquita, por outro lado, apresenta uma proporção ainda mais inclinada para 'Helpers', com 87,21\% de seus usuários classificados enquadrando-se nesta categoria. Este dado sugere que a dinâmica de interação em Mesquita pode ser mais colaborativa e positiva, o que pode influenciar a formação de comunidades e a disseminação de informações.
+
+A análise da assortatividade em relação à 'persona' em cada cidade revela que usuários com personas semelhantes tendem a se conectar entre si, com a assortatividade variando de 0.007 em Niterói a 0.071 em Santo André. Este fenômeno pode ser um indicativo da formação de câmaras de eco, onde usuários com opiniões e comportamentos semelhantes tendem a se agrupar, reforçando suas visões e reduzindo a exposição à diversidade de pensamentos.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/network_personas_sandre.png}
+    \caption{Distribuição de personas na rede de usuários de Santo André.}
+    \label{fig:network_personas_sandre}
+\end{figure}
+
+Ao observar as métricas de centralidade, notamos que, em média, os 'Helpers' apresentam graus de entrada e saída mais altos e uma maior centralidade de eigenvector em comparação com os 'Complainers' em todas as cidades. Este padrão sugere que os 'Helpers' podem ocupar posições mais centrais e influentes na rede, atuando como hubs de informação e interação. A influência elevada dos 'Helpers' pode ser um fator determinante na modulação do ambiente online, direcionando o tom e o conteúdo das discussões.
+
+A modulação, medida que indica a estrutura de comunidade bem definida, varia entre as cidades, sendo mais alta na rede que engloba as três cidades e mais baixa em Mesquita. Esta variação pode ser interpretada como uma diferença na coesão das comunidades e na forma como os usuários interagem entre si. Cidades com modulação mais alta podem apresentar comunidades mais isoladas, o que pode favorecer a formação de câmaras de eco.
+
+A matriz de correlação entre as métricas de centralidade e o valor da persona revela relações interessantes. Em todas as cidades, observa-se uma correlação positiva entre o grau de entrada e o grau de saída, bem como entre o grau de entrada e a centralidade de eigenvector. No entanto, a correlação entre o valor da persona e as métricas de centralidade é, em geral, negativa, sugerindo que os 'Complainers' podem ter uma tendência a ser menos centrais e influentes na rede.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/network_personas_mesquita.png}
+    \caption{Distribuição de personas na rede de usuários de Mesquita.}
+    \label{fig:network_personas_mesquita}
+\end{figure}
+
+A diversidade na estrutura de comunidades, evidenciada pelo número e tamanho das comunidades em cada cidade, sugere diferentes dinâmicas de agrupamento. Mesquita, por exemplo, apresenta o maior número de comunidades, mas com um tamanho médio menor, indicando uma possível fragmentação dos usuários em grupos menores. Esta fragmentação pode ser um terreno fértil para a formação de câmaras de eco, onde opiniões e informações são reforçadas dentro de grupos homogêneos.
+
+Ao considerar o contexto acadêmico, é imperativo refletir sobre como essas descobertas podem contribuir para o entendimento das dinâmicas de interação online e a formação de câmaras de eco. A predominância de 'Helpers' e sua posição central nas redes podem ser vistas como um mecanismo de resistência contra a polarização e a formação de câmaras de eco, promovendo a diversidade de opiniões e a interação construtiva.
+
+No entanto, a presença de assortatividade positiva e a variação na estrutura de comunidades apontam para a necessidade de estratégias de intervenção e moderação para prevenir a formação de ambientes isolados e polarizados. A compreensão dessas dinâmicas é fundamental para o desenvolvimento de heurísticas e ferramentas que possam detectar e mitigar a formação de câmaras de eco, promovendo um ambiente online mais saudável e inclusivo.
+
+Em conclusão, a análise detalhada das métricas de rede nas três cidades revela padrões e tendências que são essenciais para a compreensão das dinâmicas de interação e a identificação de câmaras de eco. A predominância e influência dos 'Helpers', a assortatividade positiva, a diversidade de comunidades e as correlações entre métricas de centralidade e valor de persona são elementos chave que podem guiar futuras pesquisas e intervenções na busca por um ambiente online mais equilibrado e representativo.
+
+A jornada até aqui foi marcada por uma série de experimentos meticulosos, todos com um objetivo comum: construir heurísticas robustas para a detecção de câmaras de eco na rede do Colab. Através da aplicação do modelo de classificação, conseguimos uma visão detalhada das personas dos usuários, revelando nuances sobre como eles interagem e se expressam na plataforma. Esta análise nos mostrou que, apesar de existirem críticos e insatisfeitos, a maioria dos usuários busca colaborar e contribuir de forma positiva.
+
+Ao integrar essas personas na análise de redes, conseguimos ir além da simples classificação. Observamos como as personas se manifestam na estrutura da rede, como se conectam e quais posições ocupam. Esta análise nos deu insights valiosos sobre a dinâmica das interações e sobre como diferentes tipos de usuários influenciam e são influenciados dentro da rede.
+
+No entanto, o mais importante é o que fazemos com esses insights. A detecção de câmaras de eco é mais do que um exercício acadêmico; é uma busca para entender como as opiniões são formadas e reforçadas em ambientes digitais. Ao identificar e compreender essas câmaras, temos a oportunidade de promover diálogos mais abertos e inclusivos, onde diferentes vozes são ouvidas e onde a informação circula de forma mais equilibrada. Com os resultados obtidos, estamos um passo mais perto de tornar o Colab, e outras plataformas digitais, espaços mais saudáveis e representativos para todos os seus usuários.
+
+\section{Homofilia e Câmaras de Eco}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/personas_violin.png}
+    \caption{Distribuição de Personas por Score (Violin Plot)}
+    \label{fig:personas_violin}
+\end{figure}
+
+A homofilia, termo cunhado por Lazarsfeld e Merton em 1954, refere-se à tendência de indivíduos se associarem a outros que são semelhantes a eles em termos de características, interesses e opiniões. Esse fenômeno é amplamente estudado em diversas áreas, incluindo sociologia, psicologia e ciência das redes, e tem sido observado em várias configurações sociais, desde relacionamentos pessoais até interações online em redes sociais.
+
+A homofilia pode estar intimamente relacionada às câmaras de eco, uma vez que a tendência de buscar semelhanças pode levar à formação de grupos com visões e perspectivas convergentes. Quando os indivíduos se associam principalmente a outros que compartilham suas opiniões, informações e conteúdos que são compartilhados dentro desses grupos tendem a reforçar e amplificar essas visões específicas. Isso cria um ambiente propício para o desenvolvimento de câmaras de eco, onde a diversidade de perspectivas é limitada e as ideias divergentes são escassas. A homofilia pode contribuir para a persistência das câmaras de eco ao restringir a exposição a opiniões contrárias e limitar a troca de informações entre diferentes grupos na rede. Essa dinâmica pode resultar em polarização, falta de entendimento mútuo e até mesmo no fortalecimento de crenças extremas.
+
+Estudos têm destacado a relação entre homofilia e câmaras de eco em diferentes contextos, como a propagação de desinformação em redes sociais ou a formação de bolhas de opinião política. A presença de homofilia nas redes sociais pode contribuir para a criação de "filtros de informação" que reforçam as visões existentes e dificultam a exposição a diferentes perspectivas, aumentando assim a probabilidade de formação de câmaras de eco.
+
+Ao entender o conceito de homofilia e sua relação com as câmaras de eco, podemos explorar métricas e técnicas para identificar e mitigar esses fenômenos nas redes sociais. A análise de métricas de homofilia pode fornecer insights sobre a estrutura das redes sociais e ajudar a compreender como as informações são disseminadas e as opiniões são formadas dentro desses contextos específicos. Essas descobertas podem ser fundamentais para desenvolver estratégias e intervenções que promovam uma maior diversidade de perspectivas, diálogo e compreensão mútua na era digital.
+
+As métricas de homofilia geradas a partir deste experimento podem ajudar a detectar câmaras de eco em um grafo da rede do Colab. Câmaras de eco são fenômenos sociais onde as opiniões e informações são amplificadas ou reforçadas pela comunicação e repetição dentro de um sistema fechado e podem contribuir para a polarização social. Ao identificar e entender estas câmaras de eco, podemos desenvolver estratégias para promover a diversidade de opiniões e a comunicação aberta.
 
 \section{Classificação de personas em Modelagem Baseada em Agentes}
 
 A Modelagem Baseada em Agentes (MBA) é uma técnica computacional que tem ganhado interesse em diversas áreas de pesquisa, devido à sua capacidade de simular a interação de agentes autônomos e observar os resultados emergentes dessas interações. A MBA é particularmente útil para estudar sistemas complexos, onde o comportamento global do sistema não pode ser facilmente deduzido a partir do comportamento individual dos agentes.
 
-Agora, consideremos as personas "helpers" e "complainers" em redes sociais. Estas personas, embora não sejam explicitamente mencionadas por Atiqi, podem ser consideradas como agentes dentro da estrutura de MBA. Os "helpers" podem ser vistos como agentes que buscam transmitir mensagens positivas e úteis, enquanto os "complainers" tendem a transmitir mensagens negativas ou críticas. A interação entre essas duas personas pode levar a diferentes dinâmicas de rede e padrões de comunicação. Por exemplo, se os "helpers" são mais influentes ou numerosos, eles podem criar um ambiente mais positivo e cooperativo na rede social. Por outro lado, se os "complainers" são mais influentes ou numerosos, eles podem criar um ambiente mais negativo e crítico.
+Agora, consideremos as personas "helpers" e "complainers" em redes sociais. Estas personas, embora não sejam explicitamente mencionadas por Atiqi, podem ser consideradas como agentes dentro da estrutura de MBA. Os "helpers" podem ser vistos como agentes que buscam transmitir mensagens positivas e úteis, enquanto os "complainers" tendem a transmitir mensagens negativas ou críticas. A interação entre essas duas personas pode levar a diferentes dinâmicas de rede e padrões de comunicação. Por exemplo, se os "helpers" são mais influentes ou numerosos, eles podem criar um ambiente mais positivo e cooperativo na rede social. Por outro lado, se os "complainers" são mais influentes ou numerosos, eles podem criar um ambiente mais negativo e crítico. 
 
 Além disso, a presença de bots também pode influenciar a dinâmica entre "helpers" e "complainers". Por exemplo, bots programados para agir como "helpers" podem aumentar a positividade e a cooperação na rede, enquanto bots programados para agir como "complainers" podem aumentar a negatividade e a crítica. Portanto, a abordagem de MBA usada por Atiqi se torna uma ferramenta útil para estudar a interação entre "helpers" e "complainers" em redes sociais e entender como essas interações podem influenciar a dinâmica da rede e a formação da opinião pública.
+
+Dentro desse contexto, Atiqi introduz o conceito de "opinião média", que pode ser entendido como uma métrica que reflete a tendência geral ou o sentimento dominante em uma rede social em um determinado momento. A opinião média é calculada com base nas postagens e interações dos usuários, e pode ser influenciada tanto por "helpers" quanto por "complainers", bem como por outros fatores externos, como notícias ou eventos atuais.
+
+A ideia de calcular a opinião média é crucial para entender a dinâmica de uma rede social. Se, por exemplo, a opinião média em uma rede social é predominantemente positiva, isso pode indicar que os "helpers" estão tendo um impacto maior na formação da opinião pública. Por outro lado, uma opinião média predominantemente negativa pode indicar uma influência maior dos "complainers".
+
+No contexto da plataforma Colab, podemos adaptar essa ideia para extrair a opinião média dos usuários com base em suas postagens. Ao analisar o conteúdo, a frequência e o sentimento das postagens dos usuários, podemos calcular uma opinião média para diferentes tópicos ou áreas de interesse. Por exemplo, se muitos usuários estão postando sobre problemas de transporte público e expressando insatisfação, a opinião média sobre esse tópico seria negativa.
+
+Para criar heurísticas que nos ajudem a extrair essa opinião média, podemos começar categorizando postagens com base em palavras-chave ou tópicos específicos. Em seguida, podemos analisar o sentimento dessas postagens usando técnicas de processamento de linguagem natural. Ao combinar essas informações com os dados de persona dos usuários, podemos obter uma visão mais completa da opinião média em diferentes tópicos.
+
+No próximo capítulo, introduziremos o conceito de barômetro social hiperlocal. Este modelo inovador promete revolucionar a forma como interpretamos e analisamos as dinâmicas de redes sociais como o Colab. Exploraremos em detalhes como esse barômetro pode ser utilizado para calcular a opinião média dos usuários, levando em consideração tanto o sentimento expresso em suas postagens quanto as personas associadas a cada um. Além disso, discutiremos como a combinação de técnicas de processamento de linguagem natural e Modelagem Baseada em Agentes pode proporcionar insights mais profundos sobre a formação da opinião pública e a dinâmica de interação entre diferentes grupos de usuários. Através dessa abordagem, buscamos não apenas entender, mas também prever tendências e padrões de comportamento dentro da plataforma, permitindo uma resposta mais eficaz e informada a diferentes cenários e desafios.

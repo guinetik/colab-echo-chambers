@@ -210,7 +210,7 @@ Estratégia \texttt{NeighborInfluenceOpinionUpdateStrategy}:
 	O_i = O_i + \alpha \times (M_i - O_i)
 \end{equation*}
 
-Onde:
+em que:
 
 \begin{itemize}
 	\item $O_i$ representa a opinião do usuário $i$;
@@ -223,7 +223,7 @@ Estratégia \texttt{WeightedNeighborInfluenceOpinionUpdateStrategy}:
 	O_i = O_i + \alpha \times (M_{\text{ponderada}_i} - O_i)
 \end{equation*}
 
-Onde:
+em que:
 
 \begin{itemize}
 	\item $O_i$ representa a opinião do usuário $i$;
@@ -241,3 +241,16 @@ A simulação produz várias métricas que podem ser usadas para analisar a din�
 \end{itemize}
 
 Em conclusão, a metodologia de Atiqi fornece um framework poderoso para simular e analisar a dinâmica de opiniões em redes sociais. O modelo baseado em agentes permite uma representação detalhada dos usuários e suas interações, enquanto as diversas métricas e visualizações proporcionam insights sobre a dinâmica da rede. No entanto, interpretar esses resultados de maneira significativa muitas vezes requer compará-los a outros resultados, seja de outras simulações ou de dados do mundo real. Nossa intenção é adaptar a metodologia de Atiqi para o caso de uso do Colab, substituindo as notícias por eventos reportados pelos usuários e as opiniões por sentimentos expressos nos comentários/postagens. Dessa forma, poderemos simular a dinâmica de opiniões e a formação de câmaras de eco no contexto do aplicativo Colab. Exploramos essas dinâmicas no \autoref{chapter:08_echochamberdetection}.
+
+\section{Conclusões}
+Neste capítulo de Fundamentação Teórica, exploramos conceitos e teorias essenciais que fornecem uma base sólida para a compreensão das dinâmicas das câmaras de eco em redes sociais, com foco na aplicação desses conceitos ao contexto do aplicativo Colab. Começamos introduzindo a teoria dos grafos e sua relevância na representação de redes sociais, destacando a importância da detecção de comunidades e da modularidade para identificar estruturas significativas dentro dessas redes. Em seguida, discutimos o algoritmo Louvain, uma técnica eficaz para a detecção de comunidades em redes complexas, que desempenhará um papel fundamental em nossas análises.
+
+Em seguida, investigamos as aplicações da análise de redes sociais em diversos campos, reconhecendo a importância dessa abordagem na compreensão das dinâmicas das redes e na identificação de padrões emergentes. Exploramos as câmaras de eco e suas implicações nas mídias sociais, destacando como esses fenômenos podem levar à polarização e à disseminação de desinformação.
+
+Examinamos as implicações negativas das câmaras de eco, incluindo a dificuldade de diálogo construtivo, a disseminação de desinformação e a fragmentação da sociedade. Investigamos os mecanismos por trás da formação das câmaras de eco, que envolvem algoritmos de personalização de conteúdo, vieses cognitivos e influência de líderes de opinião.
+
+Destacamos a importância de compreender esses mecanismos para mitigar os efeitos negativos das câmaras de eco, especialmente no contexto do aplicativo Colab. Analisamos estudos relevantes que examinaram câmaras de eco em diferentes contextos, incluindo política climática e debates sobre vacinação.
+
+Finalmente, introduzimos a Modelagem Baseada em Agentes (MBA) como uma ferramenta poderosa para simular a dinâmica das câmaras de eco. A MBA permite a criação de simulações que representam a interação de agentes autônomos, que são os usuários de redes sociais. Exploramos um modelo de simulação baseado em MBA que pode ser adaptado ao contexto do Colab, permitindo-nos investigar como as câmaras de eco podem se formar e evoluir dentro da plataforma.
+
+No próximo capítulo, daremos um passo adiante na nossa jornada de compreensão das câmaras de eco no aplicativo Colab. Usando a poderosa ferramenta Gephi, realizaremos uma análise exploratória da rede do Colab. Iremos visualizar e examinar a estrutura da rede, identificar comunidades e padrões de interação, e começar a descobrir insights sobre como as câmaras de eco podem estar se formando na plataforma. Esta análise nos proporcionará uma base sólida para investigações mais aprofundadas e a formulação de estratégias para lidar com os desafios das câmaras de eco no Colab.
