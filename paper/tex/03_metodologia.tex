@@ -10,6 +10,16 @@ Por outro lado, a pesquisa exploratória, conforme descrito por \cite{2008_Yin_B
 
 A combinação dessas duas abordagens é estratégica. Enquanto a pesquisa descritiva fornece uma base sólida e detalhada sobre os usuários e suas interações, a pesquisa exploratória permite a descoberta de novos insights e compreensões sobre as câmaras de eco. Esta combinação maximiza a profundidade e amplitude da análise, garantindo que tanto os aspectos bem definidos quanto os emergentes do fenômeno sejam adequadamente abordados.
 
+A metodologia deste estudo segue uma abordagem sequencial e iterativa, dividida em distintas fases interligadas. Cada fase é projetada para conduzir experimentos específicos que contribuem para uma compreensão mais profunda e abrangente das dinâmicas presentes na rede Colab.
+
+Em cada fase, são definidos objetivos claros e hipóteses a serem testadas. A fase inicial se concentra na coleta e análise descritiva de dados do Colab, visando caracterizar os usuários, eventos e interações. Os resultados dessa fase são fundamentais para estabelecer uma base sólida e compreensível sobre o comportamento dos usuários.
+
+À medida que avançamos para as fases subsequentes, os resultados dos experimentos anteriores são utilizados como insumos essenciais. Por exemplo, os dados coletados na primeira fase, que detalham as interações dos usuários, servem como base para a identificação das comunidades da rede na segunda fase. Os insights obtidos na segunda fase, por sua vez, orientam a seleção de tipos de eventos específicos a serem analisados na terceira fase.
+
+Essa abordagem sequencial e iterativa permite que cada fase da pesquisa se beneficie das descobertas e conclusões anteriores, enriquecendo a análise e possibilitando insights mais profundos. Além disso, essa estratégia promove a construção gradual de conhecimento, à medida que cada experimento agrega informações e levanta novas questões a serem exploradas.
+
+Em resumo, a pesquisa adota uma estratégia de fases interdependentes, em que os resultados de cada experimento alimentam o próximo, ampliando nosso entendimento das dinâmicas da rede Colab e das câmaras de eco presentes nesse ambiente
+
 \section{Universo e Amostra}
 Os dados utilizados são oriundos do aplicativo Colab, representando um universo de [X usuários] no período de [data de início] a [data de fim] cobrindo as cidades de Caruaru, Rio de Janeiro, Recife, Niterói, Mesquita e Santo André. Nessa amostragem os usuários realizaram [X postagens] e [X comentários] num total de [X interações] analisadas.
 
@@ -55,7 +65,14 @@ Os dados foram fornecidos pelo aplicativo Colab em formato CSV. Estes incluem li
 \end{figure}
 
 \section{Ferramentas e Softwares}
-Serão utilizados softwares específicos para análise de redes sociais, como Gephi ou NodeXL, e linguagens de programação, como Python ou R, para análises mais detalhadas. Bibliotecas de aprendizado de máquina, como Scikit-learn, TensorFlow ou PyTorch, serão empregadas para treinamento de modelos.
+
+Análise Exploratória de Redes com Gephi: Inicialmente, será conduzida uma análise exploratória de redes usando o software Gephi. Esta fase permitirá visualizar a estrutura da rede, identificar clusters e comunidades e também entender os padrões de interação entre os usuários.
+
+Análise de Redes com Python e NetworkX: Para um exame mais detalhado e uma análise quantitativa da rede, utilizaremos Python, especificamente a biblioteca NetworkX. Com isso, esperamos identificar métricas-chave da rede, como centralidade, densidade e modularidade. Esse estudo nos ajudará a identificar as câmaras de eco e seus nós principais.
+
+Modelagem Baseada em Agentes: A modelagem baseada em agentes será empregada para simular o comportamento dos usuários e a propagação de informações. Isso nos permitirá prever a propagação de informações dentro e entre câmaras de eco e tentar entender as dinâmicas que levam à formação de tais câmaras.
+
+Ambiente de Desenvolvimento Google Colaboratory: Todas as análises computacionais e o desenvolvimento de algoritmos serão realizados no ambiente Google Colaboratory, que oferece um ambiente de codificação interativo e colaborativo baseado na nuvem. Isso facilitará a reproducibilidade da pesquisa e também a colaboração com outros pesquisadores.
 
 \section{Aspectos Éticos}
 A pesquisa garante a anonimidade das informações pessoais dos usuários. Todos os dados sensíveis serão tratados com precaução, assegurando a integridade e privacidade dos participantes.
