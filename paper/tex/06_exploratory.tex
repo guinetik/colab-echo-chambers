@@ -183,7 +183,7 @@ Para visualizar cliques no Gephi, uma abordagem é usar a estatística interna "
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[scale=0.4]{images/colab-cliques.png}
+	\includegraphics[scale=0.45]{images/colab-cliques.png}
 	\caption{Visualização dos cliques identificados na rede. Nós que fazem parte de cliques são destacados em laranja, indicando subcomunidades altamente interconectadas. Nós verdes fazem parte de subcomunidades menores que orbitam os cliques. Nós roxos não fazem parte de nenhum clique.}
 	\label{fig:gephi_cliques}
 	\fautor
@@ -199,7 +199,7 @@ Enquanto os cliques nos oferecem uma visão sobre subgrupos coesos dentro da red
 	\caption{Visualização destacando os usuários mais influentes na rede}
 	\label{fig:colab_users_graph}
 	\centering
-	\includegraphics[scale=0.25]{images/colab-users-graph.png}
+	\includegraphics[scale=0.28]{images/colab-users-graph.png}
 	\fautor
 \end{figure}
 
@@ -223,7 +223,7 @@ Ao configurar a aparência da visualização do Gephi, focamos em destacar as co
 	\caption{Rede do Colab destacando comunidades}
 	\label{fig:colab_communities}
 	\centering
-	\includegraphics[scale=0.2]{images/colab-communities.png}
+	\includegraphics[scale=0.25]{images/colab-communities.png}
 	\fautor
 \end{figure}
 
@@ -402,7 +402,7 @@ Para superar essas limitações, decidimos incorporar uma abordagem baseada em c
 
 A abordagem baseada em código nos trouxe diversos benefícios em relação ao uso do Gephi. Em primeiro lugar, a automação das etapas de análise nos permitiu trabalhar com redes maiores e mais complexas, que seriam impraticáveis de analisar manualmente no Gephi. Além disso, a flexibilidade do código nos permitiu ajustar e personalizar as análises de acordo com nossas necessidades específicas. Também pudemos criar visualizações interativas dos resultados, permitindo uma exploração mais profunda da rede.
 
-A classe NetworkPlotter representada no \autoref{codigo:networkplotter} foi essencial nesse processo. Ela encapsula a lógica para a visualização e análise de redes complexas, utilizando bibliotecas como NetworkX e Bokeh. A classe nos permite calcular métricas de grau e centralidade, normalizar tamanhos de nós e criar visualizações interativas do grafo. Essa abordagem orientada a código nos forneceu uma ferramenta poderosa e reutilizável para análise de redes sociais, facilitando a exploração e compreensão da estrutura e dinâmica da rede do Colab.
+A classe NetworkPlotter foi essencial nesse processo. Ela encapsula a lógica para a visualização e análise de redes complexas, utilizando bibliotecas como NetworkX e Bokeh. A classe nos permite calcular métricas de grau e centralidade, normalizar tamanhos de nós e criar visualizações interativas do grafo. Essa abordagem orientada a código nos forneceu uma ferramenta poderosa e reutilizável para análise de redes sociais, facilitando a exploração e compreensão da estrutura e dinâmica da rede do Colab.
 
 Iniciando com a métrica de grau, é utilizado o método \texttt{nx.degree()} para calcular o grau de cada nó, representando o número de conexões de entrada ou saída do mesmo. Essa métrica permite identificar nós importantes dentro da rede, uma vez que nós com um alto grau estão mais conectados a outros nós e podem desempenhar papéis de influência significativos.
 

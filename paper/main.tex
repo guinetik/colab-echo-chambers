@@ -40,7 +40,7 @@
 \orientador[Orientador]{Prof. Dr.}{Erico Souza Teixeira}
 \coorientador{Prof. Dr.}{Onício Leal Neto}
 \curso{CCMC}
-\data{15}{06}{2023} % Data do depósito
+\data{05}{11}{2023} % Data do depósito
 \idioma{PT} % Idioma principal do documento (PT = português / EN = inglês)
 % ---
 
@@ -52,17 +52,23 @@
 % Resumo em PORTUGUÊS
 % conter no máximo 500 palavras
 % conter no mínimo 1 e no máximo 5 palavras-chave
-\textoresumo[brazil]{
-    Este artigo explora a natureza das câmaras de eco no aplicativo Colab.re, investigando a estrutura e a dinâmica das redes partidárias e o impacto da polarização partidária na deliberação pública. Com base em métodos da epidemiologia digital e da análise de redes, o estudo desenvolve um quadro para detectar e mitigar os efeitos das câmaras de eco no aplicativo Colab.re. Os resultados revelam a existência de grupos altamente polarizados, com interação limitada entre facções opostas, e destacam o papel da curadoria algorítmica e do comportamento do usuário na formação do ecossistema de informações. O estudo também propõe um conjunto de intervenções, incluindo sugestões de rede e moderação de conteúdo, para promover uma maior diversidade de pontos de vista e aprimorar a qualidade da deliberação pública no aplicativo Colab.re. O artigo conclui discutindo as implicações mais amplas do estudo para a governança participativa e os desafios de promover o engajamento democrático em um ambiente midiático polarizado.
-    }{Análise de Redes Sociais; Câmaras de Eco; Teoria dos Grafos}
+\textoresumo[brazil]{Este estudo explora a dinâmica das câmaras de eco e do comportamento polarizador na rede social Colab, empregando uma abordagem inovadora com métricas quantitativas derivadas de uma combinação multidisciplinar de técnicas de análise de dados. Utilizando as comunidades de Niterói, Santo André e Mesquita como estudo de caso, o Colab é examinado como um barômetro social que reflete as pressões sociais exercidas pelos usuários a nivel hiperlocal.
+
+Combinando análise de redes, análise de sentimentos e classificação de personas, desenvolvemos um modelo que identifica padrões de polarização e câmaras de eco, propondo intervenções para mitigar esses fenômenos e fortalecer a diversidade e a qualidade do debate público.
+
+Os resultados demonstram a existência de subgrupos altamente polarizados e o impacto significativo da curadoria algorítmica e dos comportamentos dos usuários na estruturação do ecossistema informacional do Colab. Propomos heurísticas para a detecção de câmaras de eco e estratégias operacionais para administradores de redes sociais, com o objetivo de promover um engajamento democrático mais inclusivo e aperfeiçoar a governança participativa.
+
+O trabalho conclui refletindo sobre as amplas implicações para a governança participativa e os desafios de incentivar o engajamento democrático em um ambiente de mídia digital polarizado, enfatizando a importância do equilíbrio entre tecnologia e supervisão humana.}
+{Câmaras de Eco; Polarização; Análise de Redes Sociais; Teoria dos Grafos}
 
 
 % resumo em INGLÊS
 % conter no máximo 500 palavras
 % conter no mínimo 1 e no máximo 5 palavras-chave
-\textoresumo[english]{
-    This paper explores the nature of echo chambers in the Colab.re app, investigating the structure and dynamics of partisan networks and the impact of partisan polarization on public deliberation. Drawing on methods from digital epidemiology and network analysis, the study develops a framework for detecting and mitigating the effects of echo chambers in the Colab.re app. The findings reveal highly polarized clusters with limited interaction between opposing factions and shed light on the role of algorithmic curation and user behavior in shaping the information ecosystem. The study also proposes a set of interventions, including network nudges and content moderation, to foster a greater diversity of viewpoints and enhance the quality of public deliberation in the Colab.re app. The paper concludes by discussing the broader implications of the study for participatory governance and the challenges of promoting democratic engagement in a polarized media environment.
-    }{Social Network Analysis; Echo Chambers; Graph Theory}
+\textoresumo[english]{This study explores the dynamics of echo chambers and polarizing behavior within the Colab social network, employing an innovative approach with quantitative metrics combinint sentiment and network analysis. Using the communities of Niterói, Santo André, and Mesquita as case studies, Colab is examined as a hyperlocal social barometer that reflects the social pressures exerted by users at a hyperlocal level.
+Combining network analysis, sentiment analysis, and user persona classification, we developed a model that identifies patterns of polarization and echo chambers, proposing interventions to mitigate these phenomena and strengthen the diversity and quality of public debate.
+The results demonstrate the existence of highly polarized subgroups and the significant impact of algorithmic curation and user behavior on the structuring of Colab's informational ecosystem. We propose heuristics for the detection of echo chambers and operational strategies for social network administrators, aiming to promote a more inclusive democratic engagement and to improve participatory governance.
+The work concludes by reflecting on the broad implications for participatory governance and the challenges of encouraging democratic engagement in a polarized digital media environment, emphasizing the importance of balancing technology and human oversight.}{Social Network Analysis; Echo Chambers; Graph Theory}
 
 
 % ----------------------------------------------------------
@@ -119,7 +125,7 @@
 \label{chapter:03_metodologia}
 \input{tex/03_metodologia}
 
-\chapter{Uma Visão Geral do Colab.re}
+\chapter{Uma Visão Geral do Colab}
 \label{chapter:04_colab}
 \input{tex/04_colab}
 
@@ -127,21 +133,21 @@
 \label{chapter:05_networkanalysis}
 \input{tex/05_networkanalysis}
 
-\chapter{Análise exploratória da Rede do Colab.re}
+\chapter{Análise exploratória da Rede do Colab}
 \label{chapter:06_exploratory}
 \input{tex/06_exploratory}
 
-\chapter{Análise de sentimento das postagens do Colab.re}
+\chapter{Análise de sentimento das postagens do Colab}
 \label{chapter:07_sentiment}
 \input{tex/07_sentiment}
 
+\chapter{Barômetro Social Hiperlocal}
+\label{chapter:08_hyperlocalbarometer}
+\input{tex/08_hyperlocalbarometer}
+
 \chapter{Detectando câmaras de eco}
 \label{chapter:08_echochamberdetection}
-\input{tex/08_echochamberdetection}
-
-\chapter{Fenótipos, Arquétipos e Eigenvectors}
-\label{chapter:09_results}
-\input{tex/09_results}
+\input{tex/09_echochamberdetection}
 
 \chapter{Conclusão}
 \label{chapter:10_conclusion}
@@ -182,11 +188,9 @@
 % Inicia os apêndices
 % ---
 \begin{apendicesenv}
-
-\chapter{Código Fonte}
-\label{chapter:source_code}
-\input{tex/appendix/source_codes.tex}
-
+	\chapter{Código Fonte}
+	\label{chapter:source_code}
+	\input{tex/appendix/source_codes.tex}
 \end{apendicesenv}
 % ---
 

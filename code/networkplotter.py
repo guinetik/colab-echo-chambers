@@ -1,110 +1,172 @@
-import networkx as nx
-import numpy as np
-from bokeh.io import show
-from bokeh.models import Circle, MultiLine
-from bokeh.plotting import figure
-from bokeh.palettes import Blues8
-from bokeh.models.graphs import from_networkx
-from bokeh.models.graphs import NodesAndLinkedEdges
-
-class NetworkPlotter:
-    def __init__(self, graph_network, network_communities, title, palette=Blues8):
-        self.graph_network = graph_network
-        self.network_communities = network_communities
-        self.title = title
+class NetworkPlotter3D:
+    def __init__(self, G, palette, communities, layout_function, pos=None):
+        self.G = G
         self.palette = palette
+        self.communities = communities
+        self.layout_function = layout_function
+        self.pos = pos
+        # print(self.palette)
+        self.edge_x = []
+        self.edge_y = []
+        self.edge_z = []
+        self.node_x = []
+        self.node_y = []
+        self.node_z = []
+        self.node_colors = []
+        self.node_sizes = []
+        self.hover_texts = []
+        self._prepare_data()
 
-    def normalize(self, values, bounds):
-        return [bounds['desired']['lower'] + (x - bounds['actual']['lower']) * (bounds['desired']['upper'] - bounds['desired']['lower']) / (bounds['actual']['upper'] - bounds['actual']['lower']) for x in values]
+    def _prepare_data(self):
+        # Convert node names in the G to integers if they aren't
+        # if not all(isinstance(node, int) for node in self.G.nodes()):
+        #    mapping = {node: int(node) for node in self.G.nodes()}
+        #    self.G = nx.relabel_nodes(self.G, mapping)
 
-    def get_adjusted_node_size(self):
-        degrees = nx.degree(self.graph_network)
-        nx.set_node_attributes(self.graph_network, name='degree', values=dict(degrees))
+        # Compute persona colors
+        self._compute_modularity_colors()
 
-        centrality = nx.eigenvector_centrality_numpy(self.graph_network)
-        nx.set_node_attributes(self.graph_network, name='centrality', values=centrality)
+        # Compute node metrics
+        self._compute_node_metrics()
 
-        centrality_values = []
-        degree_values = []
+        # Compute node sizes based on eigenvector centrality
+        self.node_sizes = self._compute_node_sizes()
 
-        for node in centrality:
-            centrality_values.append(centrality[node])
+        # Compute 3D positions
+        if self.pos is None:
+            self.pos = self.layout_function(
+                self.G, dim=3, communities=self.communities)
 
+        # Extract edge positions
+        self._extract_edge_positions()
+
+        # Extract node positions and hover texts
+        self._extract_node_positions_and_hover_texts()
+
+    def _compute_persona_colors(self):
+        persona_color = nx.get_node_attributes(self.G, 'persona')
+        # print(persona_color)
+        default_color = 'orange'  # Cor padrão para nós sem persona
+        for node in self.G.nodes():
+            if node in persona_color:
+                self.G.nodes[node]['color'] = self.palette[persona_color[node]]
+            else:
+                self.G.nodes[node]['color'] = default_color
+        self.node_colors = [self.G.nodes[node]['color']
+                            for node in self.G.nodes()]
+        # print(self.node_colors)
+
+    def _compute_modularity_colors(self):
+        modularity_color = {}
+        # print(self.palette)
+        for community_number, community in enumerate(self.communities):
+            # print(community_number, community)
+            for name in community:
+                modularity_color[name] = self.palette[community_number % len(
+                    self.palette)]
+        # Ensure all nodes have a color
+        default_color = "black"  # Default color for nodes not in any community
+        for node in self.G.nodes():
+            if node not in modularity_color:
+                modularity_color[node] = default_color
+        nx.set_node_attributes(self.G, modularity_color, 'color')
+        self.node_colors = [modularity_color[node] for node in self.G.nodes()]
+
+    def _compute_node_metrics(self):
+        # Compute degree for each node
+        degrees = dict(self.G.degree())
+        nx.set_node_attributes(self.G, degrees, 'degree')
+
+        # Compute eigenvector centrality for each node
+        eigenvector_centrality = nx.eigenvector_centrality(self.G)
+        nx.set_node_attributes(
+            self.G, eigenvector_centrality, 'eigenvector_centrality')
+
+        # Compute followers (in-degree) and following (out-degree) for each node
+        followers = dict(self.G.in_degree())
+        following = dict(self.G.out_degree())
+        nx.set_node_attributes(self.G, followers, 'followers')
+        nx.set_node_attributes(self.G, following, 'following')
+
+    def _compute_node_sizes(self):
+        centrality_values = [
+            self.G.nodes[node]['eigenvector_centrality'] for node in self.G.nodes()]
         max_centrality = max(centrality_values)
         min_centrality = min(centrality_values)
-        i = 0
+        size_bounds = {'desired': {'lower': 5, 'upper': 50}, 'actual': {
+            'lower': min_centrality, 'upper': max_centrality}}
+        sizes = [size_bounds['desired']['lower'] + (x - size_bounds['actual']['lower']) * (size_bounds['desired']['upper'] - size_bounds['desired']['lower']) / (
+            size_bounds['actual']['upper'] - size_bounds['actual']['lower']) for x in centrality_values]
+        return sizes
 
-        for node, degree in degrees:
-            degree_values.append(degree)
-            i += 1
+    def _extract_edge_positions(self):
+        for edge in self.G.edges():
+            x0, y0, z0 = self.pos[edge[0]]
+            x1, y1, z1 = self.pos[edge[1]]
+            self.edge_x.extend([x0, x1, None])
+            self.edge_y.extend([y0, y1, None])
+            self.edge_z.extend([z0, z1, None])
 
-        max_degree = max(degree_values)
+    def _extract_node_positions_and_hover_texts(self):
+        for node in self.G.nodes():
+            self.node_x.append(self.pos[node][0])
+            self.node_y.append(self.pos[node][1])
+            self.node_z.append(self.pos[node][2])
 
-        centrality_values = self.normalize(centrality_values, {'actual': {'lower': min_centrality, 'upper': max_centrality * 2}, 'desired': {'lower': 5, 'upper': 100}})
-        sizes = {}
-        i = 0
+            node_id_text = f"Node ID: {node}"
+            community_text = f"Community: {self.G.nodes[node].get('modularity_class', 'N/A')}"
+            degree_text = f"Degree: {self.G.nodes[node].get('degree', 'N/A')}"
+            # Rounded to 4 decimal places
+            eigenvector_text = f"Eigenvector Centrality: {self.G.nodes[node].get('eigenvector_centrality', 'N/A'):.4f}"
+            followers_text = f"Followers: {self.G.nodes[node].get('followers', 'N/A')}"
+            following_text = f"Following: {self.G.nodes[node].get('following', 'N/A')}"
 
-        for node, degree in degrees:
-            sizes[node] = centrality_values[i]
-            i += 1
+            hover_info = f"{node_id_text}<br>{community_text}<br>{degree_text}<br>{eigenvector_text}<br>{followers_text}<br>{following_text}"
+            self.hover_texts.append(hover_info)
 
-        adjusted_node_size = dict([(node, sizes[node]) for node, degree in degrees])
-        nx.set_node_attributes(self.graph_network, name='adjusted_node_size', values=adjusted_node_size)
-
-    def plot_bokeh_network(self):
-        for component in list(nx.connected_components(self.graph_network)):
-            if len(component) < 3:
-                for node in component:
-                    self.graph_network.remove_node(node)
-
-        self.get_adjusted_node_size()
-
-        modularity_class = {}
-        modularity_color = {}
-
-        for community_number, community in enumerate(self.network_communities):
-            for name in community:
-                modularity_class[name] = community_number
-                modularity_color[name] = self.palette[community_number % len(self.palette)]
-
-        nx.set_node_attributes(self.graph_network, modularity_class, 'modularity_class')
-        nx.set_node_attributes(self.graph_network, modularity_color, 'modularity_color')
-
-        size_by_this_attribute = 'adjusted_node_size'
-        color_by_this_attribute = 'modularity_color'
-
-        node_highlight_color = 'white'
-        edge_highlight_color = 'black'
-
-        HOVER_TOOLTIPS = [
-            ("user_id", "@index"),
-            ("Degree", "@degree"),
-            ("Centrality", "@centrality"),
-            ("Modularity Class", "@modularity_class"),
-            ("Modularity Color", "$color[swatch]:modularity_color"),
-        ]
-
-        plot = figure(tooltips=HOVER_TOOLTIPS,
-                      sizing_mode="stretch_width",
-                      tools="pan,wheel_zoom,save,reset", active_scroll='wheel_zoom', height=600, title=self.title)
-
-        layout = nx.nx_pydot.graphviz_layout(self.graph_network, prog="neato")
-
-        network_graph = from_networkx(self.graph_network, layout, scale=25,
-                                      k=len(self.graph_network.nodes()) * 1 / np.sqrt(len(self.graph_network.nodes())),
-                                      center=(0, 0))
-
-        network_graph.node_renderer.glyph = Circle(size=size_by_this_attribute, fill_color=color_by_this_attribute)
-        network_graph.node_renderer.hover_glyph = Circle(size=size_by_this_attribute, fill_color=node_highlight_color, line_width=2)
-        network_graph.node_renderer.selection_glyph = Circle(size=size_by_this_attribute, fill_color=node_highlight_color, line_width=2)
-
-        network_graph.edge_renderer.glyph = MultiLine(line_alpha=0.3, line_width=0.5)
-        network_graph.edge_renderer.selection_glyph = MultiLine(line_color=edge_highlight_color, line_width=2)
-        network_graph.edge_renderer.hover_glyph = MultiLine(line_color=edge_highlight_color, line_width=2)
-
-        network_graph.selection_policy = NodesAndLinkedEdges()
-        network_graph.inspection_policy = NodesAndLinkedEdges()
-
-        plot.renderers.append(network_graph)
-
-        show(plot)
+    def plot(self, title="Network Plot", filename=None):
+        # print(self.node_colors)
+        # 0.5 is the opacity, adjust as needed
+        edge_color_with_opacity = 'rgba(128, 128, 128, 0.8)'
+        edge_trace = go.Scatter3d(
+            x=self.edge_x,
+            y=self.edge_y,
+            z=self.edge_z,
+            mode='lines',
+            line=dict(width=0.5, color=edge_color_with_opacity),
+            showlegend=False,
+            hoverinfo='none'
+        )
+        node_trace = go.Scatter3d(x=self.node_x, y=self.node_y, z=self.node_z, mode='markers', marker=dict(
+            size=self.node_sizes, color=self.node_colors, opacity=0.8), showlegend=False, text=self.hover_texts, hoverinfo='text')
+        fig = go.Figure(data=[edge_trace, node_trace])
+        print(self.communities)
+        for community_number, members in enumerate(self.communities):
+            # print(community_number)
+            fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode='markers', marker=dict(
+                size=10, color=self.palette[community_number]), name=f"Community {community_number + 1}"))
+        # for persona, color in self.palette.items():
+            # fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode='markers', marker=dict(size=10, color=color), name=persona.capitalize()))
+        fig.update_layout(title={
+            'text': title,
+            'y': 0.9,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {
+                'size': 20,
+                'color': 'black'
+            }
+        },
+            scene=dict(aspectmode='data',
+                       xaxis=dict(nticks=10, showspikes=False, showbackground=False,
+                                  showline=False, zeroline=False, showgrid=False, showticklabels=False),
+                       yaxis=dict(nticks=10, showspikes=False, showbackground=False,
+                                  showline=False, zeroline=False, showgrid=False, showticklabels=False),
+                       zaxis=dict(nticks=10, showspikes=False, showbackground=False, showline=False, zeroline=False, showgrid=False, showticklabels=False)),
+            margin=dict(t=20, b=20, r=20, l=20),
+            height=800)
+        if filename:
+            # Save the figure as an HTML file
+            pyo.plot(fig, filename=filename, auto_open=False)
+        fig.show()

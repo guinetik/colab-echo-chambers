@@ -174,11 +174,11 @@
     \addto\captionsenglish{% ingles
         \renewcommand{\degree}{of Graduate}
         \renewcommand{\tipodocurso}{Graduate Candidate}
-        \tipotrabalho{Graduation Monograph}
+        \tipotrabalho{Masters Monograph}
     }
     \addto\captionsbrazil{% portugues-brasil
         \ifthenelse{\equal{\imprimirgenero}{M}}{\renewcommand{\degree}{Graduando}}{\renewcommand{\degree}{Graduanda}}
-        \renewcommand{\tipodocurso}{Gradua{\c c}{\~a}o}
+        \renewcommand{\tipodocurso}{Mestrado}
         \tipotrabalho{Monografia}
     }
 }{
@@ -495,29 +495,29 @@
 
 \addto\captionsbrazil{
     \universidade{CESAR School}
-    \instituicao{Programa de Gradua{\c c}{\~a}o em Ci{\^e}ncia da Computa{\c c}{\~a}o do Centro de Estudos e Sistemas Avan{\c c}ados do Recife -- CESAR School}
+    \instituicao{Programa de Mestrado em Engenharia de Software do Centro de Estudos e Sistemas Avan{\c c}ados do Recife -- CESAR School}
 }
 \addto\captionsenglish{% ingles
     \universidade{CESAR-School}
-    \instituicao{Graduation Program in Computer Science of the Center for Advanced Job Studies and Systems -- CESAR School}
+    \instituicao{Masters Program in Software Engineering of the Center for Advanced Job Studies and Systems -- CESAR School}
 }
 % CCMC ==========================================================================
     \ifthenelse{\equal{#1}{CCMC}}{
         \addto\captionsbrazil{
-            \area{Ci{\^e}ncia da Computa{\c c}{\~a}o}
-            \programa{CESAR School}{Curso em Ci{\^e}ncia da Computa{\c c}{\~a}o}
-            \especialidade{em Ci{\^e}ncia da Computa{\c c}{\~a}o}
+            \area{Engenharia de Software}
+            \programa{CESAR School}{Curso em Engenharia de Software}
+            \especialidade{em Engenharia de Software}
         }
         \addto\captionsenglish{% ingles
-            \area{Computer Science}
-            \especialidade{Graduate Program in Computer Science}
+            \area{Software Engineering}
+            \especialidade{Graduate Program in Software Engineering}
         }
     }{
 % MAT ===========================================================================
         \ifthenelse{\equal{#1}{MAT}}{
             \addto\captionsbrazil{
                 \area{Matem{\'a}tica}
-                \programa{PPG-Mat}{Programa de P{\'o}s-Gradua{\c c}{\~a}o em Matem{\'a}tica}
+                \programa{PPG-Mat}{Programa de P{\'o}s-Mestrado em Matem{\'a}tica}
                 \especialidade{em Ci{\^e}ncias -- Matem{\'a}tica}
             }
             \addto\captionsenglish{% ingles
@@ -530,11 +530,11 @@
                 \addto\captionsbrazil{
                     \instituicao{Instituto de Ci{\^e}ncias Matem{\'a}ticas e de Computa{\c c}{\~a}o -- ICMC-USP e ao Departamento de Estat{\'i}stica -- DEs-UFSCar}
                     \area{Estat{\'i}stica}
-                    \programa{PIPGEs}{Programa Interinstitucional de P{\'o}s-Gradua{\c c}{\~a}o em Estat{\'i}stica}
-                    \especialidade{em Estat{\'i}stica -- Programa Interinstitucional de P{\'o}s-Gradua{\c c}{\~a}o em Estat{\'i}stica}
+                    \programa{PIPGEs}{Programa Interinstitucional de P{\'o}s-Mestrado em Estat{\'i}stica}
+                    \especialidade{em Estat{\'i}stica -- Programa Interinstitucional de P{\'o}s-Mestrado em Estat{\'i}stica}
                 }
                 \addto\captionsenglish{% ingles
-                    \instituicao{Institute of Mathematics and Computer Sciences -- ICMC-USP and to the Department of Statistics -- DEs-UFSCar}
+                    \instituicao{Institute of Mathematics and Software Engineerings -- ICMC-USP and to the Department of Statistics -- DEs-UFSCar}
                     \area{Statistics}
                     \especialidade{Interagency Program Graduate in Statistics}
                 }
