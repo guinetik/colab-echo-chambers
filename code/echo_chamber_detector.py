@@ -1,118 +1,15 @@
-import networkx as nx
-import numpy as np
-import random
-from scipy.stats import zscore
-###########################################
-
-class CommunityStrategy:
-    def detect_communities(self, G):
-        raise NotImplementedError
-
-
-class GreedyModularityCommunityStrategy(CommunityStrategy):
-    def detect_communities(self, G):
-        return list(nx.algorithms.community.greedy_modularity_communities(G))
-
-
-class SpectralClusteringStrategy(CommunityStrategy):
-    def __init__(self, n_clusters):
-        self.n_clusters = n_clusters
-
-    def detect_communities(self, G):
-        adjacency_matrix = nx.to_numpy_array(G)
-        spectral_model = SpectralClustering(
-            n_clusters=self.n_clusters, affinity='precomputed')
-        labels = spectral_model.fit_predict(adjacency_matrix)
-        communities = []
-        for label in np.unique(labels):
-            nodes = list(np.where(labels == label)[0])
-            communities.append(set(nodes))
-        return communities
-
-
-class InfomapStrategy(CommunityStrategy):
-    def detect_communities(self, G):
-        infomap_model = Infomap()
-        for edge in G.edges():
-            infomap_model.addLink(*edge)
-        infomap_model.run()
-        communities = []
-        for node in infomap_model.iterTree():
-            if node.isLeaf():
-                communities.append(set(node.physicalId))
-        return communities
-
-
-class LouvainCommunityStrategy(CommunityStrategy):
-    def detect_communities(self, G):
-        partitions = community_louvain.best_partition(G)
-        values = set(partitions.values())
-        communities = [set([key for key in partitions.keys()
-                           if partitions[key] == val]) for val in values]
-        return communities
-
-
-class LeidenClusteringStrategy(CommunityStrategy):
-    def __init__(self, algo=leidenalg.RBERVertexPartition, resolution=1.0, num_iterations=10):
-        self.algo = algo
-        self.resolution = resolution
-        self.num_iterations = num_iterations
-
-    def detect_communities(self, G):
-        g = ig.Graph.from_networkx(G)
-        # Set the 'name' attribute for each vertex in the igraph graph
-        g.vs["name"] = list(G.nodes())
-        # Find the communities using the Leiden algorithm with the specified parameters
-        if self.algo != leidenalg.ModularityVertexPartition:
-            partition = leidenalg.find_partition(
-                g, self.algo, n_iterations=self.num_iterations, resolution_parameter=self.resolution)
-        else:
-            partition = leidenalg.find_partition(g, self.algo)
-        # Extract the communities
-        network_communities = [list(partition.subgraph(
-            i).vs["name"]) for i in range(len(partition))]
-        return network_communities
-
-
-class GirvanNewmanCommunityStrategy(CommunityStrategy):
-    def detect_communities(self, G):
-        def find_best_edge(G0):
-            # Function to find the edge with the highest betweenness centrality.
-            edge_betweenness = nx.edge_betweenness_centrality(G0)
-            sorted_edge_betweenness = sorted(
-                edge_betweenness.items(), key=lambda x: x[1], reverse=True)
-            return sorted_edge_betweenness[0][0]
-
-        def girvan_newman_step(G):
-            # Function to perform one step of the Girvan-Newman algorithm.
-            if len(G.edges) == 0:
-                return []
-
-            initial_components = nx.number_connected_components(G)
-            edge_to_remove = find_best_edge(G)
-            G.remove_edge(*edge_to_remove)
-            new_components = nx.number_connected_components(G)
-
-            if new_components > initial_components:
-                return [c for c in nx.connected_components(G)]
-            else:
-                return girvan_newman_step(G)
-
-        communities = girvan_newman_step(G)
-        return communities
-
-
 class EchoChamberDetector:
     def __init__(self, nodes_df, edges_df, events_df, colab_comments_df, colab_likes_df, colab_updown_df, strategy,
-                 min_community_density=0.5, min_community_size=3):
+                 min_community_density=0.5, min_community_size=3, communities=None):
         self.nodes = nodes_df
         self.edges = edges_df
         self.events = events_df
         self.colab_comments = colab_comments_df
         self.colab_likes = colab_likes_df
         self.colab_updown = colab_updown_df
-        self.G = nx.from_pandas_edgelist(self.edges, 'source', 'target')
+        self.G = nx.from_pandas_edgelist(self.edges, 'source', 'target', create_using=nx.DiGraph())
         self.strategy = strategy
+        self.communities = communities
         self.min_community_density = min_community_density
         self.min_community_size = min_community_size
         self.echo_chambers = []
@@ -131,7 +28,10 @@ class EchoChamberDetector:
             user_id, self.colab_updown)
         all_event_types = np.concatenate([event_types_from_events, event_types_from_comments,
                                           event_types_from_likes, event_types_from_updown])
-        return np.unique(all_event_types)
+        # Convert all elements to strings
+        all_event_types_str = [str(event_type) for event_type in all_event_types]
+
+        return np.unique(all_event_types_str)
 
     def get_all_scores_for_user(self, user_id):
         scores_from_events = self.events[self.events['colab_user_id']
@@ -154,6 +54,38 @@ class EchoChamberDetector:
         density = len(edges) / (len(community) * (len(community) - 1))
         return density
 
+    def calculate_modularity(self, G):
+        """
+        Calcula a modularidade do grafo.
+        :param G: O grafo.
+        :return: O valor da modularidade.
+        """
+        ug = G.to_undirected()
+        # Detecção de comunidades usando o algoritmo de Louvain
+        partition = community_louvain.best_partition(ug)
+
+        # Calculando a modularidade
+        modularity = community_louvain.modularity(partition, ug)
+        print(f"modularity {modularity}")
+        return modularity
+
+    def calculate_global_gec(self):
+        total_gec = 0
+        total_weight = 0
+
+        for community in self.communities:
+            community_size = len(community)
+            community_gec = self.calculate_community_gec(community)
+
+            # Weighted sum of GEC, weighted by the size of each community
+            total_gec += community_gec * community_size
+            total_weight += community_size
+
+        # Calculate the weighted average GEC
+        global_gec = total_gec / total_weight if total_weight > 0 else 0
+        print(f"global_gec {global_gec}")
+        return global_gec
+
     def calculate_external_connections(self, community):
         external_connections = 0
         possible_connections = 0
@@ -169,61 +101,128 @@ class EchoChamberDetector:
         return factor
 
     def calculate_homogeneity_of_opinions(self, community):
-        community_scores = [self.get_all_scores_for_user(
-            user) for user in community]
-        z_scores = [zscore(scores)
-                    for scores in community_scores if len(scores) > 1]
-        homogeneity = np.nanstd(z_scores)
+        # Obter todas as pontuações de opinião dos membros da comunidade
+        all_scores = [score for user in community for score in self.get_all_scores_for_user(user)]
+
+        # Filtrar out NaN values
+        all_scores = [score for score in all_scores if not np.isnan(score)]
+
+        # Se não houver pontuações suficientes, retorne 1 (máxima homogeneidade por padrão)
+        if len(all_scores) <= 1:
+            return 1
+
+        # Calcular o desvio padrão das pontuações
+        homogeneity = np.std(all_scores)
+        #print(f"calculate_homogeneity_of_opinions {homogeneity}")
         return homogeneity
 
-    def calculate_echo_chamber_probability(self, community):
+
+    def calculate_echo_chamber_metrics(self, community):
+        # Calculate individual metrics
         density = self.calculate_community_density(community)
         homogeneity = self.calculate_homogeneity_of_opinions(community)
         external_connections = self.calculate_external_connections(community)
         ecc = self.calculate_community_ecc(community)
-        gec = self.calculate_community_gec(community)
+        gec = self.global_gec  # Global Echo Chamber factor
         average_exposure = self.calculate_community_exposure(community)
-        beta1, beta2, beta3, beta4, beta5, beta6, beta7 = self.derive_betas(
-            community)
-        probability = np.exp(
-            beta1 * density +
-            beta2 * homogeneity +
-            beta3 * external_connections +
-            beta4 * ecc +
-            beta5 * gec +
-            beta6 * average_exposure +
+
+        # Echo chamber strength calculation
+        strength = np.exp(
+            self.beta1 * density +
+            self.beta2 * homogeneity +
+            self.beta3 * external_connections +
+            self.beta4 * ecc +
+            self.beta5 * gec +
+            self.beta6 * average_exposure +
+            self.beta7  
+        )
+
+        # Create a dictionary to store all metrics including strength
+        echo_chamber_metrics = {
+            'echo_chamber_strength': round(strength,4),
+            'density': round(density,4),
+            'homogeneity': round(homogeneity,4),
+            'external_connections': round(external_connections,4),
+            'ecc': round(ecc,4),
+            'gec': round(gec,4),
+            'average_exposure': round(average_exposure,4),
+            'factor': round(strength,4)
+        }
+
+        return echo_chamber_metrics
+
+
+    def calculate_graph_echo_chamber_strength(self):
+        # Extract the largest connected component as a subgraph
+        largest_cc = max(nx.connected_components(self.G.to_undirected() ), key=len)
+        subgraph = G.subgraph(largest_cc)
+
+        # Filter nodes with a degree (in + out in a directed graph) of 3 or more
+        filtered_nodes = [node for node, degree in subgraph.degree() if degree >= 3]
+
+        # Create a subgraph with only those filtered nodes
+        filtered_subgraph = subgraph.subgraph(filtered_nodes)
+        community = list(filtered_subgraph.nodes)
+        ##
+        density = nx.density(self.G)
+        #print(f"graph density: {density}")
+        homogeneity = self.calculate_homogeneity_of_opinions(community)
+        #print(f"graph homogeneity: {homogeneity}")
+        eig_centralities = nx.eigenvector_centrality_numpy(G)
+        external_connections = median(eig_centralities.values())
+        #print(f"graph external_connections: {external_connections}")
+        ecc = self.calculate_community_ecc(community)
+        #print(f"graph ecc: {ecc}")
+        self.global_gec = self.calculate_global_gec()
+        #print(f"graph gec: {gec}")
+        average_exposure = self.calculate_community_exposure(community)
+        #print(f"graph average_exposure: {average_exposure}")
+        strength = np.exp(
+            self.beta1 * density +
+            self.beta2 * homogeneity +
+            self.beta3 * external_connections +
+            self.beta4 * ecc +
+            self.beta5 * self.global_gec +
+            self.beta6 * average_exposure +
             beta7
         )
-        return probability
+        print(f"calculate_graph_echo_chamber_strength {strength}")
+        return strength
 
     def is_echo_chamber(self, community):
-        graph_probability = self.calculate_echo_chamber_probability(
-            list(self.G.nodes))
-        community_probability = self.calculate_echo_chamber_probability(
-            community)
-        return community_probability >= graph_probability
+        if not hasattr(self, 'graph_strength'):
+          self.graph_strength = self.calculate_graph_echo_chamber_strength()
+        community_strength = self.calculate_echo_chamber_strength(community)
+        return community_strength >= self.graph_strength
 
-    def derive_betas(self, community):
-        avg_clustering_coeff = nx.average_clustering(self.G)
-        num_communities = len(list(self.strategy.get_communities(self.G)))
-        num_weakly_connected_components = nx.number_weakly_connected_components(
-            self.G.to_undirected())
-        eigenvector_centrality_sum_change = sum(
-            nx.eigenvector_centrality(self.G).values())
-        modularity_score = nx.community.modularity(
-            self.G, self.strategy.get_communities(self.G))
-        if len(community) > 0:
-            avg_shortest_path_length = nx.average_shortest_path_length(
-                self.G.subgraph(community))
+    def derive_betas(self, G):
+        # Beta1 - Coeficiente de Agrupamento Médio
+        avg_clustering_coeff = nx.average_clustering(G)
+        beta1 = avg_clustering_coeff  # Ou um valor inicial de 0.171, conforme o contexto
+
+        # Beta2 - Homogeneidade das Opiniões
+        num_communities = len(list(nx.community.greedy_modularity_communities(G)))
+        beta2 = 1 / num_communities  # Ou um valor inicial de 1/352
+
+        # Beta3 - Conexões Externas
+        num_weakly_connected_components = nx.number_weakly_connected_components(G)
+        beta3 = 1 / num_weakly_connected_components  # Ou um valor inicial de 1/329
+
+        # Bfeta4 - Efeito dos Influenciadores
+        eig_centralities = nx.eigenvector_centrality_numpy(G)
+        median_centrality = median(eig_centralities.values())
+        beta4 = median_centrality
+        # Beta5 - Exposição Média
+        if nx.is_connected(G.to_undirected()):
+            avg_path_length = nx.average_shortest_path_length(G)
         else:
-            avg_shortest_path_length = 0
+            avg_path_length = 1  # Ou algum outro valor de fallback
+        beta5 = avg_path_length  # Ou um valor inicial de 5.6236
 
-        beta1 = avg_clustering_coeff
-        beta2 = 1 / num_communities
-        beta3 = 1 / num_weakly_connected_components
-        beta4 = eigenvector_centrality_sum_change
-        beta5 = avg_shortest_path_length
-        beta6 = modularity_score
+        # Beta6 - GEC (Modularidade)
+        # Nota: Modularidade pode ser calculada usando algoritmos de detecção de comunidades
+        modularity = self.calculate_modularity(G)
+        beta6 = modularity  # Ou um valor inicial de 0.683
         beta7 = 1 / len(self.G.nodes)
 
         return beta1, beta2, beta3, beta4, beta5, beta6, beta7
@@ -234,15 +233,33 @@ class EchoChamberDetector:
         if not all_scores or np.all(np.isnan(all_scores)):
             return 0
         ecc = np.nanstd(all_scores)
+        #print(f"calculate_community_ecc {ecc}")
         return ecc
 
     def calculate_community_gec(self, community):
+        #print("Calculating all scores...")
         scores = [self.get_all_scores_for_user(member) for member in community]
-        all_scores = [score for sublist in scores for score in sublist]
-        if not all_scores or np.all(np.isnan(all_scores)):
+
+        #print("Flattening all scores...")
+        # Flatten the list, ignoring empty arrays and replacing NaNs with 0
+        all_scores = [np.nan_to_num(score) for sublist in scores for score in sublist if len(sublist) > 0]
+
+        # Check if all_scores is empty
+        if not all_scores:
             return 0
-        gec = np.nansum(np.sign(all_scores))
+
+        #print("Pairwise product sum...")
+        # Calculate the sum of products of scores for all pairs of users
+        pairwise_product_sum = sum(a * b for a, b in combinations(all_scores, 2))
+        #print(f"Pairwise product sum: {pairwise_product_sum}")
+
+        # Normalize by the number of pairs
+        number_of_pairs = len(list(combinations(all_scores, 2)))
+        #print(f"Number of pairs: {number_of_pairs}")
+        gec = pairwise_product_sum / number_of_pairs if number_of_pairs > 0 else 0
+        #print(f"calculate_community_gec {gec}")
         return gec
+
 
     def calculate_community_exposure(self, community):
         all_community_event_types = set()
@@ -261,6 +278,7 @@ class EchoChamberDetector:
                 total_community_event_types
             individual_exposures.append(member_exposure)
         average_exposure = sum(individual_exposures) / len(community)
+        #print(f"calculate_community_exposure {average_exposure}")
         return average_exposure
 
     def identify_echo_chambers(self, beta1=1.0, beta2=1.0, beta3=1.0, beta4=1.0, beta5=1.0, beta6=1.0, beta7=1.0):
@@ -271,10 +289,22 @@ class EchoChamberDetector:
         self.beta5 = beta5
         self.beta6 = beta6
         self.beta7 = beta7
-        communities = self.strategy.get_communities(self.G)
+        if self.communities is None:
+          print("Calculating communities")
+          self.communities = self.strategy.detect_communities(self.G)
+
+        print('Number of communities before filtering:', len(self.communities))
+
+        # Filter communities based on the minimum size requirement
+        self.communities = [community for community in self.communities if len(community) >= self.min_community_size]
+
+        print('Number of communities after filtering:', len(self.communities))
+
         self.echo_chambers = []
-        for community in communities:
-            if len(community) >= self.min_community_size:
-                if self.is_echo_chamber(list(community)):
-                    self.echo_chambers.append(list(community))
+        self.graph_strength = self.calculate_graph_echo_chamber_strength()
+        #self.global_gec = 0
+        all_communities_metrics = [self.calculate_echo_chamber_metrics(community) for community in self.communities]
+        print(f"all_communities_metrics: {all_communities_metrics}")
+        community_percentiles = self.compare_community_metrics(all_communities_metrics)
+        print(f"community_percentiles: {community_percentiles}")
         return self.echo_chambers

@@ -4,26 +4,51 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 
 This file documents the changes made to the paper.
 
-## [1.0.0] - 2023-06-23
+## [4.0.0] - 2023-10-31
 
 ### Added
 
-- Initial version of the text
-- Improved Dockerfile
-- Set up CI with GitHub Actions
+- New Chapter on Hiperlocal Social Barometer
+- New Chapter on the Echo Chamber Detection
+- New Conclusion Chapter
+- Added Glossary
+- Added pre-textual elements
 
 ### Fixed
 
-- Fixed issues when building from VSCode with LaTeX Workshop
+- Better images
+- Changed the course name from Computer Science to Software Engineering
+- Text fixes
 
 ### Changed
 
-- Changed paper template to [thesis-model-icmc](https://github.com/lordantonelli/thesis-model-icmc)
-- PDFs in the source folder are not removed from git-archive (releases)
+- Reworked introduction
+- Reworked Abstract
+- Standardized terminology
 
 ### Removed
 
-- PDFs in the source folder from the git release
+- Old code
+
+## [3.0.0] - 2023-09-20
+
+### Added
+
+- Reworked chapter 7
+- New sentiment analysis experiment
+- Classification code and experiment
+
+### Fixed
+
+- Better images
+
+### Changed
+
+- Exploratory Sentiment Analysis
+
+### Removed
+
+- Old code
 
 ## [2.0.0] - 2023-09-11
 
@@ -54,22 +79,26 @@ This file documents the changes made to the paper.
 - Old code
 - Old objetives
 
-## [2.0.1] - 2023-09-20
+## [1.0.0] - 2023-06-23
 
 ### Added
 
-- Reworked chapter 7
-- New sentiment analysis experiment
-- Classification code and experiment
+- Initial version of the text
+- Improved Dockerfile
+- Set up CI with GitHub Actions
 
 ### Fixed
 
-- Better images
+- Fixed issues when building from VSCode with LaTeX Workshop
 
 ### Changed
 
-- Exploratory Sentiment Analysis
+- Changed paper template to [thesis-model-icmc](https://github.com/lordantonelli/thesis-model-icmc)
+- PDFs in the source folder are not removed from git-archive (releases)
 
 ### Removed
 
-- Old code
+- PDFs in the source folder from the git release
+
+
+
