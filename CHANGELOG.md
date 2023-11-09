@@ -4,6 +4,20 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 
 This file documents the changes made to the paper.
 
+## [5.0.0] - 2023-11-09
+
+### Added
+
+- New sections on model validation and detection
+
+### Fixed
+
+- Text fixes
+
+### Changed
+
+- Reworked the Echo Chambers chapter to account for model validation sections
+
 ## [4.0.0] - 2023-10-31
 
 ### Added
