@@ -4,7 +4,7 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 
 This file documents the changes made to the paper.
 
-## [5.0.0] - 2023-11-13
+## [6.0.0] - 2023-11-13
 
 ### Added
 
