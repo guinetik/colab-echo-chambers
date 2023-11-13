@@ -87,13 +87,13 @@ O processo de análise de sentimento das postagens começa com o carregamento do
 
 Utilizamos a técnica de "bag-of-words" descrita em \citeonline{2013_Mikolov} com a biblioteca CountVectorizer para converter o texto em uma matriz numérica, onde cada coluna representa uma palavra e cada linha representa uma postagem. Com base nessa matriz, identificamos as palavras mais frequentes e as visualizamos em um gráfico de barras e na forma de uma nuvem de palavras.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Distribuição de palavras mais frequentes}
 	\label{fig:wordcount}
 	\centering
-	\includegraphics[scale=0.35]{images/wordcount.png}
+	\includegraphics[width=\textwidth]{images/wordcount.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Realizamos uma análise exploratória dos dados para entender melhor as características das postagens. Isso incluiu a visualização da distribuição das palavras mais frequentes e a criação de nuvens de palavras para postagens positivas e negativas. Além disso, utilizamos a biblioteca Word2Vec para criar um modelo de palavras em vetores, que foi usado para visualizar as associações de palavras mais comuns.
 
@@ -150,13 +150,13 @@ Em conclusão, ao adotar uma abordagem multidimensional para a análise de senti
 
 \section{Análise de sentimento nas redes de Niterói, Santo André e Mesquita}
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Distribuição dos scores de sentimento nas postagens da rede das 3 cidades selecionadas. Cada ponto representa um usuário e a cor indica o score médio de sentimento de suas postagens (verde para positivo, vermelho para negativo e laranja para neutro)}
 	\label{fig:scores_scatterplot}
 	\centering
 	\includegraphics[scale=0.70]{images/scores_scatterplot.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Após a seleção das postagens dos usuários das comunidades das cidades de Niterói, Santo André e Mesquita, conforme detalhado no capítulo anterior, foi possível identificar um total de 132.846 eventos de zeladoria criados por membros dessas comunidades. Esta vasta quantidade de dados nos ofereceu uma oportunidade única para aprofundar nossa análise de sentimentos e entender melhor as emoções e opiniões expressas pelos usuários.
 
@@ -170,13 +170,13 @@ Outro ponto de destaque é a variedade de temas abordados nas postagens com os m
 
 Em resumo, a análise dos melhores scores nos proporcionou uma visão mais clara das emoções e opiniões dos usuários nas comunidades selecionadas. Estes insights são fundamentais para entender as motivações dos usuários ao interagir na plataforma e podem ser usados para orientar futuras estratégias de engajamento e moderação.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Score médio de sentimento por número de usuários}
 	\label{fig:average_score_by_number_of_users}
 	\centering
 	\includegraphics[scale=0.70]{images/average_score_by_number_of_users.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Ao analisar os piores scores, é evidente que as postagens refletem um alto grau de insatisfação e frustração dos usuários em relação a questões específicas de zeladoria em suas comunidades. Estas postagens, oriundas das cidades de Niterói e Rio de Janeiro, destacam-se não apenas pelo conteúdo negativo, mas também pela intensidade das emoções expressas.
 
@@ -188,13 +188,13 @@ Da mesma forma, a postagem do evento 156161 expressa indignação com a situaç�
 
 Em resumo, as postagens com os piores scores ilustram claramente os desafios e frustrações enfrentados pelos usuários em suas comunidades. Estas postagens são valiosas, pois destacam áreas que requerem atenção imediata e melhorias por parte das autoridades locais. Além disso, a análise de sentimentos fornece uma ferramenta poderosa para identificar e compreender essas preocupações, permitindo uma resposta mais eficaz e empática por parte dos tomadores de decisão.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Distribuição de quantidade de postagens por score}
 	\label{fig:score_distribution}
 	\centering
 	\includegraphics[scale=0.90]{images/score_distribution.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Após obter o score de sentimento de cada postagem, o próximo passo foi agregar as postagens de cada usuário. Ao calcular a média ponderada do score de sentimento pelo número de postagens, conseguimos criar um score geral que reflete o sentimento médio de todas as postagens de um usuário. Esta métrica agregada nos forneceu uma visão mais clara do panorama geral dos sentimentos expressos nas redes de Niterói, Santo André e Mesquita.
 
@@ -235,13 +235,13 @@ No entanto, os 24\% de postagens negativas não devem ser negligenciados. Mesmo 
 
 As postagens neutras, que compõem 20.2\% do total, também são intrigantes. Elas podem representar uma variedade de conteúdos, desde solicitações de informação até comentários que não expressam uma opinião clara em uma direção ou outra. Essas postagens podem servir como um lembrete de que nem todo feedback pode ser facilmente categorizado como positivo ou negativo, e que a neutralidade em si pode oferecer insights sobre as áreas onde os sentimentos dos usuários são mistos ou incertos.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Scores de sentimento por quantidade de postagens}
 	\label{fig:pie_sentiment_breakdown}
 	\centering
-	\includegraphics[scale=0.9]{images/pie_sentiment_breakdown.png}
+	\includegraphics[scale=0.5]{images/pie_sentiment_breakdown.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Ao analisar os eventos postados, observamos que "Entulho na calçada/via pública" é um dos tópicos mais frequentemente mencionados, com um total de 44.273 postagens. No entanto, é interessante notar que a maioria dessas postagens é classificada como neutra, com 35.391 postagens, seguida por 5.712 postagens positivas e 3.170 postagens negativas. Isso sugere que, embora haja uma alta incidência de relatos sobre entulho nas vias, muitos usuários não expressam uma opinião fortemente positiva ou negativa sobre o assunto.
 
@@ -251,25 +251,25 @@ Por outro lado, "Ponto de travessia irregular" teve um total de 46 postagens, da
 
 Em resumo, os dados refletem as preocupações dos cidadãos em relação a diferentes aspectos da infraestrutura e serviços públicos. Enquanto alguns eventos são amplamente reportados e recebem uma mistura de feedback positivo, negativo e neutro, outros eventos, embora menos frequentemente mencionados, destacam-se por ter uma opinião predominantemente negativa ou positiva.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Distribuição dos 10 eventos mais comuns nas redes das 3 cidades.}
 	\label{fig:pie_most_common_events}
 	\centering
-	\includegraphics[scale=0.75]{images/pie_most_common_events.png}
+	\includegraphics[width=0.8\textwidth]{images/pie_most_common_events.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Ao expandir nossa análise para considerar a dimensão de gênero, observamos padrões distintos na distribuição de sentimentos entre diferentes grupos. Para as usuárias identificadas como femininas, notamos que a maioria das postagens (8.207) tem um sentimento negativo, seguido por 3.894 postagens positivas e 3.531 neutras. Isso sugere que, embora as mulheres estejam ativamente envolvidas na plataforma, elas tendem a expressar mais preocupações ou insatisfações em suas postagens do que sentimentos positivos ou neutros. Os usuários masculinos, por outro lado, apresentam um padrão diferente. Com 56.011 postagens neutras, 34.836 negativas e 22.513 positivas, vemos que a maioria das postagens masculinas é neutra. Isso pode indicar que os homens na plataforma tendem a ser mais informativos ou questionadores em suas postagens, sem expressar uma opinião clara em uma direção ou outra. Quanto aos usuários não binários, a amostra é extremamente pequena, com apenas uma postagem neutra registrada. Isso pode ser devido a uma representação limitada desse grupo na plataforma ou à relutância em se identificar devido a preocupações de privacidade. Os usuários que optaram por não informar seu gênero ou se identificaram como "outros" também têm uma presença na plataforma, embora em números menores em comparação com os gêneros masculino e feminino. Para os não informados, a distribuição é de 101 postagens negativas, 42 positivas e 37 neutras. Já para os que se identificam como "outros", temos 1.780 postagens negativas, 526 positivas e 1.356 neutras.
 
 Essa análise por gênero destaca a importância de considerar as diversas perspectivas e experiências dos usuários ao avaliar o sentimento nas postagens. Cada grupo traz uma lente única para a plataforma, e entender essas nuances pode ajudar a criar estratégias de engajamento mais eficazes e a responder de forma mais adequada às preocupações e feedbacks dos usuários.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Distribuição dos scores de sentimento por gênero.}
 	\label{fig:sentiment_by_gender}
 	\centering
 	\includegraphics[scale=0.8]{images/sentiment_by_gender.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Aprofundando ainda mais nossa análise, decidimos explorar a relação entre a análise de sentimentos e a estrutura da rede social do Colab. A ideia era entender como os sentimentos expressos nas postagens poderiam influenciar ou ser influenciados pelas conexões e interações entre os usuários. Neste contexto, a análise de redes sociais, combinada com a análise de sentimentos, pode oferecer insights valiosos sobre a formação e a dinâmica de câmaras de eco dentro da plataforma.
 
@@ -315,13 +315,13 @@ O atributo 'gênero' e 'raça' apresentaram valores de assortatividade de 0.025,
 
 Estes resultados têm implicações significativas para a dinâmica da rede social do Colab. A formação de câmaras de eco, especialmente em relação ao sentimento expresso nas postagens, pode influenciar a disseminação de informações, a percepção dos problemas e as soluções propostas. Por exemplo, se um grupo de usuários consistentemente posta com um sentimento negativo sobre um determinado tipo de evento, isso pode influenciar a percepção de outros usuários sobre a gravidade ou prevalência desse problema. Além disso, a presença de câmaras de eco pode ter implicações para a eficácia das intervenções ou políticas implementadas com base no feedback dos usuários. Se a plataforma estiver dominada por vozes particularmente positivas ou negativas, isso pode distorcer a percepção dos tomadores de decisão sobre as necessidades e prioridades da comunidade.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Assortatividade por Atributo}
 	\label{fig:assortativity_by_attribute}
 	\centering
 	\includegraphics[scale=0.75]{images/assortativity_by_attribute.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Ao analisar os dez usuários com o maior número de postagens na rede, podemos identificar padrões e características que nos ajudam a entender melhor a dinâmica da plataforma e os comportamentos dos usuários mais ativos. Estes usuários, devido à sua alta atividade, têm o potencial de influenciar significativamente a percepção e o sentimento geral da comunidade.
 
@@ -373,13 +373,13 @@ Além disso, essa diversidade pode ser benéfica para os administradores ou mode
 
 Por fim, é essencial reconhecer que, em qualquer comunidade, a diversidade de opiniões e experiências enriquece o diálogo e a troca de ideias. A presença de usuários ativos com uma variedade de sentimentos sugere uma comunidade dinâmica e engajada, onde os membros se sentem livres para expressar suas opiniões e compartilhar suas experiências, sejam elas positivas, negativas ou neutras.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Eigencentrality vs. Número de Posts}
 	\label{fig:eigencentrality_vs_number_of_posts}
 	\centering
 	\includegraphics[scale=0.70]{images/eigencentrality_vs_number_of_posts.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Ao longo deste experimento, exploramos a o complexo microcosmo representado pelos sentimentos e opiniões expressas pelos usuários da plataforma Colab. A análise de sentimentos, quando aplicada a plataformas de mídia social, pode revelar insights profundos sobre as percepções, preocupações e satisfações dos usuários. No caso do Colab, essa análise nos permitiu entender melhor a dinâmica da comunidade e as emoções subjacentes às postagens dos usuários.
 
@@ -509,7 +509,7 @@ Do conjunto inicial de postagens, 4000 foram destinadas ao treinamento, mantendo
 
 A abordagem adotada para a análise de sentimentos e classificação de personas é orientada a objetos, o que facilita a modularização e reutilização do código. O código é estruturado em várias classes, cada uma com responsabilidades específicas. A classe SentimentClassifierModel é responsável pela carga de dados, pré-processamento, vetorização e treinamento de modelos de classificação de sentimentos. A vetorização é realizada usando o CountVectorizer, que converte o texto em uma matriz de contagens de termos/tokens. A classe também suporta vários tipos de modelos, incluindo Floresta Aleatória, Regressão Logística, Árvore de Decisão e KNN, permitindo flexibilidade na escolha do algoritmo. A classe ColabSentimentClassifier atua como uma camada de alto nível, integrando a análise de eventos do Colab com o modelo de classificação de sentimentos. Ela carrega os dados dos eventos, inicializa o modelo e atualiza os scores de sentimentos dos usuários. A classe PersonaClassifier é a peça central para a classificação de personas.
 
-\begin{figure}
+\begin{quadro}
 	\centering
 	\begin{tikzpicture}[node distance=2cm, auto]
 		% Estilos
@@ -533,7 +533,7 @@ A abordagem adotada para a análise de sentimentos e classificação de personas
 
 	\end{tikzpicture}
 	\caption{Workflow de Classificação.}
-\end{figure}
+\end{quadro}
 
 O código também enfatiza a importância da limpeza e pré-processamento de dados. Funções de preprocessamento são usadas para remover stopwords, realizar stemming e limpar caracteres indesejados. Esta etapa é crucial, pois a qualidade do texto de entrada pode afetar significativamente a performance do modelo. A abordagem modular e orientada a objetos adotada facilita a manutenção, extensão e compreensão do código, permitindo que pesquisadores e desenvolvedores ajustem e expandam facilmente as funcionalidades conforme necessário.
 
@@ -618,43 +618,43 @@ No entanto, o mais importante é o que fazemos com esses insights. A detecção 
 
 Após a meticulosa construção e validação do modelo de classificação, chegou o momento de aplicá-lo ao conjunto de dados real e observar sua capacidade em campo. Utilizamos a rede composta pelas três cidades com maior interação, conforme identificado no \autoref{chapter:06_exploratory}, e o dataset contendo postagens dos usuários dessas cidades relacionadas a eventos de zeladoria pública. Ao rodar o modelo em todas as postagens, cada uma recebeu um score de sentimento e uma persona atribuída. Posteriormente, para determinar a persona de cada usuário, compilamos todas as postagens classificadas desse usuário e, através de uma média, calculamos sua persona predominante. Esta abordagem nos permite não apenas entender o sentimento expresso em postagens individuais, mas também obter uma visão mais ampla do perfil comportamental dos usuários no Colab.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/personas_pie.png}
+    \includegraphics[width=0.5\textwidth]{images/personas_pie.png}
     \caption{Distribuição de Personas}
     \label{fig:personas_pie}
-\end{figure}
+\end{quadro}
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{images/personas_city.png}
     \caption{Distribuição de Personas por Cidade}
     \label{fig:personas_city}
-\end{figure}
+\end{quadro}
 
 A distribuição de personas revela uma predominância de usuários classificados como \textit{helper} (82.2\%) em comparação aos \textit{complainer} (17.8\%). Esta distribuição sugere que a maioria dos usuários do Colab tende a ser mais colaborativa e propositiva em suas postagens, enquanto uma minoria expressa insatisfações ou críticas. 
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
     \includegraphics[width=0.7\textwidth]{images/persona_gender.png}
     \caption{Distribuição de Personas por Gênero}
     \label{fig:persona_gender}
-\end{figure}
+\end{quadro}
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
     \includegraphics[width=0.7\textwidth]{images/persona_education.png}
     \caption{Distribuição de Personas por Escolaridade}
     \label{fig:persona_education}
-\end{figure}
+\end{quadro}
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
     \includegraphics[width=0.7\textwidth]{images/persona_race.png}
     \caption{Distribuição de Personas por Raça}
     \label{f
 	ig:persona_race}
-\end{figure}
+\end{quadro}
 
 Ao analisar a distribuição por cidade, observa-se que Niterói possui a maior proporção de \textit{helpers} (1759) em comparação com \textit{complainers} (582). Em contraste, Mesquita apresenta uma proporção mais equilibrada, com 532 \textit{helpers} e 78 \textit{complainers}. Santo André, por sua vez, segue uma tendência semelhante a Niterói, com 1194 \textit{helpers} e 424 \textit{complainers}. 
 
@@ -724,12 +724,12 @@ No entanto, o mais importante é o que fazemos com esses insights. A detecção 
 
 \section{Homofilia e Câmaras de Eco}
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{images/personas_violin.png}
     \caption{Distribuição de Personas por Score (Violin Plot)}
     \label{fig:personas_violin}
-\end{figure}
+\end{quadro}
 
 A homofilia, termo cunhado por Lazarsfeld e Merton em 1954, refere-se à tendência de indivíduos se associarem a outros que são semelhantes a eles em termos de características, interesses e opiniões. Esse fenômeno é amplamente estudado em diversas áreas, incluindo sociologia, psicologia e ciência das redes, e tem sido observado em várias configurações sociais, desde relacionamentos pessoais até interações online em redes sociais.
 
