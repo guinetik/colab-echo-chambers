@@ -60,7 +60,7 @@ Essa formação de grupos ideológicos não é meramente um reflexo da natureza 
 	'Eu defino o ciberespaço como o espaço de comunicação aberto pela interconexão mundial dos computadores e das memórias dos computadores. Essa definição inclui o conjunto dos sistemas de comunicação eletrônicos (aí incluídos os conjuntos de redes hertzianas e telefônicas clássicas), na medida em que transmitem informações provenientes de fontes digitais ou destinadas à digitalização. Insisto na codificação digital, pois ela condiciona o caráter plástico, fluido, calculável com precisão e tratável em tempo real, hipertextual, interativo e, resumindo, virtual da informação que é, parece-me, a marca distintiva do ciberespaço' \cite[p. 102]{2010_Levy_BOOK}.
 \end{citacao}
 
-\citeonline{{2010_Levy_BOOK}}, por sua vez, argumenta que as dinâmicas 'entrelaçadas' do ciberespaço refletem uma confluência de atores, projetos e interpretações, muitas vezes em oposição. O autor salienta que, apesar das tendências dominantes da era digital, a manifestação dessas tendências na vida cotidiana é multifacetada. A diversidade de interesses e perspectivas é emblemática da natureza fluida do ciberespaço. Enquanto alguns enxergam o ciberespaço como um domínio de comunicação livre e comunitária, outros o veem como um mercado global expansivo. Essas visões frequentemente colidem, ilustrando a complexidade e diversidade de vozes no ciberespaço. O autor também enfatiza que a representatividade cultural no ciberespaço é proporcional ao engajamento ativo e à qualidade das contribuições de seus participantes. Embora existam obstáculos à expressão da diversidade cultural, eles são menos proeminentes no ciberespaço do que em outros meios. Isso sugere que o ciberespaço, ao conectar indivíduos de diferentes origens, amplifica a diversidade de perspectivas. Em resumo, \citeonline{{2010_Levy_BOOK}} oferece uma perspectiva equilibrada e otimista sobre polarização e diversidade no ciberespaço. Ele reconhece os desafios da coexistência de múltiplas perspectivas, mas também vê o ciberespaço como um meio de expressão da diversidade cultural e colaboração. Isso sugere que, embora a polarização seja uma realidade, o ciberespaço também oferece oportunidades para diálogo e colaboração.
+\citeonline{{2010_Levy_BOOK}}, por sua vez, argumenta que as dinâmicas 'entrelaçadas' do ciberespaço refletem uma confluência de atores, projetos e interpretações, muitas vezes em oposição. O autor salienta que, apesar das tendências dominantes da era digital, a manifestação dessas tendências na vida cotidiana se dá por vários aspectos. A diversidade de interesses e perspectivas é emblemática da natureza fluida do ciberespaço. Enquanto alguns enxergam o ciberespaço como um domínio de comunicação livre e comunitária, outros o veem como um mercado global expansivo. Essas visões frequentemente colidem, ilustrando a complexidade e diversidade de vozes no ciberespaço. O autor também enfatiza que a representatividade cultural no ciberespaço é proporcional ao engajamento ativo e à qualidade das contribuições de seus participantes. Embora existam obstáculos à expressão da diversidade cultural, eles são menos proeminentes no ciberespaço do que em outros meios. Isso sugere que o ciberespaço, ao conectar indivíduos de diferentes origens, amplifica a diversidade de perspectivas. Em resumo, \citeonline{{2010_Levy_BOOK}} oferece uma perspectiva equilibrada e otimista sobre polarização e diversidade no ciberespaço. Ele reconhece os desafios da coexistência de múltiplas perspectivas, mas também vê o ciberespaço como um meio de expressão da diversidade cultural e colaboração. Isso sugere que, embora a polarização seja uma realidade, o ciberespaço também oferece oportunidades para diálogo e colaboração.
 
 No contexto das plataformas digitais, a perspectiva de Lévy sobre a cibercultura é essencial para entender a dinâmica da polarização. Enquanto plataformas como o Colab podem enfrentar desafios de 'bolhas de filtro' que limitam a diversidade de perspectivas, a natureza interconectada da cibercultura, conforme descrito por Lévy, também apresenta oportunidades. Essa interconexão pode facilitar diálogos construtivos e a negociação de diferentes pontos de vista. Portanto, ao reconhecer e valorizar essa diversidade, o Colab tem o potencial de se tornar um espaço inclusivo para o diálogo cidadão.A abordagem de Lévy sobre a cibercultura ressalta a natureza interconectada e a valorização da diversidade de perspectivas em discursos online evocam a utilização de heurísticas analíticas inovadoras que possam extrair informações estratégicas a partir dos dados de redes sociais. O Colab, além de ser um aplicativo e uma rede social de cidadania, pode ser classificado como um 'barômetro social hiperlocal'. Isso significa que, ao analisar postagens do ponto de vista de sentimentos e personas, é possível inferir a pressão social sobre determinados assuntos, relacionados a tipos específicos de eventos, de comunidades específicas em locais específicos. Assim, o 'barômetro social hiperlocal' não é uma ferramenta separada, mas sim uma caracterização do próprio Colab e de sua capacidade de mediar e refletir as nuances das opiniões e sentimentos da comunidade.
 
@@ -149,12 +149,12 @@ Com base neste modelo de dados, iniciamos o processo de filtragem e agregação.
 
 A visualização da pressão social hiperlocal é apresentada através de um gráfico de radar, uma representação gráfica que permite analisar e comparar diversas variáveis em relação a um ponto central. O gráfico possui dois planos distintos: o plano de score e o plano de persona.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_plot.png}
 	\caption{Gráfico de Radar para Análise de Pressão Social Hiperlocal. Os segmentos representam tipos de eventos, enquanto o eixo radial exibe valores médios de scores de sentimentos (plano vermelho) e personas (plano azul) atribuídos às postagens dos usuários relacionadas a cada tipo de evento.}
 	\label{fig:social_barometer_plot}
-\end{figure}
+\end{quadro}
 
 No plano de score, cada segmento do gráfico de radar representa um tipo específico de evento do Colab, onde cada evento é associado a um ângulo theta. O eixo radial, representado pelo parâmetro 'R', indica o valor médio dos scores de sentimentos atribuídos às postagens dos usuários em relação a um determinado tipo de evento. Quanto mais distante do centro estiver um segmento, maior será o valor médio do score e, consequentemente, mais positivo será o sentimento expresso pelos usuários em relação a esse evento. Por outro lado, segmentos mais próximos do centro indicam scores médios mais baixos, refletindo sentimentos mais negativos.
 
@@ -174,7 +174,14 @@ O Colab é uma plataforma de participação cidadã que proporciona um espaço v
 
 \subsection{Mobilidade Urbana}
 
-A mobilidade urbana é um tema de crescente importância no contexto das cidades modernas, à medida que as populações urbanas continuam a crescer e as infraestruturas de transporte enfrentam desafios cada vez maiores. No ambiente colaborativo do Colab, onde cidadãos compartilham suas experiências e preocupações sobre a vida urbana, a mobilidade é um tópico central de discussão. A era das 'smart cities' e dos 'connected citizens' trouxe consigo uma série de inovações e tecnologias que prometem melhorar a mobilidade nas cidades, mas também desencadeou debates apaixonados sobre o futuro da mobilidade urbana.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_mobility.png}
+	\caption{Usuário do Colab expressando insatisfação com a qualidade da ciclofaixa em comparação com a rua de automóveis.}
+	\label{fig:colab_posts_mobility}
+\end{figure}
+
+A mobilidade urbana é um tópico essencial nas cidades modernas, especialmente com o crescimento das populações urbanas e os desafios enfrentados pelos sistemas de transporte. Na plataforma colaborativa Colab, cidadãos discutem intensamente sobre este tema, refletindo a era das 'smart cities' e 'connected citizens'. As opiniões se polarizam entre preferências por transporte pessoal, transporte público, ciclovias e caminhadas. Questões ambientais, como a redução das emissões de carbono, e temas de acessibilidade e equidade também dividem opiniões, influenciando debates sobre planejamento urbano e alocação de recursos.
 
 \begin{figure}[htb]
 	\centering
@@ -183,16 +190,12 @@ A mobilidade urbana é um tema de crescente importância no contexto das cidades
 	\label{fig:wordcloud_mobility}
 \end{figure}
 
-A polarização em torno da mobilidade urbana pode ser observada em várias frentes. Uma das fontes mais comuns de polarização é a preferência por diferentes modos de transporte. Alguns cidadãos podem advogar veementemente pelo uso de veículos particulares e pela expansão das vias expressas, enquanto outros defendem o transporte público, ciclovias e pedestrianismo como soluções mais sustentáveis. Essa divergência de opiniões pode levar a debates acalorados sobre como os recursos da cidade devem ser alocados.
-
-Além disso, questões ambientais desempenham um papel fundamental na polarização da mobilidade urbana. Aqueles que valorizam a redução das emissões de carbono e a promoção de meios de transporte ecológicos, como veículos elétricos e bicicletas, frequentemente entram em conflito com aqueles que resistem a medidas que limitam o uso de veículos particulares em nome do meio ambiente. Os debates relacionados a trânsito automobilistico são tão frequentes quanto os debates que advogam por mais ciclovias e meios alternativos de transporte. A acessibilidade e a equidade também são fontes de divisão. Garantir que todos os cidadãos tenham acesso aos sistemas de transporte público é uma preocupação importante, mas as decisões sobre como alcançar essa equidade podem ser polarizantes. Outro ponto de discórdia é o planejamento urbano. Decisões sobre a criação de ciclovias, expansão do transporte público e medidas para lidar com o congestionamento de tráfego frequentemente dividem as opiniões dos cidadãos. Alguns veem essas mudanças como melhorias na qualidade de vida, enquanto outros as percebem como inconvenientes ou dispendiosas.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_mobility.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação à mobilidade urbana. O eixo radial mostra os scores de sentimentos (plano vermelho) e personas (plano azul), enquanto os segmentos descrevem diversos eventos urbanos.}
 	\label{fig:social_barometer_mobility}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -245,19 +248,18 @@ Além disso, questões ambientais desempenham um papel fundamental na polarizaç
 	\end{tabular}
 \end{table}
 
-Compreender as nuances da pressão social em comunidades hiperlocais é fundamental para visualizar e analisar as preocupações dos cidadãos em contextos urbanos específicos. Na plataforma Colab, os usuários têm a oportunidade de expressar seus sentimentos e opiniões sobre variados eventos de zeladoria pública. As heurísticas desenvolvidas, e o modelo de dados correspondente, oferecem uma estrutura valiosa para desvendar as complexidades desses discursos.
-
-Ao observar os resultados de pressão social sobre mobilidade urbana, é possível identificar as áreas mais críticas e aquelas que possuem sentimentos mais positivos, bem como as que contam com um maior número de postagens. O 'Buraco nas vias', com 15 postagens, obteve um score de sentimento de -0.2308 e uma persona de 0.1889. Isto sugere um sentimento negativo, porém a persona indica uma tendência ligeiramente inclinada para o \textit{helper}, indicando que os usuários estão mais inclinados a ajudar ou colaborar para solucionar o problema, ao invés de apenas reclamar. Por outro lado, eventos como 'Ponto de infração de trânsito recorrente', com 16 postagens, demonstraram uma pontuação de sentimento de -0.2496 e uma persona de 0.6442. A pontuação de sentimento, sendo negativa, sugere insatisfação com o tópico. No entanto, a alta pontuação da persona revela que os usuários tendem a ser mais \textit{complainers} do que \textit{helper} nesse cenário.
-
-Eventos como 'Rampa de acessibilidade irregular ou inexistente' e 'Estação de ônibus/trem/metrô danificada' tiveram menos postagens, mas ainda assim mostraram sentimentos negativos, ressaltando a necessidade de atenção a essas áreas. Por outro lado, temos tópicos como 'Via de terra com desnível' e 'Bicicletário/paraciclo danificado' que mostraram sentimentos ligeiramente positivos, com scores de 0.0533 e 0.2662 respectivamente. Isso poderia sugerir que, embora ainda haja problemas nestas áreas, houve algumas melhorias ou ações que foram bem recebidas pelos cidadãos. Os eventos mais populares, aqueles com o maior número de postagens, como 'Bloqueio na via' com 17 postagens, dão uma ideia clara sobre quais tópicos de mobilidade urbana são mais discutidos ou problemáticos nas comunidades abordadas.
-
-A combinação de scores de sentimentos com valores de persona fornece uma visão holística. Por exemplo, um sentimento negativo associado a uma persona de \textit{helper} pode indicar um problema, mas também uma comunidade disposta a colaborar para soluções. Por outro lado, um sentimento negativo com uma persona de \textit{complainer} pode indicar insatisfação acentuada e uma percepção de que ações práticas não estão sendo tomadas para resolver problemas. Assim, ao analisar a pressão social em tópicos de mobilidade urbana, pode-se inferir quais áreas precisam de mais atenção e onde as administrações públicas podem focar seus esforços para melhorar a satisfação e o bem-estar dos cidadãos. Estes insights são valiosos para gestores urbanos, tomadores de decisão e pesquisadores, ajudando a moldar políticas públicas mais eficientes e a orientar futuras intervenções urbanas.
+Na plataforma Colab, análises de sentimentos e personas revelam percepções variadas sobre diferentes aspectos da mobilidade urbana. Por exemplo, questões como 'Buracos nas vias' geram sentimentos negativos, mas com uma tendência à colaboração para solucionar o problema. Já eventos como 'Pontos de infração de trânsito recorrentes' mostram alta insatisfação. Eventos menos comentados, como 'Rampas de acessibilidade irregulares', também indicam necessidades de atenção. A combinação dos sentimentos com as personas ajuda a entender melhor as áreas que precisam de mais foco e onde os esforços podem ser direcionados para melhorar a vida urbana. Estas informações são cruciais para gestores urbanos e formuladores de políticas públicas.
 
 \subsection{Infrações de Trânsito}
 
-No campo das infrações de trânsito, emerge um padrão intrigante na pressão social exercida pelos cidadãos urbanos. A análise dos dados oferece uma perspectiva única sobre a maneira como os usuários percebem e reagem às ações (ou inações) das autoridades de trânsito. De acordo com as informações disponíveis, há uma dicotomia clara em relação à maneira como as autoridades de trânsito são percebidas. Por um lado, percebe-se uma sensação predominante de que as autoridades poderiam estar fazendo mais para resolver as infrações, enquanto, por outro lado, alguns usuários percebem as autoridades como parte de uma 'indústria da multa', sugerindo um excesso de penalidades.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_traffic.png}
+	\caption{Usuário do Colab expressando sua opinião sobre infrações de trânsito.}
+	\label{fig:colab_posts_traffic}
+\end{figure}
 
-Um olhar atento às palavras-chave associadas ao tópico revela que 'multa' é a palavra mais mencionada, seguida por 'infração', indicando que a principal preocupação dos cidadãos gira em torno das penalidades e das regras de trânsito. Além disso, a menção de termos como 'detran' e 'IPVA' sugere questões burocráticas e fiscais que podem estar influenciando a forma como as infrações de trânsito são percebidas.
+No tópico de infrações de trânsito, a análise de dados mostra um padrão complexo na percepção dos cidadãos sobre as ações das autoridades de trânsito. Há uma clara dicotomia: por um lado, muitos acham que as autoridades poderiam fazer mais para resolver as infrações; por outro, alguns veem as autoridades como excessivamente punitivas, criando uma 'indústria da multa'. Palavras-chave como 'multa', 'infração', 'detran' e 'IPVA' são frequentemente mencionadas, indicando preocupações com penalidades e questões burocráticas.
 
 \begin{figure}[htb]
 	\centering
@@ -266,16 +268,14 @@ Um olhar atento às palavras-chave associadas ao tópico revela que 'multa' é a
 	\label{fig:wordcloud_traffic}
 \end{figure}
 
-Ao se aprofundar na análise da pressão social relacionada às infrações de trânsito, é evidente que as postagens dos cidadãos no Colab refletem uma diversidade de sentimentos e perspectivas. Observando inicialmente o score médio dos eventos, notamos que 'Via de terra com desnível' e 'Conservação (via pública)' são associados a sentimentos predominantemente positivos. Isso pode sugerir uma satisfação dos cidadãos com medidas tomadas em relação a essas questões específicas ou uma expressão de gratidão pelo reconhecimento de problemas solucionados. Em contrapartida, eventos como 'Manutenção de faixa de pedestre', 'Ônibus/trem/metrô danificado' e 'Manutenção de ciclovia/ciclofaixa' apresentam os scores mais negativos, indicando uma insatisfação ou preocupação dominante sobre esses tópicos.
+Ao analisar sentimentos e perspectivas sobre infrações, nota-se uma diversidade de reações. Alguns tópicos como 'Conservação (via pública)' e 'Via de terra com desnível' recebem sentimentos positivos, sugerindo satisfação com medidas adotadas. Em contraste, questões como 'Manutenção de faixa de pedestre' e 'Ônibus/trem/metrô danificado' têm sentimentos negativos, indicando insatisfação. Além disso, problemas como 'Rampa de acessibilidade irregular' e 'Bueiro sem tampa' tendem a gerar críticas, enquanto questões como 'Retirada de árvore' e 'Conservação (via pública)' veem posturas mais colaborativas.
 
-Por outro lado, ao analisar a persona média atribuída aos usuários, percebemos que eventos como 'Rampa de acessibilidade irregular ou inexistente', 'Bueiro sem tampa', 'Calçada inexistente' e 'Publicidade irregular em via pública' têm uma persona média de 1.0. indicando uma predominância de \textit{complainers}. Isso sugere que os usuários, ao se depararem com esses problemas, mostram-se predominantemente críticos e insatisfeitos. Estas questões, aparentemente, tocam em aspectos sensíveis da comunidade, possivelmente relacionados à acessibilidade e segurança.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_traffic.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Infrações de Trânsito.}
 	\label{fig:social_barometer_traffic}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -328,21 +328,18 @@ Por outro lado, ao analisar a persona média atribuída aos usuários, percebemo
 	\end{tabular}
 \end{table}
 
-Em contraste, eventos como 'Retirada de árvore', 'Vazamento de esgoto', 'Poda de árvore', 'Bueiro entupido' e 'Conservação (via pública)' têm valores de persona tendendo a zero, o que implica uma predominância de usuários com a persona \textit{helper}. Esta constataçãos sugere que, para esses tópicos, os usuários tendem a adotar uma postura mais colaborativa, possivelmente oferecendo soluções, identificando problemas de maneira construtiva ou mesmo agradecendo por serviços realizados.
-
-A presença significativa de palavras-chave como 'multa', 'infração', 'IPVA' e 'detran' nos resultados sugere que questões burocráticas e de regulamentação são temas recorrentes nas postagens. Este é um indicativo da preocupação dos cidadãos com o cumprimento das normas e com as consequências financeiras das infrações. Essas keywords podem ser um reflexo da percepção de que a gestão do trânsito e a aplicação das regras são cruciais para a qualidade de vida urbana.
-
-Ao considerar a quantidade de postagens associadas a cada evento, nota-se que 'multa' e 'Ponto de infração de trânsito recorrente' são os mais citados, o que denota um alto nível de engajamento dos usuários com esses tópicos. Isso sugere que as multas e as zonas de infração recorrente são pontos de grande interesse e debate dentro da comunidade. A frequente menção a esses tópicos pode indicar tanto um reconhecimento dos problemas quanto uma busca por soluções e esclarecimentos.
-
-As dinâmicas observadas na análise dos scores e das personas indicam que os cidadãos não apenas identificam problemas, mas também buscam engajamento ativo. Há uma interação contínua entre a crítica construtiva e a expressão de insatisfação. Esta interação reflete a natureza plural das preocupações urbanas e a complexidade das dinâmicas sociais em torno das infrações de trânsito.
-
-O contraste entre os sentimentos positivos e negativos, assim como entre as personas \textit{helper} e \textit{complainer}, destaca a diversidade inerente na pressão social. Ela não se apresenta de forma uniforme, mas sim como um conjunto diversificado de vozes e perspectivas. Cada uma destas contribui para uma compreensão mais completa e detalhada dos desafios e necessidades das comunidades urbanas.
-
-No discurso sobre infrações de trânsito, a pressão social revela complexidades nas percepções e sentimentos dos habitantes urbanos. A dissecção desses dados nos oferece uma lente pela qual podemos observar as nuances nas reações dos cidadãos às decisões das autoridades de trânsito. De acordo com os insights gerados, emerge uma dualidade perceptiva: muitos sentem que as autoridades poderiam ser mais proativas na solução de infrações, enquanto outros veem estas mesmas autoridades como propulsoras de uma 'indústria da infração', onde o foco estaria mais na penalização do que na resolução de problemas reais. A frequente menção a termos como 'multa', 'infração', 'detran' e 'IPVA' enfatiza as preocupações centrais dos cidadãos, as quais transcendem as penalidades e abarcam aspectos burocráticos e fiscais. Em síntese, ao decifrar a pressão social associada às infrações de trânsito, obtemos um mosaico rico em detalhes sobre as necessidades e inquietações de comunidades urbanas, fornecendo orientações valiosas para formuladores de políticas, acadêmicos e defensores do bem-estar urbano.
+Esses dados mostram que as preocupações dos cidadãos com infrações de trânsito vão além das multas, abrangendo a eficiência das autoridades e a qualidade de vida urbana. O alto engajamento em tópicos como multas e zonas de infração recorrente revela um interesse significativo da comunidade nesses assuntos. A pressão social reflete uma mistura de críticas construtivas e insatisfação, destacando a diversidade de opiniões e a complexidade das dinâmicas sociais relacionadas às infrações de trânsito.
 
 \subsection{Tarifa de Transporte Público}
 
-A análise dos dados sobre pressão social no contexto da tarifa de transporte público evidencia a ampla preocupação dos cidadãos sobre esse tópico. O transporte público é um elemento fundamental da infraestrutura urbana e, como tal, tem implicações diretas na qualidade de vida dos habitantes de uma cidade. As keywords associadas a este tópico revelam preocupações específicas: o termo 'passagem', por exemplo, foi mencionado 11.593 vezes, destacando-se claramente como o ponto principal de discussão entre os usuários. Outras palavras-chave como 'ônibus', 'terminal' e 'cobertura' são também indicativas das discussões em torno do funcionamento e acessibilidade do transporte público.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_busfare.png}
+	\caption{Exemplo de postagem no Colab relacionadas ao tópico de Tarifa de Transporte Público}
+	\label{fig:colab_posts_busfare}
+\end{figure}
+
+No contexto da tarifa de transporte público, os dados mostram que este é um tópico de grande preocupação para os cidadãos. Palavras-chave como 'passagem', 'ônibus', 'terminal' e 'cobertura' indicam foco nas questões de custo e acessibilidade do transporte público. Muitas das postagens relacionadas a este tópico expressam insatisfação, como é evidenciado pelas menções frequentes a 'Ônibus superlotado' e 'Ônibus fora do horário/rota', com sentimentos majoritariamente negativos e uma tendência dos usuários a se expressarem como críticos (perfil de \textit{complainer}).
 
 \begin{figure}[htb]
 	\centering
@@ -351,16 +348,14 @@ A análise dos dados sobre pressão social no contexto da tarifa de transporte p
 	\label{fig:wordcloud_busfare}
 \end{figure}
 
-Ao analisar os dados referentes ao tópico de pressão social relacionado à tarifa de transporte público, observou-se uma notável complexidade nas opiniões e sentimentos expressos pelos cidadãos. A estrutura deste tema, de relevância substancial para a vida diária das pessoas, possui nuances que precisam ser cuidadosamente interpretadas para se chegar a uma compreensão sólida.
+Por outro lado, há sinais de disposição para colaborar em resolver problemas relacionados ao transporte público, especialmente em tópicos como 'Conservação (via pública)' e 'Faixa de pedestre apagada', onde os sentimentos são menos negativos e a tendência é para um perfil mais colaborativo (perfil de \textit{helper}).
 
-Primeiramente, é notável que muitos dos eventos são fortemente relacionados a problemas percebidos no sistema de transporte público. Isso é evidente na menção a eventos como 'Ônibus superlotado', 'Ônibus fora do horário/rota' e 'Má conduta de motorista ou cobrador'. O score médio de sentimento atribuído a essas postagens é majoritariamente negativo, indicando insatisfação dos usuários. Além disso, a persona média associada a tais postagens, em sua maioria, inclina-se mais para o perfil de \textit{complainer}, sugerindo que os cidadãos estão expressando suas frustrações e preocupações em relação a esses problemas.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_bus_fare.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Tarifa de Transporte Público}
 	\label{fig:social_barometer_bus_fare}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -413,19 +408,26 @@ Primeiramente, é notável que muitos dos eventos são fortemente relacionados a
 	\end{tabular}
 \end{table}
 
-No entanto, ao observar eventos como 'Conservação (via pública)' e 'Faixa de pedestre apagada', nota-se que o sentimento médio expresso é menos negativo e a persona média tende mais ao perfil de \textit{helper}. Isso sugere que, embora os usuários estejam destacando questões que necessitam de atenção, há uma disposição para colaborar e auxiliar na resolução destes problemas. Esta dicotomia entre crítica e disposição para ajudar é fundamental para compreender as dinâmicas de pressão social em relação ao transporte público.
+A frequência do termo 'passagem' sugere uma preocupação especial com os custos do transporte, enquanto a prevalência do termo 'ônibus' em comparação com 'metrô' indica que os problemas com ônibus são mais relatados ou percebidos como mais críticos. Nos casos de eventos descritos como 'Agentes e Operadores de trânsito' ou 'Metrô/trem danificado', a postura é predominantemente crítica, com sentimentos negativos, apontando para áreas que podem necessitar de atenção imediata por parte das autoridades. Em contraste, questões como 'Manutenção de pintura da via' e 'Banco danificado' geram reações mais colaborativas, mesmo que menos frequentes, indicando que em certas situações, os cidadãos estão dispostos a oferecer feedback construtivo.
 
-Dentro desta análise, um dos insights mais marcantes refere-se à relevância das palavras-chave identificadas. O termo 'ônibus' aparece com destaque, enquanto 'metrô' tem uma ocorrência muito mais rara. Isso sugere que os problemas associados aos ônibus podem ser mais prevalentes ou, pelo menos, mais reportados pelos usuários. Além disso, o termo 'passagem' foi mencionado com extraordinária frequência, indicando a centralidade deste tema no discurso dos cidadãos sobre o transporte público. A presença dominante deste termo pode ser interpretada como uma expressão de preocupação em relação aos custos e acessibilidade do transporte.
+Em resumo, a discussão sobre tarifas de transporte público não se limita a ser um tópico de debate intenso; ela também abre caminho para uma colaboração significativa entre os cidadãos e as autoridades. Isso implica um potencial valioso para uma parceria construtiva na busca de melhorias no serviço de transporte público.
 
-Quando se considera eventos com descrições como 'Agentes e Operadores de trânsito' ou 'Metrô/trem danificado', é evidente que a persona prevalece como \textit{complainer}, com scores de sentimentos decididamente negativos. Essa informação é vital para as partes interessadas, como governos locais e operadoras de transporte, pois destaca áreas específicas de preocupação que podem requerer ações imediatas.
+Para a administração das cidades, isso significa que há uma oportunidade de aproveitar esse engajamento cívico para melhorar os serviços de transporte. Os dados coletados das discussões dos cidadãos fornecem insights específicos sobre os problemas enfrentados pelos usuários do transporte público, como superlotação, inconsistências de horários e condições das infraestruturas. Ao analisar esses dados, as autoridades podem identificar as áreas mais críticas que necessitam de atenção imediata.
 
-Em contrapartida, eventos como 'Manutenção de pintura da via' e 'Banco danificado' apresentaram personas predominantemente \textit{helper}, mesmo que o número de postagens seja limitado. Isso pode sinalizar que, em certos contextos, os cidadãos estão mais inclinados a colaborar e oferecer feedback construtivo do que apenas expressar descontentamento. Ao avaliar a distribuição e intensidade dos scores de sentimento e personas em eventos diversos, torna-se evidente que o tópico de tarifa de transporte público não é apenas uma área de contenda, mas também de colaboração. A polarização entre os sentimentos positivos e negativos sugere que, enquanto existem desafios significativos a serem abordados, também há um potencial considerável para envolver os cidadãos na busca de soluções.
+Por exemplo, questões frequentemente mencionadas, como a superlotação dos ônibus, podem indicar a necessidade de aumentar a frequência das viagens ou adicionar mais veículos nas rotas mais movimentadas. Da mesma forma, reclamações sobre o estado de conservação dos veículos ou infraestruturas (como terminais e estações) podem guiar os esforços de manutenção e investimento.
+
+Utilizar esses dados também pode auxiliar no planejamento de políticas de transporte mais inclusivas e sustentáveis. Por exemplo, entender as preocupações sobre tarifas pode ajudar a modelar estruturas de preços mais equitativas e considerar alternativas como subsídios para grupos vulneráveis. Portanto, essse tópico social não é somente termômetro das percepções e experiências dos cidadãos, mas também uma bússola para direcionar políticas públicas e investimentos de maneira mais informada e responsiva às necessidades da comunidade.
 
 \subsection{Saúde Pública}
 
-A saúde pública é indiscutivelmente um tópico de grande relevância para as comunidades, e os dados fornecidos corroboram essa assertividade. Ao analisar as palavras-chave relacionadas ao tópico de saúde pública, notamos termos como 'samu', 'ambulância', 'médico' e 'vacina', que são elementos essenciais no contexto de serviços de saúde. Além disso, a menção a doenças como 'dengue' e 'zika', e a presença significativa desses termos, sinaliza uma preocupação com problemas de saúde emergentes e potencialmente perigosos.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_health.png}
+	\caption{Exemplo de postagem no Colab relacionada ao tópico de Saúde Pública}
+	\label{fig:colab_posts_health}
+\end{figure}
 
-Outra observação crucial é a relação de tipos de eventos associados a este tópico. Nota-se que eventos como 'Foco de mosquito da dengue/zika' e 'Mato alto' aparecem com frequência, o que pode indicar problemas relacionados ao meio ambiente e ao controle de vetores de doenças. O 'Descarte irregular de lixo' também surge como um evento relevante, refletindo questões sanitárias e a preocupação da comunidade com a limpeza pública e seus impactos na saúde coletiva.
+A saúde pública é um tópico crucial para as comunidades, como demonstram os dados analisados. Palavras-chave como 'samu', 'ambulância', 'médico' e 'vacina' são frequentemente mencionadas, destacando a importância dos serviços de saúde. Termos como 'dengue' e 'zika' apontam para preocupações com doenças emergentes. Questões ambientais, como 'Foco de mosquito da dengue/zika' e 'Descarte irregular de lixo', também são proeminentes, indicando problemas de saúde relacionados ao meio ambiente.
 
 \begin{figure}[htb]
 	\centering
@@ -434,18 +436,14 @@ Outra observação crucial é a relação de tipos de eventos associados a este 
 	\label{fig:wordcloud_public_health}
 \end{figure}
 
-A análise da pressão social em relação à saúde pública nas plataformas do Colab revelou diversas nuances sobre a percepção cidadã concernente à zeladoria urbana neste tema. Inicialmente, ao observar o gráfico de radar, é possível notar que certos tipos de eventos possuem sentimentos majoritariamente negativos, indicados por scores abaixo de zero, enquanto outros se aproximam de um sentimento mais neutro ou até mesmo positivo.
+A análise mostra sentimentos majoritariamente negativos em relação a problemas como poluição sonora e descarte irregular de lixo, embora alguns eventos, como 'Atendimento na Clínica da Família', apresentem uma perspectiva mais positiva. Este contraste reflete uma diversidade de opiniões e preocupações na comunidade.
 
-O evento denominado 'Ponto recorrente de poluição sonora' apresentou uma média de sentimento negativa e uma persona média indicando uma predominância do tipo \textit{complainer}. Isso sugere uma insatisfação marcante dos usuários do Colab em relação a esse problema específico, destacando a urgência na busca por soluções eficazes para tal questão. Uma hipótese para esta situação pode ser a percepção direta dos efeitos da poluição sonora na qualidade de vida, levando a uma reação mais negativa por parte dos cidadãos.
-
-Por outro lado, ao analisar o evento 'Descarte irregular de lixo', foi observado um sentimento médio negativo, mas uma persona média de 0.4783, o que revela um equilíbrio entre as posturas de \textit{helper} e \textit{complainer}. Essa distribuição pode ser interpretada como um reflexo da diversidade de opiniões sobre a questão: enquanto alguns cidadãos podem estar criticando o descarte inadequado e a falta de ação das autoridades, outros podem estar propondo soluções ou indicando locais onde o descarte foi feito corretamente.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_public_health.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Saúde Pública.}
 	\label{fig:social_barometer_public_health}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -490,21 +488,24 @@ Por outro lado, ao analisar o evento 'Descarte irregular de lixo', foi observado
 	\end{tabular}
 \end{table}
 
-Quando se observa o evento 'Atendimento na Clínica da Família', a análise revela um panorama mais otimista. Com um score médio de positiva e uma persona com tendencias a \textit{helper}, há uma inclinação mais positiva em relação ao serviço. Tal observação pode ser atribuída à satisfação com os serviços de saúde ofertados ou à qualidade do atendimento nestes estabelecimentos. Todavia, é essencial considerar que o número de postagens associado a esse evento é menor quando comparado a outros, o que pode influenciar na representatividade desta métrica.
+Na administração urbana, a análise da saúde publica sob uma perspectiva de pressão social pode ser fundamental para aprimorar os serviços oferecidos à população. Primeiramente, o entendimento das preocupações específicas dos cidadãos, evidenciado pela análise de dados, permite que as autoridades foquem na melhoria dos serviços mais criticados. Por exemplo, a eficiência do Serviço de Atendimento Móvel de Urgência (SAMU) e a disponibilidade de vacinas são aspectos que podem ser significativamente aprimorados com base no feedback coletado. Esse foco direcionado não apenas melhora a qualidade do atendimento em saúde, mas também aumenta a confiança da população nos serviços públicos.
 
-Em contraste, eventos como 'Estabelecimento sem alvará' e 'Área com risco de deslizamento' denotaram uma postura altamente crítica por parte dos usuários, com personas máximas de \textit{complainer} e sentimentos negativos intensos. Esses resultados podem indicar uma grave preocupação dos cidadãos com a regularidade e segurança dos estabelecimentos e áreas urbanas, exigindo uma atenção imediata por parte dos gestores públicos.
+Além disso, a identificação frequente de doenças endêmicas, como dengue e zika, nos dados sugere a necessidade urgente de campanhas eficazes de prevenção e controle de vetores. O planejamento dessas campanhas pode ser otimizado ao se considerar as áreas e questões mais mencionadas pelos cidadãos, garantindo uma ação direcionada e mais eficiente. A conscientização e educação da população acerca dessas doenças também se torna mais focada e impactante.
 
-Um aspecto intrigante se manifesta quando analisamos o evento 'Praia suja', que, embora tenha um sentimento negativo apresenta uma persona totalmente inclinada para o tipo \textit{helper}. Tal contradição sugere que, mesmo insatisfeitos com a condição das praias, os cidadãos estão dispostos a colaborar e ajudar na busca por soluções, demonstrando um senso de coletividade e responsabilidade ambiental.
+A análise detalhada dos sentimentos e personas revela as atitudes variadas dos cidadãos, fornecendo informações valiosas para moldar respostas e políticas públicas alinhadas com as expectativas da comunidade. Essa abordagem baseada em dados permite uma resposta mais sensível e adaptada às necessidades específicas da população, resultando em uma administração mais eficaz e empática.
 
-No entanto, ao analisar eventos associados a doenças, como 'Foco de mosquito da dengue/zika', percebe-se uma preocupação evidente com uma pontuação de sentimento negativa, mas uma persona média mista. Esses valores indicam uma tendência moderada para o perfil \textit{complainer}, provavelmente reflexo da gravidade das consequências destas doenças e da necessidade urgente de ações de combate.
-
-No que tange às palavras-chave extraídas, é possível identificar que termos como 'dengue' e 'médico' são proeminentes, com 425 e 68 ocorrências respectivamente. Esta predominância pode indicar uma ênfase na discussão sobre doenças endêmicas e na qualidade ou acessibilidade dos serviços médicos, constituindo-se como temas centrais nas discussões de zeladoria urbana relacionada à saúde.
-
-A análise da pressão social em relação à saúde pública no Colab oferece um retrato profundo das percepções e inquietações dos cidadãos. Observamos que determinados eventos suscitam sentimentos predominantemente negativos, enquanto outros eventos revelam uma dicotomia mais equilibrada entre as atitudes de \textit{helper} e \textit{complainer}. Entender essas nuances é fundamental para que os responsáveis pela gestão pública possam se orientar de maneira mais eficaz, ajustando as intervenções e políticas de acordo com as reais demandas e sentimentos da comunidade. Esta abordagem não apenas realça a importância da participação cidadã na construção de cidades mais resilientes e inclusivas, mas também enfatiza o papel das plataformas digitais como ferramentas cruciais para capturar e analisar a voz da população em tempo real.
+Por fim, o engajamento cívico, incentivado através de plataformas de diálogo entre cidadãos e autoridades, fortalece a participação comunitária na saúde pública. Esta abordagem colaborativa não só contribui para a resolução de problemas, mas também promove uma maior transparência e responsabilidade nas decisões públicas. Além disso, o uso de plataformas digitais para captar a voz da população se destaca como uma ferramenta crucial, permitindo uma gestão pública mais inclusiva e alinhada às necessidades reais da comunidade. Essa interação dinâmica entre cidadãos e gestores é essencial para construir cidades mais resilientes e inclusivas, onde a saúde pública é uma prioridade compartilhada e ativamente perseguida por todos os envolvidos.
 
 \subsection{Distanciamento Social}
 
-Durante a pandemia de COVID-19, muitos usuários usaram o Colab para relatar problemas relacionados ao distanciamento social. Isso inclui aglomerações, o uso de máscaras e outras preocupações relacionadas à saúde pública. Essas discussões refletem a sensibilidade das comunidades à pandemia e a importância da conscientização sobre medidas de saúde.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_social_distancing.png}
+	\caption{Exemplo de postagem no Colab denunciando aglomeração de pessoas na pandemia.}
+	\label{fig:colab_posts_social_distancing}
+\end{figure}
+
+A análise dos dados coletados no Colab sobre distanciamento social durante a pandemia de COVID-19 oferece insights valiosos para a administração pública. As discussões refletem a sensibilidade das comunidades à pandemia e a importância da conscientização sobre medidas de saúde, como aglomerações e uso de máscaras. Essas informações são cruciais para a implementação de estratégias de vigilância participativa e detecção digital de doenças.
 
 \begin{figure}[htb]
 	\centering
@@ -513,16 +514,18 @@ Durante a pandemia de COVID-19, muitos usuários usaram o Colab para relatar pro
 	\label{fig:wordcloud_social_distancing}
 \end{figure}
 
-Ao examinar os valores médios de score e personas para eventos relacionados ao distanciamento social, podemos observar uma série de tendências interessantes, onde diferentes eventos de zeladoria pública suscitam diversas reações por parte dos usuários da plataforma. Por exemplo, o evento 'Ônibus/trem/metrô superlotado', observamos que a persona média associada a esse evento é predominantemente de \textit{helper}. Isso indica que os usuários que se manifestam sobre a superlotação no transporte público têm uma atitude positiva e colaborativa em relação ao problema. Além disso, o score médio de sentimentos negativo sugere que, embora haja um reconhecimento das dificuldades enfrentadas, a maior parte das postagens possui um tom negativo, refletindo a insatisfação dos usuários com a situação.
+A vigilância participativa, um conceito onde cidadãos contribuem ativamente para o monitoramento de questões de saúde pública, é evidenciada na maneira como os usuários do Colab relatam e reagem a situações relacionadas ao distanciamento social. A predominância de personas do tipo \textit{helper} em eventos como superlotação no transporte público mostra que os cidadãos não apenas identificam problemas, mas também estão dispostos a colaborar na busca de soluções. Este tipo de engajamento oferece às autoridades de saúde pública uma fonte valiosa de informações em tempo real, permitindo uma resposta mais rápida e eficiente a situações emergentes.
 
-No caso de 'Ônibus superlotado', tanto a persona média quanto o score médio de sentimentos atingem valores mais extremos. A persona média sugere que os usuários que comentam sobre ônibus superlotados são predominantemente do tipo \textit{complainer}, expressando críticas e insatisfação. O score médio de sentimentos negativo sugere uma forte reação negativa em relação à superlotação nos ônibus. Esses resultados demonstram uma alta pressão social em relação a esse problema específico, com uma clara predominância de opiniões críticas.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_social_distancing.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Distanciamento Social.}
 	\label{fig:social_barometer_social_distancing}
-\end{figure}
+\end{quadro}
+
+Por outro lado, a forte reação negativa em eventos como superlotação de ônibus e a predominância de personas do tipo \textit{complainer} indicam uma alta pressão social e insatisfação com a gestão atual desses problemas. Este feedback direto dos cidadãos é essencial para que as autoridades compreendam as áreas críticas que necessitam de atenção imediata e ajustem suas políticas e práticas em conformidade.
+
+Além disso, a detecção digital de doenças, que envolve a utilização de dados digitais para monitorar e identificar tendências de saúde, é reforçada pela análise desses dados. A expressão de preocupações com aglomerações e condições sanitárias irregulares em estabelecimentos fornece às autoridades um panorama das preocupações de saúde em tempo real. Isso possibilita uma abordagem proativa na gestão de saúde pública, onde medidas preventivas e campanhas de conscientização podem ser direcionadas para áreas e temas específicos identificados através da plataforma.
 
 \begin{table}[htbp]
 	\centering
@@ -575,21 +578,18 @@ No caso de 'Ônibus superlotado', tanto a persona média quanto o score médio d
 	\end{tabular}
 \end{table}
 
-No contexto de 'Aglomeração de pessoas', a persona média indica que usuários que abordam esse tema tendem a assumir uma postura de \textit{helper}, demonstrando uma atitude positiva e colaborativa. No entanto, o score médio de sentimentos negativo sugere que, apesar da disposição para ajudar, ainda existe um sentimento negativo em relação à aglomeração de pessoas, possivelmente devido às implicações na propagação de doenças, como a COVID-19.
-
-Ao explorar o evento 'Má conduta de motorista ou cobrador', observamos uma persona média quase exclusivamente do tipo \textit{complainer}, expressando críticas e insatisfação. O score médio de sentimentos reforça essa tendência negativa, destacando a forte pressão social relacionada ao comportamento inadequado de motoristas e cobradores de transporte público.
-
-Por fim, o evento 'Estabelecimento com condição sanitária irregular' apresenta uma persona média sugerindo uma predominância de personas do tipo \textit{complainer}, com uma atitude crítica em relação à falta de conformidade com as normas sanitárias. O score médio de sentimentos reflete uma reação muito negativa por parte dos usuários, indicando uma preocupação séria e uma pressão social significativa relacionada a estabelecimentos que não seguem as diretrizes de saúde pública.
+Ao interpretar esses eventos sob a perspectiva de pressão social oferecemos uma nova dimensão para stakeholders, com o potencial aprimorar as estratégias de saúde pública, mas também capacitar uma resposta mais eficaz às preocupações emergentes, encorajando uma gestão colaborativa em crises de saúde. A interação ativa entre cidadãos e a análise crítica dessas informações estabelecem uma base para uma vigilância participativa eficiente e oferece oportunidades para estratégias de detecção digital de doenças. Essa abordagem não só reforça as medidas de saúde pública, mas também fortalece o bem-estar e a segurança da comunidade, demonstrando o poder da tecnologia e da participação cidadã na melhoria da saúde pública.
 
 \subsection{Mudança Climática}
 
-A análise da pressão social, especialmente no contexto das mudanças climáticas, é de grande relevância nos dias atuais. Os usuários do Colab demonstram uma crescente preocupação com os efeitos das mudanças climáticas, o que se torna evidente quando ocorrem chuvas intensas, tempestades e outros eventos climáticos adversos. Nesses momentos, os cidadãos recorrem à plataforma para documentar os impactos desses eventos na infraestrutura urbana, como danos a estradas, alagamentos, atrasos nos serviços de transporte público, riscos de deslizamento e muito mais. Essa tendência é particularmente significativa nas três cidades do sudeste do país que estão sob análise.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_social_clima.png}
+	\caption{Exemplo de postagem no Colab denunciando os efeitos do desmatamento na mudança climática.}
+	\label{fig:colab_posts_social_clima}
+\end{figure}
 
-Além disso, os usuários também expressam preocupações relacionadas às altas temperaturas nos centros urbanos. Eles frequentemente compartilham suas insatisfações em relação à falta de preparo da infraestrutura pública para lidar com o calor, incluindo a escassez de ar-condicionado e ventilação adequada em espaços públicos, bem como a ausência de áreas verdes e arborização suficiente para proporcionar alívio em meio às altas temperaturas.
-
-A complexidade dessas questões climáticas gera um debate polarizado entre os usuários do Colab. Por um lado, há aqueles que negam ou minimizam os efeitos das mudanças climáticas, questionando sua gravidade ou mesmo sua existência. Por outro lado, existem aqueles que advogam por políticas de mudança e ação climática, defendendo a necessidade de medidas concretas para mitigar os impactos ambientais e adaptar as cidades às mudanças climáticas. Essa polarização reflete-se nas postagens e discussões na plataforma, onde diferentes opiniões e perspectivas colidem.
-
-Portanto, é fundamental explorar essa dinâmica de pressão social, uma vez que ela oferece insights valiosos sobre como os cidadãos das cidades do sudeste do Brasil percebem e reagem às questões climáticas. Essa análise não apenas revela a diversidade de opiniões e preocupações, mas também fornece informações valiosas para os tomadores de decisão e gestores públicos que buscam compreender as complexas dinâmicas urbanas relacionadas ao clima e desenvolver políticas eficazes para enfrentar esses desafios ambientais.
+Ao analisar os eventos do Colab, podemos filtrar por tipos de eventos e palavras-chave específicas ao tópico de mudanças climáticas, revelando como as preocupações cotidianas dos usuários em relação a problemas urbanos refletem uma consciência mais ampla sobre mudança climática. Esta abordagem permite identificar tendências e padrões específicos na percepção pública, ilustrando como as questões locais se entrelaçam com o debate global sobre o clima. Os dados refletem uma ampla variedade de reações a problemas urbanos e ambientais, desde a manutenção de espaços verdes até a gestão da infraestrutura urbana e questões de saúde pública.
 
 \begin{figure}[htb]
 	\centering
@@ -598,22 +598,16 @@ Portanto, é fundamental explorar essa dinâmica de pressão social, uma vez que
 	\label{fig:wordcloud_weather}
 \end{figure}
 
-Ao observar os resultados, podemos notar que os eventos relacionados à mudança climática, como 'Praia suja' e 'Ponto de queimada irregular recorrente' apresentam personas predominantemente \textit{complainer}. Isso sugere que os usuários estão expressando preocupações e insatisfações em relação a esses problemas ambientais. Além disso, esses eventos também têm score médio negativo, o que indica que as postagens relacionadas a esses eventos tendem a conter sentimentos negativos.
+O interesse significativo da comunidade em eventos proativos, como iniciativas de arborização, apesar de uma participação ativa limitada, sugere um reconhecimento geral da importância de tais ações para a sustentabilidade ambiental. Por outro lado, a forte reação negativa e a postura crítica em relação a problemas como desmatamento irregular e ocupação de áreas públicas destacam uma preocupação profunda com a perda de espaços naturais e a preservação ambiental.
 
-Por outro lado, eventos como 'Limpeza de Canais' e 'Plantar uma árvore / Arborização' têm personas predominantemente \textit{helper}. Esses eventos também possuem score médio positivo, o que sugere que os usuários estão expressando atitudes colaborativas e positivas em relação a essas iniciativas. Isso indica um forte apoio da comunidade aos esforços de limpeza e arborização, o que reflete as sensibilidades da sociedade em relação às questões ambientais em tempos de mudança climática.
-
-No entanto, vale destacar que eventos relacionados ao clima, como 'Calor nos centros urbanos' 'Falta de ar condicionado e ventilação adequada' e 'Chuva' apresentam resultados variados. Enquanto 'Calor nos centros urbanos' tem uma persona predominantemente \textit{complainer}, indicando insatisfação com o calor nas áreas urbanas, 'Chuva' apresenta uma persona mista e score médio ligeiramente negativo de, sugerindo uma mistura de opiniões sobre as chuvas e eventos climáticos relacionados.
-
-É interessante notar que os eventos relacionados à mudança climática podem evocar respostas polarizadas da comunidade. Alguns eventos, como a limpeza de canais e a arborização, são amplamente apoiados, refletindo uma disposição da comunidade para tomar medidas positivas para enfrentar a mudança climática. Por outro lado, eventos que evidenciam problemas, como praias sujas e queimadas irregulares, provocam insatisfações e críticas.
-
-Essa análise sugere que os usuários do Colab estão cientes dos desafios relacionados à mudança climática e estão dispostos a apoiar ações positivas, mas também expressam descontentamento quando confrontados com problemas ambientais. A polarização de opiniões em relação a eventos climáticos pode indicar a complexidade dessas questões e a necessidade de estratégias de engajamento e comunicação mais eficazes para lidar com as preocupações dos cidadãos.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_weather.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Mudança Climática.}
 	\label{fig:social_barometer_weather}
-\end{figure}
+\end{quadro}
+
+A análise revela uma polarização nas atitudes em relação às mudanças climáticas. Alguns usuários criam eventos que diretamente vinculam as mudanças climáticas como a causa de problemas urbanos, enquanto outros abordam esses problemas como questões de gestão pública ou falta de ação por parte dos agentes governamentais. Essa polarização reflete as diferentes perspectivas dos usuários, onde alguns veem as mudanças climáticas como uma motivação subjacente para os problemas, enquanto outros focam nas questões de governança e gestão pública. Essa diversidade de abordagens pode ser vista como um reflexo das opiniões variadas dos usuários em relação às mudanças climáticas e à forma como elas se manifestam em suas comunidades.
 
 \begin{table}[htbp]
 	\centering
@@ -666,15 +660,18 @@ Essa análise sugere que os usuários do Colab estão cientes dos desafios relac
 	\end{tabular}
 \end{table}
 
-A análise da pressão social, especialmente no contexto das mudanças climáticas, revela uma série de perspectivas e preocupações dos usuários do Colab nas cidades de Niterói, Santo André e Mesquita. Os resultados apontam para uma crescente conscientização sobre os efeitos das mudanças climáticas, com eventos climáticos adversos, como chuvas intensas e tempestades, provocando uma resposta significativa por parte da comunidade. Esses eventos são documentados de forma abrangente, com os cidadãos destacando os impactos na infraestrutura urbana, incluindo danos a estradas, alagamentos, atrasos nos serviços de transporte público e riscos de deslizamento. Além disso, a preocupação com as altas temperaturas nos centros urbanos é evidente nas postagens dos usuários. Eles frequentemente manifestam insatisfação em relação à falta de preparo da infraestrutura pública para lidar com o calor, enfatizando a necessidade de mais ar-condicionado, ventilação adequada, áreas verdes e arborização. A análise também revela uma divisão de opiniões e polarização em relação às questões climáticas. Por um lado, há aqueles que negam ou minimizam os efeitos das mudanças climáticas, questionando sua gravidade. Por outro lado, existem defensores de políticas de mudança climática que advogam por medidas concretas para mitigar os impactos ambientais e adaptar as cidades às mudanças climáticas.
-
-Os eventos relacionados à mudança climática variam em termos de pressão social, com alguns, como a limpeza de canais e a arborização, recebendo forte apoio e refletindo personas predominantemente \textit{helper} e sentimentos positivos. No entanto, eventos que evidenciam problemas ambientais, como praias sujas e queimadas irregulares, geram insatisfações e críticas, refletindo personas predominantemente \textit{complainer} e sentimentos negativos. Esses resultados destacam a complexidade das questões climáticas e a necessidade de abordagens holísticas e estratégias de engajamento eficazes para enfrentar os desafios da mudança climática em nível local. A compreensão dessas dinâmicas de pressão social é fundamental para orientar políticas e ações que respondam às preocupações dos cidadãos e promovam um ambiente urbano mais sustentável e resiliente diante das mudanças climáticas. Em última análise, a análise da pressão social oferece insights valiosos para tomadores de decisão e gestores públicos que buscam criar soluções eficazes para enfrentar os impactos das mudanças climáticas em suas comunidades.
+Os resultados apontam para a necessidade de estratégias de comunicação e engajamento mais eficazes para abordar essa divisão. A compreensão dessas dinâmicas é crucial para os formuladores de políticas e gestores públicos, pois permite o desenvolvimento de abordagens mais inclusivas e abrangentes que considerem as diversas perspectivas e preocupações dos cidadãos. Esta análise destaca a importância de incorporar a voz da comunidade no planejamento e na implementação de políticas de mudança climática e gestão ambiental.
 
 \subsection{Paisagismo}
 
-A paisagem urbana desempenha um papel crucial na qualidade de vida dos cidadãos e no bem-estar das comunidades locais. A gestão adequada das áreas verdes, árvores, parques e espaços públicos não apenas contribui para a estética das cidades, mas também desempenha um papel essencial na mitigação das mudanças climáticas, na promoção da saúde pública e no fomento de uma sensação de pertencimento à comunidade. É nesse contexto que o tópico de 'paisagismo' se revela como uma questão de pressão social hiperlocal relevante e de grande interesse.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_paisagismo.png}
+	\caption{Exemplo de postagens no Colab sobre Paisagismo}
+	\label{fig:colab_posts_paisagismo}
+\end{figure}
 
-O paisagismo urbano não se limita apenas à beleza visual das cidades; ele abrange aspectos como o plantio e a manutenção de árvores, a criação de áreas verdes, a poda de vegetação, entre outros. Essas práticas têm implicações diretas na qualidade do ar, na regulação da temperatura local, na absorção de poluentes e na promoção da biodiversidade urbana. Além disso, o paisagismo influencia a vida cotidiana dos habitantes urbanos, afetando o acesso a sombras em áreas públicas, a oferta de espaços para atividades ao ar livre e o senso de identidade e pertencimento à cidade.
+O paisagismo e como cidades tratam tópicos como arborização e o gerenciamento de parques e praças não se trata somente de uma preocupação estética; é um elemento intrínseco à qualidade de vida nas cidades, com repercussões significativas em áreas como meio ambiente, mudanças climáticas e no bem-estar da população. A análise dos dados de pressão social hiperlocal revela uma variedade de perspectivas e preocupações dos cidadãos em relação a eventos de paisagismo em suas comunidades.
 
 \begin{figure}[htb]
 	\centering
@@ -683,14 +680,14 @@ O paisagismo urbano não se limita apenas à beleza visual das cidades; ele abra
 	\label{fig:wordcloud_landscape}
 \end{figure}
 
-A relevância do paisagismo como um tópico de pressão social hiperlocal se manifesta na maneira como os cidadãos interagem com a sua paisagem urbana e como expressam suas opiniões e preocupações relacionadas a esse tema. Através de plataformas de participação cidadã, como o Colab, os residentes urbanos têm a oportunidade de compartilhar suas perspectivas, denunciar problemas e influenciar diretamente as decisões relacionadas à gestão do paisagismo em suas comunidades. A compreensão dessas dinâmicas é fundamental para gestores públicos, urbanistas e tomadores de decisão, pois ajuda a orientar políticas e práticas que melhor atendam às necessidades e desejos das comunidades locais.
+A análise mostra que eventos como a poda de árvores e a retirada de árvores frequentemente geram um debate considerável. A persona associada a esses eventos varia, refletindo uma diversidade de opiniões. Enquanto alguns cidadãos expressam apoio às práticas de manejo da vegetação urbana, destacando a importância da segurança e estética, outros manifestam preocupações sobre o impacto na preservação das áreas verdes e sombra nas cidades. Isso demonstra a complexidade das questões relacionadas à vegetação urbana e destaca a necessidade de políticas e práticas que considerem essa diversidade de perspectivas.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_landscape.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Paisagismo}
 	\label{fig:social_barometer_landscape}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -743,23 +740,22 @@ A relevância do paisagismo como um tópico de pressão social hiperlocal se man
 	\end{tabular}
 \end{table}
 
-Ao analisar os dados de pressão social hiperlocal relacionados ao paisagismo, entendemos como os cidadãos percebem e reagem às intervenções e práticas de paisagismo em suas cidades. É interessante observar que alguns tipos de eventos de paisagismo apresentam uma persona predominantemente \textit{helper}, caracterizada por atitudes positivas e colaborativas em relação aos eventos. Um exemplo notável é o evento 'Plantar uma árvore / Arborização', que possui uma persona média próxima de 0 e um score médio de sentimento negativo próximo de 0. Isso sugere que os usuários tendem a expressar apoio e entusiasmo em relação à arborização urbana, refletindo uma atitude favorável em relação a iniciativas de paisagismo que envolvem o plantio de árvores.
+Além disso, eventos como desmatamento irregular e equipamento público danificado recebem críticas significativas. Isso sugere que os cidadãos estão atentos à conservação das áreas verdes urbanas e à manutenção adequada de espaços públicos. Essas preocupações estão intrinsecamente ligadas à qualidade de vida nas cidades, pois afetam a acessibilidade, segurança e o uso desses espaços. Outros eventos, como a ocupação irregular de áreas públicas, demonstram uma persona predominantemente \textit{complainer}, indicando insatisfação com o uso inadequado de espaços urbanos. A falta de calçadas e faixas de pedestres em boas condições também gera críticas, evidenciando a importância da infraestrutura urbana para a mobilidade e segurança dos cidadãos.
 
-Por outro lado, alguns eventos de paisagismo apresentam personas predominantemente \textit{complainer}, indicando uma postura mais crítica e insatisfeita por parte dos usuários. Por exemplo, o evento 'Falta de energia' tem uma persona média de aproximadamente 0.14 e um score médio de sentimento negativo próximo de -0.06. Embora a persona média não seja muito alta, o score médio negativo sugere que os usuários tendem a expressar insatisfação em relação à falta de energia em contextos de paisagismo urbano. Isso pode indicar que os cidadãos esperam uma infraestrutura mais confiável e eficaz em relação à energia elétrica em espaços públicos.
+A conexão entre paisagismo e questões ambientais, como mudanças climáticas, é evidente em eventos como a poda de árvores e a retirada de árvores. O manejo inadequado da vegetação urbana pode afetar a regulação da temperatura local e a absorção de poluentes, destacando a necessidade de práticas sustentáveis de paisagismo. No entanto, é importante notar que as árvores também podem ter um impacto no fornecimento de energia elétrica. Eventos relacionados à falta de energia e fiação irregular indicam a preocupação dos cidadãos com a confiabilidade da infraestrutura elétrica em espaços públicos. Árvores próximas a fios de energia podem representar um risco, evidenciando a necessidade de equilibrar a preservação da vegetação com a segurança energética.
 
-Além disso, outros eventos de paisagismo, como 'Calçada inexistente' e 'Faixa de pedestre apagada' também apresentam personas predominantemente \textit{complainer}. A falta de calçadas e faixas de pedestres em boas condições pode ser uma preocupação significativa para os usuários, refletindo-se em personas médias de aproximadamente 0 e scores médios negativos. Isso sugere que os usuários estão insatisfeitos com a falta de infraestrutura básica para pedestres nas áreas urbanas, o que pode afetar diretamente a acessibilidade e segurança. Eventos como 'Praia suja' também apresentam personas predominantemente \textit{complainer} e scores médios de sentimento positivo de aproximadamente 0.48. Isso indica que, embora os usuários expressem preocupação com a sujeira nas praias, eles também podem estar dispostos a apoiar iniciativas de limpeza e conservação, refletindo uma atitude crítica, mas com espaço para ação positiva.
-
-Outro evento de destaque é a 'Poda de árvore' que apresenta uma persona média de aproximadamente 0.11 e um score médio de sentimento positivo de cerca de 0.04. Esses dados apontam para a complexidade da questão, uma vez que revelam que os usuários do Colab têm opiniões divergentes sobre a poda de árvores. Ao analisar manualmente algumas postagens desse grupo de eventos, podemos contestar que, alguns usuários podem apoiar a poda como uma medida necessária para manter a segurança e a estética das áreas urbanas, outros expressam preocupações relacionadas à preservação das áreas verdes da cidade, ao impacto na sombra proporcionada pelas árvores e às implicações das mudanças climáticas. Essa polarização de opiniões em torno do evento de poda de árvores indica que o tópico de paisagismo no Colab é uma fonte de debates e discussões significativas, refletindo as diversas perspectivas e preocupações dos usuários em relação às práticas de manejo da vegetação urbana.
-
-Eventos como 'Plantar uma árvore / Arborização' recebem um forte apoio, refletindo uma disposição da comunidade para adotar uma postura colaborativa e positiva em relação à arborização urbana. No entanto, outros eventos, como 'Falta de energia' 'Calçada inexistente' e 'Faixa de pedestre apagada' geram insatisfações e críticas, indicando a necessidade de melhorias na infraestrutura urbana relacionada ao paisagismo. Eventos como 'Praia suja' e 'Poda de árvore' apresentam uma mistura de opiniões, com uma persona predominantemente \textit{complainer} mas espaço para ações positivas.
-
-Os resultados sugerem que os usuários do Colab têm uma compreensão variada das questões de paisagismo urbano e que suas opiniões podem ser influenciadas por fatores contextuais, como a natureza específica do evento. A polarização de opiniões em relação a eventos de paisagismo pode indicar a complexidade dessas questões e a necessidade de estratégias de engajamento e comunicação mais eficazes para lidar com as preocupações dos cidadãos. No entanto, em geral, a análise da pressão social destaca a importância de considerar as opiniões da comunidade ao planejar e implementar iniciativas de paisagismo urbano, buscando atender às expectativas e necessidades dos cidadãos.
+A análise da pressão social do paisagismo urbano destaca a complexidade das questões envolvidas e a diversidade de perspectivas dos cidadãos. Isso ressalta a importância de uma abordagem aberta e inclusiva na gestão do paisagismo, considerando as expectativas e necessidades da comunidade. Além disso, a conexão entre paisagismo, meio ambiente, mudanças climáticas e energia elétrica destaca a necessidade de políticas e práticas que promovam a sustentabilidade e o bem-estar nas cidades.
 
 \subsection{Meio Ambiente}
 
-O tópico de meio ambiente é de extrema importância e relevância para as comunidades urbanas em todo o mundo. As questões ambientais têm um impacto direto na qualidade de vida dos cidadãos nas cidades, afetando aspectos como a saúde pública, o acesso a espaços verdes, a qualidade do ar e da água, a biodiversidade urbana e até mesmo o clima local. A qualidade do ambiente urbano influencia a saúde física e mental dos habitantes das cidades. Questões como poluição do ar, contaminação da água, falta de áreas verdes e exposição a substâncias tóxicas podem contribuir para problemas de saúde, como doenças respiratórias, alergias, problemas cardiovasculares e estresse. Além disso, a degradação ambiental pode ter impactos socioeconômicos, como desvalorização imobiliária e deslocamento de comunidades de baixa renda de áreas afetadas pela degradação ambiental. A disponibilidade de espaços verdes, como parques e praças, é essencial para a qualidade de vida nas cidades, proporcionando locais de recreação, contato com a natureza e promoção da saúde física e mental. Além disso, a preservação de árvores e áreas verdes urbanas desempenha um papel importante na regulação do clima local, na redução do calor urbano e na melhoria da qualidade do ar. A questão ambiental também está intrinsecamente ligada à sustentabilidade das cidades no longo prazo. O crescimento urbano desordenado, a poluição e o desperdício de recursos naturais podem comprometer a capacidade das cidades de atender às necessidades das gerações futuras. Portanto, a promoção de práticas sustentáveis, como reciclagem, redução do consumo de energia e transporte público eficiente, é essencial para garantir um ambiente urbano saudável e habitável no futuro.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_social_environment.png}
+	\caption{Postagem do colab evidenciando o engajamento cívico em questões ambientais.}
+	\label{fig:colab_posts_social_environment}
+\end{figure}
 
-A crescente necessidade de entender e decodificar a opinião pública em relação a questões ambientais não é apenas vital para os formuladores de políticas, mas também para compreender o cenário sócio-político de uma região. Baseando-se nas métricas de pressão social disponibilizadas, é possível delinear diversas conclusões significativas sobre a opinião das pessoas em relação a temas ambientais.
+O meio ambiente é um tópico de extrema importância para as comunidades urbanas em todo o mundo, uma vez que as questões ambientais têm um impacto direto na qualidade de vida dos cidadãos nas cidades. Isso abrange aspectos como saúde pública, acesso a áreas verdes, qualidade do ar e da água, biodiversidade urbana e clima local. A qualidade do ambiente urbano influencia a saúde física e mental dos habitantes das cidades, sendo a poluição do ar, a contaminação da água e a falta de áreas verdes causadoras de problemas de saúde, como doenças respiratórias, alergias, doenças cardiovasculares e estresse. Além disso, a degradação ambiental pode afetar negativamente a economia das cidades, com desvalorização imobiliária e deslocamento de comunidades de baixa renda de áreas afetadas. A preservação de espaços verdes urbanos desempenha um papel importante na regulação do clima e na melhoria da qualidade do ar, e a sustentabilidade a longo prazo das cidades depende de práticas ambientalmente responsáveis, como reciclagem e eficiência energética.
 
 \begin{figure}[htb]
 	\centering
@@ -768,16 +764,14 @@ A crescente necessidade de entender e decodificar a opinião pública em relaç�
 	\label{fig:wordcloud_environment}
 \end{figure}
 
-Ao analisar a persona média atribuída aos usuários que participam das discussões sobre o meio ambiente no Colab, observamos uma interessante polarização nas opiniões e atitudes dos participantes. Em alguns eventos, como 'Caça ilegal' e 'Conservação (via pública)', a persona predominante é a \textit{helper}, o que sugere que os usuários que se envolvem nesses tópicos tendem a adotar uma abordagem colaborativa e positiva. Essa persona reflete um desejo de contribuir para soluções construtivas e uma forte preocupação com questões ambientais.
-
-No entanto, em eventos como 'Coleta de container' e 'Falta de energia', observamos uma predominância da persona \textit{helper}. Isso indica que os usuários que comentam nesses eventos estão inclinados a expressar insatisfação e críticas em relação a problemas específicos, como a coleta de lixo inadequada ou interrupções no fornecimento de energia elétrica. Essa persona reflete uma frustração considerável entre os usuários em relação à qualidade dos serviços públicos relacionados a esses eventos.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_environment.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Meio Ambiente}
 	\label{fig:social_barometer_environment}
-\end{figure}
+\end{quadro}
+
+Ao analisar as métricas de pressão social, observamos como os eventos postados pelos usuários podem . Em alguns tópicos, como proteção animal, a maioria dos usuários adota uma abordagem colaborativa e positiva, demonstrando preocupação com a fauna e o meio ambiente. No entanto, em eventos relacionados a questões de saneamento básico e conservação da água, os usuários tendem a expressar insatisfação e críticas, refletindo preocupações com problemas como coleta inadequada de lixo e esgoto a céu aberto. A participação ativa em discussões sobre questões de paisagismo e arborização indica um desejo de melhorar as áreas verdes urbanas. Em relação às mudanças climáticas, eventos como incêndios florestais e desmatamento ilegal recebem críticas, indicando preocupações com a degradação ambiental. Além disso, a popularidade de eventos relacionados ao saneamento básico e áreas verdes urbanas sugere que esses problemas são altamente relevantes para a qualidade de vida nas cidades e despertam o interesse dos usuários. No entanto, é importante observar que essas discussões frequentemente refletem insatisfação com os serviços públicos relacionados a esses eventos, destacando a necessidade de melhorias.
 
 \begin{table}[htbp]
 	\centering
@@ -830,23 +824,24 @@ No entanto, em eventos como 'Coleta de container' e 'Falta de energia', observam
 	\end{tabular}
 \end{table}
 
-No que diz respeito às métricas de pressão social, primeiramente, é importante destacar que os eventos relacionados à proteção dos animais, como 'Caça ilegal' e 'Maus tratos a animais' têm uma persona média predominantemente \textit{helper}. Isso indica que os usuários que participam dessas discussões tendem a adotar uma abordagem colaborativa e positiva quando se trata de proteger a fauna. Essa persona \textit{helper} sugere que eles estão dispostos a contribuir para a preservação da vida selvagem e estão preocupados com o bem-estar dos animais. Podemos inferir que esses usuários provavelmente experimentam sentimentos de empatia, responsabilidade ambiental e um desejo genuíno de fazer a diferença positiva em relação à fauna.
+Os dados também podem ser utilizados pelos administradores das cidades para promover ações que melhorem a qualidade de vida dos habitantes urbanos e a sustentabilidade ambiental. Primeiramente, a compreensão da diversidade de perspectivas dos usuários em relação a questões ambientais permite que os administradores considerem uma ampla gama de opiniões ao tomar decisões relacionadas ao meio ambiente. Isso pode ajudar a evitar soluções unilaterais e a garantir que as políticas e iniciativas sejam mais abrangentes e eficazes. Por exemplo, ao lidar com problemas de saneamento básico, os administradores podem levar em consideração as críticas e insatisfações expressas pelos usuários e buscar soluções que atendam às suas preocupações.
 
-Por outro lado, eventos relacionados a problemas de saneamento básico e conservação da água, como 'Coleta de container' e 'Esgoto a céu aberto' atraem uma persona média predominantemente \textit{complainer}. Isso sugere que os usuários que participam dessas discussões estão mais propensos a expressar insatisfação e críticas em relação a questões específicas, como problemas na coleta de lixo e esgoto a céu aberto. Essa persona mais inclinada a criticar pode indicar que esses usuários estão experimentando sentimentos de frustração, descontentamento e desconfiança em relação aos serviços de saneamento básico relacionados a esses eventos. Eles podem perceber esses problemas como falhas no sistema e podem estar em busca de melhorias.
+Além disso, a popularidade de eventos relacionados a questões ambientais indica quais problemas são mais relevantes para a população urbana. Os administradores podem usar essas informações para priorizar recursos e esforços em áreas que afetam significativamente a qualidade de vida das pessoas. Por exemplo, se eventos relacionados ao descarte irregular de lixo são amplamente discutidos, isso pode sinalizar a necessidade de melhorias na coleta de resíduos e na conscientização ambiental. A análise das personas médias dos usuários em diferentes tópicos também é informativa. Por exemplo, em eventos relacionados à proteção animal, a predominância da persona \textit{helper} indica um desejo de colaboração e apoio a iniciativas de preservação da fauna. Os administradores podem aproveitar esse espírito colaborativo para envolver a comunidade em esforços de conservação da vida selvagem e educação ambiental.
 
-A análise dos eventos de paisagismo e arborização revela uma persona média predominantemente \textit{helper} em eventos como 'Plantar uma árvore / Arborização'. Isso sugere que os usuários que participam dessas discussões estão dispostos a contribuir para a melhoria das áreas verdes urbanas e para a arborização da cidade. Eles provavelmente experimentam sentimentos de apoio a iniciativas de paisagismo e reconhecem a importância de áreas verdes para a qualidade de vida na cidade. Esses usuários podem ser motivados por sentimentos de bem-estar, amor pela natureza e desejo de tornar o ambiente urbano mais saudável. No que diz respeito aos alagamentos, eventos como 'Ponto de alagamento' recebem uma persona média predominantemente \textit{complainer}. Isso indica que os usuários que participam dessas discussões estão insatisfeitos com problemas de alagamento na cidade e estão mais inclinados a expressar críticas. Essa persona sugere que esses usuários podem estar experimentando sentimentos de frustração, desconforto e preocupação com os impactos dos alagamentos em suas vidas e comunidades.
+Por outro lado, em eventos relacionados a problemas de saneamento básico, onde a persona \textit{complainer} é mais comum, os administradores podem reconhecer a necessidade de abordar preocupações específicas e melhorar os serviços relacionados. Isso pode incluir a implementação de sistemas de coleta de lixo mais eficientes ou ações para evitar o esgoto a céu aberto. Os administradores podem usar essas métricas para identificar oportunidades de melhoria em áreas como paisagismo urbano e mitigação das mudanças climáticas. Por exemplo, ao reconhecer a disposição dos usuários em participar de iniciativas de plantio de árvores, os administradores podem promover programas de arborização urbana que não apenas tornam a cidade mais verde, mas também envolvem a comunidade.
 
-As métricas de persona média e score médio também refletem a polarização nas discussões sobre mudanças climáticas. Eventos como 'Ponto de queimada irregular recorrente' e 'Desmatamento irregular' atraem uma persona média predominantemente \textit{complainer}. Isso indica que os usuários que participam dessas discussões estão mais propensos a expressar descontentamento e críticas em relação a práticas prejudiciais ao meio ambiente, como incêndios florestais e desmatamento ilegal. Essa persona mais inclinada a criticar sugere que esses usuários podem estar experimentando sentimentos de preocupação, indignação e urgência em relação às mudanças climáticas e à degradação ambiental.
-
-Em relação à popularidade dos eventos, é notável que eventos como 'Descarte irregular de lixo' e 'Poda de árvore' recebam uma quantidade significativa de postagens. Isso pode ser interpretado como um indicativo de que os usuários estão ativamente envolvidos em discussões sobre questões relacionadas ao saneamento básico e à manutenção de áreas verdes urbanas. Essa popularidade pode estar relacionada ao fato de que esses eventos são altamente relevantes para a qualidade de vida nas cidades e, como resultado, os usuários estão dispostos a compartilhar suas opiniões e experiências sobre esses tópicos.
-
-No geral, a análise detalhada das métricas de pressão social relacionadas ao meio ambiente destaca a diversidade de opiniões e sentimentos dos usuários do Colab em relação a questões ambientais. Essas métricas indicam que os usuários têm uma ampla gama de preocupações e perspectivas quando se trata de proteger a fauna, abordar questões de saneamento básico, promover o paisagismo urbano, lidar com as mudanças climáticas e enfrentar problemas de alagamento. Essa análise também revela áreas de insatisfação que precisam ser abordadas para melhorar a qualidade dos serviços e iniciativas relacionados ao meio ambiente. Em última análise, a compreensão dessas métricas de pressão social auxilia na promoção de discussões construtivas e na tomada de decisões informadas em relação a questões ambientais nas comunidades urbanas.
+Em resumo, dessas métricas não se limita apenas a fornecer um panorama das opiniões dos usuários, mas também oferece orientações valiosas para os administradores das cidades. Esses dados podem ser usados para tomar decisões informadas, priorizar áreas de atuação e envolver a comunidade de maneira mais eficaz na promoção de um ambiente urbano saudável e sustentável. Portanto, ao compreender as perspectivas e preocupações dos cidadãos, os administradores podem implementar políticas e iniciativas que atendam melhor às necessidades da população e ao meio ambiente.
 
 \subsection{Gentrificação}
 
-A gentrificação tem se consolidado como um dos tópicos mais debatidos nas discussões sobre desenvolvimento urbano, desencadeando paixões e preocupações de diferentes partes da população. Dada a sua natureza multidimensional, é imperativo entender as nuances de como a gentrificação é percebida e quais as principais áreas de preocupação. Através da análise de dados de postagens de eventos de zeladoria pública no Colab, tentaremos destrinchar as diversas facetas desse fenômeno.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_social_gentrification.png}
+	\caption{Usuário reclama da desvalorização de imóveis causada por mato alto.}
+	\label{fig:colab_posts_social_gentrification}
+\end{figure}
 
-Os dados revelam, por exemplo, uma certa polaridade nas postagens. Há evidências de que alguns usuários, provavelmente proprietários de imóveis ou com algum interesse econômico na área, reportam eventos principalmente nas zonas onde possuem propriedades. O fato de reportarem focos como 'desvalorização da área imobiliária' sugere uma preocupação com a deterioração e possível depreciação de seus investimentos. Por outro lado, a presença de palavras-chave como 'despejo' e 'favelização' indica uma preocupação de outros usuários com os efeitos adversos da gentrificação, particularmente a expulsão de moradores de longa data e a falta de acesso a espaços públicos.
+A gentrificação tem se consolidado como um dos tópicos mais debatidos nas discussões sobre desenvolvimento urbano, desencadeando paixões e preocupações de diferentes partes da população. Dada a sua natureza multidimensional, é imperativo entender as nuances de como a gentrificação é percebida e quais as principais áreas de preocupação. Através da análise de dados de postagens de eventos de zeladoria pública no Colab, podemos criar um tópico de pressão social que nos informa sobre a opinião e sentimento dos usuários.
 
 \begin{figure}[htb]
 	\centering
@@ -855,14 +850,14 @@ Os dados revelam, por exemplo, uma certa polaridade nas postagens. Há evidênci
 	\label{fig:wordcloud_gentrification}
 \end{figure}
 
-Sob a perspectiva do score de sentimentos, por exemplo, 'Ponto recorrente de poluição sonora' tem um score médio de -0.487, indicando um sentimento predominantemente negativo. Esse sentimento negativo é também evidenciado em eventos como 'Desmatamento irregular', com um score de -0.292, e 'Esgoto a céu aberto', com um score ainda mais baixo de -0.815. Tais sentimentos sugerem uma percepção de negligência e abandono em determinadas áreas. Por outro lado, o evento 'Parque/praça' tem um score positivo de 0.5699, indicando uma opinião positiva ou talvez uma aspiração da comunidade por espaços públicos bem conservados. O valor da persona média para muitos dos eventos se inclina fortemente para 1.0. sugerindo que existe uma persona predominante que pode ser identificada como \textit{complainer} em muitos dos tópicos. Isso pode ser interpretado como uma evidência de que há uma forte expressão de insatisfação e demanda por melhores condições e serviços. Eventos como 'Ponto recorrente de exploração sexual de menores' e 'Área com risco de deslizamento', ambos com scores negativos e persona média inclinada para 1.0. ressaltam a gravidade das questões em jogo. A presença de tais eventos indica a necessidade urgente de intervenções e uma possível insatisfação com a inação das autoridades. Quando comparamos eventos populares - aqueles com maior contagem de eventos, como 'Descarte irregular de lixo' e 'Imóvel ou terreno abandonado', percebemos que a preocupação com a degradação e a falta de zeladoria são temas recorrentes. A frequência dessas postagens sugere que, para muitos usuários, a gentrificação não é apenas sobre a chegada de novos moradores ou estabelecimentos, mas também sobre a negligência e o abandono de áreas que anteriormente eram consideradas valiosas.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_gentrification.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Gentrificação}
 	\label{fig:social_barometer_gentrification}
-\end{figure}
+\end{quadro}
+
+Os dados revelam uma polarização entre dois grupos de usuários: aqueles que têm interesses econômicos na área, como proprietários de imóveis, que reportam eventos relacionados à desvalorização da propriedade; e aqueles preocupados com os impactos adversos da gentrificação, como despejos, que reportam eventos indicando uma degradação das condições de vida e do acesso a espaços públicos.
 
 \begin{table}[htbp]
 	\centering
@@ -915,21 +910,33 @@ Sob a perspectiva do score de sentimentos, por exemplo, 'Ponto recorrente de pol
 	\end{tabular}
 \end{table}
 
-Dentro dos eventos e palavras-chave mencionados, é possível perceber algumas tendências interessantes. Primeiramente, o alto uso das palavras 'insegurança', 'abandono', 'abandonada' e 'favela' nos eventos reportados sugere uma crescente preocupação com o declínio da segurança e a deterioração geral de certas áreas, que possivelmente são alvo da gentrificação. Essa deterioração muitas vezes está atrelada à negligência por parte das autoridades ou ao abandono por proprietários que talvez estejam especulando sobre o valor futuro dos imóveis. Esses dados também poderiam apontar para áreas onde os efeitos da gentrificação ainda não são visíveis em termos de reestruturação ou revitalização. Outro dado interessante é o uso das palavras 'despejo', 'despejada' e 'despejados'. A presença desses termos sugere que muitos usuários estão reportando ou preocupados com a expulsão de inquilinos ou moradores antigos, muitas vezes devido à crescente especulação imobiliária. Esse é um efeito colateral comum da gentrificação, onde os preços dos imóveis aumentam, tornando-se inacessíveis para os residentes de longa data, que são forçados a se mudar. As menções a 'especulação imobiliária' e 'privatização', embora não sejam muitas, são indicativos de uma consciência entre os usuários sobre as forças econômicas por trás da gentrificação. Estes termos ressaltam uma compreensão de que a gentrificação não é apenas um processo passivo de mudança demográfica, mas muitas vezes é impulsionada por investimentos e interesses econômicos.
+Os sentimentos expressos nas postagens também variam, com eventos relacionados à poluição sonora e desmatamento tendo sentimentos predominantemente negativos, enquanto eventos sobre parques e praças recebem avaliações mais positivas. A persona média tende a se inclinar para a categoria \textit{complainer} em muitos tópicos, indicando insatisfação e demanda por melhorias.
 
-Os eventos relacionados à degradação do ambiente, como 'Esgoto a céu aberto', 'Descarte irregular de lixo' e 'Bueiro entupido', também são reflexos das consequências da gentrificação. Áreas que passam por um rápido desenvolvimento ou mudança demográfica podem enfrentar problemas infraestruturais, especialmente se a infraestrutura existente não é adequada ou não é devidamente atualizada para suportar a crescente população ou as novas demandas. No entanto, nem todos os dados são negativos. O evento 'Plantar uma árvore / Arborização' com um score positivo sugere um desejo da comunidade por melhorias ambientais e urbanas, e pode indicar áreas onde os residentes estão tomando a iniciativa de melhorar seu ambiente local.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_social_favelizacao.png}
+	\caption{Usuário denuncia ocupaçao irregular de área pública e aluz a favelização.}
+	\label{fig:colab_posts_social_favelizacao}
+\end{figure}
 
-Em resumo, enquanto a gentrificação pode trazer desenvolvimento e revitalização para algumas áreas, ela também pode resultar em despejo, insegurança, e degradação de serviços e infraestrutura em outras. Os dados do Colab destacam a complexidade e as diversas facetas da gentrificação e enfatizam a necessidade de abordagens equilibradas e inclusivas ao desenvolvimento urbano.
+Os eventos mais populares, como o descarte irregular de lixo e imóveis abandonados, refletem a preocupação com a degradação e falta de zeladoria, sugerindo que a gentrificação não se limita à chegada de novos moradores, mas também envolve negligência e abandono de áreas valorizadas anteriormente.
+
+Os dados revelam tendências importantes, como a crescente preocupação com a insegurança e deterioração das áreas afetadas pela gentrificação, bem como a expulsão de moradores de longa data devido à especulação imobiliária. Além disso, há consciência sobre os fatores econômicos por trás da gentrificação, como especulação imobiliária e privatização.
+
+Essa análise pode ser valiosa para os administradores das cidades ao informar políticas públicas relacionadas à gentrificação. Os dados destacam a necessidade de abordagens equilibradas que considerem tanto o desenvolvimento econômico quanto o bem-estar das comunidades. Políticas que promovam a inclusão, a preservação do patrimônio cultural e a melhoria da infraestrutura podem ajudar a minimizar os efeitos negativos da gentrificação e promover um desenvolvimento urbano mais sustentável.
 
 \subsection{Higienismo Urbano}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_higienismo.png}
+	\caption{Exemplo de postagens sobre Higienismo Urbano no Colab}
+	\label{fig:colab_posts_higienismo}
+\end{figure}
 
 Higienismo urbano é um tópico complexo que se relaciona com a maneira como as cidades são projetadas e gerenciadas em busca de uma aparência 'limpa' e 'ordenada'. Em um exame mais profundo do termo, o higienismo urbano é entrelaçado com questões de exclusão e marginalização social. Historicamente, o higienismo foi uma abordagem nas cidades que buscava combater doenças e promover a salubridade por meio da construção de infraestruturas de saneamento e reordenamento urbano. No entanto, em tempos modernos, essa abordagem se estendeu além de questões puramente sanitárias e evoluiu para a promoção de cidades esteticamente agradáveis, muitas vezes à custa de deslocar ou invisibilizar populações vulneráveis.
 
 O higienismo urbano refere-se a práticas e políticas que buscam 'limpar' ou 'embelezar' espaços urbanos através da remoção ou ocultação de populações e condições consideradas 'indesejadas'. Um exemplo notório dessa prática ocorreu durante os preparativos para a Copa do Mundo de 2014 no Brasil. No Rio de Janeiro, para apresentar uma imagem mais 'limpa' aos visitantes internacionais, algumas favelas localizadas em pontos estratégicos como às margens das vias expressas, foram ocultadas por tapumes. Esta tentativa de mascarar a realidade socioeconômica da cidade atraiu críticas significativas, pois, em vez de resolver as questões subjacentes, a medida apenas escondia o problema. Paralelamente, uma das manifestações mais tangíveis do higienismo urbano é o que se convencionou chamar de 'design hostil'. Esta prática arquitetônica visa tornar os espaços públicos intencionalmente desconfortáveis para deter certos grupos, especialmente os sem-teto. Bancos com divisórias que impedem o repouso e picos no chão para desencorajar que se deitem são exemplos comuns dessa abordagem. Ambas as práticas, seja o ocultamento das realidades urbanas ou o design hostil, refletem uma abordagem que prioriza a estética e a ordem em detrimento do bem-estar e dos direitos dos cidadãos.
-
-Ao analisar os eventos de zeladoria relacionados, percebemos uma acentuada polarização nas opiniões. De um lado, há aqueles que defendem ações de 'limpeza' e 'ordem' urbana, que podem refletir percepções higienistas. Por outro lado, existem vozes que clamam por uma abordagem mais humana e inclusiva, buscando soluções reais para os problemas sociais, ao invés de simplesmente escondê-los ou afastá-los. Essa divisão nas percepções e opiniões revela a complexidade do debate em torno do higienismo urbano e a necessidade de abordagens mais integradas e empáticas nas políticas públicas. Por exemplo, relatórios de 'Ocupação irregular de área pública' com um score negativo de -0.2045 e uma persona predominantemente \textit{complainer} (0.478) sugerem que muitos usuários veem essas ocupações como um problema, o que pode refletir sentimentos higienistas.
-
-Além disso, essa polarização em torno do higienismo urbano no aplicativo pode ser vista em como diferentes problemas são percebidos e relatados. Por exemplo, enquanto 'Estação de ônibus/trem/metrô danificada' e 'Placa de sinalização quebrada/inexistente' têm scores fortemente negativos e são reportados por usuários com uma persona \textit{complainer}, outros eventos, como 'Parque/praça' e 'Atendimento no Posto de Saúde', têm scores positivos. Isso indica que os usuários percebem e valorizam espaços públicos bem conservados e serviços públicos eficientes, enquanto expressam insatisfação com infraestruturas danificadas ou inadequadas.
 
 \begin{figure}[htb]
 	\centering
@@ -937,6 +944,10 @@ Além disso, essa polarização em torno do higienismo urbano no aplicativo pode
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Higienismo Urbano}
 	\label{fig:social_barometer_homeland}
 \end{figure}
+
+O debate sobre o higienismo urbano revela uma polarização marcante. Por um lado, existem aqueles que apoiam ações de 'limpeza' e 'ordem' nas cidades, muitas vezes com uma perspectiva higienista. Por outro lado, há vozes que buscam abordagens mais humanas e inclusivas, procurando soluções reais para problemas sociais em vez de escondê-los ou afastá-los.
+
+Os dados sobre eventos de zeladoria revelam essa divisão. Alguns eventos são percebidos como problemas por aqueles que têm uma atitude mais crítica, enquanto outros são vistos de forma positiva, refletindo o valor atribuído a espaços públicos bem conservados e serviços eficientes.
 
 \begin{table}[htbp]
 	\centering
@@ -989,7 +1000,7 @@ Além disso, essa polarização em torno do higienismo urbano no aplicativo pode
 	\end{tabular}
 \end{table}
 
-Entretanto, é crucial observar que enquanto alguns usuários reportam eventos negativos relacionados a populações vulneráveis, outros demonstram preocupação e empatia. A menção de 'moradores de rua' 255 vezes, em contraste com palavras como 'vagabundos' ou 'vagabundo' (41 vezes no total), indica uma inclinação mais empática de muitos usuários. Contudo, a presença contínua de termos pejorativos nas postagens sugere que a polarização é real e persistente. A natureza binária desses sentimentos aponta para uma dicotomia na percepção pública: enquanto há um desejo coletivo de espaços públicos bem mantidos e seguros, também existe uma conscientização e, em muitos casos, uma preocupação genuína com as populações vulneráveis. Os relatórios sobre 'Calçada inexistente' ou 'Iluminação pública irregular' demonstram essa preocupação, pois tais problemas afetam diretamente a segurança e a acessibilidade nas cidades, impactando todos os cidadãos, mas especialmente os mais vulneráveis.
+A polarização também se reflete na linguagem usada pelos usuários. Enquanto alguns expressam empatia ao mencionar 'moradores de rua', outros usam termos pejorativos, indicando a dicotomia na percepção pública. No entanto, há uma preocupação genuína com as populações vulneráveis, visto que problemas como 'Calçada inexistente' e 'Iluminação pública irregular' afetam a segurança e a acessibilidade de todos os cidadãos, especialmente os mais vulneráveis.
 
 \begin{figure}[htb]
 	\centering
@@ -1000,13 +1011,18 @@ Entretanto, é crucial observar que enquanto alguns usuários reportam eventos n
 
 A dicotomia nos resultados demonstra um desafio para as cidades modernas: equilibrar o desejo por ordem e estética com a necessidade de justiça social e inclusão. O higienismo urbano e o design hostil são duas faces dessa moeda, e o conteúdo gerado por usuários de aplicativos como o Colab oferecem um vislumbre das opiniões e preocupações do público a respeito dessas questões.
 
+Esses dados podem informar políticas públicas ao destacar a necessidade de um equilíbrio entre a busca por uma cidade mais ordenada e esteticamente agradável e a garantia de justiça social e inclusão. Administradores de cidades podem usar essas informações para desenvolver estratégias que abordem as preocupações legítimas dos cidadãos, ao mesmo tempo em que promovem a igualdade e o bem-estar de todos.
+
 \subsection{Segurança Pública}
 
-O cenário urbano brasileiro tem experimentado uma série de transformações ao longo das últimas décadas, moldadas por fatores socioeconômicos, políticos e culturais. Dentre as diversas questões que emergem deste contexto, a segurança pública destaca-se como um dos tópicos mais sensíveis e debatidos. Em meio a desafios que vão desde a infraestrutura até a efetiva prestação de serviços públicos, a segurança é um termômetro que reflete não apenas a qualidade de vida dos cidadãos, mas também a estabilidade social de uma cidade ou região.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_security.png}
+	\caption{Exemplo de um evento do Colab denunciando as inseguranças sentidas pelo usuário.}
+	\label{fig:colab_posts_security}
+\end{figure}
 
-A segurança pública tornou-se um campo fértil para polarizações em grande parte devido à complexidade das causas e soluções associadas ao crime e à violência. Há aqueles que defendem abordagens mais repressivas e estratégias de 'tolerância zero', enquanto outros acreditam que o foco deveria estar em políticas sociais e prevenção. Essa divergência de opiniões frequentemente se traduz em tensões, com cada lado defendendo suas visões com paixão e, muitas vezes, resistência a abordagens alternativas. Muitas dessas opiniões polarizadoras sobre a segurança pública são informadas pelo alinhamento político dos indivíduos. Em linhas gerais, posições mais conservadoras tendem a favorecer abordagens punitivas e maior presença policial, enquanto posições mais progressistas tendem a enfatizar a necessidade de reformas sociais, educacionais e econômicas para abordar as causas subjacentes do crime. Essas perspectivas muitas vezes são alimentadas e amplificadas por líderes políticos, mídia e plataformas de redes sociais, criando câmaras de eco que reforçam crenças existentes.
-
-A prevalência de um alto número de assaltos e roubos, como evidenciado pelos altos volumes de menções (assaltos: 619, roubos: 206), juntamente com uma persona predominantemente de complainer (scores negativos), reflete uma preocupação significativa com a criminalidade. Este achado é corroborado pela frequente menção de 'polícia' (284 vezes) e 'policiamento' (112 vezes), sugerindo uma demanda por maior segurança e vigilância. Por outro lado, a presença de helpers é menos proeminente nesses tópicos, talvez devido à natureza intrinsecamente problemática e desafiadora desses eventos, que podem não ser facilmente mitigados por ações comunitárias, ou seja, os usuários dependem do poder público para reagir a esses estímulos.
+O cenário urbano brasileiro passou por transformações nas últimas décadas, especialmente na área de segurança pública, um tópico sensível e debatido. Nesse contexto, surgiram polarizações, principalmente entre defensores de abordagens repressivas e apoiadores de políticas sociais. Essas divisões muitas vezes refletem as inclinações políticas dos indivíduos e são amplificadas por líderes políticos e mídia.
 
 \begin{figure}[htb]
 	\centering
@@ -1015,18 +1031,20 @@ A prevalência de um alto número de assaltos e roubos, como evidenciado pelos a
 	\label{fig:wordcloud_security}
 \end{figure}
 
-A análise dos scores de sentimentos e personas para cada tipo de evento fornece insights adicionais. Por exemplo, eventos como 'Ponto recorrente de poluição sonora' e 'Emissão de fumaça preta' demonstram sentimentos negativos expressos pelos usuários, que se inclinam majoritariamente para a persona \textit{complainer}. Este padrão sugere uma frustração considerável com questões ambientais e de qualidade de vida, onde os usuários expressam descontentamento mais do que propostas de soluções. Por outro lado, certos eventos apresentam um mix de personas, como é o caso do 'Imóvel ou terreno abandonado', indicando uma reação mais equilibrada entre reclamações e sugestões de melhoria. Tal equilíbrio sugere que, embora haja uma percepção negativa, existe também uma disposição para buscar soluções colaborativas.
+A alta incidência de assaltos e roubos, juntamente com um tom predominantemente negativo nas discussões, reflete uma preocupação significativa com a criminalidade. No entanto, a presença de ajudantes é menos notável, indicando que esses problemas podem ser vistos como desafiadores demais para ações comunitárias, exigindo intervenção governamental.
 
-Curiosamente, alguns eventos, como 'Bicicletário/paraciclo danificado', exibem um sentimento relativamente positivo, o que pode indicar uma resposta positiva da socidade ao reportar atos de vandalismo que danifiquem essas estruturas. No entanto, é importante notar que o volume desses relatos é significativamente menor em comparação com as categorias mais graves, como assaltos e roubos, mas ainda demonstram um hábito dos usuários de reportarem problemas relacionados ao vandalismo que afetam o patrimônio público. Ao examinar eventos como 'Pintura', 'Patrimônio histórico em risco' e 'Equipamento público danificado', observa-se um espectro variado de reações e envolvimentos da comunidade. No caso de 'Pintura', com um score de sentimento levemente positivo e uma persona mais próxima a \textit{helper} com uma alta incidência de termos como 'pichação' ou 'grafitti', sugere-se uma percepção da comunidade sobre a nuância desse tema e um sentimento mais coletivo de pertencimento sobre as estruturas públicas.
-
-Em contrapartida, 'Patrimônio histórico em risco', com um score negativo acentuado e uma persona alta, indica uma forte reação negativa da comunidade. Isso reflete uma profunda preocupação com a preservação do patrimônio histórico, evidenciando a valorização cultural e a importância atribuída à conservação do legado histórico pela comunidade. A alta média \textit{complainer} neste caso sugere que os usuários estão mais propensos a adotar um crítico, denunciando problemas e muitas vezes mencionando órgaos públicos responsáveis, buscando chamar a atenção para o problema e exigir medidas de proteção e restauração. Por outro lado, 'Equipamento público danificado', com um score de sentimento ligeiramente negativo e uma persona moderada Estas observações revelam uma diversidade nas preocupações da comunidade em relação ao patrimônio público. Enquanto alguns aspectos, como a preservação do patrimônio histórico, mobilizam forte reação e engajamento, outros, como danos a equipamentos públicos ou questões estéticas como a pintura, geram reações menos intensas. Isso reflete a complexidade das percepções e prioridades dos cidadãos em relação ao espaço urbano e à sua conservação. É evidente que a comunidade valoriza aspectos culturais e históricos, demonstrando uma tendência a reagir de forma mais veemente e envolvida quando estes estão ameaçados, enquanto problemas menos simbólicos ou urgentes suscitam uma reação mais moderada.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_security.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Segurança Pública.}
 	\label{fig:social_barometer_security}
-\end{figure}
+\end{quadro}
+
+A análise dos sentimentos e personas revela padrões interessantes. Eventos relacionados à poluição sonora e maus tratos a animais geram sentimentos negativos e são associados principalmente à persona \textit{complainer}. Por outro lado, eventos como vandalismo em bicicletários recebem reações positivas, sugerindo um engajamento positivo da comunidade.
+
+No que diz respeito ao patrimônio público, há uma forte preocupação com a preservação do patrimônio histórico, refletida por uma alta incidência de personas \textit{complainer}. Isso destaca a valorização cultural e histórica da comunidade. No entanto, problemas estéticos, como pintura, geram reações menos intensas.
+
+A análise revela uma polarização significativa na discussão sobre segurança pública, com predominância de reclamações e críticas. No entanto, também mostra um grupo ativo disposto a colaborar na identificação de soluções, principalmente para crimes contra a estrutura pública e a vida.
 
 \begin{table}[htbp]
 	\centering
@@ -1050,46 +1068,49 @@ Em contrapartida, 'Patrimônio histórico em risco', com um score negativo acent
 		\hline
 		1701:Desmatamento irregular                 & 5                & -0.2063        & 0.6667           \\
 		\hline
-		9973:Má conduta de motorista ou cobrador    & 3                & -0.5674        & 1.0000           \\
+		9973:Má conduta de motorista ou cobrador    & 5                & -0.5674        & 1.0000           \\
 		\hline
-		1706:Infestação animais perigosos           & 3                & 0.1264         & 0.0000           \\
+		1706:Infestação animais perigosos           & 5                & 0.1264         & 0.0000           \\
 		\hline
-		10869:Ônibus/trem/metrô danificado          & 2                & 0.4379         & 0.0000           \\
+		10869:Ônibus/trem/metrô danificado          & 5                & 0.4379         & 0.0000           \\
 		\hline
-		7572:Estabelecimento sem nota fiscal        & 1                & -0.0990        & 1.0000           \\
+		7572:Estabelecimento sem nota fiscal        & 4                & -0.0990        & 1.0000           \\
 		\hline
-		1740:Bicicletário/paraciclo danificado      & 1                & 0.4526         & 0.0000           \\
+		1740:Bicicletário/paraciclo danificado      & 4                & 0.4526         & 0.0000           \\
 		\hline
-		1729:Ponto de transporte clandestino        & 1                & -0.0816        & 1.0000           \\
+		1729:Ponto de transporte clandestino        & 4                & -0.0816        & 1.0000           \\
 		\hline
-		121:Pintura                                 & 1                & 0.0247         & 0.0000           \\
+		121:Pintura                                 & 4                & 0.0247         & 0.0000           \\
 		\hline
-		1726:Patrimônio histórico em risco          & 1                & -0.6750        & 1.0000           \\
+		1726:Patrimônio histórico em risco          & 3                & -0.6750        & 1.0000           \\
 		\hline
-		1703:Ponto de travessia irregular           & 1                & -0.3048        & 0.0000           \\
+		1703:Ponto de travessia irregular           & 3                & -0.3048        & 0.0000           \\
 		\hline
-		1700:Ponto de queimada irregular recorrente & 1                & 0.0365         & 1.0000           \\
+		1700:Ponto de queimada irregular recorrente & 3                & 0.0365         & 1.0000           \\
 		\hline
-		1692:Lixeira quebrada                       & 1                & 0.0188         & 0.0000           \\
+		1692:Lixeira quebrada                       & 3                & 0.0188         & 0.0000           \\
 		\hline
-		1686:Emissão de fumaça preta                & 1                & -0.6271        & 1.0000           \\
+		1686:Emissão de fumaça preta                & 2                & -0.6271        & 1.0000           \\
 		\hline
-		1709:Ponto de exploração sexual de menores  & 1                & -0.0083        & 1.0000           \\
+		1709:Ponto de exploração sexual de menores  & 2                & -0.0083        & 1.0000           \\
 		\hline
 	\end{tabular}
 \end{table}
 
-Essa análise nos leva a inferir que, no espectro da pressão social relacionada à segurança pública, existe uma forte polarização. Por um lado, há uma expressiva vocalização de preocupações e frustrações, caracterizando um ambiente onde prevalecem as reclamações e a demanda por medidas mais efetivas. Por outro, observa-se uma participação proativa de uma parcela da comunidade, que, embora menor em número, sugere uma disposição para colaborar na identificação de soluções principalmente com respeito a crimes contra a estrutura pública da cidade e contra a vida.
-
-Este cenário aponta para uma polarização significativa nos tópicos de segurança pública, com uma inclinação predominante para reações negativas e críticas. Os cidadãos parecem mais propensos a vocalizar insatisfações e preocupações em vez de sugerir soluções ou colaborar para melhorias, o que pode ser um reflexo da percepção de que esses problemas estão além do controle e influência diretos da comunidade. A predominância de personas de complainers em muitos dos eventos analisados sugere uma sensação de desamparo e frustração com as questões de segurança pública, contrastando com a presença menos frequente de helpers, que tendem a se concentrar em questões mais gerenciáveis.
+Esses dados indicam uma oportunidade para as autoridades locais capitalizarem o engajamento ativo da comunidade, direcionando-o para iniciativas colaborativas de segurança e melhorias urbanas. No entanto, também representam um desafio em termos de gestão e resposta às expectativas dos cidadãos, exigindo uma abordagem equilibrada que inclua todas as vozes da comunidade em um diálogo construtivo. Essas informações podem ser valiosas para informar políticas públicas relacionadas à segurança pública nas cidades.
 
 A conclusão que emerge desses dados é a de uma comunidade ativamente engajada nas questões de segurança pública, mas cujo engajamento é predominantemente orientado para a expressão de preocupações e demandas por ação. Isso sinaliza uma oportunidade para os tomadores de decisão e as autoridades locais de capitalizar sobre essa participação ativa, canalizando-a para iniciativas colaborativas de segurança e melhorias urbanas. Ao mesmo tempo, revela um desafio significativo em termos de gestão e resposta às expectativas dos cidadãos, exigindo uma abordagem que equilibre a resposta imediata às preocupações com a promoção de um diálogo construtivo que inclua todas as vozes da comunidade.
 
 \subsection{Política de Drogas}
 
-O problema das drogas nos espaços urbanos do Brasil é um tema complexo, marcado por inúmeras facetas que interagem de formas intrincadas. Esse problema não apenas toca a saúde pública e a segurança, mas também permeia questões sociais, econômicas e políticas. O Brasil, com suas grandes cidades e desigualdades socioeconômicas acentuadas, apresenta um cenário em que o uso e o tráfico de drogas se tornam questões centrais em diversas discussões urbanas.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_drugs.png}
+	\caption{Exemplo de postagem de um usuário denunciando um terreno abandonado usado para consumo de drogas.}
+	\label{fig:colab_posts_drugs}
+\end{figure}
 
-A política de drogas é um assunto que gera polarização intensa, principalmente porque ele abrange uma gama de perspectivas que vão desde o rigoroso controle e penalização até abordagens mais liberais e focadas na saúde pública. Essa polarização surge em parte devido às diferenças ideológicas sobre como a sociedade deve lidar com as drogas e seus usuários. Alguns argumentam que a guerra às drogas falhou, propondo uma abordagem mais focada na prevenção e no tratamento, enquanto outros defendem políticas mais duras, visando a repressão ao tráfico e ao consumo.
+A questão das drogas nas cidades do Brasil é complexa e abrange diversos aspectos, como saúde pública, segurança e questões sociais, econômicas e políticas. A política de drogas gera polarização, com diferentes perspectivas, desde abordagens mais focadas na prevenção e tratamento até políticas mais rígidas de repressão.
 
 \begin{figure}[htb]
 	\centering
@@ -1098,18 +1119,16 @@ A política de drogas é um assunto que gera polarização intensa, principalmen
 	\label{fig:wordcloud_drugs}
 \end{figure}
 
-Quando analisamos como os usuários do aplicativo Colab percebem o problema das drogas, fica evidente que eles refletem essa polarização. Por um lado, alguns usuários podem ver o uso de drogas como um problema de saúde pública, enfatizando a necessidade de tratamento e apoio aos dependentes químicos. Por outro lado, há aqueles que o enxergam principalmente como uma questão de segurança pública, associando o uso e o tráfico de drogas à criminalidade e à degradação urbana.
+Ao analisar como os usuários do aplicativo Colab percebem o problema das drogas, observamos essa polarização. Alguns veem o uso de drogas como um problema de saúde pública, destacando a necessidade de tratamento e apoio aos dependentes químicos. Outros o enxergam mais como uma questão de segurança pública, associando-o à criminalidade e degradação urbana. A forma como os usuários do Colab se referem aos usuários de drogas também revela essa polarização, com palavras negativas e estigmatizantes sendo usadas. Isso pode refletir uma tendência de responsabilizar o indivíduo pelo uso de drogas, em vez de considerar o contexto social e econômico mais amplo.
 
-A maneira como os usuários do Colab se referem aos usuários de drogas oferece uma janela para entender sua percepção sobre o tema. Palavras como 'drogado', 'viciado' e 'cracudo' carregam conotações fortemente negativas e estigmatizantes, sugerindo que muitos usuários do aplicativo podem ver o uso de drogas mais como um vício moral ou uma escolha individual errada do que como uma questão de saúde. Isso pode refletir uma tendência a responsabilizar o indivíduo pelo uso de drogas, em vez de considerar o contexto social e econômico mais amplo.
-
-No que diz respeito à relação entre os problemas de zeladoria pública e as menções a drogas, é possível que os usuários do Colab estejam associando a presença de usuários de drogas com a negligência e o abandono urbano. Por exemplo, um imóvel ou terreno abandonado pode ser visto como um local propício para o consumo de drogas. Da mesma forma, áreas com mato alto ou estruturas quebradas podem ser percebidas como negligenciadas pela administração pública, tornando-se espaços onde atividades ilegais, incluindo o uso e o tráfico de drogas, possam ocorrer sem supervisão.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_drugs.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Política de Drogas.}
 	\label{fig:social_barometer_drugs}
-\end{figure}
+\end{quadro}
+
+Há também uma associação entre problemas de zeladoria pública e menções a drogas, sugerindo que áreas abandonadas ou negligenciadas podem se tornar locais propícios para o consumo e tráfico de drogas. Essa dinâmica destaca a necessidade de uma abordagem holística na gestão urbana, que não apenas aborde o problema das drogas, mas também as condições sociais e urbanas que o favorecem.
 
 \begin{table}[htbp]
 	\centering
@@ -1156,15 +1175,16 @@ No que diz respeito à relação entre os problemas de zeladoria pública e as m
 	\end{tabular}
 \end{table}
 
-Essas associações podem ser influenciadas pelo que é frequentemente retratado na mídia, onde locais em deterioração urbana são comumente associados ao uso de drogas. Por isso, quando usuários do Colab relatam problemas de zeladoria e mencionam drogas, eles podem estar refletindo essa narrativa. Isso é evidenciado pelo fato de que problemas associados a uma alta persona R e scores R negativos, como 'Patrimônio histórico em risco' ou 'Foco de mosquito da dengue/zika', frequentemente recebem menções a drogas, sugerindo uma percepção de que esses problemas são exacerbados ou até causados pela presença de usuários de drogas.
-
-Além disso, essa percepção está alinhada com a ideia de que áreas negligenciadas pela administração pública podem se tornar focos de problemas sociais mais amplos, incluindo o uso de drogas. Isso reflete um ciclo vicioso: locais abandonados atraem atividades ilícitas, o que por sua vez contribui para mais abandono e deterioração. A menção de drogas nessas descrições de problemas urbanos no Colab pode, portanto, estar destacando essa dinâmica, onde o uso de drogas é tanto uma consequência quanto um fator contribuinte para a degradação urbana.
-
-Esse fenômeno aponta para a necessidade de uma abordagem holística na gestão urbana, que não só aborde o problema das drogas em si, mas também as condições sociais e urbanas que favorecem o seu uso. Tal abordagem envolveria não apenas medidas de segurança e saúde pública, mas também investimentos em infraestrutura, revitalização de áreas degradadas e programas de inclusão social.
-
-Portanto, a análise dos dados do Colab revela como os cidadãos percebem e interagem com o problema das drogas nas cidades brasileiras. Ela mostra uma tendência a associar o uso de drogas com problemas urbanos, enfatizando a necessidade de soluções que abordem tanto as questões de saúde pública quanto as condições sociais e ambientais que facilitam o uso de drogas. Assim, enquanto o debate sobre a política de drogas continua a ser uma fonte de polarização, é essencial considerar como as diferentes percepções e experiências dos cidadãos podem informar e influenciar essas políticas. A resposta ao problema das drogas, portanto, exige uma abordagem integrada que considere tanto as nuances individuais quanto os fatores estruturais e sociais em jogo.
+Para os administradores das cidades, esses dados podem ser valiosos na formulação de políticas públicas relacionadas às drogas. Eles devem considerar a necessidade de abordagens que abrangem tanto questões de saúde pública quanto de segurança, bem como investimentos em infraestrutura e revitalização de áreas degradadas. Uma abordagem integrada que leve em conta as percepções e experiências dos cidadãos, juntamente com os fatores estruturais e sociais é essencial para enfrentar o problema das drogas nas cidades.
 
 \subsection{Pânico Moral}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_karen.png}
+	\caption{Exemplo de postagem de um usuário denunciando um evento de poluição sonora e associando-o a um gênero musical.}
+	\label{fig:colab_posts_karen}
+\end{figure}
 
 O conceito de 'pânico moral', conforme delineado por Stanley Cohen em sua obra seminal 'Folk Devils and Moral Panics' (1972), fornece um quadro interpretativo valioso para compreender como certas questões sociais e comportamentos são amplificados e distorcidos dentro do discurso público, levando à criação de 'bodes expiatórios' ou 'demônios sociais'. No contexto brasileiro contemporâneo, e especialmente através de plataformas interativas como o Colab, podemos observar a manifestação desse fenômeno de forma peculiar. Cohen descreve o pânico moral como uma reação da sociedade a um grupo ou subcultura percebida como ameaçadora aos valores e interesses sociais estabelecidos. Essa dinâmica é frequentemente caracterizada por uma distorção e exagero na percepção da ameaça. No Colab, essas expressões de pânico moral podem ser particularmente reveladoras, proporcionando uma janela para entender como certas preocupações são moldadas e amplificadas no espaço digital.
 
@@ -1183,16 +1203,23 @@ A análise desses padrões de comunicação no Colab pode fornecer insights vali
 
 Ao analisar os resultados de pressão social, encontramos evidências claras de uma polarização relacionada à música, especialmente ao pagode e ao funk. Essa polarização é evidenciada pelos eventos de 'Ponto recorrente de poluição sonora' e 'Emissão de fumaça preta'. Ambos os eventos têm uma persona média predominantemente \textit{complainer}. Isso sugere que os usuários tendem a adotar uma abordagem crítica e insatisfeita em relação a eventos de poluição sonora, possivelmente devido ao impacto negativo do barulho, que frequentemente está associado a festas de pagode e funk. Essa conexão entre música e eventos de zeladoria pública demonstra um claro preconceito musical e uma polarização em relação a esses gêneros, que são percebidos negativamente por alguns membros da comunidade.
 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_moral_panic.png}
+	\caption{Usuário denuncia ocupação irregular de área pública como degeneração urbana.}
+	\label{fig:colab_posts_moral_panic}
+\end{figure}
+
 Além disso, as palavras-chave identificadas, como 'narguile', 'tabacaria' e 'grafite', sugerem que os usuários também estão associando comportamentos como fumar narguilé e grafites a eventos de zeladoria pública. Essas associações parecem ser negativas, pois esses eventos têm persona média predominantemente \textit{complainer}, refletindo a preocupação ou descontentamento dos usuários em relação a esses comportamentos. Essa conexão entre eventos culturais e preocupações com a zeladoria pública indica que a plataforma está sendo usada para expressar opiniões e críticas sobre questões culturais e comportamentais, além das questões de infraestrutura tradicionais.
 
 Outro aspecto importante a ser destacado é a associação entre eventos de zeladoria pública, como 'Fiação irregular', 'Ocupação irregular de área pública' e 'Construção irregular', e os eventos culturais mencionados anteriormente, como bailes de funk e pagode. Os usuários parecem se incomodar com o barulho e a informalidade desses eventos e, como resultado, criam eventos de zeladoria pública para relatar irregularidades e tentar fechar esses estabelecimentos. Essa estratégia sugere uma tentativa de utilizar as ferramentas disponíveis na plataforma para influenciar o fechamento desses locais, refletindo uma tentativa de impor normas sociais e urbanas.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_moral.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Pânico Moral.}
 	\label{fig:social_barometer_moral}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -1263,9 +1290,16 @@ A identificação do pânico moral em torno de certos tópicos culturais pode le
 
 \subsection{Política Tributária}
 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_taxes.png}
+	\caption{Usuário do Colab denunciando problema de esgoto e fazendo referência a impostos.}
+	\label{fig:colab_posts_taxes}
+\end{figure}
+
 No contexto das discussões sobre questões urbanas, observamos a presença recorrente de argumentos que abordam a questão dos altos impostos municipais e estaduais, assim como os custos associados aos serviços públicos oferecidos à população. Esses argumentos frequentemente destacam a relação intrínseca entre a carga tributária e a qualidade dos serviços públicos. Além disso, os usuários também levantam questões relacionadas à corrupção e à má gestão dos recursos públicos, que podem ser diretamente associadas à política tributária. A análise dos eventos relacionados a essa temática revela uma tendência marcante: a maioria deles exibe scores médios negativos. Essa tendência sugere que os usuários tendem a expressar sentimentos predominantemente negativos em relação a eventos vinculados a impostos, como o IPTU e IPVA. Essa predominância de sentimentos negativos pode indicar um profundo descontentamento em relação à carga tributária vigente ou à forma como os impostos são administrados.
 
-Entretanto, é importante observar que a associação direta entre o aumento de impostos e a deterioração dos serviços públicos pode representar uma falácia lógica, conhecida como 'falácia post hoc' ou 'falácia da causalidade'. Esta falácia ocorre quando se assume erroneamente que, porque um evento ocorreu antes de outro, o primeiro evento foi a causa do segundo. Nesse contexto, a falácia post hoc ocorre quando os usuários atribuem a piora dos serviços públicos unicamente ao aumento dos impostos, sem considerar outros fatores relevantes. É fundamental reconhecer que a relação entre a carga tributária e a qualidade dos serviços públicos é complexa e influenciada por uma série de variáveis, como gestão pública, alocação de recursos, políticas governamentais e eficiência administrativa. Portanto, é imperativo adotar uma abordagem mais abrangente e holística para compreender a interação entre impostos e serviços públicos. Essa abordagem deve considerar não apenas os aspectos relacionados à política tributária, mas também examinar outros fatores que podem afetar a prestação de serviços públicos de qualidade. Além disso, é essencial evitar generalizações simplistas que podem levar a discursos polarizados e à disseminação de informações imprecisas. Ao analisar criticamente as questões urbanas e a política tributária, os usuários podem contribuir de maneira mais construtiva para o debate público e para a formulação de políticas que busquem a melhoria da qualidade de vida nas cidades.
+É importante notar que a conexão direta entre o aumento de impostos e a piora dos serviços públicos pode ser simplista. A relação entre carga tributária e qualidade dos serviços é complexa e influenciada por vários fatores, como gestão pública, alocação de recursos e eficiência administrativa. Portanto, é fundamental adotar uma abordagem mais abrangente para compreender essa interação.
 
 \begin{figure}[htb]
 	\centering
@@ -1276,6 +1310,13 @@ Entretanto, é importante observar que a associação direta entre o aumento de 
 
 Nesse contexto, investigar as dinâmicas de pressão social relacionadas à política tributária e às questões urbanas, a fim de compreender melhor como os usuários do Colab se engajam nesse debate e como suas opiniões e sentimentos se manifestam. Ao explorar os eventos selecionados e as métricas de pressão social associadas a eles, buscamos identificar tendências, padrões e possíveis polarizações nas discussões sobre impostos e serviços públicos. Notavelmente, constatamos que, quando a persona dos usuários é identificada como \textit{complainer}, denotando uma tendência a expressar reclamações ou insatisfações individualistas, e o score de sentimento da postagem é majoritariamente negativo muitos usuários fazem referência a termos tributários, como IPTU, impostos e IPVA, em suas postagens. Essa observação sugere que, em grande parte, os usuários utilizam os impostos como justificativa para expressar seu descontentamento em relação à qualidade dos serviços públicos, argumentando que, considerando a quantidade de impostos pagos, os serviços deveriam ser de melhor qualidade. Essa análise crítica permitirá uma visão mais informada sobre as preocupações dos cidadãos em relação à política tributária e contribuirá para um diálogo mais substancial e equilibrado sobre esse tema de relevância pública.
 
+\begin{quadro}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/social_barometer_taxes.png}
+	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Política Tributária.}
+	\label{fig:social_barometer_taxes}
+\end{quadro}
+
 Para uma análise mais detalhada dos resultados do Barômetro de Pressão Social relacionados à política tributária, procedemos à categorização dos eventos em seis áreas distintas: transporte público, infraestrutura e patrimônio público, meio ambiente, saneamento básico, iluminação e energia, e saúde pública. Cada uma dessas categorias abrange eventos que foram mencionados pelos usuários e apresenta uma perspectiva única sobre como a política tributária é percebida em relação a diferentes serviços públicos e questões urbanas. As avaliações de persona e score foram realizadas para cada categoria, permitindo uma compreensão mais profunda das preocupações e sentimentos dos usuários em relação a esses tópicos específicos. A seguir, exploraremos os resultados dessas categorias e suas implicações em relação à percepção pública sobre impostos e serviços públicos.
 
 No que diz respeito ao transporte público, os eventos relacionados a problemas como 'ônibus superlotado' 'ponto de ônibus danificado' e 'ônibus fora do horário/rota' exibem persona média próxima \textit{complainer} e scores médios negativos. Isso sugere que os usuários tendem a reclamar dessas questões, expressando sentimentos predominantemente negativos. Essas reclamações podem estar relacionadas aos altos impostos pagos pelos cidadãos. Os usuários podem argumentar que, dado o montante de impostos que pagam, esperam um serviço de transporte público de maior qualidade. Portanto, há uma correlação entre reclamações sobre transporte público e insatisfação com a política tributária, na medida em que os impostos podem ser vistos como financiadores dos serviços de transporte.
@@ -1283,13 +1324,6 @@ No que diz respeito ao transporte público, os eventos relacionados a problemas 
 Quando examinamos eventos relacionados à infraestrutura e patrimônio público, como 'buraco nas vias' 'estação de ônibus/trem/metrô danificada' 'fiação irregular' e 'patrimônio histórico em risco' observamos uma persona média próxima \textit{complainer} e scores médios negativos. Isso indica que os usuários tendem a reclamar dessas questões e expressar sentimentos predominantemente negativos. É interessante notar que, nesse contexto, a reclamação não está diretamente relacionada aos impostos, mas sim à qualidade dos serviços públicos e à conservação da infraestrutura. No entanto, há uma conexão indireta com a política tributária, uma vez que os cidadãos podem questionar a alocação de recursos e a eficácia do gasto público, considerando os impostos que pagam.
 
 Ao examinar eventos de Meio Ambiente, como 'Vazamento de água' e 'Mato alto', apresentam scores médios negativos, indicando uma tendência de sentimentos negativos entre os usuários. No entanto, a persona média é próxima de 1, o que sugere uma inclinação mais forte para o perfil \textit{complainer}. Nesse contexto, os usuários podem estar insatisfeitos com a gestão dos recursos públicos e, possivelmente, associando essa insatisfação aos impostos pagos.
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/social_barometer_taxes.png}
-	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Política Tributária.}
-	\label{fig:social_barometer_taxes}
-\end{figure}
 
 \begin{table}[htbp]
 	\centering
@@ -1342,19 +1376,18 @@ Ao examinar eventos de Meio Ambiente, como 'Vazamento de água' e 'Mato alto', a
 	\end{tabular}
 \end{table}
 
-Eventos relacionados ao saneamento básico, como 'Esgoto a céu aberto' e 'Bueiro entupido', também demonstram scores médios negativos, sugerindo uma insatisfação geral em relação a esses problemas urbanos. A persona média, novamente, tende a ser próxima de 1, o que indica que os usuários estão mais propensos a serem \textit{complainers}. A presença de termos como 'impostos' ou 'iptu' em postagens relacionadas a esses eventos sugere que os usuários estão usando a questão tributária como argumento para exigir melhorias nos serviços de saneamento.
-
-Quando se trata de eventos como 'Lâmpada apagada à noite' e 'Iluminação pública irregular', observamos scores médios negativos. Novamente, a persona média tende a se aproximar de um perfil mais inclinado a ser \textit{complainer}. A presença de termos relacionados a impostos sugere que os usuários podem estar associando a má qualidade desses serviços públicos à política tributária, expressando descontentamento.
-
-Eventos relacionados à saúde pública, como 'Atendimento na Clínica da Família', apresentam scores positivos, indicando sentimentos mais positivos entre os usuários. No entanto, a persona média tende a ser próxima de 1, sugerindo que, mesmo ao expressar sentimentos positivos, os usuários ainda podem ter inclinação para o perfil \textit{complainer}. Nesse contexto, a menção ocasional de termos como 'impostos' ou 'gestão pública' pode indicar que os usuários estão conscientes das questões fiscais relacionadas à saúde pública, mas podem estar dispostos a elogiar melhorias percebidas.
-
-É fundamental destacar que, em todos os casos, a conexão direta entre a insatisfação em relação aos serviços públicos e o aumento de impostos pode ser uma simplificação excessiva da intrincada relação entre tributação e oferta de serviços. Embora os scores médios negativos indiquem claramente insatisfação, é imperativo considerar outros fatores, como má gestão, alocação de recursos e eficiência administrativa, que também podem desempenhar papéis significativos na qualidade dos serviços públicos. Além disso, a persona média próxima de 1, sugerindo uma inclinação para o perfil \textit{complainer}, aponta para a possibilidade de que os usuários estejam usando a questão tributária como uma forma de expressar descontentamento geral com os problemas urbanos. Essa observação destaca a importância de um diálogo mais equilibrado e fundamentado sobre a política tributária e a entrega de serviços públicos, evitando generalizações simplistas que poderiam contribuir para discursos polarizados. Em última análise, a análise do Barômetro de Pressão Social oferece perspectivas valiosas sobre como os usuários do Colab estão se envolvendo com questões urbanas e fiscais, ressaltando a necessidade premente de uma abordagem mais abrangente e embasada em evidências ao lidar com esses desafios complexos.
+Os dados podem ser úteis para administradores de cidades ao informar políticas públicas relacionadas ao tema. Eles devem considerar não apenas a política tributária, mas também outros fatores que afetam a prestação de serviços públicos de qualidade. Além disso, é crucial evitar generalizações simplistas que levem a discursos polarizados e à disseminação de informações imprecisas. Ao analisar criticamente as questões urbanas e a política tributária, os usuários podem contribuir de maneira mais construtiva para o debate público e para a formulação de políticas que busquem a melhoria da qualidade de vida nas cidades.
 
 \subsection{Corrupção}
 
-No cenário urbano do Brasil, os problemas relacionados à corrupção têm desempenhado um papel significativo na maneira como os cidadãos percebem e interagem com questões urbanas e políticas. A corrupção, entendida como o uso indevido de poder para ganho pessoal, é uma questão amplamente discutida em todo o país e frequentemente é relacionada a uma série de problemas urbanos, como infraestrutura precária, serviços públicos inadequados e falta de transparência nas ações do governo. Esta relação complexa entre corrupção e problemas urbanos cria uma dinâmica interessante de pressão social, onde alguns usuários do Colab utilizam a plataforma para destacar essas conexões e exigir responsabilidade, enquanto outros podem discordar dessas alegações, resultando em debates acalorados e polarização. Neste contexto, vamos explorar como os usuários do Colab relacionam tópicos urbanos à corrupção, bem como analisar as métricas de pressão social para identificar os tipos de eventos que chamam mais atenção e as personas predominantes entre os usuários.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_corruption.png}
+	\caption{Exemplo de postagem de um usuário levantando suspeitas de corrupção em um evento de zeladoria pública.}
+	\label{fig:colab_posts_corruption}
+\end{figure}
 
-No Colab, a corrupção é uma questão que não passa despercebida pelos usuários. Através das palavras-chave relacionadas, como 'corrupção', 'propina' e 'fraude', é evidente que a corrupção é um tópico recorrente nas discussões sobre problemas urbanos. Os usuários frequentemente mencionam casos de corrupção que afetam diretamente a qualidade dos serviços públicos, como obras de infraestrutura mal executadas devido a desvios de verbas. Além disso, a palavra 'propina' indica preocupações com subornos e o impacto direto que eles têm na prestação de serviços públicos, como transporte e segurança.
+A corrupção é um tema recorrente nas discussões urbanas no Brasil, ligada a problemas como infraestrutura precária e serviços públicos deficientes. No Colab, observa-se uma dinâmica polarizada entre aqueles que denunciam a corrupção como causa desses problemas. A análise das métricas de pressão social revela nuances importantes nessa dinâmica.
 
 \begin{figure}[htb]
 	\centering
@@ -1363,18 +1396,14 @@ No Colab, a corrupção é uma questão que não passa despercebida pelos usuár
 	\label{fig:wordcloud_corruption}
 \end{figure}
 
-A polarização em torno desse tema é evidente, já que alguns usuários usam o Colab para denunciar casos de corrupção e exigir ação por parte das autoridades, enquanto outros podem discordar dessas alegações, defendendo que a corrupção não é a causa raiz dos problemas urbanos. Isso gera debates acalorados e uma atmosfera de pressão social em que diferentes opiniões colidem. Para compreender melhor como essa pressão social se manifesta, é fundamental analisar as métricas de score e persona em relação aos eventos urbanos.
+Usuários frequentemente mencionam palavras-chave como 'corrupção', 'propina' e 'fraude' ao discutir questões urbanas. Isso mostra que a corrupção está no centro das preocupações dos cidadãos. Eles relacionam casos de corrupção a problemas como obras de infraestrutura malfeitas e serviços públicos deficientes.
 
-A análise da pressão social nos eventos de zeladoria pública contém postagens que mencionam termos relacionados à corrupção, proporcionando uma visão profunda sobre como os usuários do Colab percebem essa questão em seu contexto urbano. O exame desses eventos revela a existência de uma polarização perceptível entre os usuários, refletida nas métricas de persona média e score médio. Entre os eventos, destaca-se o 'Ponto de infração de trânsito recorrente' com uma persona média de 1.0. indicando predominantemente o perfil \textit{complainer}. Isso sugere que os usuários estão recorrendo a essa categoria para denunciar e expressar insatisfação com infrações de trânsito recorrentes que podem ser atribuídas à corrupção no sistema de fiscalização.
-
-Outro evento que chama a atenção é o 'Ponto recorrente de poluição sonora', também com uma persona média predominantemente \textit{complainer}. Nesse caso, os usuários estão relacionando a poluição sonora a possíveis atos corruptos que permitem a impunidade de estabelecimentos que desrespeitam as normas de emissão de ruídos. No entanto, alguns eventos surpreendem ao apresentar uma persona média \textit{complainer}, mas com scores médios positivos. Por exemplo, o 'Foco de mosquito da dengue/zika' e o 'Comércio aberto irregularmente' são eventos em que os usuários, embora manifestem preocupações relacionadas à corrupção, também demonstram uma inclinação para o perfil \textit{helper}. Isso sugere que, apesar das críticas à corrupção, os usuários estão dispostos a contribuir com soluções ou sugestões construtivas para lidar com esses problemas urbanos. Por outro lado, eventos como 'Bloqueio na via' e 'Via de terra com desnível' apresentam personas predominantemente \textit{complainer} com scores médios negativos, indicando uma alta insatisfação e falta de confiança nas autoridades em relação a essas questões. Os usuários parecem acreditar que a corrupção desempenha um papel significativo na má gestão da infraestrutura viária e na falta de manutenção adequada.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_corruption.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Corrupção.}
 	\label{fig:social_barometer_corruption}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -1421,13 +1450,22 @@ Outro evento que chama a atenção é o 'Ponto recorrente de poluição sonora',
 	\end{tabular}
 \end{table}
 
-Em síntese, a análise dos eventos relacionados à corrupção evidencia uma dinâmica complexa de pressão social no Colab. Embora os usuários manifestem insatisfação e preocupação com a corrupção em diversas esferas da administração pública, a polarização entre os perfis \textit{complainer} e \textit{helper} se destaca de forma clara. Alguns eventos refletem uma abordagem mais equilibrada, na qual os usuários não se limitam a críticas, mas também se empenham na busca por soluções construtivas. Esses resultados sublinham a importância de adotar uma abordagem abrangente para enfrentar a corrupção e os desafios urbanos, engajando os cidadãos de maneira mais eficaz e fomentando a transparência e a responsabilidade governamental.
+Ao analisar eventos urbanos específicos, vemos como os usuários percebem a corrupção em seu contexto. Alguns eventos têm uma persona predominantemente \textit{complainer}, como o 'Ponto de infração de trânsito recorrente', onde os usuários denunciam infrações ligadas à corrupção no sistema de fiscalização. Outros eventos, como 'Foco de mosquito da dengue/zika' e 'Comércio aberto irregularmente', também têm personas \textit{complainer}, mas com scores médios positivos, indicando que os usuários estão dispostos a oferecer soluções construtivas.
+
+Por outro lado, eventos como 'Bloqueio na via' e 'Via de terra com desnível' têm personas \textit{complainer} com scores médios negativos, indicando alta insatisfação e falta de confiança nas autoridades em relação a essas questões. Os usuários acreditam que a corrupção contribui para a má gestão da infraestrutura.
+
+Em resumo, a análise dos eventos relacionados à corrupção destaca a polarização desse tópico no Colab. Para os administradores das cidades, esses dados podem informar políticas públicas de diversas maneiras. Eles podem considerar a necessidade de promover transparência e responsabilidade governamental para atender às preocupações dos cidadãos. Além disso, podem buscar envolver os usuários na busca por soluções construtivas e na fiscalização das questões urbanas. Uma abordagem abrangente que leve em conta as diferentes perspectivas dos cidadãos é essencial para lidar com a corrupção e seus efeitos na vida urbana.
 
 \subsection{Eleições e Políticos}
 
-As discussões sobre eleições e políticos no contexto dos problemas urbanos no Brasil são um reflexo evidente da interseção entre a política e as questões que afetam diretamente a vida dos cidadãos. No Colab, plataforma dedicada a identificar e solucionar problemas nas cidades, os usuários frequentemente abordam não apenas as questões relacionadas à infraestrutura e serviços públicos, mas também fazem conexões intrincadas com o cenário político do país. Essa dinâmica cria um ambiente propício para debates acalorados e polarização de opiniões.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_polititians.png}
+	\caption{Exemplo de postagem ironizando políticos ao fazer referência a um evento de zeladoria pública.}
+	\label{fig:colab_posts_polititians}
+\end{figure}
 
-Assim como muitos cidadãos expressam sua insatisfação com impostos elevados e tarifas onerosas, eles também utilizam o Colab como um espaço para relacionar os problemas urbanos às promessas e ações de políticos, além de destacar a ineficiência e as questões políticas subjacentes. É aqui que a polarização se manifesta de forma mais clara, com alguns usuários apoiando determinados políticos e partidos, enquanto outros discordam veementemente. Essa polarização não apenas reflete as divisões políticas na sociedade brasileira, mas também contribui para uma discussão intensa e muitas vezes apaixonada sobre como a política impacta diretamente a qualidade de vida nas cidades.
+As discussões sobre eleições e políticos no contexto dos problemas urbanos no Brasil refletem uma interseção significativa entre a política e as questões que afetam diretamente a vida dos cidadãos. No Colab, um espaço digital onde os cidadãos identificam e discutem problemas nas cidades, essa conexão se torna evidente. Os usuários não apenas abordam questões relacionadas à infraestrutura e serviços públicos, mas também vinculam essas questões ao cenário político do país. Esse ambiente propicia debates intensos e frequentemente polarizados.
 
 \begin{figure}[htb]
 	\centering
@@ -1436,18 +1474,16 @@ Assim como muitos cidadãos expressam sua insatisfação com impostos elevados e
 	\label{fig:wordcloud_polititians}
 \end{figure}
 
-Os usuários frequentemente mencionam políticos de diferentes partidos, como PT, PDT, PSDB e PSOL, refletindo a diversidade política da cidade. As discussões em torno de políticos e partidos podem ser calorosas e refletem a interseção entre política e questões urbanas, como infraestrutura e serviços públicos. Durante períodos eleitorais, como as eleições para prefeito e vereador, a pressão social em torno desse tópico aumenta significativamente. Os eleitores discutem candidatos, suas propostas e o histórico de mandatos anteriores. Eles também compartilham informações sobre como registrar seus votos, destacando a importância da participação cívica. A pressão social relacionada a políticos e eleições é frequentemente acompanhada de debates sobre o desempenho dos vereadores e prefeitos atuais. Os cidadãos avaliam seus mandatos, destacando conquistas e críticas. A palavra 'vereador' é mencionada com frequência, sugerindo que a atuação desses representantes municipais é uma preocupação central para os cidadãos.
+Enquanto alguns expressam insatisfação com impostos elevados e tarifas onerosas, outros conectam os problemas urbanos às promessas e ações de políticos, destacando a ineficiência e questões políticas subjacentes. Essa polarização reflete as divisões políticas na sociedade brasileira e contribui para debates intensos sobre como a política afeta a qualidade de vida nas cidades.
 
-É interessante notar que, entre todas as siglas de partidos políticos pesquisadas, a única que aparece com sentimentos consideravelmente negativos é o PT (Partido dos Trabalhadores). Isso pode indicar que os usuários associam o PT a problemas específicos na cidade, resultando em sentimentos negativos. Essa associação pode ser influenciada por eventos passados ou pela percepção da atuação do partido.
+Os usuários frequentemente mencionam políticos de diferentes partidos, refletindo a diversidade política da cidade. As discussões em torno de políticos e partidos podem ser calorosas e estão diretamente ligadas a questões urbanas, como infraestrutura e serviços públicos. Durante períodos eleitorais, como as eleições para prefeito e vereador, a pressão social em torno desse tópico aumenta significativamente. Os eleitores discutem candidatos, suas propostas e o histórico de mandatos anteriores. Eles também compartilham informações sobre como registrar seus votos, destacando a importância da participação cívica. A pressão social relacionada a políticos e eleições é frequentemente acompanhada de debates sobre o desempenho dos vereadores e prefeitos atuais, destacando a centralidade desses representantes municipais para os cidadãos.
 
-A análise da pressão social relacionada ao tópico revela uma dinâmica complexa e polarizada. Para compreender melhor essas dinâmicas, é essencial considerar tanto o score médio de sentimento quanto a persona média atribuída aos usuários em relação a tipos específicos de eventos de zeladoria pública. Primeiramente, ao observarmos os eventos selecionados, podemos identificar uma variação significativa nos valores médios de score de sentimento e persona média. Alguns eventos apresentam uma persona média predominantemente \textit{helper}, indicando que os usuários tendem a adotar uma postura mais positiva e colaborativa em relação a esses eventos. Por outro lado, há eventos em que a persona média é predominantemente \textit{complainer}, sinalizando uma postura mais crítica e insatisfeita dos usuários.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_polititians.png}
 	\caption{Gráfico de Radar ilustrando a pressão social em relação ao tópico de Eleições e Políticos.}
 	\label{fig:social_barometer_polititians}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -1494,13 +1530,16 @@ A análise da pressão social relacionada ao tópico revela uma dinâmica comple
 	\end{tabular}
 \end{table}
 
-Um exemplo de evento com persona predominantemente \textit{helper} é o tipo 'Limpeza de área pública' indicando uma atitude positiva e colaborativa dos usuários em relação à limpeza de áreas públicas. O score médio de sentimento é majoritariamente negativo, mas a persona média positiva sugere que os usuários, apesar das críticas, estão dispostos a contribuir para soluções construtivas. Nesse caso, o sentimento prendominante parece ser de cobrar os políticos pelo voto de confiança de seus eleitores e oferecer críticas mais construtivas. Por outro lado, o evento 'Calçada inexistente' apresenta uma persona média de 1.0. indicando uma postura crítica e insatisfeita dos usuários em relação à falta de calçadas. O score médio de sentimento é de -0.484, corroborando o sentimento negativo. Nesse caso, os usuários parecem expressar insatisfação e não demonstram uma postura colaborativa em relação à questão das calçadas.
+A análise da pressão social relacionada ao tópico revela uma dinâmica complexa e polarizada. Alguns eventos atraem uma postura mais positiva e colaborativa (\textit{helper}), enquanto outros geram críticas intensas e insatisfação (\textit{complainer}). Esses resultados destacam que os usuários têm uma postura diversificada em relação aos problemas urbanos e que a polarização é uma característica proeminente dessas discussões.
 
-A polarização se torna evidente ao analisar eventos como 'Ponto de infração de trânsito recorrente', que possui uma persona média de 0.878, indicando uma postura crítica e insatisfeita, juntamente com um score médio de sentimento de -0.501, refletindo um sentimento negativo. Nesse contexto, os usuários estão claramente insatisfeitos com a infração de trânsito recorrente e expressam críticas contundentes. Esse tipo de evento especifico parece gerar uma postura mais crítica dos usuários em vários tópicos de pressão social diferentes.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/colab_posts_polititians_2.png}
+	\caption{Exemplo de postagem de usuário criticando políticos.}
+	\label{fig:colab_posts_polititians_2}
+\end{figure}
 
-Esses resultados demonstram que os usuários do Colab têm uma postura diversificada em relação aos problemas urbanos, algumas vezes relacionando ao período eleitoral e as motivações dos políticos. Alguns eventos atraem uma postura mais colaborativa, enquanto outros geram críticas intensas e insatisfação. Isso sugere que a polarização é uma característica proeminente dessas discussões, com alguns usuários apoiando políticos e partidos específicos, enquanto outros expressam descontentamento. Além disso, a análise das métricas de pressão social revela que a qualidade da infraestrutura urbana e os problemas relacionados à gestão pública são temas de grande relevância para os cidadãos. A frequente menção de políticos, partidos e eleições nas postagens dos usuários indica que a política tem um impacto significativo na percepção dos problemas urbanos. Durante períodos eleitorais, a pressão social aumenta, com discussões detalhadas sobre candidatos, propostas e desempenho de representantes eleitos.
-
-Em resumo, a análise dos eventos relacionados à percepção dos usuários sobre 'Eleições e Políticos' destaca a complexidade das interações sociais e das atitudes dos usuários em relação aos problemas urbanos. Embora exista uma insatisfação geral com a eficiência dos políticos, a predominância de personas \textit{helper} sugere que os usuários estão dispostos a colaborar ativamente na solução desses problemas, demonstrando uma vontade de participar ativamente na busca por soluções. Por outro lado, a associação negativa com determinadas vertentes políticas indica que as percepções políticas também desempenham um papel importante nas discussões sobre pressão social e problemas urbanos, influenciando a forma como os usuários abordam e debatem essas questões. Portanto, a polarização política e a complexidade das interações sociais são aspectos essenciais a serem considerados ao abordar a dinâmica das discussões sobre problemas urbanos e políticos, exigindo uma abordagem equilibrada e inclusiva na busca por soluções eficazes.
+Para administradores das cidades, esses dados podem ser valiosos para informar políticas públicas relacionadas a problemas urbanos e políticos. É importante considerar a diversidade de perspectivas e a polarização ao desenvolver estratégias para lidar com questões como infraestrutura, serviços públicos e representação política. Além disso, durante os períodos eleitorais, é fundamental promover o engajamento cívico e a transparência para fortalecer a confiança dos cidadãos nas instituições políticas. Uma abordagem equilibrada e inclusiva é essencial para encontrar soluções eficazes para os desafios urbanos.
 
 \section{Mapeando a Opinião Pública}
 
@@ -1512,12 +1551,12 @@ Além disso, a análise revelou que mesmo nas discussões em que predominam as p
 
 Quanto à polarização no Colab, observamos que, embora as discussões possam ser críticas e até mesmo negativas em alguns casos, a maioria dos usuários parece estar comprometida em abordar e resolver os desafios urbanos. A polarização pode estar presente em debates políticos e em tópicos sensíveis, como corrupção e gentrificação, mas a presença significativa de personas \textit{helper} indica uma disposição para encontrar soluções construtivas, mesmo em meio a divergências.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/network_niteroi_personas_plot.png}
 	\caption{Mobilidade Urbana - Helpers vs. Complainers em Niterói.}
 	\label{fig:network_niteroi_personas_plot}
-\end{figure}
+\end{quadro}
 
 É interessante observar como uma abordagem de engenharia de software pode ser aplicada a um problema social complexo como a análise de pressão social hiperlocal no Colab. As heurísticas desenvolvidas no início do capítulo desempenham um papel crucial na criação de métricas quantitativas que permitem medir a opinião média e as personas dos usuários em relação a diferentes tipos de eventos de zeladoria pública. Além disso, essas heurísticas fornecem uma base sólida para a criação de representações visuais, como o gráfico de radar, que ajudam a visualizar as dinâmicas sociais de forma acessível.
 
@@ -1553,29 +1592,32 @@ Essas visualizações permitem a identificação de padrões de atividade relaci
 
 \subsection{Mobilidade Urbana em Niterói}
 
-A análise dos resultados de pressão social relacionados à mobilidade urbana em Niterói revela uma série de insights sobre as preocupações e percepções da comunidade em relação a esse tema crucial. Através da interpretação das métricas de 'Persona Média' e 'Score Médio', é possível discernir nuances nas atitudes dos cidadãos em relação a diferentes tipos de eventos.
+A análise dos dados de pressão social sobre mobilidade urbana em Niterói revela insights valiosos sobre as percepções dos cidadãos em relação a esse tema. Podemos notar uma divisão entre "complainers" e "helpers" em relação a diferentes eventos, refletindo as atitudes da comunidade.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/heatmap_niteroi.PNG}
 	\caption{Heatmap de Pressão Social para Mobilidade Urbana em Niterói}
 	\label{fig:heatmap_niteroi}
-\end{figure}
-
-Primeiramente, é importante destacar a presença de eventos com uma persona média predominantemente \textit{complainer}. Isso sugere que há uma parcela da comunidade que expressa críticas e insatisfações em relação a certos aspectos da mobilidade urbana em Niterói. Um exemplo notável é o evento 'Estabelecimento com condição sanitária irregular', que apresenta uma persona média predominantemente \textit{complainer} e um score médio elevado. Isso indica que a comunidade está particularmente insatisfeita com a condição sanitária de alguns estabelecimentos na cidade, o que pode estar relacionado à mobilidade urbana, uma vez que essas condições podem afetar diretamente a experiência dos cidadãos ao utilizar os serviços públicos e privados.
-
-Por outro lado, também existem eventos com uma persona média predominantemente \textit{helper}. Um exemplo é o evento 'Ponto de infração de trânsito recorrente', que possui uma persona média majoritariamente \textit{helper} e um score médio elevado. Isso sugere que, apesar das infrações de trânsito serem uma preocupação, a comunidade demonstra disposição para colaborar e apoiar a melhoria da situação, talvez através da denúncia dessas infrações e da promoção de um ambiente de trânsito mais seguro.
-
-No que diz respeito aos eventos mais populares, 'Buraco nas vias' e 'Ponto de infração de trânsito recorrente' lideram a lista. Esses eventos estão intimamente ligados à infraestrutura viária e à segurança no trânsito, o que é consistente com as preocupações típicas de mobilidade urbana. A alta contagem de eventos nessas categorias reflete a importância dessas questões na mente dos cidadãos de Niterói, destacando a necessidade de investimentos e melhorias na malha viária da cidade.
-
-Além disso, é relevante observar a presença de eventos relacionados à acessibilidade, como 'Rampa de acessibilidade irregular ou inexistente' e 'Estabelecimento com acessibilidade irregular'. Embora esses eventos também apresentem persona média predominantemente \textit{complainer}, eles apontam para desafios significativos em termos de acessibilidade na cidade, o que pode afetar diretamente a mobilidade de pessoas com deficiência e idosos. Isso ressalta a importância de políticas e ações que visem aprimorar a acessibilidade urbana.
+\end{quadro}
 
 \begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/wordcloud_niteroi.png}
+	\caption{Palavras mais frequentes nas postagens de Niterói}
+	\label{fig:wordcloud_niteroi}
+\end{figure}
+
+Eventos com uma persona predominantemente \textit{complainer} indicam insatisfações, como o caso do evento relacionado à condição sanitária irregular de estabelecimentos na cidade. Por outro lado, eventos com uma persona predominantemente \textit{helper}, como aqueles relacionados a infrações de trânsito, demonstram a disposição da comunidade em colaborar para melhorar a situação.
+
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_niteroi.png}
 	\caption{social barometer niteroi}
 	\label{fig:social_barometer_niteroi}
-\end{figure}
+\end{quadro}
+
+Os eventos mais populares, como buracos nas vias, refletem a importância da infraestrutura viária e segurança no trânsito para os cidadãos de Niterói. A presença de eventos relacionados à acessibilidade também destaca desafios significativos nessa área, chamando a atenção para a necessidade de políticas que melhorem a acessibilidade urbana.
 
 \begin{table}[htbp]
 	\centering
@@ -1628,50 +1670,30 @@ Além disso, é relevante observar a presença de eventos relacionados à acessi
 	\end{tabular}
 \end{table}
 
-Por fim, as métricas de pressão social também revelam eventos com sentimentos positivos e negativos. Por exemplo, eventos relacionados à poluição sonora e falta de energia tendem a ter uma persona média predominantemente \textit{complainer}, refletindo a insatisfação da comunidade com esses problemas. Por outro lado, eventos como 'Plantar uma árvore / Arborização' têm uma persona média predominantemente \textit{helper}, indicando um desejo de envolvimento na melhoria do ambiente urbano.
+Além disso, os dados revelam sentimentos positivos e negativos relacionados a diferentes eventos, com a comunidade expressando insatisfação em relação à poluição sonora e falta de energia, enquanto demonstra apoio a iniciativas de arborização.
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/wordcloud_niteroi.png}
-	\caption{Palavras mais frequentes nas postagens de Niterói}
-	\label{fig:wordcloud_niteroi}
-\end{figure}
+Para os administradores da cidade, esses insights podem informar políticas públicas eficazes. Eles podem priorizar a regulamentação de estabelecimentos com condições sanitárias precárias, promover campanhas de conscientização sobre as leis de trânsito e investir na manutenção viária. Além disso, medidas para melhorar a acessibilidade e reduzir a poluição sonora podem ser implementadas com base nos dados coletados.
 
-No contexto da malha urbana e viária de Niterói, esses resultados destacam a necessidade de um planejamento urbano abrangente que leve em consideração as preocupações e percepções da comunidade em relação à mobilidade. A presença de eventos com persona predominantemente \textit{complainer} em questões como infração de trânsito e condições sanitárias irregulares indica a importância de medidas de fiscalização e regulamentação para melhorar a segurança e a qualidade dos serviços urbanos. Por outro lado, a disposição da comunidade em denunciar infrações de trânsito sugere a necessidade de promover uma cultura de cumprimento das leis de trânsito.
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/network_niteroi_personas_map.png}
-	\caption{Rede de eventos populares relacionados a mobilidade urbana em Niterói}
-	\label{fig:network_niteroi_personas_map}
-\end{figure}
-
-Em relação à infraestrutura viária, a alta contagem de eventos relacionados a buracos nas vias aponta para a urgência de investimentos em manutenção e reparo da malha viária. Além disso, a presença de eventos relacionados à acessibilidade destaca a importância de tornar a cidade mais inclusiva para todos os cidadãos, incluindo pessoas com mobilidade reduzida.
-
-Em resumo, as métricas de pressão social relacionadas à mobilidade urbana em Niterói oferecem uma visão valiosa das percepções e preocupações da comunidade. Esses insights podem ser utilizados pelas autoridades locais e organizações envolvidas na gestão urbana para direcionar seus esforços e políticas de maneira mais eficaz, promovendo uma mobilidade urbana mais segura, acessível e eficiente para todos os cidadãos.
+Em resumo, essas métricas de pressão social podem orientar as autoridades locais na criação de políticas públicas que promovam uma mobilidade urbana mais segura, acessível e eficiente em Niterói, atendendo às necessidades e preocupações da comunidade.
 
 \subsection{Meio Ambiente em Mesquita}
-A análise dos resultados da pressão social relacionados ao tópico de meio ambiente em Mesquita revela uma série de insights importantes sobre as preocupações e percepções da comunidade local em relação a questões ambientais. Neste contexto, os eventos selecionados para análise incluem uma variedade de problemas ambientais, como descarte irregular de lixo, poluição do ar, desmatamento, entre outros. Através da interpretação das métricas de pressão social, é possível identificar tendências, polarizações e opiniões da comunidade em relação a esses problemas ambientais.
+A análise dos dados sobre o meio ambiente em Mesquita revela informações cruciais sobre as preocupações e percepções da comunidade local. Diferentes eventos, como descarte irregular de lixo, poluição do ar e desmatamento, foram analisados para identificar tendências e opiniões da comunidade. Alguns eventos são relatados de maneira crítica e negativa, enquanto outros são vistos de forma mais positiva.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/heatmap_mesquita.PNG}
 	\caption{Heatmap de Pressão Social para Meio Ambiente em Mesquita}
 	\label{fig:heatmap_mesquita}
-\end{figure}
+\end{quadro}
 
-Alguns eventos, como 'Descarte irregular de lixo' e 'Ponto de queimada irregular recorrente', apresentam uma persona média predominantemente \textit{complainer}, indicando que a comunidade está inclinada a relatar esses problemas com uma perspectiva crítica e negativa. Esses eventos também têm scores médios negativos, o que corrobora a percepção negativa em relação a esses problemas ambientais.
+Eventos como 'Descarte irregular de lixo' e 'Ponto de queimada irregular recorrente' têm uma perspectiva predominantemente negativa e pontuações negativas. Por outro lado, eventos como 'Limpeza de Canais' e 'Poda de árvore' são relatados de maneira mais positiva, com pontuações positivas. A análise dos eventos mais frequentes mostra que 'Descarte irregular de lixo' e 'Ponto de queimada irregular recorrente' são as principais fontes de insatisfação na comunidade.
 
-Por outro lado, eventos como 'Limpeza de Canais' e 'Poda de árvore' têm personas predominantemente \textit{helper} sugerindo que a comunidade está mais inclinada a relatar esses eventos de maneira positiva, possivelmente apoiando ações para a limpeza de canais e a poda de árvores. Esses eventos também têm scores médios positivos, refletindo uma visão mais favorável por parte da comunidade.
-
-A análise dos eventos mais populares relacionados ao meio ambiente em Mesquita proporciona uma visão clara das principais preocupações da comunidade local. Dentre os eventos mais frequentes, destacam-se problemas como 'Descarte irregular de lixo' e 'Ponto de queimada irregular recorrente', ambos com uma persona média \textit{complainer} e scores médios negativos. Isso sugere que a questão do descarte inadequado de resíduos sólidos e a ocorrência de queimadas irregulares são fontes significativas de insatisfação e preocupação na comunidade.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_mesquita.png}
 	\caption{social barometer mesquita}
 	\label{fig:social_barometer_mesquita}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -1724,14 +1746,6 @@ A análise dos eventos mais populares relacionados ao meio ambiente em Mesquita 
 	\end{tabular}
 \end{table}
 
-Outro evento frequente é 'Poda de árvore', que, como mencionado anteriormente, possui uma persona predominantemente \textit{helper} e um score médio positivo. Isso pode indicar que a comunidade valoriza e apoia ações de poda de árvores, possivelmente reconhecendo a importância da manutenção da vegetação urbana.
-
-As métricas de pressão social relacionadas ao meio ambiente em Mesquita refletem a opinião da comunidade sobre questões ambientais. A presença de eventos com personas predominantemente \textit{complainer} e scores médios negativos indica que há preocupações significativas em relação ao meio ambiente na região. A negatividade nas avaliações sugere que muitos membros da comunidade estão insatisfeitos com a situação ambiental e estão relatando problemas de maneira crítica.
-
-Por outro lado, a presença de eventos com personas predominantemente \textit{helper} e scores médios positivos demonstra que também há apoio e reconhecimento de esforços positivos relacionados ao meio ambiente. Isso sugere que parte da comunidade está engajada em ações de preservação ambiental e tem uma visão mais otimista em relação a essas questões.
-
-As palavras-chave associadas aos eventos selecionados também oferecem insights sobre as preocupações da comunidade em relação ao meio ambiente. Palavras como 'descarte irregular de lixo' 'poluição' 'desmatamento' e 'queimadas' refletem as preocupações relacionadas à degradação ambiental, resíduos sólidos e degradação da vegetação.
-
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/wordcloud_mesquita.png}
@@ -1739,37 +1753,27 @@ As palavras-chave associadas aos eventos selecionados também oferecem insights 
 	\label{fig:wordcloud_mesquita}
 \end{figure}
 
-É interessante notar que palavras como 'limpeza de canais' 'poda de árvore' e 'conservação (via pública)' também estão presentes, indicando que a comunidade reconhece a importância da limpeza de canais, manutenção de árvores e conservação da via pública como medidas positivas para proteger o meio ambiente.
-
-A análise da pressão social relacionada ao meio ambiente em Mesquita revela uma diversidade notável de perspectivas e preocupações dentro da comunidade. Enquanto alguns eventos são relatados com uma perspectiva crítica e negativa, outros são percebidos de maneira mais otimista, refletindo uma clara polarização de opiniões.
-
-As métricas de pressão social, incluindo persona média e score médio, oferecem uma visão abrangente das percepções da comunidade em relação a questões ambientais. Esses dados podem ser extremamente valiosos para as autoridades locais e organizações ambientais, uma vez que permitem direcionar de maneira mais eficaz seus esforços e políticas para abordar as preocupações específicas da comunidade.
-
-Essa análise também ressalta a importância fundamental de envolver ativamente a comunidade na proteção e preservação ambiental. Reconhecer e responder às suas preocupações, promovendo ações direcionadas para melhorar a qualidade de vida e a sustentabilidade ambiental na região, torna-se uma prioridade evidente a partir dessas percepções variadas.
+Esses dados podem ser usados pelos administradores da cidade para informar políticas públicas relacionadas ao meio ambiente. Eles destacam a necessidade de abordar o descarte inadequado de resíduos sólidos e a ocorrência de queimadas irregulares como prioridades. Além disso, a comunidade demonstra apoio a ações como a poda de árvores e a conservação da via pública, indicando áreas onde investimentos e esforços positivos podem ser direcionados para melhorar a qualidade de vida e a sustentabilidade ambiental na região. A diversidade de perspectivas ressalta a importância de envolver ativamente a comunidade na proteção e preservação ambiental.
 
 \subsection{Saúde Pública em Santo André}
 
-A análise da pressão social relacionada à saúde pública em Santo André revela uma série de percepções e preocupações diversas na comunidade. Os eventos relatados abrangem uma ampla gama de questões, desde infraestrutura inadequada até problemas de higiene e segurança, refletindo a complexidade dessas preocupações. Ao examinarmos as métricas de pressão social podemos obter insights valiosos sobre como a comunidade percebe essas questões de saúde pública. É importante notar que essas métricas variam amplamente entre os diferentes tipos de eventos, indicando uma diversidade de opiniões e sentimentos.
+A análise da pressão social relacionada à saúde pública em Santo André revela uma série de percepções e preocupações diversas na comunidade. Os eventos relatados abrangem uma ampla gama de questões, desde infraestrutura inadequada até problemas de higiene e segurança, refletindo a complexidade dessas preocupações. Ao examinar as métricas de pressão social, podemos obter insights valiosos sobre como a comunidade percebe essas questões de saúde pública.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/heatmap_santo_andre.PNG}
 	\caption{Heatmap de Pressão Social para Saúde Pública em Santo André}
 	\label{fig:heatmap_santo_andre}
-\end{figure}
+\end{quadro}
 
-Alguns eventos, como 'Coleta de container' e 'Limpeza de área pública', apresentam uma persona média predominantemente \textit{helper} e um score médio negativo. Isso sugere que esses eventos estão associados a preocupações legítimas da comunidade em relação à falta de serviços e manutenção adequados na cidade. A alta pontuação negativa no score médio indica um forte descontentamento em relação a esses problemas.
+Alguns eventos, como 'Coleta de container' e 'Limpeza de área pública', estão associados a preocupações legítimas da comunidade em relação à falta de serviços e manutenção adequados na cidade. Por outro lado, eventos como 'Falta de água' são percebidos como situações que requerem intervenção positiva para resolver o problema. No entanto, também existem eventos com críticas significativas em relação à infraestrutura de saúde e à conformidade com regulamentos, indicando uma insatisfação com essas áreas.
 
-Por outro lado, eventos como 'Falta de água' têm uma persona média \textit{helper} e um score médio positivo, o que indica que a comunidade percebe esses eventos como situações em que a ajuda e a intervenção positiva são necessárias para resolver o problema da falta de água.
-
-No entanto, também existem eventos com persona média \textit{complainer} e score médio negativo, como 'Infraestrura do Equipamento da Saúde' e 'Estabelecimento sem alvará'. Isso sugere que a comunidade está expressando críticas significativas em relação à infraestrutura de saúde e à conformidade com regulamentos, indicando uma insatisfação com essas áreas. A análise desses dados indica que a comunidade de Santo André tem uma visão polarizada sobre questões de saúde pública. Alguns eventos são percebidos como problemas sérios que exigem ação imediata, enquanto outros são vistos de maneira mais positiva, sugerindo um reconhecimento de oportunidades de melhoria. Essa diversidade de perspectivas destaca a complexidade da saúde pública como um tópico de pressão social.
-
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/social_barometer_santo_andre.png}
 	\caption{social barometer santo andré}
 	\label{fig:social_barometer_santo_andre}
-\end{figure}
+\end{quadro}
 
 \begin{table}[htbp]
 	\centering
@@ -1822,18 +1826,14 @@ No entanto, também existem eventos com persona média \textit{complainer} e sco
 	\end{tabular}
 \end{table}
 
-No contexto da pandemia de COVID-19, os eventos mais populares ganham ainda mais relevância e urgência. 'Lixo' e 'Aglomeração de pessoas' emergem como líderes dessa lista, refletindo a forte ligação entre esses eventos e as preocupações essenciais relacionadas à saúde, higiene e segurança da comunidade, especialmente em tempos de crise sanitária. É notável que a categoria 'Aglomeração de pessoas' apresente uma persona média predominantemente \textit{helper}, sinalizando a disposição da comunidade para colaborar e se apoiar mutuamente na abordagem dessa preocupação crítica. No entanto, é importante observar que, apesar desse desejo de cooperação, esses eventos ainda mantêm um score médio elevado, o que evidencia a expressão de preocupações substanciais em relação à aglomeração, especialmente à luz das medidas de distanciamento social e precauções necessárias durante a pandemia.
+No contexto da pandemia de COVID-19, os eventos mais populares, como 'Lixo' e 'Aglomeração de pessoas', ganham ainda mais relevância e urgência. 'Aglomeração de pessoas' reflete a disposição da comunidade para colaborar, mas ainda há preocupações substanciais em relação à aglomeração. 'Lixo' apresenta uma mistura de percepções positivas e críticas, indicando a necessidade de melhorias na gestão de resíduos.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/network_santo_andre_personas_map.png}
 	\caption{Rede de eventos populares relacionados a Saúde Pública em Santo André}
 	\label{fig:network_santo_andre_personas_map}
-\end{figure}
-
-Por outro lado, eventos relacionados a 'Lixo' têm uma persona média mais equilibrada entre \textit{helper} e \textit{complainer}, indicando uma mistura de percepções positivas e críticas. O score médio negativo nesses eventos reflete as preocupações da comunidade com o descarte irregular de lixo e a necessidade de melhorias na gestão de resíduos.
-
-Em relação aos eventos mais populares, aqueles relacionados a 'Lixo' e 'Aglomeração de pessoas' lideram a lista. Esses eventos estão intimamente ligados às preocupações relacionadas à higiene, saúde e segurança da comunidade. A alta contagem de eventos nessas categorias reflete a importância dessas questões na mente dos cidadãos de Santo André. 'Aglomeração de pessoas' têm uma persona média predominantemente \textit{helper}, o que indica um desejo de colaboração e apoio mútuo para lidar com essa preocupação. No entanto, esses eventos também têm um score médio alto, sugerindo que a comunidade está expressando preocupações significativas em relação à aglomeração.
+\end{quadro}
 
 \begin{figure}[htb]
 	\centering
@@ -1842,7 +1842,7 @@ Em relação aos eventos mais populares, aqueles relacionados a 'Lixo' e 'Aglome
 	\label{fig:wordcloud_santo_andre}
 \end{figure}
 
-Em resumo, os dados refletem a complexidade da saúde pública em Santo André, com a comunidade demonstrando uma consciência aguçada das questões que afetam seu bem-estar. As reclamações estão concentradas em áreas críticas, e o diálogo positivo em alguns eventos indica um desejo de cooperação para resolver esses problemas. No entanto, a necessidade de ações eficazes por parte das autoridades e organizações responsáveis é evidente, considerando as preocupações legítimas da comunidade em relação à saúde pública na região.
+Em resumo, os dados refletem a complexidade da saúde pública em Santo André, com a comunidade demonstrando uma consciência aguçada das questões que afetam seu bem-estar. As reclamações estão concentradas em áreas críticas, e o diálogo positivo em alguns eventos indica um desejo de cooperação para resolver esses problemas. Para os administradores das cidades, esses dados podem ser usados para informar políticas públicas relacionadas à saúde pública, identificando áreas de foco e necessidades específicas da comunidade.
 
 \section{Trabalhos Futuros}
 

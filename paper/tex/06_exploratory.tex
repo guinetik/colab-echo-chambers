@@ -223,7 +223,7 @@ Ao configurar a aparência da visualização do Gephi, focamos em destacar as co
 	\caption{Rede do Colab destacando comunidades}
 	\label{fig:colab_communities}
 	\centering
-	\includegraphics[scale=0.25]{images/colab-communities.png}
+	\includegraphics[width=0.99\textwidth]{images/colab-communities.png}
 	\fautor
 \end{figure}
 
@@ -231,13 +231,13 @@ Pesquisas mostram que visualizar comunidades dentro de uma rede pode ajudar a id
 
 Em resumo, visualizar um conjunto de dados do Gephi focando em comunidades pode fornecer insights valiosos sobre a estrutura de redes complexas e auxiliar na detecção de potenciais câmaras de eco. Ao usar codificação de cores e tamanho para destacar comunidades, podemos identificar rapidamente subgrupos dentro da rede e compreender melhor como eles interagem entre si. Essa abordagem é apoiada pelo trabalho de \citeonline{2010_Fortunato} e pode ser usada para obter insights sobre o comportamento de redes sociais e possíveis fontes de polarização.
 
-\begin{figure}[!hbtp]
+\begin{quadro}[!hbtp]
 	\caption{Distribuição geográfica das comunidades da rede do Colab sobreposto ao mapa do Brasil}
 	\label{fig:colab_geoclusters}
 	\centering
 	\includegraphics[scale=0.2]{images/colab-geocluster.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 A Figura \ref{fig:colab_geoclusters} apresenta a rede do Colab sobreposta a um mapa do Brasil, utilizando o GeoLayout do Gephi. Cada nó é colorido de acordo com o agrupamento de Louvain, e é notável que nós geograficamente próximos tendem a pertencer ao mesmo cluster. Isso sugere uma forte relação entre proximidade geográfica e formação de comunidades, reforçando o conceito de homofilia. Esta visualização também destaca as principais concentrações urbanas, permitindo uma análise mais aprofundada das dinâmicas sociais e potenciais câmaras de eco em diferentes regiões do país.
 
@@ -450,7 +450,7 @@ A visualização em 3D oferece vários benefícios. Primeiramente, ela permite u
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{images/3d_plot_example.png}
+\includegraphics[width=0.99\textwidth]{images/3d_plot_example.png}
 \caption{Exemplo de visualização da rede em 3D utilizando a classe \texttt{NetworkPlotter3D}. A densidade da rede pode causar o fenomeno de hairball, dificultando a interpretação.}
 \label{fig:3d_plot_example}
 \fautor
@@ -486,13 +486,13 @@ A distribuição dos nós por classes de modularidade é igualmente esclarecedor
 
 Outro insight notável provém da análise da centralidade dos usuários. Observamos que 21.04\% dos usuários têm um grau de entrada (in-degree) de 1, o que pode indicar uma forte presença de usuários periféricos na rede. Esses usuários com baixa centralidade podem ser elementos cruciais na disseminação de informações em câmaras de eco, uma vez que podem atuar como pontes entre comunidades ou grupos de interesse. Portanto, a análise de centralidade nos permite identificar não apenas os atores centrais, mas também aqueles que desempenham papéis de ligação essenciais. Com relação à centralidade de eigenvector, outra métrica crucial em nossa análise, observamos uma diversidade de valores que indicam diferentes níveis de influência dos nós na rede. Cerca de 10.23\% dos nós apresentam uma centralidade de eigenvector de 0.0, o que sugere que eles podem ter uma influência significativa na rede. Esses nós podem atuar como pontos de referência para a disseminação de informações, contribuindo para a formação de câmaras de eco. Além disso, os valores variados de centralidade de eigenvector, refletem a complexidade das interações na rede. A identificação desses nós com diferentes níveis de centralidade é fundamental para entender como a informação flui e como as câmaras de eco podem se formar e evoluir em diferentes partes da rede. Essa análise de centralidade de eigenvector complementa nossa compreensão das dinâmicas da rede, fornecendo informações adicionais sobre os atores-chave que desempenham papéis significativos na formação das câmaras de eco.
 
-\begin{figure}[h]
+\begin{quadro}[h]
     \centering
     \includegraphics[scale=0.6]{images/eigencentrality.png}
     \caption{Distribuição da centralidade de eigenvector dos nós da rede.}
     \label{fig:eigencentrality}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Analisando a demografia dos usuários, identificamos uma distribuição de gênero que favorece ligeiramente o sexo masculino, com 58.41\%, em comparação com 40.64\% de mulheres. Isso pode ter implicações na formação de câmaras de eco, uma vez que a composição demográfica influencia a dinâmica da comunicação e das crenças. Além disso, a predominância de usuários com formação de superior (54.3\%) sugere que essa rede pode estar focada em debates acadêmicos ou tópicos de maior complexidade. Essa informação é vital para entender o contexto das câmaras de eco, pois a educação desempenha um papel significativo na formação de opiniões e crenças.
 

@@ -4,6 +4,21 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 
 This file documents the changes made to the paper.
 
+## [5.0.0] - 2023-11-13
+
+### Added
+
+- New sections on hyper-reality
+- New Images with posts from the app
+
+### Fixed
+
+- Text revision
+
+### Changed
+
+- Added section on hyper-reality to the conclusions
+
 ## [5.0.0] - 2023-11-09
 
 ### Added

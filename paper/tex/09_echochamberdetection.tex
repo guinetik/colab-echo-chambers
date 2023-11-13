@@ -294,13 +294,13 @@ No início do processo, definimos a fórmula do modelo, que especifica quais car
 
 Após desenvolver o modelo baseado em $ERGM$, realizamos uma série de experimentos para avaliar sua adequação e desempenho. Primeiro, executamos o modelo em nossa rede social colaborativa do Colab, usando o conjunto de dados completo com 10.000 vértices. Em seguida, executamos o modelo em uma série de redes simuladas, geradas a partir do conjunto de dados original. Por fim, comparamos os resultados do modelo com os dados observados e as redes simuladas, avaliando a adequação do modelo e a qualidade de ajuste. A Figura \ref{fig:ergm_diagnostics} mostra os resultados do diagnóstico do modelo, que inclui a comparação entre os dados observados e as redes simuladas, bem como a distribuição dos parâmetros estimados. A comparação entre os dados observados e as redes simuladas mostra que o modelo se ajusta bem aos dados, pois a rede observada está dentro do intervalo de confiança de 85\% das redes simuladas. Além disso, a distribuição dos parâmetros estimados mostra que todos os parâmetros são significativos, pois seus valores estão fora do intervalo de confiança dos parâmetros simulados. Esses resultados indicam que o modelo é adequado para representar a estrutura da rede social do Colab.
 
-\begin{figure}[!htb]
+\begin{quadro}[!htb]
 	\caption{Diagnóstico do modelo $ERGM$}
 	\label{fig:ergm_diagnostics}
 	\centering
 	\includegraphics[scale=0.5]{images/ergm_diagnostics.png}
 	\fautor
-\end{figure}
+\end{quadro}
 
 Após a convergência do modelo, adotamos uma abordagem baseada em simulação para avaliar a capacidade do modelo $ERGM$ em gerar redes que mimetizassem a estrutura da rede social do Colab. Usando o código em R, geramos vários "edgelists" de redes aleatórias. Estas redes simuladas não apenas representaram conexões entre usuários, mas também incorporaram eventos aleatórios, como curtidas e votos, indicadores de engajamento; e comentários, indicadores de diálogo; em diferentes tipos de eventos relacionados de zeladoria pública. Essa simulação foi essencial para entender o comportamento dinâmico dos usuários na plataforma. Por exemplo, é comum em redes sociais que usuários interajam mais frequentemente com postagens que são relevantes para suas próprias crenças ou interesses em sua proximidade geográfica. Ao introduzir eventos aleatórios, buscamos replicar esse comportamento com o objetivo de que as redes simuladas se assemelhassem, tanto quanto possível, à rede real do Colab.
 
@@ -576,12 +576,12 @@ A comunidade 225, embora tenha um índice de câmara de eco ligeiramente menor d
 
 Ao analisar as comunidades sob a perspectiva da pressão social, observa-se uma paisagem diversificada de opiniões e comportamentos cívicos, como refletido pelas métricas de persona e score de sentimento associados a eventos de zeladoria pública. Esta análise revela não apenas as preocupações prementes dos cidadãos, mas também as disposições emocionais e atitudes que estes possuem em relação a variados aspectos da gestão urbana. Através da interpretação dessas métricas, pode-se desenhar um panorama das dinâmicas comunitárias e a polarização existente nos tópicos abordados.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/echo_chambers_santo_andre_social_pressure.png}
 	\caption{Pressão Social nas Comunidades identificadas como câmara de eco em Santo André}
 	\label{fig:echo_chambers_santo_andre_social_pressure}
-\end{figure}
+\end{quadro}
 
 A Comunidade 233, a qual manifesta uma inclinação para a persona \textit{helper}, como visto na atividades relacionadas à poda de árvores, com um score de sentimento ligeiramente positivo, reflete um envolvimento comunitário construtivo. A poda de árvores, embora possa parecer trivial, desempenha um papel crucial na manutenção da infraestrutura urbana e na prevenção de danos potenciais, sugerindo que os usuários dessa comunidade estão ativamente engajados em manter a ordem e estética de seu ambiente, além de prevenir problemas maiores.
 
@@ -591,12 +591,12 @@ A Comunidade 160, emerge um mosaico mais complexo de reações cívicas. Aqui, e
 
 A Comunidade 207 também demonstra uma preocupação com a ordem social e saúde pública, como visto na reação a eventos como comércio aberto irregularmente durante a pandemia e aglomeração de pessoas, ambos com scores de sentimento negativos e uma persona unânime de \textit{complainer}. Tais dados sugerem uma vigilância ativa e uma disposição para denunciar comportamentos considerados irresponsáveis ou perigosos durante um período de crise de saúde pública.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/echo_chamber_santo_andre_heatmap.PNG}
 	\caption{Heatmap de Pressão Social nas Comunidades identificadas como câmara de eco em Santo André}
 	\label{fig:echo_chamber_santo_andre_heatmap}
-\end{figure}
+\end{quadro}
 
 Estes insights revelam que, enquanto alguns tópicos suscitam uma abordagem colaborativa e proativa por parte dos usuários, outros provocam uma resposta crítica e demandam por mudanças mais estruturais, as quais podem estar além do escopo de ação direta dos cidadãos. A presença de personas predominantemente de \textit{complainer} em eventos que refletem falhas graves de infraestrutura ou riscos à saúde pública aponta para uma comunidade que não apenas reconhece estes problemas, mas também os vê como inaceitáveis e passíveis de crítica aberta.
 
@@ -945,12 +945,12 @@ O $ECC$ tem um valor de 0.271, que está em concordância com a homogeneidade da
 
 Ao análisar a comunidade 515 de Niterói com as heurísticas de pressão social descritas no capítulo anterior, algumas particularidades interessantes são reveladas, que podem ajudar a entender por que essa foi a única câmara de eco identificada. A comunidade consiste em um grupo relativamente pequeno, com apenas 8 membros. Essa pequena dimensão pode contribuir para a formação de uma câmara de eco, pois a interação limitada com perspectivas externas pode levar a uma maior homogeneidade de opiniões.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/niteroi_community_515.png}
 	\caption{Gráfico de radar ilustrando as métricas de pressão social da Comunidade 515 de Niterói}
 	\label{fig:niteroi_community_515}
-\end{figure}
+\end{quadro}
 
 Considerando aspectos de conteúdo e criação de eventos no Colab, os membros da comunidade criaram um total de 180 eventos, o quedemonstra um alto nível de engajamento e atividade dentro da comunidade. Além disso, os membros da comunidade deram um total de 9.975 likes. Esse número é notavelmente alto em relação ao número de usuários na comunidade, sugerindo que eles têm uma tendência a apoiar e endossar as opiniões e eventos na rede. Foram realizados 256 votos up/down em eventos de outros usuários. A comunidade fez 1.202 comentários em eventos de outros usuários. Esses indicadores de engajamento mostram que os membros da comunidade estão ativamente envolvidos na rede e estão dispostos a se envolver em discussões com membros externos à comunidade.
 
@@ -958,12 +958,12 @@ Os tipos de eventos mais comuns na comunidade 515 estão relacionados a problema
 
 Embora haja um número significativo de eventos criados, eles estão concentrados em alguns tópicos específicos, como problemas de infraestrutura urbana e trânsito. A falta de diversidade de tópicos pode contribuir para a formação de uma câmara de eco, pois os membros da comunidade estão focados em um conjunto limitado de preocupações. Ao analisar os eventos criados pelos membros das comunidades, observamos que um tópico recorrente de discussão parece envolver as dinâmicas de trânsito e estacionamento no centro da cidade. Os usuários demonstram com scores majoritariamente negativos, descontentamento sobre a falta de vagas de estacionamento bem como multas que receberam e consideram injustas, principalmente porque muitas das postagens também denunciam infranções cometidas por outros motoristas e parecem cobrar uma multa do poder público. Além disso, os usuários parecem reclamar da falta de sinalização e de fiscalização por parte da prefeitura, evidenciado pelos eventos criados no tópico Manutenção/implantação de placa de sinalização, com 10 eventos criados.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/echo_chamber_niteroi_heatmap.PNG}
 	\caption{Heatmap ilustrando a distribuição de tópicos na comunidade 515 no mapa de Niterói}
 	\label{fig:echo_chamber_niteroi_heatmap}
-\end{figure}
+\end{quadro}
 
 A comunidade 515 de Niterói se destaca por sua intensa atividade relacionada a problemas e reclamações na infraestrutura urbana, abordando questões como iluminação noturna deficiente, pontos de infração de trânsito recorrentes e condições precárias de vias e calçadas. Essa concentração em tópicos específicos pode ser um fator-chave na identificação dessa comunidade como uma câmara de eco. Além disso, a análise da persona dos usuários revela uma tendência significativa para expressar opiniões negativas e reclamações, o que contribui para a amplificação da polarização. A predominância de postagens com sentimentos negativos dentro da comunidade também intensifica essa polarização. Esses fatores, combinados, contribuem para a identificação da comunidade 515 como uma câmara de eco, onde opiniões similares são amplificadas, resultando em uma polarização acentuada em torno desses problemas específicos.
 
@@ -1011,12 +1011,12 @@ Em Santo André, as quatro comunidades detectadas indicam uma rede moderadamente
 
 As comunidades identificadas como potenciais câmaras de eco oferecem insights valiosos sobre as redes das respectivas cidades. Em Santo André, a diversidade das comunidades sugere um espectro de diálogos e potenciais pontos de vista. Em Niterói, a rede centralizada pode facilitar o acesso a uma gama mais ampla de opiniões, embora isso não isente completamente o risco de polarização. Em Mesquita, a presença de múltiplas comunidades isoladas indica um ambiente propício à formação de opiniões homogêneas, reforçando a necessidade de intervenções para promover a diversidade e o diálogo.
 
-\begin{figure}[htb]
+\begin{quadro}[htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/echo_chamber_strength_by_size.png}
 	\caption{Relação entre o tamanho das comunidades e a $FCE$}
 	\label{fig:echo_chamber_strength_by_size}
-\end{figure}
+\end{quadro}
 
 É importante notar que devido ao tamanho das comunidades identificadas como câmaras de eco em potencial, bem como a quantidade limitada de postagens disponíveis para análise cujo o autor faz parte dessas comundiades é bem menor em comparação com algumas comunidades maiores com usuários mais antigos da rede. Essa limitação pode ter afetado a precisão das métricas de pressão social e polaridade, especialmente em Mesquita, onde a maioria das comunidades identificadas era pequena, entre 3 a 5 membros. Porém, é importante notar que, o tamanho médio das comunidades em Mesquita é de 5.78 membros, portanto a média de membro das comunidades identificadas como câmaras de eco está dentro da média de comunidades de todas as cidades, exceto Niterói. No entanto, a análise de sentimentos e a classificação de personas foram realizadas em toda a rede, o que nos permite inferir com segurança que as comunidades não identificadas como câmaras de eco não apresentam características que as tornem suscetíveis a esse fenômeno, mesmo com uma grande quantidade de dados disponíveis para essas comunidades.
 
