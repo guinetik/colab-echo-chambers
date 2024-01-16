@@ -1,44 +1,4 @@
-A análise de sentimento é uma técnica de processamento de linguagem natural que envolve a identificação e extração de informações subjetivas a partir de dados textuais. Esse processo pode ser usado para identificar a polaridade, ou tom emocional, de um determinado texto, o que pode ser útil em várias aplicações, como pesquisa de mercado e análise de mídias sociais \cite{2008_Pang}. Pesquisas anteriores demonstraram a utilidade da análise de sentimento em diversos domínios, incluindo política, negócios e saúde \cite{2016_Chen_IP}.
-
-Técnicas de aprendizado de máquina podem ser usadas para automatizar o processo de análise de sentimento. Essas técnicas envolvem o treinamento de um modelo de aprendizado de máquina em um conjunto de dados rotulados, onde os rótulos indicam a polaridade dos dados textuais. Uma vez treinado, o modelo pode ser usado para prever a polaridade de novos dados textuais que não foram vistos anteriormente. Algoritmos de aprendizado de máquina comumente usados para análise de sentimento incluem regressão logística, máquinas de vetor de suporte e redes neurais \cite{2013_Haddi}.
-
 Neste capítulo, abordamos a análise de sentimento como uma ferramenta poderosa no contexto do processamento de linguagem natural, focando especialmente nas postagens do Colab. Exploramos como técnicas de aprendizado de máquina, particularmente com o uso do Natural Language Toolkit (NLTK), podem ser empregadas para automatizar e aprimorar a análise de sentimentos. Além disso, discutimos a relevância de identificar diferentes "personas" de usuários, como os \textit{helpers} e \textit{complainers}, e como essa distinção pode influenciar a dinâmica e a polarização dentro de uma plataforma de mídia social. Finalmente, abordamos a relação entre análise de sentimento, polarização e a formação de câmaras de eco, destacando a importância de entender e mitigar esses fenômenos em ambientes digitais.
-
-\section{Processamento de linguagem natural e Análise de sentimento}
-
-A análise de sentimento, um pilar do processamento de linguagem natural (PLN), é fundamental para decifrar o conteúdo emocional e as opiniões expressas em textos. Ao aplicar essa técnica em contextos variados, de estudos de mercado a análises de redes sociais, pesquisadores podem extrair tendências e padrões valiosos a partir de dados textuais \cite{2008_Pang, 2015_Nguyen}.
-
-Em nosso estudo, exploramos a capacidade do Natural Language Toolkit (NLTK), uma biblioteca de PLN para Python, para conduzir uma análise de sentimento automatizada. O NLTK disponibiliza ferramentas como classificadores, léxicos e algoritmos de processamento de texto \cite{2009_Bird_BOOK}. O dicionário léxico VADER, parte do NLTK, é projetado para captar nuances em textos de mídias sociais, incluindo gírias e emojis \cite{2014_Hutto}.
-
-Contudo, o VADER e outros recursos do NLTK têm um enfoque no inglês, o que apresenta um obstáculo quando aplicado a idiomas distintos. Diante da predominância do português em nosso conjunto de dados, recorremos ao LeIA, um léxico adaptado ao português brasileiro, para uma avaliação mais acurada dos sentimentos \cite{2018_Almeida_PAGE}. A combinação do NLTK com o LeIA permitiu uma análise mais refinada, considerando as particularidades do português no conteúdo do Colab.
-
-O processo de análise começa com o pré-processamento dos textos, que inclui tokenização e a remoção de palavras irrelevantes. Cada token é então avaliado segundo o léxico para determinar sua polaridade e, por fim, estabelecer uma pontuação geral para o texto \cite{2013_Haddi}. O uso de técnicas avançadas de PLN, incluindo lematização e algoritmos de aprendizado de máquina como regressão logística e redes neurais, aumenta a precisão da análise \cite{2014_Kim}.
-
-Na plataforma Colab, a análise de sentimento é empregada para identificar padrões de homofilia e polarização. Estudos têm mostrado a viabilidade dessa técnica para inferir posicionamentos políticos e emocionais dos usuários nas mídias sociais \cite{2014_Hutto}. A homofilia, que descreve a tendência de interação entre usuários com opiniões e sentimentos semelhantes, é um indicador de polarização e pode ser mensurada através da análise de sentimento. Esta análise fornece uma métrica quantitativa da polarização e dos temas que catalisam a formação de câmaras de eco.
-
-Considerando a importância da opinião pública em diversos aspectos da sociedade, incorporamos no modelo de dados do Colab métricas de 'score' e 'persona' baseadas nos sentimentos das postagens. O 'score' reflete a valência do sentimento das postagens, enquanto a 'persona' encapsula a tendência comportamental dos usuários. Essas métricas, somadas às ferramentas de PLN adaptadas ao português, permitem uma análise de sentimento contextualizada e relevante para a plataforma \cite{2012_Souza_IP}.
-
-\subsection*{Análise de Sentimento, Homofilia e Polarização}
-
-A análise de sentimento nas redes sociais não apenas ilumina o humor e a opinião dos usuários, mas também serve como uma lente para examinar a homofilia e a polarização dentro dessas comunidades digitais. Homofilia, a propensão para a associação e interação com indivíduos de características similares, pode ser quantificada por meio da análise de sentimento das postagens dos usuários. Por exemplo, usuários cujas postagens e interações são predominantemente positivas tendem a formar subgrupos de homofilia positiva, enquanto aqueles com interações e postagens negativas tendem a se agrupar, potencialmente levando a um aumento da polarização.
-
-Esta tendência é particularmente relevante na detecção de câmaras de eco, onde a homofilia pode se manifestar não apenas em opiniões compartilhadas, mas também no sentimento coletivo. Uma análise detalhada do sentimento expresso nas postagens pode revelar a inclinação emocional de um grupo e, consequentemente, medir sua polarização. Um alto grau de homofilia em sentimento, seja positivo ou negativo, pode indicar a presença de uma câmara de eco, caracterizada pela repetição e reforço de um ponto de vista homogêneo.
-
-Além disso, a análise de sentimento oferece uma maneira de desvendar os temas subjacentes que fomentam a polarização. Ao discernir os sentimentos associados a tópicos específicos, podemos entender quais questões estão no coração das câmaras de eco e como elas influenciam a dinâmica do grupo. Tais insights são cruciais para desenhar estratégias eficazes que promovam o diálogo e a diversidade de pensamento dentro das redes sociais.
-
-A pesquisa de \citeonline{2014_Colleoni}, por exemplo, destaca a aplicabilidade da análise de sentimento na medição da polarização política no Twitter. Evidenciou-se que os usuários são atraídos para comunidades de sentimento similar, o que pode levar à formação de câmaras de eco. A análise de sentimento emergiu, assim, como uma ferramenta estratégica para identificar influenciadores-chave da polarização, possibilitando intervir com perspectivas alternativas e fomentar um espaço mais equilibrado para o discurso público.
-
-No Colab, a Análise de Sentimento é empregada para medir essa homofilia e avaliar a polarização das discussões. Utilizando métricas derivadas da valência dos sentimentos expressos nas postagens, é possível quantificar até que ponto grupos de usuários compartilham uma visão unilateral, potencialmente cedendo à polarização. Essas métricas são vitais para identificar os tópicos que polarizam as conversas e as 'personas' que podem estar contribuindo para esse fenômeno.
-
-A polarização é um indicador significativo do risco de formação de câmaras de eco. Quando um grupo de usuários apresenta predominantemente sentimentos semelhantes em suas postagens, isso sugere uma maior probabilidade de que eles estejam reforçando as crenças um do outro sem a exposição a pontos de vista alternativos. A identificação desses padrões pode ser crucial para o desenvolvimento de intervenções destinadas a promover um ambiente de debate mais balanceado e menos polarizado.
-
-No Colab, a Análise de Sentimento é empregada para medir essa homofilia e avaliar a polarização das discussões. Utilizando métricas derivadas da valência dos sentimentos expressos nas postagens, é possível quantificar até que ponto grupos de usuários compartilham uma visão unilateral, potencialmente cedendo à polarização. Essas métricas são vitais para identificar os tópicos que polarizam as conversas e as 'personas' que podem estar contribuindo para esse fenômeno.
-
-A polarização é um indicador significativo do risco de formação de câmaras de eco. Quando um grupo de usuários apresenta predominantemente sentimentos semelhantes em suas postagens, isso sugere uma maior probabilidade de que eles estejam reforçando as crenças um do outro sem a exposição a pontos de vista alternativos. A identificação desses padrões pode ser crucial para o desenvolvimento de intervenções destinadas a promover um ambiente de debate mais balanceado e menos polarizado.
-
-Ademais, a análise de sentimento oferece insights sobre os conteúdos específicos que estão impulsionando a polarização. Investigando as postagens e os temas mais discutidos, podemos compreender os fatores que contribuem para a manutenção das câmaras de eco. Isso não apenas esclarece a natureza da polarização na rede, mas também fornece um caminho para estratégias que possam facilitar um diálogo mais diverso e inclusivo.
-
-Por fim, o estudo das interações no Colab, com a ajuda da análise de sentimento, destaca a importância de entender as dinâmicas de homofilia e polarização e sua influência na formação de opiniões. Ao incorporar essa compreensão em nossas métricas analíticas, podemos começar a desenhar uma estratégia mais eficaz para combater a polarização e promover um diálogo mais rico e variado, essencial para o bem-estar de qualquer comunidade online.
 
 \section{Análise exploratória de Sentimento}
 
@@ -53,35 +13,6 @@ Com a aplicação dessas técnicas e o uso da linguagem Python, pudemos extrair 
 \subsection{Heurísticas para classificação de postagens por score de sentimento}
 
 No capítulo anterior, realizamos uma análise exploratória da rede, identificando comunidades de usuários e suas interações. Neste contexto, a classificação de postagens por score torna-se uma ferramenta valiosa. Esta métrica categoriza as postagens como positivas, negativas ou neutras com base em seu conteúdo textual, utilizando uma abordagem de pontuação de sentimentos. Cada postagem recebe um score de sentimento que varia de -1 (negativo) a 1 (positivo), com scores próximos a 0 indicando neutralidade. Esta abordagem quantitativa não só nos permite capturar o sentimento geral expresso nas postagens, mas também entender como esses sentimentos se propagam e interagem dentro da rede. Assim, podemos obter insights valiosos sobre a percepção dos usuários em relação a diferentes tópicos e como essa percepção influencia a estrutura e a dinâmica da rede.
-
-Para uma análise mais aprofundada, é crucial preparar adequadamente os dados para a classificação supervisionada de sentimentos. Utilizamos técnicas avançadas de Processamento de Linguagem Natural (PLN) para analisar postagens do Colab. O objetivo é classificar as postagens de forma eficaz, com base em seu conteúdo textual. Para isso, empregamos a biblioteca Spacy para tarefas de PLN e a biblioteca NLTK para tokenização e lematização. Além disso, as bibliotecas pandas e matplotlib são utilizadas para manipulação e visualização de dados, respectivamente. Esta preparação meticulosa dos dados é fundamental para treinar um algoritmo de classificação robusto e preciso. Os próximos parágrafos exploram as heurísticas e técnicas utilizadas para esse modelo de classificação.
-
-\begin{figure}[!htb]
-	\caption{Demonstração do mapa sintático de uma frase utilizando o pacote Stanza para NLP, Deplacy para grafo de dependências e matplotlib para renderização.}
-	\label{fig:lexicon_breakdown}
-	\centering
-	\includegraphics[scale=0.5]{images/lexicon_breakdown.png}
-	\fautor
-\end{figure}
-
-A Análise de sentimentos emprega várias técnicas de \sigla{PLN}{Processamento de Linguagem Natural}, incluindo tokenização, lematização e remoção de palavras irrelevantes ou stop-words. A tokenização consiste em dividir o texto em palavras individuais ou "tokens". Já a lematização visa reduzir as palavras à sua forma base ou raiz, o que ajuda a consolidar diferentes formas da mesma palavra. Por sua vez, a remoção de palavras irrelevantes envolve a eliminação de termos comuns que geralmente não contribuem para o significado de uma frase, como "e", "o" e "em".Além dessas técnicas, a análise de sentimentos também se beneficia do uso de dicionários léxicos pré-existentes. Esses dicionários são valiosos recursos que contêm palavras associadas a valores de polaridade, indicando o sentimento geral de cada termo (positivo, negativo ou neutro).
-
-No contexto da análise de sentimentos, existem vários dicionários léxicos relevantes disponíveis. Esse estudo comparou quatro repositórios bastante populares:
-
-\begin{itemize}
-	\item OpLexicon \cite{2011_Souza_IP}: É um dicionário léxico específico para o idioma português, com mais de 32.000 palavras, cada uma acompanhada de um valor de polaridade associado.
-	\item SenticNet \cite{2016_Cambria_IP}: É dicionário léxico multilíngue que fornece valores de polaridade para palavras com base em sua semântica e psicologia.
-	\item UniLex: Outro dicionário léxico multilíngue que oferece valores de polaridade para palavras com base em uma variedade de recursos linguísticos.
-	\item WordNetAffectBR \cite{2008_Pasqualotti}: Esta é uma versão em português do WordNet-Affect, um dicionário léxico que atribui valores de polaridade às palavras com base em sua associação com diferentes emoções.
-\end{itemize}
-
-Ao utilizar esses dicionários léxicos, podemos comparar as palavras presentes no texto com as entradas nos dicionários para determinar a polaridade de cada uma. Isso nos possibilita obter uma compreensão mais abrangente dos sentimentos expressos no texto, contribuindo para uma análise de sentimentos mais precisa e eficaz. Esses dicionários são ferramentas valiosas no campo da análise de sentimentos, auxiliando na identificação e interpretação das emoções presentes nas palavras utilizadas. Além disso, com base nesses recursos, é possível automatizar e ampliar a análise de sentimentos em textos extensos, como avaliações de produtos, publicações em redes sociais e outros tipos de conteúdo textual.
-
-Durante a comparação da polaridade da frase de teste com os dicionários léxicos, notou-se uma discrepância na normalização dos dicionários Unilex e WordNetAffectBR. Para este experimento, optamos por utilizar apenas o OpLexicon e o SenticNet, devido aos seus scores similares de polaridade e à presença de palavras exclusivas em cada um desses dicionários.
-
-Além disso, realizamos um teste utilizando um \textit{subset} dos dados das postagens do Colab para adequação ao contexto. Durante esse teste, identificamos palavras relevantes que não estavam presentes nos dicionários léxicos originais. Adicionamos manualmente essas palavras ao conjunto de dicionários, atribuindo-lhes scores de -1 a 1 com base na polaridade observada nas postagens do Colab.
-
-Em seguida, realizamos uma análise comparativa para avaliar a eficácia desses dicionários léxicos. Durante essa análise, calculamos a polaridade resultante para cada um dos dicionários, buscando identificar qual deles é mais eficaz na análise de sentimentos no contexto específico das postagens do Colab. Como resultado, obtivemos um amalgama dos dicionários OpLexicon e SenticNet, além do conjunto de palavras que foram adicionadas manualmente. Essas palavras foram normalizadas e incorporadas ao processo de análise.
 
 O processo de análise de sentimento das postagens começa com o carregamento dos dados. Nessa análise, estamos interessados em postagens criadas por usuários das comunidades identificadas na análise do capítulo anterior, nas cidades de Niterói, Santo André e Mesquita. Em seguida, realizamos o pré-processamento do texto, que envolve a remoção de caracteres especiais, conversão para letras minúsculas, tokenização e aplicação de técnicas de stemização para reduzir as palavras às suas formas básicas \cite[]{2009_Bird_BOOK}.
 
@@ -120,35 +51,7 @@ Realizamos uma análise exploratória dos dados para entender melhor as caracter
 	\fautor
 \end{figure}
 
-Durante a análise exploratória, observamos uma tendência intrigante: muitos usuários optavam por se comunicar usando emojis. Em algumas instâncias, os emojis eram usados para complementar o texto, enquanto em outras, eles eram a principal forma de expressão. Isso levantou a questão sobre a polaridade sentimental desses emojis. Para abordar essa questão, recorremos ao dataset de sentimentos de emojis criado por \citeonline{2015_Novak}. Este conjunto de dados oferece uma classificação de sentimentos para emojis comuns, permitindo-nos incorporar essa dimensão em nossa análise.
-
-Além dos emojis, notamos a presença de jargões específicos frequentemente usados pelos usuários do aplicativo. Estes jargões, muitas vezes, carregavam um significado ou conotação que não era imediatamente claro para quem não estava familiarizado com o contexto do aplicativo. Reconhecendo a importância desses jargões na análise de sentimentos, decidimos classificar manualmente a polaridade dos 100 jargões mais comuns encontrados no app. Isso também incluiu a identificação e classificação de nomes de partidos políticos, dada a sua relevância no discurso dos usuários.
-
-Outro aspecto que chamou nossa atenção foi a presença de profanidades nas postagens. A linguagem ofensiva ou abusiva pode ter um impacto significativo na polaridade de uma postagem. Portanto, introduzimos uma etapa adicional em nossa análise para detectar essas profanidades. Ao identificá-las, classificamos essas palavras com uma polaridade negativa, garantindo que sua presença influenciasse adequadamente o score de sentimento da postagem em questão. Com essas etapas adicionais, buscamos uma análise de sentimentos mais robusta e contextualizada, levando em consideração as peculiaridades e nuances do discurso dos usuários no aplicativo.
-
-Na busca por uma análise mais refinada e contextualizada dos sentimentos expressos nas postagens do Colab, decidimos incorporar uma métrica adicional ao nosso estudo: a análise de sentimentos realizada pelo pacote LeIA \cite{2018_Almeida_PAGE}. A inclusão dessa ferramenta visa aprimorar a nossa abordagem ao oferecer uma análise mais nuanceada dos sentimentos expressos nos textos, levando em consideração aspectos como a presença de emojis e a estrutura linguística das frases.
-
-A ferramenta LeIA, desenvolvida especificamente para a língua portuguesa, apresenta uma abordagem que vai além da simples classificação de palavras individuais, oferecendo uma análise sintática e semântica mais profunda dos textos. Através da análise de sentimentos realizada pelo LeIA, obtemos uma pontuação composta (compound) que varia de -1 a +1, indicando o sentimento geral do texto, além de valores percentuais que representam a proporção de sentimentos positivos, negativos e neutros presentes no texto.
-
-Para integrar essa métrica ao nosso estudo, adaptamos nossa função de análise de sentimentos para incluir a análise realizada pelo LeIA. Cada postagem do dataset foi analisada individualmente, gerando scores detalhados que incluem as métricas de positividade, negatividade, neutralidade e a pontuação composta. Esses scores foram então adicionados ao nosso dataset, prefixados com "leia" para indicar sua origem.
-
-A decisão de integrar as métricas provenientes dos dicionários léxicos com as fornecidas pelo LeIA é motivada pela busca de uma análise mais holística e robusta. Enquanto nossos dicionários léxicos oferecem uma vasta base de palavras já classificadas, proporcionando uma análise ampla e generalizada, o LeIA traz uma perspectiva mais detalhada e contextual, capaz de interpretar nuances e particularidades da língua portuguesa, como a influência de emojis e a presença de negações no sentimento expresso. No entanto, é crucial reconhecer que tanto os dicionários léxicos quanto o LeIA podem introduzir seus próprios vieses na análise. Ao combinar essas métricas, aspiramos mitigar esses vieses individuais, buscando uma representação mais neutra e equilibrada dos sentimentos. A métrica composta, nesse contexto, não só permite uma categorização mais fluida dos sentimentos, evitando a rigidez das categorizações binárias, mas também proporciona uma visão mais matizada e imparcial dos dados.
-
-Ao explorar a sinergia entre as métricas tradicionais e a análise realizada pelo LeIA, estamos em busca de respostas para uma questão central: como podemos, através da combinação de diferentes técnicas de análise de sentimentos, alcançar uma representação mais fiel e detalhada dos sentimentos expressos pelos usuários? Acreditamos que essa abordagem multidimensional pode revelar padrões e insights que seriam invisíveis através de uma única métrica. No entanto, é crucial enfatizar que a combinação de métricas apresenta desafios intrínsecos, sobretudo no que tange à calibração e à interpretação dos resultados. A integração das métricas não é uma simples concatenação de valores; ela demanda um processo meticuloso de normalização. Em nosso estudo, realizamos uma normalização dos scores para assegurar que as métricas provenientes de diferentes fontes estivessem em uma escala comum e comparável. Esse processo é fundamental para garantir que a combinação dos scores preserve a integridade e a precisão da análise, permitindo uma interpretação coesa e coerente dos sentimentos expressos nas postagens.
-
-Para validar nossa abordagem, planejamos realizar uma série de testes e análises exploratórias, buscando entender como as métricas combinadas podem oferecer uma visão mais completa e rica dos sentimentos expressos nas postagens do Colab. Através dessa análise multidimensional, aspiramos a desvendar as complexidades do discurso dos usuários, oferecendo insights valiosos para a compreensão das dinâmicas sociais e emocionais presentes na plataforma.
-
-Ao analisar a amostra fornecida, notamos que a combinação de métricas não apenas amplia a perspectiva sobre o sentimento, mas também ajuda a identificar nuances que poderiam ser perdidas se confiássemos em uma única métrica. Por exemplo, enquanto o score derivado dos dicionários léxicos pode capturar a polaridade geral de uma postagem, o leia\_compound do LeIA pode identificar sutilezas, como a influência de emojis ou a presença de negações, que podem alterar significativamente a interpretação do sentimento.
-
-Além disso, observamos que a métrica composta compound\_score oferece uma visão mais equilibrada e matizada do sentimento. Em casos onde o score e o leia\_compound divergem, o compound\_score serve como uma espécie de "árbitro", proporcionando uma avaliação que leva em consideração ambas as perspectivas. Isso é particularmente útil em postagens onde o sentimento é ambíguo ou onde diferentes aspectos da postagem sugerem sentimentos contrastantes.
-
-Outro insight interessante é a maneira como o compound\_score pode ajudar a identificar postagens que são particularmente polarizadas ou que geram sentimentos mistos. Postagens com compound\_scores próximos de zero, por exemplo, podem indicar postagens que contêm elementos tanto positivos quanto negativos, sugerindo que elas são mais complexas e merecem uma análise mais aprofundada.
-
-Além disso, ao combinar métricas, também estamos abordando potenciais vieses inerentes a cada abordagem individual. Enquanto os dicionários léxicos podem ter suas próprias limitações e preconceitos, o LeIA, sendo uma ferramenta de aprendizado de máquina, pode ter seus próprios vieses com base nos dados com os quais foi treinado. Ao combinar essas métricas, esperamos criar uma métrica mais robusta e imparcial.
-
-Em conclusão, ao adotar uma abordagem multidimensional para a análise de sentimentos, estamos não apenas buscando uma representação mais precisa do sentimento, mas também tentando entender as complexidades e nuances do discurso dos usuários. Esta abordagem combinada promete oferecer insights mais ricos e detalhados, permitindo uma compreensão mais profunda das emoções e opiniões expressas na plataforma Colab.
-
-\section{Análise de sentimento nas redes de Niterói, Santo André e Mesquita}
+\section{Análise das postagens em Niterói, Santo André e Mesquita}
 
 \begin{quadro}[!htb]
 	\caption{Distribuição dos scores de sentimento nas postagens da rede das 3 cidades selecionadas. Cada ponto representa um usuário e a cor indica o score médio de sentimento de suas postagens (verde para positivo, vermelho para negativo e laranja para neutro)}
@@ -166,7 +69,7 @@ Ao examinar os melhores scores, notamos algumas tendências interessantes. Prime
 
 Além disso, é notável que, mesmo com variações nos scores derivados dos dicionários léxicos, o LeIA consistentemente percebeu essas postagens como altamente positivas. Isso pode ser atribuído à capacidade do LeIA de capturar nuances e contextos específicos da língua portuguesa, como a influência de emojis e a presença de negações.
 
-Outro ponto de destaque é a variedade de temas abordados nas postagens com os melhores scores. Enquanto algumas postagens, como a do evento 321209 de Santo André, focam em questões de zeladoria como o acúmulo de lixo, outras, como a do evento 328652, discutem colaborações entre organizações privadas e públicas. Isso reforça a ideia de que a plataforma Colab é um espaço diversificado, onde os usuários se sentem empoderados para discutir uma ampla gama de tópicos relacionados à melhoria de suas comunidades.
+Outro ponto de destaque é a variedade de temas abordados nas postagens com os melhores scores. Enquanto algumas postagens focam em questões de zeladoria como o acúmulo de lixo, outras discutem colaborações entre organizações privadas e públicas. Isso reforça a ideia de que a plataforma Colab é um espaço diversificado, onde os usuários se sentem empoderados para discutir uma ampla gama de tópicos relacionados à melhoria de suas comunidades.
 
 Em resumo, a análise dos melhores scores nos proporcionou uma visão mais clara das emoções e opiniões dos usuários nas comunidades selecionadas. Estes insights são fundamentais para entender as motivações dos usuários ao interagir na plataforma e podem ser usados para orientar futuras estratégias de engajamento e moderação.
 
@@ -393,9 +296,10 @@ A análise de redes sociais combinada com a análise de sentimentos também reve
 
 Em conclusão, a análise de sentimentos no Colab ofereceu uma janela única para o coração e a mente da comunidade. Revelou uma comunidade vibrante e engajada, onde os membros se sentem empoderados para expressar suas opiniões e compartilhar suas experiências. À medida que a plataforma continua a crescer e evoluir, será essencial continuar monitorando e compreendendo esses sentimentos para garantir que o Colab permaneça um espaço inclusivo, autêntico e valioso para todos os seus membros.
 
-Até o momento, nossa abordagem para a análise de sentimentos nas postagens do Colab foi baseada em técnicas manuais e ferramentas como o NLTK. Embora tenhamos obtido insights valiosos e estabelecido um score para cada postagem, é evidente que essa metodologia possui limitações em termos de escalabilidade e sustentabilidade, especialmente considerando o volume crescente de dados gerados diariamente na plataforma. Para superar esses desafios e otimizar o processo de análise de sentimentos, é imperativo adotar uma abordagem mais automatizada e robusta. Neste contexto, o aprendizado de máquina emerge como uma solução promissora. Ao utilizar um subconjunto das postagens que já classificamos manualmente - um conjunto de treinamento de aproximadamente 4.000 postagens - podemos treinar um modelo de aprendizado de máquina para realizar a classificação de sentimentos de forma autônoma. Esta abordagem não apenas acelera o processo de análise, mas também garante uma maior consistência e precisão na classificação. No próximo segmento, exploraremos em detalhes a implementação e os benefícios desta metodologia baseada em aprendizado de máquina, delineando como ela pode melhorar nossa capacidade de entender e interpretar os sentimentos expressos pelos usuários do Colab.
+\section{Análise de Sentimento com Regressão Supervisionada}
+\label{sec:analise_de_sentimento_com_regressao_supervisionada}
 
-\section{Análise de Sentimento usando Regressão Supervisionada}
+Até o momento, nossa abordagem para a análise de sentimentos nas postagens do Colab foi baseada em técnicas manuais e ferramentas como o NLTK. Embora tenhamos obtido insights valiosos e estabelecido um score para cada postagem, é evidente que essa metodologia possui limitações em termos de escalabilidade e sustentabilidade, especialmente considerando o volume crescente de dados gerados diariamente na plataforma. Para superar esses desafios e otimizar o processo de análise de sentimentos, é imperativo adotar uma abordagem mais automatizada e robusta. Neste contexto, o aprendizado de máquina emerge como uma solução promissora. Ao utilizar um subconjunto das postagens que já classificamos manualmente - um conjunto de treinamento de aproximadamente 4.000 postagens - podemos treinar um modelo de aprendizado de máquina para realizar a classificação de sentimentos de forma autônoma. Esta abordagem não apenas acelera o processo de análise, mas também garante uma maior consistência e precisão na classificação. No próximo segmento, exploraremos em detalhes a implementação e os benefícios desta metodologia baseada em aprendizado de máquina, delineando como ela pode melhorar nossa capacidade de entender e interpretar os sentimentos expressos pelos usuários do Colab.
 
 Nessa seção, descrevemos a metodologia empregada para a análise de dados e a construção do modelo de aprendizado de máquina e apresentamos uma abordagem para realizar a análise de sentimento em postagens do Colab. Este modelo foi treinado usando um conjunto de dados de treinamento que consiste em postagens de usuário rotuladas como positivas ou negativas. O modelo então aprende a associar certas palavras e frases a sentimentos positivos ou negativos.
 
@@ -422,10 +326,6 @@ Em um campo desafiador como a análise de sentimentos, especialmente quando foca
 
 O Random Forest Regressor destaca-se como a opção mais promissora, exibindo um equilíbrio ideal entre acurácia e generalização. O Decision Tree Regressor, apesar de um R\^2 quase perfeito no treinamento, evidencia overfitting devido à discrepância em validação. O KNN não alcançou o desempenho esperado em comparação aos outros modelos.
 
-Em análise de sentimentos, a precisão é um desiderato, especialmente ao explorar dinâmicas sociais em plataformas como o Colab. Iniciamos este capítulo com um experimento nas mensagens dos usuários de três cidades, utilizando uma heurística baseada em dicionários de sentimentos, polaridade de emojis e ferramentas como o LeIA. A transparência dessa metodologia inicial é uma vantagem, mas também pode introduzir vieses. O trânsito para um modelo de aprendizado de máquina, especificamente o Random Forest, tem como objetivo mitigar tais vieses e melhorar a objetividade.
-
-A preparação e a qualidade dos dados são vitais para o sucesso do modelo de aprendizado. Ao utilizar os scores de sentimentos do experimento inicial como entradas para o modelo regressivo, estabelecemos um processo sequencial e integrado de análises. Este estudo sublinha a importância de métodos adaptáveis na análise de sentimentos, especialmente ao lidar com fenômenos sociais complexos. Com os insights adquiridos, o próximo passo é classificar os usuários em personas, utilizando o score de sentimentos, tópicos de interesse e modelos de classificação para desvelar as tendências de polarização e interação no Colab.
-
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|l|c|c|c|c|c|c|}
@@ -444,6 +344,10 @@ A preparação e a qualidade dos dados são vitais para o sucesso do modelo de a
 \end{table}	
 
 A partir desses resultados, podemos concluir que o Random Forest Regressor é o modelo mais promissor entre os testados, com o melhor equilíbrio entre desempenho nos dados de treinamento e validação. O Decision Tree Regressor parece estar overfitting, dado o R\^2 quase perfeito nos dados de treinamento e o desempenho significativamente pior nos dados de validação. O KNN, por outro lado, tem um desempenho geralmente mais fraco em comparação com os outros modelos.
+
+Em análise de sentimentos, a precisão é um desiderato, especialmente ao explorar dinâmicas sociais em plataformas como o Colab. Iniciamos este capítulo com um experimento nas mensagens dos usuários de três cidades, utilizando uma heurística baseada em dicionários de sentimentos, polaridade de emojis e ferramentas como o LeIA. A transparência dessa metodologia inicial é uma vantagem, mas também pode introduzir vieses. O trânsito para um modelo de aprendizado de máquina, especificamente o Random Forest, tem como objetivo mitigar tais vieses e melhorar a objetividade.
+
+A preparação e a qualidade dos dados são vitais para o sucesso do modelo de aprendizado. Ao utilizar os scores de sentimentos do experimento inicial como entradas para o modelo regressivo, estabelecemos um processo sequencial e integrado de análises. Este estudo sublinha a importância de métodos adaptáveis na análise de sentimentos, especialmente ao lidar com fenômenos sociais complexos. Com os insights adquiridos, o próximo passo é classificar os usuários em personas, utilizando o score de sentimentos, tópicos de interesse e modelos de classificação para desvelar as tendências de polarização e interação no Colab.
 
 A análise de sentimentos, particularmente em plataformas dinâmicas como o Colab, é uma tarefa intrincada que exige uma abordagem meticulosa. No início deste capítulo, conduzimos um experimento para classificar as mensagens dos usuários de Niterói, Santo André e Mesquita. Utilizando uma heurística baseada em dicionários léxicos, polaridade de emojis e a ferramenta LeIA, atribuímos scores de sentimentos às postagens. Este processo é transparente, permitindo-nos codificar cada etapa da atribuição de scores como uma caixa branca. No entanto, essa transparência também pode introduzir viéses, sejam eles conscientes ou não.
 
@@ -465,7 +369,7 @@ Ambas as personas são fundamentais para a dinâmica do Colab. Os Helpers foment
 
 Através da análise de sentimentos e subsequente classificação em personas, procuramos desvendar como os usuários se distribuem na rede do Colab e os padrões emergentes. Esse entendimento é crucial para identificar a existência de "bolhas de personas" e para investigar a dinâmica que as sustenta: Será um fenômeno intrínseco ao comportamento dos usuários ou as plataformas de mídia social estão, através de viéses algorítmicos, contribuindo ativamente para essa segregação? No decorrer desta seção, abordaremos as metodologias aplicadas para discernir e classificar as personas \textit{helpers} e \textit{complainers} no Colab. Ao aprofundar-se na implementação desses arquétipos, realçaremos sua relevância para a análise de dados e para o aprimoramento estratégico da plataforma.
 
-\subsubsection*{Helpers}
+\subsection{Helpers}
 
 A persona \textit{helper} é caracterizada por um comportamento proativo e colaborativo em uma comunidade online. Esses indivíduos são frequentemente encontrados respondendo a perguntas, oferecendo conselhos e compartilhando informações úteis com outros membros da comunidade. Eles tendem a expressar sentimentos positivos em suas postagens e são motivados pelo desejo melhorar o coletivo e contribuir para a comunidade.
 
@@ -473,7 +377,7 @@ No Colab, por exemplo, muitos usuários realizam postagens frequentes reportando
 
 Os \textit{helpers} são fundamentais para o sucesso de qualquer comunidade online, pois eles ajudam a criar um ambiente de apoio e colaboração. Eles são frequentemente vistos como líderes informais ou especialistas em suas respectivas áreas de interesse. Eles podem ser motivados por uma variedade de fatores, incluindo o desejo de compartilhar conhecimento, a satisfação de ajudar os outros, ou o reconhecimento e respeito que recebem da comunidade.
 
-\subsubsection*{Complainers}
+\subsection{Complainers}
 
 A persona \textit{complainer} é caracterizada por um comportamento mais crítico ou negativo em uma comunidade online. Esses indivíduos são frequentemente encontrados expressando insatisfação, fazendo reclamações ou criticando ações das agências públicas. Eles tendem a expressar sentimentos negativos em suas postagens e são motivados por uma variedade de fatores, incluindo frustração, descontentamento ou a necessidade de expressar suas opiniões. Também é importante notar que a maioria das postagens de \textit{complainers} não são necessariamente negativas, pois os usuários estão de fato reportando problemas nas cidades, mas podem ser percebidas como tal devido ao seu tom ou conteúdo. Um outro fator interessante é que muitas das postagens de \textit{complainers} são direcionadas a assuntos mais individualizados como reportes nas vicinidades de suas residências ou locais de trabalho. Notavelmente ao analisar os comentários, esses usuários tendem a comentar ativamente em postagens criadas por outros usuários, muitas vezes expressando apoio ou concordância com o autor da postagem, mas sempre destacando a ineficiência ou ineficácia dos órgãos públicos.
 
@@ -481,7 +385,7 @@ No Colab, muitos usuários realizam postagens se referindo a prefeitura e outros
 
 Os \textit{complainers} desempenham um papel importante em qualquer comunidade online, pois eles ajudam a identificar problemas, desafios ou áreas de melhoria. Embora suas postagens possam ser percebidas como negativas, elas podem fornecer feedback valioso que pode ser usado para melhorar a comunidade. No entanto, é importante gerenciar e responder adequadamente a esses usuários para evitar a criação de um ambiente negativo ou tóxico.
 
-\subsubsection*{O papel das personas na Comunidade do Colab}
+\subsection{Personas e papéis nas comunidades do Colab}
 
 A presença das personas \textit{helpers} e \textit{complainers} dentro do Colab é altamente relevante para o ecossistema dessa plataforma colaborativa. Ambas as personas desempenham papéis distintos e complementares que podem influenciar a experiência do usuário e fornecer insights valiosos para o aprimoramento contínuo do aplicativo. A seguir, são apresentados os argumentos que sustentam a relevância dessas personas específicas:
 
@@ -504,107 +408,6 @@ A construção de um modelo de classificação para análise de sentimentos em p
 Para assegurar uma representação abrangente e equitativa da comunidade do Colab, 5000 postagens foram meticulosamente selecionadas com base em critérios demográficos. Esta seleção garantiu que todas as faixas etárias, gêneros e raças estivessem representados de forma proporcional à distribuição desses grupos entre os usuários do aplicativo. Além disso, levamos em consideração o tamanho das postagens, garantindo uma mistura de postagens longas e curtas. Cada postagem foi então manualmente classificada como \textit{helper} ou \textit{complainer}, considerando-se o conteúdo, a intenção e as nuances da linguagem.
 
 Do conjunto inicial de postagens, 4000 foram destinadas ao treinamento, mantendo um equilíbrio de 2000 postagens para cada categoria (\textit{helper} e \textit{complainer}). As 1000 postagens restantes foram reservadas como conjunto de teste. Esta separação assegura que o modelo seja treinado e avaliado em conjuntos distintos, minimizando o risco de overfitting.
-
-\section{Treinamento do modelo de classificação de Personas}
-
-A abordagem adotada para a análise de sentimentos e classificação de personas é orientada a objetos, o que facilita a modularização e reutilização do código. O código é estruturado em várias classes, cada uma com responsabilidades específicas. A classe SentimentClassifierModel é responsável pela carga de dados, pré-processamento, vetorização e treinamento de modelos de classificação de sentimentos. A vetorização é realizada usando o CountVectorizer, que converte o texto em uma matriz de contagens de termos/tokens. A classe também suporta vários tipos de modelos, incluindo Floresta Aleatória, Regressão Logística, Árvore de Decisão e KNN, permitindo flexibilidade na escolha do algoritmo. A classe ColabSentimentClassifier atua como uma camada de alto nível, integrando a análise de eventos do Colab com o modelo de classificação de sentimentos. Ela carrega os dados dos eventos, inicializa o modelo e atualiza os scores de sentimentos dos usuários. A classe PersonaClassifier é a peça central para a classificação de personas.
-
-\begin{quadro}
-	\centering
-	\begin{tikzpicture}[node distance=2cm, auto]
-		% Estilos
-		\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=6em, text centered, rounded corners, minimum height=3em]
-		\tikzstyle{line} = [draw, -latex']
-		% Nós
-		\node [block] (init) {Carregar Dados};
-		\node [block, below of=init] (preprocess) {Pré-processamento};
-		\node [block, below of=preprocess] (vectorize) {Vetorização};
-		\node [block, below of=vectorize] (train) {Treinar Modelo};
-		\node [block, below of=train] (validate) {Validação Cruzada Estratificada};
-		\node [block, below of=validate] (predict) {Predição};
-		\node [block, below of=predict] (analysis) {Análise e Visualização};
-		% Conexões
-		\path [line] (init) -- (preprocess);
-		\path [line] (preprocess) -- (vectorize);
-		\path [line] (vectorize) -- (train);
-		\path [line] (train) -- (validate);
-		\path [line] (validate) -- (predict);
-		\path [line] (predict) -- (analysis);
-
-	\end{tikzpicture}
-	\caption{Workflow de Classificação.}
-\end{quadro}
-
-O código também enfatiza a importância da limpeza e pré-processamento de dados. Funções de preprocessamento são usadas para remover stopwords, realizar stemming e limpar caracteres indesejados. Esta etapa é crucial, pois a qualidade do texto de entrada pode afetar significativamente a performance do modelo. A abordagem modular e orientada a objetos adotada facilita a manutenção, extensão e compreensão do código, permitindo que pesquisadores e desenvolvedores ajustem e expandam facilmente as funcionalidades conforme necessário.
-
-Para avaliar a robustez e a confiabilidade do modelo, foi empregada a técnica de validação cruzada estratificada, especificamente utilizando o método Stratified K-Fold com cinco divisões (folds). A estratificação, neste contexto, refere-se ao processo de dividir o conjunto de treinamento de forma que cada subconjunto (ou "fold") mantenha uma distribuição semelhante de \textit{helper} e \textit{complainer}. Esta técnica é essencial para garantir que o modelo seja avaliado de maneira justa e consistente, independentemente da divisão dos dados.
-
-O método de avaliação do modelo realiza uma série de passos para avaliar a performance do modelo. Inicialmente, o modelo é treinado e avaliado em um conjunto de teste separado, com métricas como \textit{F1 Score}, \textit{Precision Score} e \textit{Misclassification Rate} sendo calculadas para o modelo como um todo. Posteriormente, a validação cruzada estratificada é aplicada, e o modelo é treinado e avaliado em cada fold. Métricas como Acurácia, AUC Score, Matriz de Confusão, \textit{F1 Score}, \textit{Precision Score} e \textit{Misclassification Rate} são calculadas para cada fold e, em seguida, são calculadas as médias dessas métricas para fornecer uma visão abrangente da performance do modelo. Além disso, o método também inclui a geração de curvas ROC e a classificação de posts não vistos, fornecendo insights adicionais sobre a capacidade do modelo em generalizar para dados novos. Ao final, uma heurística é aplicada para avaliar se o modelo está apresentando um bom desempenho, com considerações adicionais sobre os requisitos específicos da aplicação e o impacto prático dos erros do modelo.
-
-Os resultados dessa validação, com acurácias consistentemente altas e outras métricas indicando bom desempenho, fornecem uma indicação da confiabilidade do modelo em fazer previsões precisas e confiáveis. Inicialmente criamos um modelo simples com um conjunto de trreinamento de 1000 postagens utilizando o classificador Random Forest. Com os testes preliminares realizados e o modelo demonstrando uma razoável capacidade de classificação, decidimos explorar e comparar diferentes algoritmos de aprendizado de máquina para avaliar seu desempenho em relação ao modelo original, baseado em Floresta Aleatória (Random Forest). Os modelos selecionados para a comparação são:
-
-\begin{itemize}
-    \item \textbf{Regressão Logística (Logistic Regression)}: Um modelo estatístico que utiliza a função logística para modelar a probabilidade de uma classe binária.
-    \item \textbf{Naive Bayes Multinomial (Multinomial Naive Bayes)}: Uma extensão do algoritmo Naive Bayes que é adequada para variáveis de resposta multinomiais, comumente utilizado para classificação de texto.
-    \item \textbf{XGBoost}: Um algoritmo de aprendizado de máquina baseado em árvore de decisão otimizado para desempenho e velocidade, que se destaca em competições de ciência de dados.
-    \item \textbf{SVC (Support Vector Classifier)}: Um tipo de máquina de vetores de suporte que é utilizado para classificação.
-    \item \textbf{KNeighborsClassifier}: Um algoritmo de aprendizado baseado em instância que classifica um objeto com base na maioria de votos de seus vizinhos mais próximos.
-    \item \textbf{DecisionTreeClassifier}: Um modelo de aprendizado de máquina que utiliza uma árvore de decisão como modelo preditivo.
-    \item \textbf{LightGBM}: Um framework de aumento de gradiente que utiliza algoritmos baseados em árvore, otimizado para eficiência e desempenho.
-    \item \textbf{CatBoost}: Um algoritmo de aumento de gradiente categórico que é especialmente poderoso para lidar com recursos categóricos.
-\end{itemize}
-
-Cada um desses modelos possui características únicas e é aplicável a diferentes tipos de problemas, o que justifica a sua inclusão nesta comparação abrangente. Além disso, cada modelo possui um conjunto interno de parâmetros que afetam o processo de treinamento e modelagem. Conhecidos como \textit{hyperparameters}, ou hiperparâmetros, esses não são aprendidos durante o processo de treinamento, mas são definidos previamente. Eles influenciam a forma como o modelo vai aprender, podendo afetar a sua performance, a capacidade de generalização e a prevenção de overfitting ou underfitting. Os \textit{hyperparameters} podem incluir, por exemplo, a taxa de aprendizado em algoritmos de otimização, o número de árvores em uma floresta aleatória, o tipo de kernel em uma máquina de vetores de suporte (SVM), entre outros. A escolha adequada desses parâmetros é crucial, pois pode significativamente impactar a eficácia do modelo em fazer previsões precisas e confiáveis.
-
-Para encontrar os melhores parâmetros para cada modelo, empregamos técnicas de otimização de hiperparâmetros, como Grid Search, Randomized Search e Bayesian Optimization. Essas técnicas exploram diferentes combinações de parâmetros, avaliando estatisticamente a performance do modelo para cada combinação, com o objetivo de identificar aqueles que maximizam a acurácia, ou outra métrica de interesse, do modelo. Grid Search realiza uma busca exaustiva sobre um conjunto predefinido de valores de hiperparâmetros, enquanto Randomized Search explora aleatoriamente as combinações de parâmetros, o que pode ser mais eficiente em espaços de busca grandes. Já a Bayesian Optimization constrói um modelo probabilístico da função objetivo e utiliza esse modelo para selecionar de forma inteligente os próximos candidatos a serem avaliados, buscando otimizar a função objetivo de forma mais eficiente. Ao final desse processo heurístico, obtemos um conjunto otimizado de hiperparâmetros que, quando aplicados aos modelos, buscam proporcionar uma performance superior e resultados mais confiáveis nas tarefas de classificação e previsão.
-
-Em geral, observou-se que todos os modelos apresentaram métricas de desempenho similares, com curvas ROC comparáveis e acurácias próximas. No entanto, ao realizar uma validação empírica das postagens e comparar com a classificação esperada como \textit{helper} ou \textit{complainer}, notou-se que alguns modelos apresentavam classificações divergentes, tanto para \textit{helper} quanto para \textit{complainer}.
-
-Diante dessa observação, optamos por realizar um teste adicional para aferir a capacidade de generalização dos modelos. Selecionamos 10 postagens fora do conjunto de dados de treinamento, sendo 5 caracterizadas como \textit{helper} e 5 como \textit{complainer}. O critério de seleção para os modelos a serem utilizados na etapa seguinte foi a capacidade de classificar corretamente todas as 10 postagens. Os modelos que atenderam a esse critério demonstraram uma maior robustez e precisão, sendo, portanto, escolhidos para as fases subsequentes de nosso estudo. Este processo de seleção empírica, embora simples, foi crucial para garantir que os modelos escolhidos não apenas apresentassem boas métricas em termos de dados de treinamento, mas também fossem capazes de generalizar bem para dados não vistos anteriormente, o que é essencial para a eficácia prática do modelo em ambientes reais.
-
-Os modelos selecionados para comparação incluem Multinomial Naive Bayes (MULTINOMIAL\_NB), Random Forest (RANDOM\_FOREST), XGBoost (XGBOOST) e Logistic Regression (LOGISTIC\_REGRESSION). Esses modelos foram escolhidos por suas características distintas e desempenho comprovado em tarefas de classificação. A aferição da qualidade dos modelos é realizada através de uma função de avaliação, que emprega técnicas como Validação Cruzada Estratificada e análise de AUC para garantir uma avaliação robusta e confiável. Os resultados obtidos para cada modelo são apresentados abaixo:
-
-\begin{table}[h]
-\centering
-\caption{Resultados da Avaliação dos Modelos}
-\label{tab:model_results}
-\begin{tabular}{lcc}
-\hline
-Modelo               & Acurácia Média & AUC Médio \\
-\hline
-MULTINOMIAL\_NB      & 0.8177         & 0.9790   \\
-RANDOM\_FOREST       & 0.8207         & 0.9900   \\
-XGBOOST              & 0.8027         & 0.9912   \\
-LOGISTIC\_REGRESSION & 0.8077         & 0.9999   \\
-\hline
-\end{tabular}
-\end{table}
-
-Com base nos resultados obtidos, propomos a utilização de um método de ensemble, combinando os quatro modelos selecionados. Este método visa aumentar a robustez e precisão do sistema de classificação, atribuindo pesos diferenciados a cada modelo conforme seu desempenho. Nesse contexto, cada classificador tem um voto ponderado, que é calculado com base em sua acurácia e AUC. O voto ponderado é então utilizado para determinar a classificação final de cada postagem. Os pesos são calculados com base na acurácia e AUC de cada modelo, normalizando essas métricas e calculando uma média ponderada. Isso permite que modelos com melhor desempenho tenham maior influência na decisão final do ensemble. A comparação entre os modelos e a subsequente implementação do método de ensemble demonstram a eficácia desta abordagem na melhoria da precisão e robustez do sistema de classificação de personas. A flexibilidade proporcionada pela atribuição de pesos permite ajustes finos conforme necessário, garantindo que o sistema permaneça adaptável a diferentes cenários e requisitos.
-
-\begin{figure}[htb]
-	\centering
-	\caption{Resultados da validação do modelo de classificação de personas.}
-	\label{fig:persona_results}
-	% Primeira imagem em cima
-	\includegraphics[width=0.8\textwidth]{images/persona_stratified_kfold.png}
-	\vspace{1cm} % Espaço vertical entre as imagens
-	% Duas imagens embaixo, lado a lado
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{images/persona_roc.png}
-		\caption{Curva ROC}
-		\label{fig:persona_roc}
-	\end{subfigure}
-	~ % Espaço horizontal entre as imagens
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{images/persona_confusion_matrix.png}
-		\caption{Matriz de Confusão}
-		\label{fig:persona_confusion_matrix}
-	\end{subfigure}
-	\fautor
-\end{figure}
-
-O processo de construção do modelo de classificação foi meticuloso e fundamentado em práticas rigorosas. Através da seleção e classificação cuidadosa das postagens, da adoção de técnicas de validação robustas e da análise contínua da confiabilidade, estamos confiantes na capacidade do modelo de classificar postagens de maneira precisa e representativa. Este modelo, aliado à análise de redes e ao sistema de score, oferece uma visão holística e profunda das interações no Colab, abrindo caminho para futuras investigações sobre a dinâmica das comunidades online e o papel das plataformas digitais na formação de opiniões e sentimentos.
 
 \section{Análise de Redes baseada em Persona}
 
