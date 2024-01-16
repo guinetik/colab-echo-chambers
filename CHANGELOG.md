@@ -5,6 +5,12 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 This file documents the changes made to the paper.
 
 
+## [9.0.0] - 2024-01-16
+
+### Changed
+
+- Updated Abstract
+
 ## [8.0.0] - 2024-01-16
 
 ### Added
