@@ -1,4 +1,4 @@
-Neste capítulo, apresentamos a criação de um grafo da rede social do Colab com base na fonte de dados disponibilizada pela empresa. O conjunto de dados consiste em uma lista de arestas, onde os nós representam os usuários e as arestas representam as conexões ou seguidores desses usuários. Utilizamos diversas técnicas de análise de redes, incluindo o agrupamento de Louvain, o agrupamento espectral e a centralidade de Eigenvector.
+Neste capítulo, apresentamos a criação de um grafo da rede social do Colab com base na fonte de dados disponibilizada pela empresa. O conjunto de dados consiste em uma lista de arestas, cujo os nós representam os usuários e as arestas representam as conexões ou seguidores desses usuários. Utilizamos diversas técnicas de análise de redes, incluindo o agrupamento de Louvain, o agrupamento espectral e a centralidade de Eigenvector.
 
 O agrupamento de Louvain é um algoritmo de detecção de comunidades que busca otimizar a modularidade, uma medida da densidade de conexões dentro das comunidades em comparação com as conexões entre as comunidades. Já o agrupamento espectral é uma técnica que utiliza os Eigenvectors do grafo para particionar os nós em comunidades. Além disso, exploramos a centralidade de Eigenvector para identificar os nós centrais na rede, ou seja, aqueles com maior influência ou importância. Essa medida utiliza os Eigenvectors para determinar a importância de um nó com base em sua conexão com outros nós na rede. Dessa forma, por meio dessas técnicas de análise de redes, buscamos compreender a estrutura e os padrões presentes na rede social do Colab.
 
@@ -189,7 +189,7 @@ Para visualizar cliques no Gephi, uma abordagem é usar a estatística interna "
 	\fautor
 \end{figure}
 
-Os cliques, sendo subgrafos completos, representam grupos de nós que estão altamente conectados entre si. Essa coesividade pode indicar subcomunidades fortemente interconectadas ou grupos de indivíduos com interações muito frequentes. A identificação desses cliques pode fornecer insights valiosos sobre a estrutura e dinâmica da rede, especialmente em contextos onde a formação de subgrupos coesos é de interesse, como em redes sociais ou colaborativas.
+Os cliques, sendo subgrafos completos, representam grupos de nós que estão altamente conectados entre si. Essa coesividade pode indicar subcomunidades fortemente interconectadas ou grupos de indivíduos com interações muito frequentes. A identificação desses cliques pode fornecer insights valiosos sobre a estrutura e dinâmica da rede, especialmente em contextos em que a formação de subgrupos coesos é de interesse, como em redes sociais ou colaborativas.
 
 No entanto, apenas os cliques podem não ser suficientes para identificar câmaras de eco, pois podem estar em jogo outros fatores, como homofilia ou viés de confirmação. Portanto, é importante usar múltiplas abordagens e métricas, como detecção de comunidades e análise de conteúdo, para obter uma compreensão mais abrangente das câmaras de eco na rede.
 
@@ -209,7 +209,7 @@ A centralidade de eigenvector revela insights interessantes sobre a influência 
 
 Estes hubs, com alta centralidade de eigenvector, desempenham um papel crucial na disseminação de informações e na formação de opiniões dentro de suas comunidades. Em algumas comunidades, observa-se mais de um hub, indicando uma estrutura de rede mais complexa com múltiplos canais de influência. Esta configuração sugere que, enquanto algumas comunidades podem ter um único ponto focal dominante, outras podem ter uma distribuição de influência mais equilibrada entre vários membros-chave.
 
-A análise reforça a ideia de homofilia, onde usuários com opiniões ou características semelhantes tendem a se agrupar. A interação entre a estrutura das comunidades e a distribuição da centralidade de eigenvector sugere uma rede onde determinados usuários desempenham papéis cruciais, não apenas em termos de número de conexões, mas também em termos de influência qualitativa dentro de suas comunidades.
+A análise reforça a ideia de homofilia, quando usuários com opiniões ou características semelhantes tendem a se agrupar. A interação entre a estrutura das comunidades e a distribuição da centralidade de eigenvector sugere uma rede onde determinados usuários desempenham papéis cruciais, não apenas em termos de número de conexões, mas também em termos de influência qualitativa dentro de suas comunidades.
 
 \subsection{Comunidades}
 
