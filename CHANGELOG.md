@@ -4,6 +4,28 @@ This is the repository for the paper on the [Social Network Graph](https://en.wi
 
 This file documents the changes made to the paper.
 
+
+## [8.0.0] - 2024-01-16
+
+### Added
+
+- Added Python Notebook with the code for the experiments
+
+## [7.0.0] - 2024-01-15
+
+### Added
+
+- Improved conclusion showcasing the Colab:Graphscan app
+
+### Fixed
+
+- Text revision
+- Better images
+
+### Changed
+
+- Moved machine learning theory discussion to the appropriate chapter
+
 ## [6.0.0] - 2023-11-13
 
 ### Added
